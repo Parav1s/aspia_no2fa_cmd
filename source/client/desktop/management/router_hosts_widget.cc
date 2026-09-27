@@ -39,6 +39,7 @@
 #include <QStatusBar>
 #include <QToolButton>
 
+#include "base/auto_qpointer.h"
 #include "base/logging.h"
 #include "base/peer/host_id.h"
 #include "client/router_controller.h"
@@ -338,9 +339,9 @@ void RouterHostsWidget::onModifyHost()
         return;
     }
 
-    RouterHostDialog dialog(router_id_, workspaceNameById(host->workspace_id),
-                            *host, this);
-    if (dialog.exec() == QDialog::Accepted)
+    AutoQPointer<RouterHostDialog> dialog(new RouterHostDialog(
+        router_id_, workspaceNameById(host->workspace_id), *host, this));
+    if (dialog->exec() == QDialog::Accepted)
         fetchHosts();
 }
 
@@ -354,6 +355,8 @@ void RouterHostsWidget::onDisconnectHost()
         return;
     }
 
+    const HostId host_id = host->host_id;
+
     if (MsgBox::question(this, tr("Are you sure you want to disconnect host \"%1\"?")
         .arg(host->computer_name)) != MsgBox::Yes)
     {
@@ -366,7 +369,7 @@ void RouterHostsWidget::onDisconnectHost()
         return;
 
     LOG(INFO) << "[ACTION] Disconnect host accepted by user";
-    session->disconnectHost(host->host_id, { this, &RouterHostsWidget::onHostResultReceived });
+    session->disconnectHost(host_id, { this, &RouterHostsWidget::onHostResultReceived });
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -403,6 +406,8 @@ void RouterHostsWidget::onRemoveHost()
         return;
     }
 
+    const HostId host_id = host->host_id;
+
     QString message = tr("Deleting a host will result in all its configuration for connecting "
                          "to the router being deleted, and the application will be uninstalled "
                          "on the host. This operation is irreversible. Are you sure you want to "
@@ -419,7 +424,7 @@ void RouterHostsWidget::onRemoveHost()
         return;
 
     LOG(INFO) << "[ACTION] Remove host accepted by user";
-    session->removeHost(host->host_id, { this, &RouterHostsWidget::onHostResultReceived });
+    session->removeHost(host_id, { this, &RouterHostsWidget::onHostResultReceived });
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -451,8 +456,8 @@ void RouterHostsWidget::onHostTelemetry()
     }
 
     LOG(INFO) << "[ACTION] Host telemetry requested by user";
-    HostTelemetryDialog dialog(router_id_, *host, this);
-    dialog.exec();
+    AutoQPointer<HostTelemetryDialog> dialog(new HostTelemetryDialog(router_id_, *host, this));
+    dialog->exec();
 }
 
 //--------------------------------------------------------------------------------------------------

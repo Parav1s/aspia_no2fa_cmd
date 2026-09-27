@@ -25,6 +25,7 @@
 #include <QMoveEvent>
 #include <QTimer>
 
+#include "base/auto_qpointer.h"
 #include "base/logging.h"
 #include "base/version_constants.h"
 #include "base/peer/host_id.h"
