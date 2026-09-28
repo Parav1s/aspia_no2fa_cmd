@@ -29,6 +29,7 @@
 #include <QLabel>
 #include <QMenu>
 #include <QMouseEvent>
+#include <QPointer>
 #include <QSignalBlocker>
 #include <QStatusBar>
 #include <QToolButton>
@@ -387,7 +388,7 @@ void RouterGroupWidget::onNextClicked()
 //--------------------------------------------------------------------------------------------------
 void RouterGroupWidget::onHeaderContextMenu(const QPoint& pos)
 {
-    QHeaderView* header = ui->tree_host->header();
+    QPointer<QHeaderView> header = ui->tree_host->header();
     QMenu menu;
 
     for (int i = 1; i < header->count(); ++i)
@@ -399,7 +400,7 @@ void RouterGroupWidget::onHeaderContextMenu(const QPoint& pos)
     }
 
     ColumnAction* action = dynamic_cast<ColumnAction*>(menu.exec(header->viewport()->mapToGlobal(pos)));
-    if (!action)
+    if (!action || !header)
         return;
 
     header->setSectionHidden(action->columnIndex(), !action->isChecked());
