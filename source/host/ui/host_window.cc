@@ -42,6 +42,7 @@
 #include "common/desktop/elevate_util.h"
 #include "common/desktop/msg_box.h"
 #include "host/database.h"
+#include "host/host_storage.h"
 #include "host/system_settings.h"
 #include "host/user_settings.h"
 #include "host/ui/application.h"
@@ -103,7 +104,7 @@ HostWindow::HostWindow(QWidget* parent)
     menuBar()->setNativeMenuBar(false);
 #endif // defined(Q_OS_MACOS)
 
-    ui->edit_id->setText(kUnknownValue);
+    ui->edit_id->setText(lastKnownHostId());
     ui->edit_password->setText(kUnknownValue);
 
     updateStatusBar();
@@ -383,7 +384,7 @@ void HostWindow::onStatusChanged(UserIpcWorker::Status status)
             updateStatusBar();
 
             ui->button_new_password->setEnabled(false);
-            ui->edit_id->setText(kUnknownValue);
+            ui->edit_id->setText(lastKnownHostId());
             ui->edit_password->setText(kUnknownValue);
             updateTrayIconTooltip();
 
@@ -492,7 +493,7 @@ void HostWindow::onCredentialsChanged(const proto::user::Credentials& credential
 
     bool has_id = credentials.host_id() != kInvalidHostId;
 
-    ui->edit_id->setText(has_id ? formatHostId(credentials.host_id()) : QString(kUnknownValue));
+    ui->edit_id->setText(has_id ? formatHostId(credentials.host_id()) : lastKnownHostId());
 
     bool has_password = has_id && !credentials.password().empty();
 
@@ -513,7 +514,7 @@ void HostWindow::onRouterStateChanged(const proto::user::RouterState& state)
     {
         ui->button_new_password->setEnabled(false);
 
-        ui->edit_id->setText(kUnknownValue);
+        ui->edit_id->setText(lastKnownHostId());
         ui->edit_password->setText(kUnknownValue);
     }
 
@@ -1064,6 +1065,19 @@ void HostWindow::updateTrayIconTooltip()
     tooltip += ip;
 
     tray_icon_->setToolTip(tooltip);
+}
+
+//--------------------------------------------------------------------------------------------------
+QString HostWindow::lastKnownHostId() const
+{
+    if (connected_to_service_ && last_state_ == proto::user::RouterState::DISABLED)
+        return kUnknownValue;
+
+    const HostId host_id = HostStorage().lastHostId();
+    if (host_id == kInvalidHostId || isTempHostId(host_id))
+        return kUnknownValue;
+
+    return formatHostId(host_id);
 }
 
 //--------------------------------------------------------------------------------------------------
