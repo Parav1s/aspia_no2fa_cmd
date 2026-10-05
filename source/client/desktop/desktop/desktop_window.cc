@@ -34,7 +34,7 @@
 #include "base/logging.h"
 #include "base/serialization.h"
 #include "base/desktop/mouse_cursor.h"
-#include "client/settings.h"
+#include "client/database.h"
 #include "client/desktop/desktop/desktop_toolbar.h"
 #include "client/desktop/desktop/desktop_widget.h"
 #include "client/desktop/desktop/statistics_dialog.h"
@@ -124,11 +124,11 @@ DesktopWindow::DesktopWindow(const proto::control::Config& desktop_config, QWidg
     mouse_timer_->setTimerType(Qt::PreciseTimer);
     connect(mouse_timer_, &QTimer::timeout, this, &DesktopWindow::onMouseFlushTimer);
 
-    Settings settings;
-    desktop_->enableKeyCombinations(settings.sendKeyCombinations());
+    Database& db = Database::instance();
+    desktop_->enableKeyCombinations(db.isSendKeyCombinationsEnabled());
     desktop_->enableRemoteCursorPosition(desktop_config_.cursor_position());
-    hardware_encoding_ = settings.hardwareVideoEncoding();
-    hardware_decoding_ = settings.hardwareVideoDecoding();
+    hardware_encoding_ = db.isHardwareVideoEncodingEnabled();
+    hardware_decoding_ = db.isHardwareVideoDecodingEnabled();
 
     connect(toolbar_, &DesktopToolBar::sig_keyCombination, desktop_, &DesktopWidget::executeKeyCombination);
     connect(toolbar_, &DesktopToolBar::sig_switchToAutosize, this, &DesktopWindow::onAutosizeWindow);
@@ -212,10 +212,7 @@ DesktopWindow::DesktopWindow(const proto::control::Config& desktop_config, QWidg
         QString file_path;
 
         if (enable)
-        {
-            Settings settings;
-            file_path = settings.recordingPath();
-        }
+            file_path = Database::instance().recordingPath();
 
         onRecordingChanged(enable, file_path);
     });
@@ -357,24 +354,24 @@ void DesktopWindow::applySettings()
 {
     LOG(INFO) << "Apply client settings";
 
-    Settings settings;
+    Database& db = Database::instance();
 
-    desktop_config_ = settings.desktopConfig();
+    desktop_config_ = db.desktopConfig();
     onDesktopConfigChanged(desktop_config_);
 
     desktop_->enableRemoteCursorPosition(desktop_config_.cursor_position());
     if (!desktop_config_.cursor_shape())
         desktop_->setCursorShape(QPixmap(), QPoint());
 
-    desktop_->enableKeyCombinations(settings.sendKeyCombinations());
-    const bool hardware_decoding = settings.hardwareVideoDecoding();
+    desktop_->enableKeyCombinations(db.isSendKeyCombinationsEnabled());
+    const bool hardware_decoding = db.isHardwareVideoDecodingEnabled();
     if (hardware_decoding != hardware_decoding_)
     {
         hardware_decoding_ = hardware_decoding;
         emit sig_hardwareDecoding(hardware_decoding_);
     }
 
-    const bool hardware_encoding = settings.hardwareVideoEncoding();
+    const bool hardware_encoding = db.isHardwareVideoEncodingEnabled();
     if (hardware_encoding != hardware_encoding_)
     {
         hardware_encoding_ = hardware_encoding;
@@ -509,8 +506,7 @@ void DesktopWindow::onFrameChanged(const QSize& screen_size, SharedFrame frame)
 
         // If the parameters indicate that it is necessary to record the connection session, then we
         // start recording.
-        Settings settings;
-        if (settings.recordSessions())
+        if (Database::instance().isRecordSessionsEnabled())
         {
             LOG(INFO) << "Auto-recording enabled";
             toolbar_->startRecording(true);
