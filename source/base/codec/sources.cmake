@@ -87,6 +87,7 @@ endif()
 
 collect_sources(SOURCE_BASE_CODEC_TESTS
     cursor_codec_unittest.cc
+    video_encoder_vpx_unittest.cc
     zstd_stream_unittest.cc)
 
 if (WIN32)
