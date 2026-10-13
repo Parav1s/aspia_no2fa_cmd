@@ -22,6 +22,7 @@
 #include <QObject>
 
 #include <optional>
+#include <unordered_set>
 
 #include "base/logging.h"
 #include "base/serialization.h"
@@ -67,6 +68,8 @@ public:
     bool isOpusSupported() const { return opus_supported_; }
     bool isFileClipboardSupported() const { return file_clipboard_supported_; }
 
+    void releaseKeyboardKeys();
+
     void onVideoData(const QByteArray& buffer, bool is_key_frame);
     void onScreenListData(const QByteArray& buffer);
     void onScreenTypeData(const QByteArray& buffer);
@@ -99,6 +102,7 @@ private:
     void readSessionMessage(quint8 channel_id, const QByteArray& buffer);
     void sendSessionMessage(quint8 channel_id, const QByteArray& buffer, bool reliable);
 
+    void readKeyEvent(const proto::input::KeyEvent& event);
     void readPreferredSize(const proto::video::PreferredSize& size);
     void readVideoPause(const proto::video::Pause& pause);
     void readAudioPause(const proto::audio::Pause& pause);
@@ -124,6 +128,9 @@ private:
 
     bool is_video_paused_ = false;
     bool is_audio_paused_ = false;
+
+    std::unordered_set<quint32> pressed_keys_;
+    quint32 lock_flags_ = 0;
 
     Parser<proto::input::ClientToHost> incoming_message_;
 

@@ -210,6 +210,7 @@ void DesktopAgent::onClientFinished()
         return;
 
     clients_.removeOne(client);
+    client->releaseKeyboardKeys();
     client->deleteLater();
 
     audio_enabled_ = isAudioEnabled();
