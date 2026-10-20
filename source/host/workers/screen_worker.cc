@@ -1327,6 +1327,7 @@ void ScreenWorker::appendAllScreens(ScreenCapturer::ScreenList* screen_list)
     all_screens.resolution = screen_capturer_->allScreensRect().size();
     all_screens.dpi = QPoint(96, 96);
     all_screens.is_primary = false;
+    all_screens.is_all_screens = true;
 
     screen_list->screens.emplace_back(all_screens);
 }
@@ -1401,6 +1402,10 @@ void ScreenWorker::sendScreenList(
         proto::screen::Point* dpi = screen->mutable_dpi();
         dpi->set_x(screen_item.dpi.x());
         dpi->set_y(screen_item.dpi.y());
+
+        // The client tells the screen of the whole desktop from the monitors by this flag,
+        // and shows it with a name and an icon of its own.
+        screen->set_all_screens(screen_item.is_all_screens);
 
         if (screen_item.is_primary)
             screen_list->set_primary_screen(screen_item.id);
