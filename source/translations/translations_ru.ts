@@ -621,12 +621,20 @@ Routers added: %4</source>
 <context>
     <name>Client</name>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="78"/>
+=======
+        <location filename="../client/main.cc" line="85"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>Не удалось создать резервную копию. Некоторые записи базы данных повреждены. Исправьте или удалите их.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="206"/>
+=======
+        <location filename="../client/main.cc" line="274"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>An aspia:// link to connect to a host.</source>
         <translation>Ссылка aspia:// для подключения к хосту.</translation>
     </message>
@@ -646,17 +654,29 @@ Routers added: %4</source>
         <translation>Не удалось разблокировать базу данных.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="257"/>
+=======
+        <location filename="../client/main.cc" line="387"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set Master Password</source>
         <translation>Установка мастер-пароля</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="259"/>
+=======
+        <location filename="../client/main.cc" line="389"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set a master password required to unlock the application.</source>
         <translation>Установите мастер-пароль, необходимый для разблокировки приложения.</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="267"/>
+=======
+        <location filename="../client/main.cc" line="397"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>Пароль не должен быть короче %n символа.</numerusform>
@@ -665,12 +685,20 @@ Routers added: %4</source>
         </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="275"/>
+=======
+        <location filename="../client/main.cc" line="405"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Password you entered does not meet the security requirements!</source>
         <translation>Введенный пароль не отвечает требованиям безопасности!</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="277"/>
+=======
+        <location filename="../client/main.cc" line="407"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>Пароль должен содержать строчные и прописные символы, цифры и не должен быть короче %n символа.</numerusform>
@@ -679,12 +707,20 @@ Routers added: %4</source>
         </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="281"/>
+=======
+        <location filename="../client/main.cc" line="411"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Do you want to enter a different password?</source>
         <translation>Вы хотите ввести другой пароль?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="291"/>
+=======
+        <location filename="../client/main.cc" line="421"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to set master password.</source>
         <translation>Не удалось установить мастер-пароль.</translation>
     </message>
@@ -694,19 +730,121 @@ Routers added: %4</source>
         <translation>Неверный мастер-пароль.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="72"/>
+=======
+        <location filename="../client/main.cc" line="79"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>Не удалось создать резервную копию в директории &quot;%1&quot;.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="84"/>
+=======
+        <location filename="../client/main.cc" line="91"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup.</source>
         <translation>Не удалось создать резервную копию.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="202"/>
+=======
+<location filename="../client/main.cc" line="239"/>
+        <source>Connect to the host of the address book with this record ID or host ID, using the login and the password stored in it.</source>
+        <translation>Подключиться к хосту адресной книги по этому ID записи или ID хоста, используя логин и пароль, сохранённые в нём.</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="242"/>
+        <source>id</source>
+        <translation>id</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="246"/>
+        <source>Kind of the session to open: desktop, file, info, chat or terminal (default: the one from the settings of the application).</source>
+        <translation>Тип открываемой сессии: desktop, file, info, chat или terminal (по умолчанию — из настроек приложения).</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="249"/>
+        <source>type</source>
+        <translation>тип</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="253"/>
+        <source>Log in with this user name instead of the one stored in the host. Requires --password.</source>
+        <translation>Войти под этим именем пользователя вместо сохранённого в хосте. Требует --password.</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="256"/>
+        <source>name</source>
+        <translation>имя</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="260"/>
+        <source>Log in with this password instead of the stored one. Requires --username. A password on a command line is visible to the other users of the machine.</source>
+        <translation>Войти с этим паролем вместо сохранённого. Требует --username. Пароль в командной строке виден другим пользователям машины.</translation>
+    </message>
+    <message>
+<location filename="../client/main.cc" line="263"/>
+        <source>password</source>
+        <translation>пароль</translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="266"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Клиент Aspia</translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="127"/>
+        <source>&quot;%1&quot; is neither a host ID nor a record ID.</source>
+        <translation>&quot;%1&quot; не является ни ID хоста, ни ID записи.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="129"/>
+        <source>The host ID of --connect is missing.</source>
+        <translation>Не указан ID хоста для --connect.</translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="151"/>
+        <source>&quot;%1&quot; is not a valid session type. Use desktop, file, info, chat or terminal.</source>
+        <translation>&quot;%1&quot; не является допустимым типом сессии. Используйте desktop, file, info, chat или terminal.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="154"/>
+        <source>The session type of --session-type is missing.</source>
+        <translation>Не указан тип сессии для --session-type.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="171"/>
+        <source>The user name of --username is missing.</source>
+        <translation>Не указано имя пользователя для --username.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="187"/>
+        <source>The password of --password is missing.</source>
+        <translation>Не указан пароль для --password.</translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="217"/>
+        <source>&quot;%1&quot; is neither an aspia:// link nor a host ID.</source>
+        <translation>&quot;%1&quot; не является ни ссылкой aspia://, ни ID хоста.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="235"/>
+        <source>--username requires --password as well.</source>
+        <translation>--username требует также --password.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="237"/>
+        <source>--password requires --username as well.</source>
+        <translation>--password требует также --username.</translation>
+    </message>
+    <message>
+<location filename="../client/connect_request.cc" line="248"/>
+        <source>--username and --password need a host to connect to (--connect or an aspia:// link).</source>
+        <translation>--username и --password требуют хоста для подключения (--connect или ссылку aspia://).</translation>
     </message>
 </context>
 <context>
@@ -745,37 +883,65 @@ Routers added: %4</source>
 <context>
     <name>ClientWindow</name>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="268"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="280"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Session started.</source>
         <translation>Сессия запущена.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="515"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="599"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is unavailable.</source>
         <translation>Указанный маршрутизатор недоступен.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="517"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="601"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Данные маршрутизатора повреждены. Измените маршрутизатор и введите их заново.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="519"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="603"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is offline.</source>
         <translation>Указанный маршрутизатор не в сети.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="280"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="292"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1...</source>
         <translation>Подключение к хосту %1...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="284"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="296"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1:%2...</source>
         <translation>Подключение к хосту %1:%2...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="314"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="332"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>Хост недоступен. Ожидание переподключения...</translation>
     </message>
@@ -785,27 +951,43 @@ Routers added: %4</source>
         <translation>Превышено время ожидания при попытке повторного подключения к хосту.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="334"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="352"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>Версия Хоста новее версии Клиента (%1 &gt; %2). Пожалуйста, обновите приложение.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="340"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>Попытка подключения в режиме совместимости...</translation>
     </message>
     <message>
         <location filename="../client/desktop/client_window.cc" line="526"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="610"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Requesting connection to the host...</source>
         <translation>Запрашивается подключение к хосту...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="534"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="618"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection offer received.</source>
         <translation>Получено предложение на подключение.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="551"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="635"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Error requesting connection via router.</source>
         <translation>Ошибка при запросе соединения через маршрутизатор.</translation>
     </message>
@@ -3294,7 +3476,11 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="404"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="916"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Клиент Aspia</translation>
     </message>
@@ -3364,68 +3550,141 @@ Credentials replaced: %2</source>
         <translation>Параметры...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="99"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="128"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Search...</source>
         <translation>Поиск...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="179"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="218"/>
+        <source>Unable to turn on the MCP connector.</source>
+        <translation>Не удалось включить MCP-коннектор.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="236"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Management</source>
         <translation>Управление</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="225"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="282"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>Недопустимая ссылка &quot;%1&quot;.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="248"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="305"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>Маршрутизатор, указанный в ссылке, не найден среди сохраненных маршрутизаторов.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="297"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="354"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>Хост, указанный в ссылке, не найден среди сохраненных хостов.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="380"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="892"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all sessions to lock the application.</source>
         <translation>Закройте все сессии, чтобы заблокировать приложение.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="386"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="898"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all dialogs to lock the application.</source>
         <translation>Закройте все диалоги, чтобы заблокировать приложение.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="502"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="1013"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>В свойствах хоста указано подключение по ID, но маршрутизатор не настроен. Проверьте параметры маршрутизатора в свойствах хоста.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="309"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="1280"/>
+        <source>Unknown application</source>
+        <translation>Неизвестное приложение</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="1283"/>
+        <source>MCP Connector. Connected: %1</source>
+        <translation>MCP-коннектор. Подключено: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="1284"/>
+        <source>%1 - AI is connected</source>
+        <translation>%1 - ИИ подключен</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="366"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Маршрутизатор, связанный с этим хостом, был удален. Измените хост, чтобы выбрать другой маршрутизатор, или переключитесь на прямое подключение.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="256"/>
         <location filename="../client/desktop/main_window.cc" line="308"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="313"/>
+        <location filename="../client/desktop/main_window.cc" line="365"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Данные маршрутизатора повреждены. Измените маршрутизатор и введите их заново.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="296"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="353"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>Данные хоста повреждены. Измените хост и введите их заново.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="339"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="851"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Credentials</source>
         <translation>Учетные данные</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="370"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="882"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Settings</source>
         <translation>Параметры</translation>
     </message>
@@ -3625,67 +3884,118 @@ Credentials replaced: %2</source>
         <translation>Автообновление состояния</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1002"/>
         <location filename="../client/desktop/management_tab.cc" line="1075"/>
         <location filename="../client/desktop/management_tab.cc" line="2162"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1101"/>
+        <location filename="../client/desktop/management_tab.cc" line="1175"/>
+        <location filename="../client/desktop/management_tab.cc" line="2274"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to retrieve host information from the local database.</source>
         <translation>Не удалось получить информацию о хосте из локальной базы данных.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1034"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1133"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>(copy)</source>
         <translation>(копия)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1039"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1138"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to add the host to the local database.</source>
         <translation>Не удалось добавить хост в локальную базу данных.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1079"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1179"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>Вы уверены, что хотите удалить хост &quot;%1&quot;?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1089"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1189"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to remove host</source>
         <translation>Не удалось удалить хост</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
         <location filename="../client/desktop/management_tab.cc" line="1190"/>
         <location filename="../client/desktop/management_tab.cc" line="1215"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1252"/>
+        <location filename="../client/desktop/management_tab.cc" line="1322"/>
+        <location filename="../client/desktop/management_tab.cc" line="1348"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Row</source>
         <translation>Копировать строку</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
         <location filename="../client/desktop/management_tab.cc" line="1191"/>
         <location filename="../client/desktop/management_tab.cc" line="1216"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1253"/>
+        <location filename="../client/desktop/management_tab.cc" line="1323"/>
+        <location filename="../client/desktop/management_tab.cc" line="1349"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Value</source>
         <translation>Копировать значение</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1315"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1450"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>Вы уверены, что хотите удалить рабочее пространство &quot;%1&quot;?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1335"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1470"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the workspace.</source>
         <translation>Не удалось удалить рабочее пространство.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1430"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1572"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>Вы уверены, что хотите удалить группу &quot;%1&quot;? Хосты, назначенные этой группе или ее подгруппам, будут перемещены в корень рабочего пространства.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1449"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1590"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the group.</source>
         <translation>Не удалось удалить группу.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1488"/>
         <source>Import Old Address Book</source>
         <translation>Импорт старой адресной книги</translation>
@@ -3698,83 +4008,149 @@ Credentials replaced: %2</source>
     <message>
         <location filename="../client/desktop/management_tab.cc" line="1512"/>
         <location filename="../client/desktop/management_tab.cc" line="1569"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1629"/>
+        <location filename="../client/desktop/management_tab.cc" line="1686"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The database is not available.</source>
         <translation>База данных недоступна.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1518"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1635"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Create Backup</source>
         <translation>Создать резервную копию</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1535"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1652"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>There is nothing to save.</source>
         <translation>Нечего сохранять.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2157"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2269"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>Данные хоста повреждены. Измените хост и введите их заново.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2178"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2290"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Данные маршрутизатора повреждены. Измените маршрутизатор и введите их заново.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1547"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1664"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to create the backup.</source>
         <translation>Не удалось создать резервную копию.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1575"/>
         <location filename="../client/desktop/management_tab.cc" line="1601"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1692"/>
+        <location filename="../client/desktop/management_tab.cc" line="1718"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Restore from Backup</source>
         <translation>Восстановить из резервной копии</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1584"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1701"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>Все текущие данные будут удалены и заменены содержимым резервной копии. Продолжить?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1603"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1720"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>Резервная копия была создана в другой установке приложения. Введите мастер-пароль, который использовался там.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1628"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1745"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>Резервная копия не содержит данных, поэтому ничего не было изменено.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1636"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1753"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The file is not a valid backup.</source>
         <translation>Файл не является допустимой резервной копией.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1640"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1757"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to restore from the backup.</source>
         <translation>Не удалось восстановить из резервной копии.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1519"/>
         <location filename="../client/desktop/management_tab.cc" line="1576"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1636"/>
+        <location filename="../client/desktop/management_tab.cc" line="1693"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Резервная копия Aspia (*.aspia-backup);;Все файлы (*)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1539"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1656"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to write the file.</source>
         <translation>Не удалось записать файл.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1632"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1749"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to read the file.</source>
         <translation>Не удалось прочитать файл.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1552"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1669"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -3789,22 +4165,43 @@ Credentials exported: %5</source>
 Учетных данных экспортировано: %5</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1543"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="911"/>
+        <source>The &quot;%1&quot; session type is not available for Quick Support.</source>
+        <translation>Тип сессии &quot;%1&quot; недоступен для Быстрой поддержки.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/management_tab.cc" line="1660"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Некоторые записи базы данных повреждены. Исправьте или удалите их и повторите попытку.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1620"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1737"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>Не удается расшифровать файл с помощью указанного пароля.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1624"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1741"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unsupported file format version.</source>
         <translation>Неподдерживаемая версия формата файла.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1645"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1762"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -3819,29 +4216,51 @@ Credentials imported: %5</source>
 Учетных данных импортировано: %5</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2085"/>
         <location filename="../client/desktop/management_tab.cc" line="2116"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2197"/>
+        <location filename="../client/desktop/management_tab.cc" line="2228"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Link</source>
         <translation>Копировать ссылку</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2104"/>
         <location filename="../client/desktop/management_tab.cc" line="2138"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2216"/>
+        <location filename="../client/desktop/management_tab.cc" line="2250"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a link for this host.</source>
         <translation>Не удалось создать ссылку для этого хоста.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2179"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2291"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Маршрутизатор, связанный с этим хостом, был удален. Измените хост, чтобы выбрать другой маршрутизатор, или переключитесь на прямое подключение.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2186"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2298"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an invalid host ID.</source>
         <translation>Хост имеет недопустимый ID.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2195"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2307"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an incorrect address.</source>
         <translation>Хост имеет недопустимый адрес.</translation>
     </message>
@@ -5208,6 +5627,35 @@ Credentials imported: %5</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>RoutersWidget</name>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="127"/>
+        <source>No routers added</source>
+        <translation>Нет добавленных маршрутизаторов</translation>
+    </message>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="206"/>
+        <source>Add Router</source>
+        <translation>Добавить маршрутизатор</translation>
+    </message>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="243"/>
+        <source>Edit Router</source>
+        <translation>Изменить маршрутизатор</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenWorker</name>
+    <message>
+<location filename="../host/workers/screen_worker.cc" line="1245"/>
+        <source>All monitors</source>
+        <translation>Все мониторы</translation>
+    </message>
+</context>
+<context>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
     <name>SearchDialog</name>
     <message>
         <location filename="../client/desktop/management/search_dialog.ui" line="14"/>

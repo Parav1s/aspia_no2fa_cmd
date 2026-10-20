@@ -620,22 +620,78 @@ Tillagda routrar: %4</translation>
 <context>
     <name>Client</name>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="78"/>
+=======
+        <location filename="../client/main.cc" line="85"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>Det gick inte att skapa en säkerhetskopia. Vissa poster i databasen är skadade. Åtgärda eller ta bort dem.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="257"/>
+=======
+        <location filename="../client/main.cc" line="239"/>
+        <source>Connect to the host of the address book with this record ID or host ID, using the login and the password stored in it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="242"/>
+        <source>id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="246"/>
+        <source>Kind of the session to open: desktop, file, info, chat or terminal (default: the one from the settings of the application).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="249"/>
+        <source>type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="253"/>
+        <source>Log in with this user name instead of the one stored in the host. Requires --password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="256"/>
+        <source>name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="260"/>
+        <source>Log in with this password instead of the stored one. Requires --username. A password on a command line is visible to the other users of the machine.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="263"/>
+        <source>password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="387"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set Master Password</source>
         <translation>Ange huvudlösenord</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="259"/>
+=======
+        <location filename="../client/main.cc" line="389"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set a master password required to unlock the application.</source>
         <translation>Ange ett huvudlösenord som krävs för att låsa upp programmet.</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="267"/>
+=======
+        <location filename="../client/main.cc" line="397"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>Lösenordet får inte vara kortare än %n tecken.</numerusform>
@@ -643,12 +699,20 @@ Tillagda routrar: %4</translation>
         </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="275"/>
+=======
+        <location filename="../client/main.cc" line="405"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Password you entered does not meet the security requirements!</source>
         <translation>Lösenordet du angav uppfyller inte säkerhetskraven!</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="277"/>
+=======
+        <location filename="../client/main.cc" line="407"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>Lösenordet måste innehålla små och stora bokstäver samt siffror och får inte vara kortare än %n tecken.</numerusform>
@@ -656,12 +720,20 @@ Tillagda routrar: %4</translation>
         </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="281"/>
+=======
+        <location filename="../client/main.cc" line="411"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Do you want to enter a different password?</source>
         <translation>Vill du ange ett annat lösenord?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="291"/>
+=======
+        <location filename="../client/main.cc" line="421"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to set master password.</source>
         <translation>Det går inte att ange huvudlösenordet.</translation>
     </message>
@@ -671,17 +743,29 @@ Tillagda routrar: %4</translation>
         <translation>Lås upp</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="72"/>
+=======
+        <location filename="../client/main.cc" line="79"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>Det gick inte att skapa en säkerhetskopia i katalogen &quot;%1&quot;.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="84"/>
+=======
+        <location filename="../client/main.cc" line="91"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup.</source>
         <translation>Det gick inte att skapa en säkerhetskopia.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="206"/>
+=======
+        <location filename="../client/main.cc" line="274"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>An aspia:// link to connect to a host.</source>
         <translation>En aspia://-länk för att ansluta till en värd.</translation>
     </message>
@@ -701,9 +785,63 @@ Tillagda routrar: %4</translation>
         <translation>Ogiltigt huvudlösenord.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="202"/>
+=======
+        <location filename="../client/main.cc" line="266"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia Client</translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="127"/>
+        <source>&quot;%1&quot; is neither a host ID nor a record ID.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="129"/>
+        <source>The host ID of --connect is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="151"/>
+        <source>&quot;%1&quot; is not a valid session type. Use desktop, file, info, chat or terminal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="154"/>
+        <source>The session type of --session-type is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="171"/>
+        <source>The user name of --username is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="187"/>
+        <source>The password of --password is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="217"/>
+        <source>&quot;%1&quot; is neither an aspia:// link nor a host ID.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="235"/>
+        <source>--username requires --password as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="237"/>
+        <source>--password requires --username as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="248"/>
+        <source>--username and --password need a host to connect to (--connect or an aspia:// link).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -742,37 +880,65 @@ Tillagda routrar: %4</translation>
 <context>
     <name>ClientWindow</name>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="268"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="280"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Session started.</source>
         <translation>Sessionen har startat.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="515"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="599"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is unavailable.</source>
         <translation>Den angivna routern är inte tillgänglig.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="517"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="601"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Uppgifterna om routern är skadade. Redigera routern och ange dem igen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="519"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="603"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is offline.</source>
         <translation>Den angivna routern är offline.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="280"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="292"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1...</source>
         <translation>Ansluter till värden %1...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="284"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="296"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1:%2...</source>
         <translation>Ansluter till värden %1:%2...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="314"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="332"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>Värden är inte tillgänglig ännu. Väntar på återanslutning...</translation>
     </message>
@@ -782,27 +948,43 @@ Tillagda routrar: %4</translation>
         <translation>Tidsgränsen för återanslutning till värden överskreds.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="334"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="352"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>Värdversionen är nyare än klientversionen (%1 &gt; %2). Uppdatera programmet.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="340"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>Försöker ansluta i kompatibilitetsläge...</translation>
     </message>
     <message>
         <location filename="../client/desktop/client_window.cc" line="526"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="610"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Requesting connection to the host...</source>
         <translation>Begär anslutning till värden...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="534"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="618"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection offer received.</source>
         <translation>Anslutningserbjudande mottaget.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="551"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="635"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Error requesting connection via router.</source>
         <translation>Fel vid begäran om anslutning via routern.</translation>
     </message>
@@ -3281,7 +3463,11 @@ Ersatta inloggningsuppgifter: %2</translation>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="404"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="916"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia Client</translation>
     </message>
@@ -3346,68 +3532,141 @@ Ersatta inloggningsuppgifter: %2</translation>
         <translation>Alltid överst</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="99"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="128"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Search...</source>
         <translation>Sök...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="179"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="218"/>
+        <source>Unable to turn on the MCP connector.</source>
+        <translation>Det går inte att aktivera MCP-kopplingen.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="236"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Management</source>
         <translation>Hantering</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="225"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="282"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>Ogiltig länk &quot;%1&quot;.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="248"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="305"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>Routern som länken hänvisar till finns inte bland de sparade routrarna.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="297"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="354"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>Värden som länken hänvisar till finns inte bland de sparade värdarna.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="380"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="892"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all sessions to lock the application.</source>
         <translation>Stäng alla sessioner för att låsa programmet.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="386"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="898"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all dialogs to lock the application.</source>
         <translation>Stäng alla dialogrutor för att låsa programmet.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="502"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="1013"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>Anslutning via ID är angiven i värdens egenskaper, men routern är inte konfigurerad. Kontrollera routerns parametrar i värdens egenskaper.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="309"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="1280"/>
+        <source>Unknown application</source>
+        <translation>Okänt program</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="1283"/>
+        <source>MCP Connector. Connected: %1</source>
+        <translation>MCP-koppling. Anslutna: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="1284"/>
+        <source>%1 - AI is connected</source>
+        <translation>%1 - AI är ansluten</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="366"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Routern som är kopplad till den här värden har tagits bort. Redigera värden för att välja en annan router eller växla till direktanslutning.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="256"/>
         <location filename="../client/desktop/main_window.cc" line="308"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="313"/>
+        <location filename="../client/desktop/main_window.cc" line="365"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Uppgifterna om routern är skadade. Redigera routern och ange dem igen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="296"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="353"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>Uppgifterna om värden är skadade. Redigera värden och ange dem igen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="339"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="851"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Credentials</source>
         <translation>Inloggningsuppgifter</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="370"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="882"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
@@ -3607,67 +3866,123 @@ Ersatta inloggningsuppgifter: %2</translation>
         <translation>Uppdatera status automatiskt</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1034"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1133"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>(copy)</source>
         <translation>(kopia)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1002"/>
         <location filename="../client/desktop/management_tab.cc" line="1075"/>
         <location filename="../client/desktop/management_tab.cc" line="2162"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1101"/>
+        <location filename="../client/desktop/management_tab.cc" line="1175"/>
+        <location filename="../client/desktop/management_tab.cc" line="2274"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to retrieve host information from the local database.</source>
         <translation>Det gick inte att hämta värdinformation från den lokala databasen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1039"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="911"/>
+        <source>The &quot;%1&quot; session type is not available for Quick Support.</source>
+        <translation>Sessionstypen &quot;%1&quot; är inte tillgänglig för Quick Support.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/management_tab.cc" line="1138"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to add the host to the local database.</source>
         <translation>Det gick inte att lägga till värden i den lokala databasen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1079"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1179"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>Är du säker på att du vill ta bort värden &quot;%1&quot;?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1089"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1189"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to remove host</source>
         <translation>Det går inte att ta bort värden</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
         <location filename="../client/desktop/management_tab.cc" line="1190"/>
         <location filename="../client/desktop/management_tab.cc" line="1215"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1252"/>
+        <location filename="../client/desktop/management_tab.cc" line="1322"/>
+        <location filename="../client/desktop/management_tab.cc" line="1348"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Row</source>
         <translation>Kopiera rad</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
         <location filename="../client/desktop/management_tab.cc" line="1191"/>
         <location filename="../client/desktop/management_tab.cc" line="1216"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1253"/>
+        <location filename="../client/desktop/management_tab.cc" line="1323"/>
+        <location filename="../client/desktop/management_tab.cc" line="1349"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Value</source>
         <translation>Kopiera värde</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1315"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1450"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>Är du säker på att du vill ta bort arbetsytan &quot;%1&quot;?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1335"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1470"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the workspace.</source>
         <translation>Det gick inte att ta bort arbetsytan.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1430"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1572"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>Är du säker på att du vill ta bort gruppen &quot;%1&quot;? Värdar som tillhör denna grupp eller dess undergrupper flyttas till arbetsytans rot.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1449"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1590"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the group.</source>
         <translation>Det gick inte att ta bort gruppen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1488"/>
         <source>Import Old Address Book</source>
         <translation>Importera gammal adressbok</translation>
@@ -3680,83 +3995,149 @@ Ersatta inloggningsuppgifter: %2</translation>
     <message>
         <location filename="../client/desktop/management_tab.cc" line="1512"/>
         <location filename="../client/desktop/management_tab.cc" line="1569"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1629"/>
+        <location filename="../client/desktop/management_tab.cc" line="1686"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The database is not available.</source>
         <translation>Databasen är inte tillgänglig.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1518"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1635"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Create Backup</source>
         <translation>Skapa säkerhetskopia</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1535"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1652"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>There is nothing to save.</source>
         <translation>Det finns inget att spara.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2157"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2269"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>Uppgifterna om värden är skadade. Redigera värden och ange dem igen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2178"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2290"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Uppgifterna om routern är skadade. Redigera routern och ange dem igen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1547"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1664"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to create the backup.</source>
         <translation>Det gick inte att skapa säkerhetskopian.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1575"/>
         <location filename="../client/desktop/management_tab.cc" line="1601"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1692"/>
+        <location filename="../client/desktop/management_tab.cc" line="1718"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Restore from Backup</source>
         <translation>Återställ från säkerhetskopia</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1584"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1701"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>Allt som är lagrat nu tas bort och ersätts med det som säkerhetskopian innehåller. Fortsätta?</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1603"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1720"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>Säkerhetskopian skapades på en annan installation. Ange huvudlösenordet som användes där.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1628"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1745"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>Säkerhetskopian innehåller inga data, så inget ändrades.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1636"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1753"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The file is not a valid backup.</source>
         <translation>Filen är inte en giltig säkerhetskopia.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1640"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1757"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to restore from the backup.</source>
         <translation>Det gick inte att återställa från säkerhetskopian.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1519"/>
         <location filename="../client/desktop/management_tab.cc" line="1576"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1636"/>
+        <location filename="../client/desktop/management_tab.cc" line="1693"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Aspia-säkerhetskopia (*.aspia-backup);;Alla filer (*)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1539"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1656"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to write the file.</source>
         <translation>Det går inte att skriva filen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1632"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1749"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to read the file.</source>
         <translation>Det går inte att läsa filen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1552"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1669"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -3771,22 +4152,38 @@ Exporterade sparade lösenord: %4
 Exporterade inloggningsuppgifter: %5</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1543"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1660"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Vissa poster i databasen är skadade. Åtgärda eller ta bort dem och försök igen.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1620"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1737"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>Det går inte att dekryptera filen med det angivna lösenordet.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1624"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1741"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unsupported file format version.</source>
         <translation>Filformatversionen stöds inte.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1645"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1762"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -3801,29 +4198,51 @@ Importerade sparade lösenord: %4
 Importerade inloggningsuppgifter: %5</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2085"/>
         <location filename="../client/desktop/management_tab.cc" line="2116"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2197"/>
+        <location filename="../client/desktop/management_tab.cc" line="2228"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Link</source>
         <translation>Kopiera länk</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2104"/>
         <location filename="../client/desktop/management_tab.cc" line="2138"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2216"/>
+        <location filename="../client/desktop/management_tab.cc" line="2250"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a link for this host.</source>
         <translation>Det går inte att skapa en länk för den här värden.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2179"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2291"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Routern som är kopplad till den här värden har tagits bort. Redigera värden för att välja en annan router eller växla till direktanslutning.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2186"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2298"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an invalid host ID.</source>
         <translation>Värden har ett ogiltigt värd-ID.</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2195"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2307"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an incorrect address.</source>
         <translation>Värden har en felaktig adress.</translation>
     </message>
@@ -5180,6 +5599,35 @@ Importerade inloggningsuppgifter: %5</translation>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>RoutersWidget</name>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="127"/>
+        <source>No routers added</source>
+        <translation>Inga routrar har lagts till</translation>
+    </message>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="206"/>
+        <source>Add Router</source>
+        <translation>Lägg till router</translation>
+    </message>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="243"/>
+        <source>Edit Router</source>
+        <translation>Redigera router</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenWorker</name>
+    <message>
+        <location filename="../host/workers/screen_worker.cc" line="1245"/>
+        <source>All monitors</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
     <name>SearchDialog</name>
     <message>
         <location filename="../client/desktop/management/search_dialog.ui" line="14"/>

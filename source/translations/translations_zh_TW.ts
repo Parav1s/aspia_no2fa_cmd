@@ -619,46 +619,118 @@ Routers added: %4</source>
 <context>
     <name>Client</name>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="78"/>
+=======
+        <location filename="../client/main.cc" line="85"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>無法建立備份。資料庫中有部分記錄已損壞。請修復或刪除這些記錄。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="257"/>
+=======
+        <location filename="../client/main.cc" line="239"/>
+        <source>Connect to the host of the address book with this record ID or host ID, using the login and the password stored in it.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="242"/>
+        <source>id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="246"/>
+        <source>Kind of the session to open: desktop, file, info, chat or terminal (default: the one from the settings of the application).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="249"/>
+        <source>type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="253"/>
+        <source>Log in with this user name instead of the one stored in the host. Requires --password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="256"/>
+        <source>name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="260"/>
+        <source>Log in with this password instead of the stored one. Requires --username. A password on a command line is visible to the other users of the machine.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="263"/>
+        <source>password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="387"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set Master Password</source>
         <translation>設定主密碼</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="259"/>
+=======
+        <location filename="../client/main.cc" line="389"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set a master password required to unlock the application.</source>
         <translation>設定解除鎖定應用程式所需的主密碼。</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="267"/>
+=======
+        <location filename="../client/main.cc" line="397"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>密碼長度不能少於 %n 個字元。</numerusform>
         </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="275"/>
+=======
+        <location filename="../client/main.cc" line="405"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Password you entered does not meet the security requirements!</source>
         <translation>輸入的密碼不符合安全性要求！</translation>
     </message>
     <message numerus="yes">
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="277"/>
+=======
+        <location filename="../client/main.cc" line="407"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>密碼必須包含大小寫字母和數字，且長度不能少於 %n 個字元。</numerusform>
         </translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="281"/>
+=======
+        <location filename="../client/main.cc" line="411"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Do you want to enter a different password?</source>
         <translation>要輸入其他密碼嗎？</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="291"/>
+=======
+        <location filename="../client/main.cc" line="421"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to set master password.</source>
         <translation>無法設定主密碼。</translation>
     </message>
@@ -668,17 +740,29 @@ Routers added: %4</source>
         <translation>解除鎖定</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="72"/>
+=======
+        <location filename="../client/main.cc" line="79"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>無法在資料夾「%1」中建立備份。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="84"/>
+=======
+        <location filename="../client/main.cc" line="91"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup.</source>
         <translation>無法建立備份。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="206"/>
+=======
+        <location filename="../client/main.cc" line="274"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>An aspia:// link to connect to a host.</source>
         <translation>用於連線到主機的 aspia:// 連結。</translation>
     </message>
@@ -698,9 +782,63 @@ Routers added: %4</source>
         <translation>主密碼無效。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/main.cc" line="202"/>
+=======
+        <location filename="../client/main.cc" line="266"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia Client</translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="127"/>
+        <source>&quot;%1&quot; is neither a host ID nor a record ID.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="129"/>
+        <source>The host ID of --connect is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="151"/>
+        <source>&quot;%1&quot; is not a valid session type. Use desktop, file, info, chat or terminal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="154"/>
+        <source>The session type of --session-type is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="171"/>
+        <source>The user name of --username is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="187"/>
+        <source>The password of --password is missing.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="217"/>
+        <source>&quot;%1&quot; is neither an aspia:// link nor a host ID.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="235"/>
+        <source>--username requires --password as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="237"/>
+        <source>--password requires --username as well.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/connect_request.cc" line="248"/>
+        <source>--username and --password need a host to connect to (--connect or an aspia:// link).</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -739,37 +877,65 @@ Routers added: %4</source>
 <context>
     <name>ClientWindow</name>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="268"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="280"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Session started.</source>
         <translation>工作階段已開始。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="515"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="599"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is unavailable.</source>
         <translation>指定的路由器無法使用。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="517"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="601"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>路由器的資料已損壞。請編輯路由器並重新輸入。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="519"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="603"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is offline.</source>
         <translation>指定的路由器不在線上。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="280"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="292"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1...</source>
         <translation>正在連線到主機 %1...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="284"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="296"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1:%2...</source>
         <translation>正在連線到主機 %1:%2...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="314"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="332"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>主機目前無法使用。正在等待重新連線...</translation>
     </message>
@@ -779,27 +945,43 @@ Routers added: %4</source>
         <translation>等待重新連線到主機逾時。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="334"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="352"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>主機版本比用戶端版本新（%1 &gt; %2）。請更新應用程式。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="340"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>正在嘗試以相容模式連線...</translation>
     </message>
     <message>
         <location filename="../client/desktop/client_window.cc" line="526"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="610"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Requesting connection to the host...</source>
         <translation>正在要求連線到主機...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="534"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="618"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection offer received.</source>
         <translation>已收到連線請求。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="551"/>
+=======
+        <location filename="../client/desktop/client_window.cc" line="635"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Error requesting connection via router.</source>
         <translation>透過路由器要求連線時發生錯誤。</translation>
     </message>
@@ -3258,7 +3440,11 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="404"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="916"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia Client</translation>
     </message>
@@ -3328,68 +3514,141 @@ Credentials replaced: %2</source>
         <translation>設定...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="99"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="128"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Search...</source>
         <translation>搜尋...</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="179"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="218"/>
+        <source>Unable to turn on the MCP connector.</source>
+        <translation>無法啟用 MCP 連接器。</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="236"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Management</source>
         <translation>管理</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="225"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="282"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>無效的連結「%1」。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="248"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="305"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>在已儲存的路由器中找不到連結所指的路由器。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="297"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="354"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>在已儲存的主機中找不到連結所指的主機。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="380"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="892"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all sessions to lock the application.</source>
         <translation>請關閉所有工作階段以鎖定應用程式。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="386"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="898"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all dialogs to lock the application.</source>
         <translation>請關閉所有對話方塊以鎖定應用程式。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="502"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="1013"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>主機的內容中指定了以 ID 連線，但尚未設定路由器。請檢查主機內容中的路由器參數。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="309"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="1280"/>
+        <source>Unknown application</source>
+        <translation>未知應用程式</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="1283"/>
+        <source>MCP Connector. Connected: %1</source>
+        <translation>MCP 連接器。已連線：%1</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="1284"/>
+        <source>%1 - AI is connected</source>
+        <translation>%1 - AI 已連線</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/main_window.cc" line="366"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>與此主機關聯的路由器已被刪除。請編輯主機以選擇其他路由器，或改用直接連線。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="256"/>
         <location filename="../client/desktop/main_window.cc" line="308"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="313"/>
+        <location filename="../client/desktop/main_window.cc" line="365"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>路由器的資料已損壞。請編輯路由器並重新輸入。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="296"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="353"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>主機的資料已損壞。請編輯主機並重新輸入。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="339"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="851"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Credentials</source>
         <translation>認證</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="370"/>
+=======
+        <location filename="../client/desktop/main_window.cc" line="882"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Settings</source>
         <translation>設定</translation>
     </message>
@@ -3589,67 +3848,123 @@ Credentials replaced: %2</source>
         <translation>自動重新整理狀態</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1034"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1133"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>(copy)</source>
         <translation>（複製）</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1002"/>
         <location filename="../client/desktop/management_tab.cc" line="1075"/>
         <location filename="../client/desktop/management_tab.cc" line="2162"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1101"/>
+        <location filename="../client/desktop/management_tab.cc" line="1175"/>
+        <location filename="../client/desktop/management_tab.cc" line="2274"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to retrieve host information from the local database.</source>
         <translation>無法從本機資料庫取得主機資訊。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1039"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="911"/>
+        <source>The &quot;%1&quot; session type is not available for Quick Support.</source>
+        <translation>工作階段類型「%1」無法用於 Quick Support。</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/management_tab.cc" line="1138"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to add the host to the local database.</source>
         <translation>無法將主機加入本機資料庫。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1079"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1179"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>確定要刪除主機「%1」嗎？</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1089"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1189"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to remove host</source>
         <translation>無法移除主機</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
         <location filename="../client/desktop/management_tab.cc" line="1190"/>
         <location filename="../client/desktop/management_tab.cc" line="1215"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1252"/>
+        <location filename="../client/desktop/management_tab.cc" line="1322"/>
+        <location filename="../client/desktop/management_tab.cc" line="1348"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Row</source>
         <translation>複製列</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
         <location filename="../client/desktop/management_tab.cc" line="1191"/>
         <location filename="../client/desktop/management_tab.cc" line="1216"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1253"/>
+        <location filename="../client/desktop/management_tab.cc" line="1323"/>
+        <location filename="../client/desktop/management_tab.cc" line="1349"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Value</source>
         <translation>複製值</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1315"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1450"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>確定要刪除工作區「%1」嗎？</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1335"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1470"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the workspace.</source>
         <translation>無法刪除工作區。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1430"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1572"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>確定要刪除群組「%1」嗎？指派給此群組或其子群組的主機將被移至工作區根目錄。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1449"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1590"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the group.</source>
         <translation>無法刪除群組。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1488"/>
         <source>Import Old Address Book</source>
         <translation>匯入舊版通訊錄</translation>
@@ -3662,83 +3977,149 @@ Credentials replaced: %2</source>
     <message>
         <location filename="../client/desktop/management_tab.cc" line="1512"/>
         <location filename="../client/desktop/management_tab.cc" line="1569"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1629"/>
+        <location filename="../client/desktop/management_tab.cc" line="1686"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The database is not available.</source>
         <translation>資料庫無法使用。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1518"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1635"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Create Backup</source>
         <translation>建立備份</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1535"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1652"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>There is nothing to save.</source>
         <translation>沒有可儲存的內容。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2157"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2269"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>主機的資料已損壞。請編輯主機並重新輸入。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2178"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2290"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>路由器的資料已損壞。請編輯路由器並重新輸入。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1547"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1664"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to create the backup.</source>
         <translation>無法建立備份。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1575"/>
         <location filename="../client/desktop/management_tab.cc" line="1601"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1692"/>
+        <location filename="../client/desktop/management_tab.cc" line="1718"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Restore from Backup</source>
         <translation>從備份還原</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1584"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1701"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>目前儲存的所有內容都將被刪除，並以備份中的內容取代。要繼續嗎？</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1603"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1720"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>此備份是在另一個安裝上建立的。請輸入該處使用的主密碼。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1628"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1745"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>備份中沒有資料，因此未做任何變更。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1636"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1753"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The file is not a valid backup.</source>
         <translation>此檔案不是有效的備份。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1640"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1757"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to restore from the backup.</source>
         <translation>無法從備份還原。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1519"/>
         <location filename="../client/desktop/management_tab.cc" line="1576"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1636"/>
+        <location filename="../client/desktop/management_tab.cc" line="1693"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Aspia 備份 (*.aspia-backup);;所有檔案 (*)</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1539"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1656"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to write the file.</source>
         <translation>無法寫入檔案。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1632"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1749"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to read the file.</source>
         <translation>無法讀取檔案。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1552"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1669"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -3753,22 +4134,38 @@ Credentials exported: %5</source>
 已匯出認證：%5</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1543"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1660"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>資料庫中有部分記錄已損壞。請修復或刪除這些記錄後再試一次。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1620"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1737"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>無法使用指定的密碼解密檔案。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1624"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1741"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unsupported file format version.</source>
         <translation>不支援的檔案格式版本。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1645"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="1762"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -3783,29 +4180,51 @@ Credentials imported: %5</source>
 已匯入認證：%5</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2085"/>
         <location filename="../client/desktop/management_tab.cc" line="2116"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2197"/>
+        <location filename="../client/desktop/management_tab.cc" line="2228"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Link</source>
         <translation>複製連結</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2104"/>
         <location filename="../client/desktop/management_tab.cc" line="2138"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2216"/>
+        <location filename="../client/desktop/management_tab.cc" line="2250"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a link for this host.</source>
         <translation>無法為此主機建立連結。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2179"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2291"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>與此主機關聯的路由器已被刪除。請編輯主機以選擇其他路由器，或改用直接連線。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2186"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2298"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an invalid host ID.</source>
         <translation>主機的 ID 無效。</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2195"/>
+=======
+        <location filename="../client/desktop/management_tab.cc" line="2307"/>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an incorrect address.</source>
         <translation>主機的位址不正確。</translation>
     </message>
@@ -5152,6 +5571,35 @@ Credentials imported: %5</source>
     </message>
 </context>
 <context>
+<<<<<<< HEAD
+=======
+    <name>RoutersWidget</name>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="127"/>
+        <source>No routers added</source>
+        <translation>尚未新增路由器</translation>
+    </message>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="206"/>
+        <source>Add Router</source>
+        <translation>新增路由器</translation>
+    </message>
+    <message>
+        <location filename="../client/android/routers_widget.cc" line="243"/>
+        <source>Edit Router</source>
+        <translation>編輯路由器</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenWorker</name>
+    <message>
+        <location filename="../host/workers/screen_worker.cc" line="1245"/>
+        <source>All monitors</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+>>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
     <name>SearchDialog</name>
     <message>
         <location filename="../client/desktop/management/search_dialog.ui" line="14"/>
