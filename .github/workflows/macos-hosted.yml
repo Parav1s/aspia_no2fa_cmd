@@ -1,0 +1,117 @@
+name: macos-hosted
+
+# macOS build for GitHub-hosted runners (no self-hosted infrastructure required).
+# The upstream workflow (.github/workflows/macos.yml) targets self-hosted runners
+# with custom labels (macos15, /opt/vcpkg, /Applications/CMake.app), so it cannot
+# run on a fork. This workflow builds the same presets on stock GitHub runners.
+
+on:
+  push:
+    branches:
+      - no2fa-3.0.18
+      - v3.0
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+      - 'CONTRIBUTING.md'
+      - 'CODE_OF_CONDUCT.md'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Consumed by CMakePresets.json (base preset)
+  VCPKG_INSTALLED_DIR: ${{ github.workspace }}/builds/ci/vcpkg_installed
+  VCPKG_BINARY_SOURCES: 'default,readwrite'
+
+jobs:
+  build:
+    name: ${{ matrix.arch }}-${{ matrix.build_type }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type: [release]
+        include:
+          - os: macos-15-intel
+            arch: x86_64
+            triplet: x64-osx
+          - os: macos-15
+            arch: arm64
+            triplet: arm64-osx
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: true
+
+      # vcpkg stores built packages here (`default` binary source); keeping it across
+      # runs is what makes the second and later builds fast instead of rebuilding Qt.
+      - name: Restore vcpkg binary cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/vcpkg/archives
+          key: vcpkg-${{ matrix.triplet }}-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}
+          restore-keys: |
+            vcpkg-${{ matrix.triplet }}-${{ hashFiles('vcpkg.json') }}-
+            vcpkg-${{ matrix.triplet }}-
+
+      - name: Prepare toolchain
+        run: |
+          if ! command -v cmake >/dev/null 2>&1; then
+            brew install cmake
+          fi
+          if ! command -v ninja >/dev/null 2>&1; then
+            brew install ninja
+          fi
+          cmake --version
+          ninja --version
+          # Qt 6.10+ requires the full Xcode toolchain, not CommandLineTools
+          export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
+          echo "DEVELOPER_DIR=$DEVELOPER_DIR" >> "$GITHUB_ENV"
+          xcodebuild -version
+
+      - name: Bootstrap vcpkg
+        run: |
+          if [ ! -x vcpkg4aspia/vcpkg ]; then
+            ./vcpkg4aspia/bootstrap-vcpkg.sh -disableMetrics
+          fi
+          ./vcpkg4aspia/vcpkg version
+
+      - name: Configure
+        env:
+          VCPKG_TRIPLET: ${{ matrix.triplet }}
+          VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.triplet }}
+        run: cmake --preset ci
+
+      - name: Build
+        env:
+          VCPKG_TRIPLET: ${{ matrix.triplet }}
+          VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.triplet }}
+        run: cmake --build --preset ci-${{ matrix.build_type }}
+
+      # The tests seal with OSCrypt, which keeps its key in the keychain. The login
+      # keychain of a hosted runner is locked and nobody can unlock it, so the tests
+      # get a throwaway keychain with the key already in it.
+      - name: Tests
+        env:
+          VCPKG_TRIPLET: ${{ matrix.triplet }}
+          VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.triplet }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/aspia-ci.keychain-db"
+          security create-keychain -p ci "$KEYCHAIN"
+          security set-keychain-settings "$KEYCHAIN"
+          security unlock-keychain -p ci "$KEYCHAIN"
+          security add-generic-password -A -s Aspia -a OSCrypt -X "$(openssl rand -hex 32)" "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" login.keychain-db
+          ctest --preset ci-${{ matrix.build_type }} --output-on-failure
+
+      - name: Remove the test keychain
+        if: always()
+        run: |
+          security list-keychains -d user -s login.keychain-db || true
+          security delete-keychain "$RUNNER_TEMP/aspia-ci.keychain-db" || true
