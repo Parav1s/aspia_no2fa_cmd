@@ -48,20 +48,12 @@ public:
     void activate(QStatusBar* statusbar) final;
     void deactivate(QStatusBar* statusbar) final;
 
-signals:
-    void sig_twoFactorClicked(qint64 router_id);
-
 public slots:
     void onEvent(qint64 router_id, const RouterEvent& event);
-    void onStatusChanged(qint64 router_id);
-
-private slots:
-    void onTwoFactorClicked();
 
 private:
     void addEvent(const RouterEvent& event);
     void updateStatusLabel();
-    void updateTwoFactorPrompt();
 
     std::unique_ptr<Ui::RouterStatusWidget> ui;
     qint64 router_id_ = 0;

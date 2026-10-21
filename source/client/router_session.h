@@ -81,9 +81,6 @@ public:
     void findUser(qint64 entry_id, RouterCallback<proto::router::UserList> callback);
     void findUser(const QString& name, RouterCallback<proto::router::UserList> callback);
 
-    // The active device tokens of one user.
-    void listUserTokens(qint64 user_id, RouterCallback<proto::router::UserTokenList> callback);
-
     //----------------------------------------------------------------------------------------------
     // Admin: user operations.
     //----------------------------------------------------------------------------------------------
@@ -93,13 +90,6 @@ public:
     void modifyUser(const proto::router::User& user,
                     RouterCallback<proto::router::UserResult> callback);
     void deleteUser(qint64 entry_id, RouterCallback<proto::router::UserResult> callback);
-
-    // Clears the TOTP secret, so the next login enrolls anew. Revokes every device token too.
-    void resetUserOtp(qint64 user_id, RouterCallback<proto::router::UserResult> callback);
-
-    // An empty |token_ids| revokes every token of the user.
-    void revokeUserTokens(qint64 user_id, const QList<qint64>& token_ids,
-                          RouterCallback<proto::router::UserTokenResult> callback);
 
     //----------------------------------------------------------------------------------------------
     // Admin: relay/client/peer disconnect.
@@ -178,8 +168,8 @@ public:
     // Asks for a relay connection offer to the given host.
     void requestConnection(HostId host_id, RouterCallback<proto::router::ConnectionOffer> callback);
 
-    // Rotates the SRP credentials of the account under |new_password|. The router re-runs the
-    // 2FA stage afterwards, so a code will be asked again.
+    // Rotates the SRP credentials of the account under |new_password|. The router closes the
+    // session afterwards, so the record logs in again with the new credentials.
     void changePassword(const SecureString& new_password,
                         RouterCallback<proto::router::ChangePasswordResult> callback);
 

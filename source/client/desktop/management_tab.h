@@ -112,10 +112,8 @@ private slots:
     void onCheckHostUpdatesAction();
     void onHostTelemetryAction();
     void onOnlineCheckToggled(bool checked);
-    void onTwoFactorRequired(qint64 router_id);
 
 private:
-    void showNextTwoFactorPrompt();
     void switchContent(ContentWidget* new_widget);
     void updateActionsState();
     proto::peer::SessionType defaultSessionType() const;
@@ -131,8 +129,6 @@ private:
 
     std::unique_ptr<Ui::ManagementTab> ui;
 
-    QPointer<QDialog> two_factor_dialog_;
-    QSet<qint64> dismissed_two_factor_;
     ContentWidget* current_content_ = nullptr;
     ContentWidget* previous_content_ = nullptr;
 

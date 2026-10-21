@@ -36,10 +36,8 @@ namespace proto::control {
 class Config;
 } // namespace proto::control
 
-// Every field but the device token is held as plain text. The key that would decrypt them sits
-// in memory anyway for as long as the address book is unlocked, so keeping the ciphertext next
-// to it protects nothing. The device token always keeps its OS keystore wrapping, and the code
-// that presents it to the router unwraps its own copy right before the send.
+// Every field is held as plain text. The key that would decrypt them sits in memory anyway for as
+// long as the address book is unlocked, so keeping the ciphertext next to it protects nothing.
 //
 // What reaches the database is another matter. Whatever of a record has to be kept secret goes
 // there as one column - serialized together, then encrypted - so no single field can be lifted out
@@ -87,17 +85,6 @@ public:
     const SecureString& password() const { return password_; }
     void setPassword(const SecureString& value) { password_ = value; }
 
-    // The "remember this device" token of the record, in the form the OS keystore wrapped it.
-    // The class carries the bytes as opaque data. Presenting them to the router takes an unwrap,
-    // and a fresh token is stored already wrapped. Empty until the user enrolls or enters a TOTP
-    // code at least once.
-    const QByteArray& deviceToken() const { return device_token_; }
-    void setDeviceToken(const QByteArray& value) { device_token_ = value; }
-
-    // Clears the stored token. Called when the router rejects it (revoked remotely, password
-    // changed elsewhere) so the next login walks the TOTP path again.
-    void clearDeviceToken() { device_token_.clear(); }
-
     // The encrypted column for database I/O. Returns nothing when the record cannot be sealed, so a
     // failure is never written as a record that simply holds nothing. The setter answers whether the
     // column opened; on a refusal the fields it carries are left empty.
@@ -112,7 +99,6 @@ private:
     QString address_;
     QString username_;
     SecureString password_;
-    QByteArray device_token_;
 };
 
 class RouterHostConfig final

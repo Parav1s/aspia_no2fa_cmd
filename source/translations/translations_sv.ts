@@ -436,12 +436,7 @@ Tillagda routrar: %4</translation>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Routern som är kopplad till den här värden har tagits bort. Redigera värden för att välja en annan router eller växla till direktanslutning.</translation>
     </message>
-    <message>
-        <location filename="../client/android/main_window.cc" line="555"/>
-        <source>Two-Factor Authentication - %1</source>
-        <translation>Tvåfaktorsautentisering - %1</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/android/main_window.cc" line="433"/>
         <location filename="../client/android/main_window.cc" line="1011"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
@@ -6018,12 +6013,7 @@ Importerade inloggningsuppgifter: %5</translation>
         <source>The code was not accepted by router %1.</source>
         <translation>Koden accepterades inte av routern %1.</translation>
     </message>
-    <message>
-        <location filename="../client/router_controller.cc" line="321"/>
-        <source>Router %1 is waiting for a two-factor code.</source>
-        <translation>Routern %1 väntar på en tvåfaktorskod.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/router_controller.cc" line="350"/>
         <source>Connection to router %1 established.</source>
         <translation>Anslutningen till routern %1 har upprättats.</translation>
@@ -6654,13 +6644,7 @@ Importerade inloggningsuppgifter: %5</translation>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="42"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="230"/>
-        <source>The router is waiting for a two-factor code.</source>
-        <translation>Routern väntar på en tvåfaktorskod.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
         <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
         <source>Enter Code</source>
@@ -6684,17 +6668,7 @@ Importerade inloggningsuppgifter: %5</translation>
             <numerusform>%n händelser</numerusform>
         </translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="218"/>
-        <source>Two-factor authentication is blocked after too many failed attempts.</source>
-        <translation>Tvåfaktorsautentiseringen är blockerad efter för många misslyckade försök.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="235"/>
-        <source>Two-factor authentication has to be set up for this router.</source>
-        <translation>Tvåfaktorsautentisering måste konfigureras för den här routern.</translation>
-    </message>
-    <message>
+            <message>
         <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
         <source>Set Up</source>
         <translation>Konfigurera</translation>
@@ -6775,12 +6749,7 @@ Importerade inloggningsuppgifter: %5</translation>
         <source>Disable User Account</source>
         <translation>Inaktivera användarkonto</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="95"/>
-        <source>Reset two-factor authentication</source>
-        <translation>Återställ tvåfaktorsautentisering</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
         <source>Sessions</source>
         <translation>Sessioner</translation>
@@ -6810,12 +6779,7 @@ Importerade inloggningsuppgifter: %5</translation>
         <source>Sign out all</source>
         <translation>Logga ut alla</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="339"/>
-        <source>Resetting two-factor authentication will sign this user out of all sessions and force them to enroll again on next login. Continue?</source>
-        <translation>Om tvåfaktorsautentiseringen återställs loggas användaren ut från alla sessioner och måste registrera sig igen vid nästa inloggning. Fortsätta?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
         <source>Are you sure you want to sign this user out of this session?</source>
         <translation>Är du säker på att du vill logga ut den här användaren från den här sessionen?</translation>
@@ -6840,12 +6804,7 @@ Importerade inloggningsuppgifter: %5</translation>
         <source>The user was deleted from another console.</source>
         <translation>Användaren togs bort från en annan konsol.</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="337"/>
-        <source>Resetting two-factor authentication will sign you out of all sessions and force you to enroll again on next login. Continue?</source>
-        <translation>Om tvåfaktorsautentiseringen återställs loggas du ut från alla sessioner och måste registrera dig igen vid nästa inloggning. Fortsätta?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
         <translation>Det här är token för din aktuella session. Om den återkallas kopplas du från. Fortsätta?</translation>
@@ -12454,95 +12413,6 @@ Importerade inloggningsuppgifter: %5</translation>
         <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
         <source>Password</source>
         <translation>Lösenord</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorCodeDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="14"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Tvåfaktorsautentisering</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="50"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Ange den 6-siffriga koden från din autentiseringsapp.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.cc" line="40"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Den föregående koden accepterades inte.</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorDialog</name>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="70"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Tvåfaktorsautentisering</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="64"/>
-        <source>Add the setup key below to an authenticator app, then enter the 6-digit code it shows to confirm.</source>
-        <translation>Lägg till installationsnyckeln nedan i en autentiseringsapp och ange sedan den 6-siffriga koden som visas för att bekräfta.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="66"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Ange den 6-siffriga koden från din autentiseringsapp.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="68"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Den föregående koden accepterades inte.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="78"/>
-        <source>Setup Key</source>
-        <translation>Installationsnyckel</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="84"/>
-        <source>Code</source>
-        <translation>Kod</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="91"/>
-        <source>Cancel</source>
-        <translation>Avbryt</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="92"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorEnrollDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="14"/>
-        <source>Enable Two-Factor Authentication</source>
-        <translation>Aktivera tvåfaktorsautentisering</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="20"/>
-        <source>Open a TOTP authenticator app (Google Authenticator, Microsoft Authenticator or any compatible alternative) and add a new account by scanning the QR code below. If QR scanning is unavailable, type the setup key into the app instead.</source>
-        <translation>Öppna en TOTP-autentiseringsapp (Google Authenticator, Microsoft Authenticator eller ett kompatibelt alternativ) och lägg till ett nytt konto genom att skanna QR-koden nedan. Om QR-skanning inte är tillgänglig anger du i stället installationsnyckeln i appen.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="43"/>
-        <source>Setup key:</source>
-        <translation>Installationsnyckel:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="62"/>
-        <source>Enter the 6-digit code shown by the app to confirm:</source>
-        <translation>Ange den 6-siffriga koden som visas i appen för att bekräfta:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.cc" line="87"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Den föregående koden accepterades inte.</translation>
     </message>
 </context>
 <context>

@@ -53,12 +53,6 @@ collect_sources(SOURCE_COMMON_DESKTOP
     router_error.h
     session_type.cc
     session_type.h
-    two_factor_code_dialog.cc
-    two_factor_code_dialog.h
-    two_factor_code_dialog.ui
-    two_factor_enroll_dialog.cc
-    two_factor_enroll_dialog.h
-    two_factor_enroll_dialog.ui
     update_dialog.cc
     update_dialog.h
     update_dialog.ui)

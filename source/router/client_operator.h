@@ -26,7 +26,6 @@
 #include "base/net/tcp_channel.h"
 #include "base/peer/host_id.h"
 #include "router/handlers/request_caller.h"
-#include "router/handlers/two_factor_handler.h"
 
 class Database;
 struct RequestResult;
@@ -39,7 +38,6 @@ class GroupListRequest;
 class HostListRequest;
 class HostSearchRequest;
 class TempHostListRequest;
-class TwoFactorResponse;
 class WorkspaceListRequest;
 enum SessionType : int;
 } // namespace proto::router
@@ -74,19 +72,14 @@ public:
 
     void setStunInfo(quint16 port);
 
-    bool isTwoFactorCompleted() const { return two_factor_completed_; }
-
-    // Router-side row id of the device token bound to this session, either the one it presented
-    // or the one just issued to it; 0 when no token backs the session. Lets the admin channel
-    // tear down the live connection when its token is revoked.
-    qint64 tokenId() const { return token_id_; }
+    bool isAuthenticated() const { return authenticated_; }
 
 signals:
     void sig_started(qint64 session_id);
-    void sig_twoFactorCompleted();
+    void sig_authenticated();
     void sig_finished(qint64 session_id);
     void sig_notifyChanged(quint32 flags);
-    void sig_stopClients(qint64 user_id, const std::vector<qint64>& token_ids);
+    void sig_stopClients(qint64 user_id);
 
 protected:
     LOG_DECLARE_CONTEXT(ClientOperator);
@@ -111,13 +104,8 @@ private slots:
     void onStarted();
 
 private:
-    void doTwoFactorChallenge();
-    void readTwoFactorResponse(const proto::router::TwoFactorResponse& response);
-
-    // Sends what the two-factor stage decided: a challenge, the completion of the stage, or the
-    // teardown of the session.
-    void applyTwoFactorResult(TwoFactorHandler::Result&& result);
-    void completeTwoFactor(std::string&& new_token = std::string());
+    // Completes the login right after SRP: re-checks the account and sends LoginResult.
+    void completeLogin();
     void readConnectionRequest(const proto::router::ConnectionRequest& request);
     void sendConnectionOffer(qint64 request_id, HostId host_id);
     void readCheckHostStatus(const proto::router::CheckHostStatus& check_host_status);
@@ -140,9 +128,7 @@ private:
     TcpChannel* tcp_channel_ = nullptr;
     quint16 stun_port_ = 0;
 
-    TwoFactorHandler two_factor_;
-    bool two_factor_completed_ = false;
-    qint64 token_id_ = 0;
+    bool authenticated_ = false;
 
     TimePoint offer_window_start_;
     int offer_count_ = 0;

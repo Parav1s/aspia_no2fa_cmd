@@ -46,9 +46,6 @@ public:
     // administrator implies a manager and an operator, a manager implies an operator. A client
     // names the chosen level as a single session type; the router keeps the full mask.
     static quint32 expandSessionTypes(quint32 sessions);
-
-    QByteArray otp_secret;
-    quint64 otp_counter = 0;
 };
 
 #endif // BASE_PEER_ROUTER_USER_H

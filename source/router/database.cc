@@ -28,8 +28,6 @@
 
 #include "base/logging.h"
 #include "base/string_util.h"
-#include "base/crypto/generic_hash.h"
-#include "base/crypto/random.h"
 #include "base/files/base_paths.h"
 #include "base/sql/sql_query.h"
 #include "base/sql/sql_transaction.h"
@@ -46,12 +44,14 @@ namespace {
 // demoted account would lock everyone out of that channel.
 constexpr qint64 kBuiltInUserId = 1;
 
-constexpr qint64 kClientDeviceTokenTtlSec = 7 * 24 * 3600; // 7 days, sliding window.
-
 // How long a queued host removal waits for the host to acknowledge it before the record is dropped
 // anyway. Long enough for a machine that spends months switched off; after it the id is gone and
 // the host has to be approved again.
 constexpr qint64 kHostRemovalTtlSec = 180 * 24 * 3600;
+
+// The layout version of the database, kept in the SQLite header. Version 1 records that the user
+// table has already been through the 2.7.0 -> 3.0 manager-role migration.
+constexpr int kSchemaVersion = 1;
 
 // Every list query has to name the page it wants. Whatever comes out of one goes into a single
 // reply, and a reply the channel cannot carry is not sent at all but ends the session, so the size
@@ -81,8 +81,6 @@ RouterUser readUser(const SqlQuery& query)
     user.verifier    = query.columnBlob(4);
     user.sessions    = static_cast<quint32>(query.columnInt64(5));
     user.flags       = static_cast<quint32>(query.columnInt64(6));
-    user.otp_secret  = query.columnBlob(7);
-    user.otp_counter = query.columnUInt64(8);
     return user;
 }
 
@@ -110,6 +108,32 @@ bool hasColumn(SqlDatabase& db, std::string_view table, std::string_view column)
 }
 
 //--------------------------------------------------------------------------------------------------
+int schemaVersion(SqlDatabase& db)
+{
+    SqlQuery query(db, "PRAGMA user_version");
+    if (!query.isValid() || query.next() != SqlQuery::StepResult::ROW)
+    {
+        LOG(ERROR) << "Unable to read the schema version:" << db.lastError();
+        return -1;
+    }
+
+    return static_cast<int>(query.columnInt64(0));
+}
+
+//--------------------------------------------------------------------------------------------------
+bool setSchemaVersion(SqlDatabase& db, int version)
+{
+    const std::string sql = "PRAGMA user_version = " + std::to_string(version);
+    if (!db.exec(sql.c_str()))
+    {
+        LOG(ERROR) << "Unable to write the schema version:" << db.lastError();
+        return false;
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
 bool ensureSchema(SqlDatabase& db)
 {
     SqlTransaction transaction(db);
@@ -118,6 +142,14 @@ bool ensureSchema(SqlDatabase& db)
         LOG(ERROR) << "Unable to start transaction:" << db.lastError();
         return false;
     }
+
+    const int version = schemaVersion(db);
+    if (version < 0)
+        return false;
+
+    // Captured before the table is created: a database that already carries it may predate the
+    // removal of the two-factor stage, a fresh one cannot.
+    const bool users_existed = hasColumn(db, "users", "id");
 
     auto run = [&](const char* sql)
     {
@@ -240,35 +272,12 @@ bool ensureSchema(SqlDatabase& db)
         return false;
     }
 
-    // |otp_secret| is the shared secret, stored as generated (empty until self-enrollment
-    // completes; non-empty implies 2FA is active for the user). TOTP requires the verifying
-    // side to hold the secret itself, so the column cannot keep a hash the way
-    // client_device_tokens does.
-    // |otp_counter| is the highest TOTP step already consumed; the server refuses any
-    // subsequent code whose step is less-than-or-equal to it (replay protection, per RFC 6238
-    // section 5.2).
-    static const struct { const char* name; const char* definition; } kUserColumns[] = {
-        { "otp_secret",  "BLOB NOT NULL DEFAULT X''" },
-        { "otp_counter", "INTEGER NOT NULL DEFAULT 0" }
-    };
-
-    // A users table without these columns has the 2.7.0 layout. The manager role did not exist
-    // in 2.7.0, so the administrators of such a table lack the MANAGER bit their level implies.
-    const bool users_from_2_7 = !hasColumn(db, "users", "otp_secret");
-
-    for (const auto& column : kUserColumns)
-    {
-        if (hasColumn(db, "users", column.name))
-            continue;
-
-        const std::string sql = strCat({"ALTER TABLE \"users\" ADD COLUMN \"",
-                                         column.name, "\" ", column.definition});
-        if (!db.exec(sql.c_str()))
-        {
-            LOG(ERROR) << "Unable to add column" << column.name << ":" << db.lastError();
-            return false;
-        }
-    }
+    // A users table that predates the 2.7.0 -> 3.0 upgrade lacks the legacy OTP columns and, with
+    // them, the manager role in the sessions of its administrators. A fresh table needs no
+    // upgrade, and the ones that already went through it carry the schema version below. The OTP
+    // columns themselves are neither added nor used; their absence only identifies that layout.
+    const bool users_from_2_7 =
+        users_existed && version < kSchemaVersion && !hasColumn(db, "users", "otp_secret");
 
     if (users_from_2_7)
     {
@@ -283,30 +292,10 @@ bool ensureSchema(SqlDatabase& db)
         }
     }
 
-    // Bearer "remember this device" tokens issued during client sessions (host and relay
-    // sessions do not use this flow). The raw token never reaches the database - only its SHA-256
-    // hash is stored, so a leak of |router.db3| does not yield usable tokens.
-    // Tokens use a sliding |kClientDeviceTokenTtlSec| TTL: every successful presentation
-    // refreshes |last_used_at|, and rows whose last use predates the TTL are pruned lazily
-    // on the next lookup attempt. Explicit revocation (admin action, password change, user
-    // removal cascade) still wipes rows out-of-band.
-    if (!run("CREATE TABLE IF NOT EXISTS \"client_device_tokens\" ("
-             "\"token_id\" INTEGER PRIMARY KEY AUTOINCREMENT,"
-             "\"token_hash\" BLOB NOT NULL UNIQUE,"
-             "\"user_id\" INTEGER NOT NULL,"
-             "\"created_at\" INTEGER NOT NULL DEFAULT 0,"
-             "\"last_used_at\" INTEGER NOT NULL DEFAULT 0,"
-             "\"address\" TEXT NOT NULL DEFAULT '',"
-             "FOREIGN KEY(\"user_id\") REFERENCES \"users\"(\"id\") ON DELETE CASCADE)"))
-    {
+    // Written even when nothing was migrated, so a fresh database is not mistaken for a legacy one
+    // on the next start.
+    if (version < kSchemaVersion && !setSchemaVersion(db, kSchemaVersion))
         return false;
-    }
-
-    if (!run("CREATE INDEX IF NOT EXISTS \"client_device_tokens_user_id\" "
-             "ON \"client_device_tokens\"(\"user_id\")"))
-    {
-        return false;
-    }
 
     // hosts used to be a thin (id, key) table; the columns below were added later (most moved
     // in from the now-gone computers table). Backfill any column that's missing on upgraded
@@ -480,7 +469,7 @@ std::string_view Database::userList(qint64 offset, qint64 count, std::vector<Rou
     // The page has to name the same records every time it is asked for, so the order is fixed
     // here instead of being left to the query planner.
     const char kSql[] =
-        "SELECT id, name, \"group\", salt, verifier, sessions, flags, otp_secret, otp_counter "
+        "SELECT id, name, \"group\", salt, verifier, sessions, flags "
         "FROM users ORDER BY id LIMIT ? OFFSET ?";
     SqlQuery query(db_, kSql);
     query.addInt64(count);
@@ -647,8 +636,8 @@ std::string_view Database::modifyUser(const RouterUser& user, bool* password_cha
         return proto::router::kErrorInternalError;
     }
 
-    // Read the existing verifier first - a change to salt or verifier means a password rotation,
-    // which must invalidate every device token.
+    // Read the existing verifier first: a change to salt or verifier means a password rotation
+    // and is reported to the caller.
     QByteArray old_salt;
     QByteArray old_verifier;
     quint32 old_sessions = 0;
@@ -750,18 +739,6 @@ std::string_view Database::modifyUser(const RouterUser& user, bool* password_cha
     if (sessions_changed)
         *sessions_changed = sessions != old_sessions;
 
-    if (rotated)
-    {
-        SqlQuery revoke(db_, "DELETE FROM client_device_tokens WHERE user_id=?");
-        revoke.addInt64(user.entry_id);
-
-        if (!revoke.exec())
-        {
-            LOG(ERROR) << "Unable to revoke device tokens:" << db_.lastError();
-            return proto::router::kErrorInternalError;
-        }
-    }
-
     if (!transaction.commit())
     {
         LOG(ERROR) << "Unable to commit transaction:" << db_.lastError();
@@ -849,7 +826,7 @@ std::string_view Database::findUser(const QString& username, RouterUser* user) c
     }
 
     const char kSql[] =
-        "SELECT id, name, \"group\", salt, verifier, sessions, flags, otp_secret, otp_counter "
+        "SELECT id, name, \"group\", salt, verifier, sessions, flags "
         "FROM users WHERE casefold(name)=casefold(?)";
     SqlQuery query(db_, kSql);
     query.addText(username);
@@ -885,7 +862,7 @@ std::string_view Database::findUser(qint64 entry_id, RouterUser* user) const
     }
 
     const char kSql[] =
-        "SELECT id, name, \"group\", salt, verifier, sessions, flags, otp_secret, otp_counter "
+        "SELECT id, name, \"group\", salt, verifier, sessions, flags "
         "FROM users WHERE id=?";
     SqlQuery query(db_, kSql);
     query.addInt64(entry_id);
@@ -902,485 +879,6 @@ std::string_view Database::findUser(qint64 entry_id, RouterUser* user) const
         return proto::router::kErrorNotFound;
 
     *user = readUser(query);
-    return proto::router::kErrorOk;
-}
-
-//--------------------------------------------------------------------------------------------------
-bool Database::setUserOtp(qint64 user_id, const QByteArray& secret, quint64 counter)
-{
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return false;
-    }
-
-    SqlQuery query(db_, "UPDATE users SET otp_secret=?, otp_counter=? WHERE id=? AND otp_secret=X''");
-    query.addBlob(secret);
-    query.addUInt64(counter);
-    query.addInt64(user_id);
-
-    if (!query.exec())
-    {
-        LOG(ERROR) << "Unable to set user OTP:" << db_.lastError();
-        return false;
-    }
-    return db_.changes() > 0;
-}
-
-//--------------------------------------------------------------------------------------------------
-std::string_view Database::resetUserOtp(qint64 user_id)
-{
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return proto::router::kErrorInternalError;
-    }
-
-    if (user_id <= 0)
-    {
-        LOG(ERROR) << "Invalid user id:" << user_id;
-        return proto::router::kErrorInvalidData;
-    }
-
-    SqlTransaction transaction(db_);
-    if (!transaction.begin(SqlTransaction::Mode::IMMEDIATE))
-    {
-        LOG(ERROR) << "Unable to start transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    // COUNT(*) always yields exactly one row, so a failed next() is a database error and not
-    // a missing user.
-    SqlQuery exists(db_, "SELECT COUNT(*) FROM users WHERE id=?");
-    exists.addInt64(user_id);
-
-    if (exists.next() != SqlQuery::StepResult::ROW)
-    {
-        LOG(ERROR) << "Unable to check user existence:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (exists.columnInt64(0) == 0)
-        return proto::router::kErrorNotFound;
-
-    SqlQuery query(db_, "UPDATE users SET otp_secret=X'', otp_counter=0 WHERE id=?");
-    query.addInt64(user_id);
-
-    if (!query.exec())
-    {
-        LOG(ERROR) << "Unable to clear user OTP:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    SqlQuery revoke(db_, "DELETE FROM client_device_tokens WHERE user_id=?");
-    revoke.addInt64(user_id);
-
-    if (!revoke.exec())
-    {
-        LOG(ERROR) << "Unable to revoke client device tokens:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (!transaction.commit())
-    {
-        LOG(ERROR) << "Unable to commit transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    return proto::router::kErrorOk;
-}
-
-//--------------------------------------------------------------------------------------------------
-std::string_view Database::consumeUserOtpCounter(qint64 user_id, quint64 counter)
-{
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return proto::router::kErrorInternalError;
-    }
-
-    SqlQuery query(db_, "UPDATE users SET otp_counter=? WHERE id=? AND otp_counter < ?");
-    query.addUInt64(counter);
-    query.addInt64(user_id);
-    query.addUInt64(counter);
-
-    if (!query.exec())
-    {
-        LOG(ERROR) << "Unable to consume OTP counter:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (db_.changes() == 0)
-        return proto::router::kErrorNotFound;
-
-    return proto::router::kErrorOk;
-}
-
-//--------------------------------------------------------------------------------------------------
-bool Database::issueClientDeviceToken(
-    qint64 user_id, std::string_view address, std::string* token, qint64* token_id)
-{
-    CHECK(token);
-    *token = std::string();
-    if (token_id)
-        *token_id = 0;
-
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return false;
-    }
-
-    // Generate the raw token, hand it back to the caller (it will leave the router to the
-    // client) and persist only its SHA-256 hash. Hashing without a salt is safe here because
-    // the input is uniformly random CSPRNG output - precomputation/rainbow tables make no
-    // sense against 2^256 of entropy.
-    std::string new_token = Random::string(proto::router::kDeviceTokenSize);
-    const QByteArray token_hash = GenericHash::hash(GenericHash::SHA256, new_token);
-    const qint64 now = secondsSinceEpoch();
-
-    // The cleanup and the insert are one operation: a user must never be left over the cap, and
-    // the reply carrying its tokens must never grow past what the channel can send.
-    SqlTransaction transaction(db_);
-    if (!transaction.begin(SqlTransaction::Mode::IMMEDIATE))
-    {
-        LOG(ERROR) << "Unable to start transaction:" << db_.lastError();
-        return false;
-    }
-
-    // A device that is never used again leaves behind a row nobody can ever present. Issuing the
-    // next token of the same user is the one moment its rows are guaranteed to be touched, so the
-    // dead ones go here; without it the table only grows. Only this user is swept: a single login
-    // must not turn into a pass over the whole table.
-    SqlQuery prune(db_, "DELETE FROM client_device_tokens WHERE user_id=? AND last_used_at < ?");
-    prune.addInt64(user_id);
-    prune.addInt64(now - kClientDeviceTokenTtlSec);
-
-    if (!prune.exec())
-    {
-        LOG(ERROR) << "Unable to prune expired client device tokens:" << db_.lastError();
-        return false;
-    }
-
-    // The TTL alone bounds nothing, because a user that logs in from a new device every day keeps
-    // every token of the last week alive. The least recently used ones make room for the new one,
-    // so the list stays within the cap the protocol counts on.
-    const char kTrimSql[] =
-        "DELETE FROM client_device_tokens WHERE user_id=? AND token_id NOT IN "
-        "(SELECT token_id FROM client_device_tokens WHERE user_id=? "
-        "ORDER BY last_used_at DESC, token_id DESC LIMIT ?)";
-    SqlQuery trim(db_, kTrimSql);
-    trim.addInt64(user_id);
-    trim.addInt64(user_id);
-    trim.addInt64(proto::router::kMaxDeviceTokensPerUser - 1);
-
-    if (!trim.exec())
-    {
-        LOG(ERROR) << "Unable to trim client device tokens:" << db_.lastError();
-        return false;
-    }
-
-    const char kSql[] =
-        "INSERT INTO client_device_tokens "
-        "(token_hash, user_id, created_at, last_used_at, address) VALUES (?, ?, ?, ?, ?)";
-    SqlQuery query(db_, kSql);
-    query.addBlob(token_hash);
-    query.addInt64(user_id);
-    query.addInt64(now);
-    query.addInt64(now);
-    query.addText(address);
-
-    if (!query.exec())
-    {
-        LOG(ERROR) << "Unable to issue client device token:" << db_.lastError();
-        return false;
-    }
-
-    const qint64 new_token_id = db_.lastInsertRowId();
-
-    if (!transaction.commit())
-    {
-        LOG(ERROR) << "Unable to commit transaction:" << db_.lastError();
-        return false;
-    }
-
-    if (token_id)
-        *token_id = new_token_id;
-
-    *token = std::move(new_token);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-std::string_view Database::findClientDeviceToken(std::string_view token, qint64* user_id, qint64* token_id)
-{
-    CHECK(user_id);
-    *user_id = 0;
-    if (token_id)
-        *token_id = 0;
-
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return proto::router::kErrorInternalError;
-    }
-
-    if (token.size() != proto::router::kDeviceTokenSize)
-        return proto::router::kErrorNotFound;
-
-    const QByteArray token_hash = GenericHash::hash(GenericHash::SHA256, token);
-
-    SqlTransaction transaction(db_);
-    if (!transaction.begin(SqlTransaction::Mode::IMMEDIATE))
-    {
-        LOG(ERROR) << "Unable to start transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    const char kSql[] =
-        "SELECT user_id, last_used_at, token_id FROM client_device_tokens WHERE token_hash=?";
-    SqlQuery query(db_, kSql);
-    query.addBlob(token_hash);
-
-    const SqlQuery::StepResult step = query.next();
-    if (step == SqlQuery::StepResult::FAILED)
-    {
-        // A failed read must not pass for a missing token, because a missing one makes the
-        // client drop its stored copy.
-        LOG(ERROR) << "Unable to execute query:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (step != SqlQuery::StepResult::ROW)
-        return proto::router::kErrorNotFound;
-
-    const qint64 last_used_at = query.columnInt64(1);
-    const qint64 now = secondsSinceEpoch();
-    if (now - last_used_at > kClientDeviceTokenTtlSec)
-    {
-        // Lazy GC. The row is dropped so the table does not accumulate stale entries, and the
-        // caller sees the same kErrorNotFound an absent token yields.
-        SqlQuery prune(db_, "DELETE FROM client_device_tokens WHERE token_hash=?");
-        prune.addBlob(token_hash);
-        if (!prune.exec())
-            LOG(WARNING) << "Unable to prune expired client device token:" << db_.lastError();
-        else if (!transaction.commit())
-            LOG(WARNING) << "Unable to commit transaction:" << db_.lastError();
-        return proto::router::kErrorNotFound;
-    }
-
-    *user_id = query.columnInt64(0);
-    if (token_id)
-        *token_id = query.columnInt64(2);
-
-    if (!transaction.commit())
-        LOG(WARNING) << "Unable to commit transaction:" << db_.lastError();
-
-    return proto::router::kErrorOk;
-}
-
-//--------------------------------------------------------------------------------------------------
-bool Database::touchClientDeviceToken(std::string_view token, std::string_view address)
-{
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return false;
-    }
-
-    const QByteArray token_hash = GenericHash::hash(GenericHash::SHA256, token);
-
-    const char kSql[] =
-        "UPDATE client_device_tokens SET last_used_at=?, address=? WHERE token_hash=?";
-    SqlQuery query(db_, kSql);
-    query.addInt64(secondsSinceEpoch());
-    query.addText(address);
-    query.addBlob(token_hash);
-
-    if (!query.exec())
-    {
-        LOG(ERROR) << "Unable to touch client device token:" << db_.lastError();
-        return false;
-    }
-    return db_.changes() > 0;
-}
-
-//--------------------------------------------------------------------------------------------------
-std::string_view Database::revokeClientDeviceTokens(qint64 user_id, const std::vector<qint64>& token_ids)
-{
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return proto::router::kErrorInternalError;
-    }
-
-    if (token_ids.empty())
-        return proto::router::kErrorOk;
-
-    SqlTransaction transaction(db_);
-    if (!transaction.begin(SqlTransaction::Mode::IMMEDIATE))
-    {
-        LOG(ERROR) << "Unable to start transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    for (qint64 token_id : token_ids)
-    {
-        SqlQuery query(db_, "DELETE FROM client_device_tokens WHERE token_id=? AND user_id=?");
-        query.addInt64(token_id);
-        query.addInt64(user_id);
-
-        if (!query.exec())
-        {
-            LOG(ERROR) << "Unable to revoke client device token:" << db_.lastError();
-            return proto::router::kErrorInternalError;
-        }
-
-        if (db_.changes() <= 0)
-        {
-            LOG(ERROR) << "Device token not found: user_id=" << user_id << "token_id=" << token_id;
-            return proto::router::kErrorNotFound;
-        }
-    }
-
-    if (!transaction.commit())
-    {
-        LOG(ERROR) << "Unable to commit transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    return proto::router::kErrorOk;
-}
-
-//--------------------------------------------------------------------------------------------------
-std::string_view Database::revokeUserClientDeviceTokens(qint64 user_id)
-{
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return proto::router::kErrorInternalError;
-    }
-
-    if (user_id <= 0)
-    {
-        LOG(ERROR) << "Invalid user id:" << user_id;
-        return proto::router::kErrorInvalidData;
-    }
-
-    SqlTransaction transaction(db_);
-    if (!transaction.begin(SqlTransaction::Mode::IMMEDIATE))
-    {
-        LOG(ERROR) << "Unable to start transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    // COUNT(*) always yields exactly one row, so a failed next() is a database error and not
-    // a missing user.
-    SqlQuery exists(db_, "SELECT COUNT(*) FROM users WHERE id=?");
-    exists.addInt64(user_id);
-
-    if (exists.next() != SqlQuery::StepResult::ROW)
-    {
-        LOG(ERROR) << "Unable to check user existence:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (exists.columnInt64(0) == 0)
-        return proto::router::kErrorNotFound;
-
-    SqlQuery query(db_, "DELETE FROM client_device_tokens WHERE user_id=?");
-    query.addInt64(user_id);
-
-    if (!query.exec())
-    {
-        LOG(ERROR) << "Unable to revoke client device tokens:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (!transaction.commit())
-    {
-        LOG(ERROR) << "Unable to commit transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    return proto::router::kErrorOk;
-}
-
-//--------------------------------------------------------------------------------------------------
-std::string_view Database::listClientDeviceTokens(qint64 user_id, std::vector<DeviceToken>* tokens) const
-{
-    CHECK(tokens);
-
-    tokens->clear();
-
-    if (!isValid())
-    {
-        LOG(ERROR) << "Database is not valid";
-        return proto::router::kErrorInternalError;
-    }
-
-    if (user_id <= 0)
-    {
-        LOG(ERROR) << "Invalid user id:" << user_id;
-        return proto::router::kErrorInvalidData;
-    }
-
-    SqlTransaction transaction(db_);
-    if (!transaction.begin())
-    {
-        LOG(ERROR) << "Unable to start transaction:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    // COUNT(*) always yields exactly one row, so a failed next() is a database error and not
-    // a missing user.
-    SqlQuery exists(db_, "SELECT COUNT(*) FROM users WHERE id=?");
-    exists.addInt64(user_id);
-
-    if (exists.next() != SqlQuery::StepResult::ROW)
-    {
-        LOG(ERROR) << "Unable to check user existence:" << db_.lastError();
-        return proto::router::kErrorInternalError;
-    }
-
-    if (exists.columnInt64(0) == 0)
-        return proto::router::kErrorNotFound;
-
-    // The list answers "which devices can log in as this user without a code", so it must hold
-    // exactly what findClientDeviceToken() would still accept: a token past its lifetime is not a
-    // credential any more, and reporting it would show access that nobody has. The boundary is the
-    // same one the presentation path uses.
-    const char kSql[] =
-        "SELECT token_id, created_at, last_used_at, address "
-        "FROM client_device_tokens WHERE user_id=? AND last_used_at >= ? ORDER BY created_at";
-    SqlQuery query(db_, kSql);
-    query.addInt64(user_id);
-    query.addInt64(secondsSinceEpoch() - kClientDeviceTokenTtlSec);
-
-    for (;;)
-    {
-        const SqlQuery::StepResult step = query.next();
-        if (step == SqlQuery::StepResult::FAILED)
-        {
-            LOG(ERROR) << "Unable to execute query:" << db_.lastError();
-            tokens->clear();
-            return proto::router::kErrorInternalError;
-        }
-
-        if (step == SqlQuery::StepResult::DONE)
-            break;
-
-        DeviceToken token;
-        token.token_id     = query.columnInt64(0);
-        token.created_at   = query.columnInt64(1);
-        token.last_used_at = query.columnInt64(2);
-        token.address      = query.columnTextView(3);
-        tokens->emplace_back(std::move(token));
-    }
-
-    if (!transaction.commit())
-        LOG(WARNING) << "Unable to commit transaction:" << db_.lastError();
-
     return proto::router::kErrorOk;
 }
 

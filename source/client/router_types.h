@@ -49,7 +49,6 @@ enum class RouterStatus
 {
     OFFLINE,
     CONNECTING,
-    TWO_FACTOR,
     ONLINE,
     UNREADABLE
 };

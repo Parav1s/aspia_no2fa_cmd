@@ -436,12 +436,7 @@ Routers added: %4</source>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>与此主机关联的路由器已被删除。请编辑主机以选择其他路由器，或改用直接连接。</translation>
     </message>
-    <message>
-        <location filename="../client/android/main_window.cc" line="555"/>
-        <source>Two-Factor Authentication - %1</source>
-        <translation>双重验证 - %1</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/android/main_window.cc" line="433"/>
         <location filename="../client/android/main_window.cc" line="1011"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
@@ -5991,12 +5986,7 @@ Credentials imported: %5</source>
         <source>The code was not accepted by router %1.</source>
         <translation>路由器 %1 未接受该代码。</translation>
     </message>
-    <message>
-        <location filename="../client/router_controller.cc" line="321"/>
-        <source>Router %1 is waiting for a two-factor code.</source>
-        <translation>路由器 %1 正在等待双重验证代码。</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/router_controller.cc" line="350"/>
         <source>Connection to router %1 established.</source>
         <translation>已建立与路由器 %1 的连接。</translation>
@@ -6622,13 +6612,7 @@ Credentials imported: %5</source>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="42"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="230"/>
-        <source>The router is waiting for a two-factor code.</source>
-        <translation>路由器正在等待双重验证代码。</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
         <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
         <source>Enter Code</source>
@@ -6651,17 +6635,7 @@ Credentials imported: %5</source>
             <numerusform>%n 个事件</numerusform>
         </translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="218"/>
-        <source>Two-factor authentication is blocked after too many failed attempts.</source>
-        <translation>因失败次数过多，双重验证已被阻止。</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="235"/>
-        <source>Two-factor authentication has to be set up for this router.</source>
-        <translation>必须为此路由器设置双重验证。</translation>
-    </message>
-    <message>
+            <message>
         <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
         <source>Set Up</source>
         <translation>设置</translation>
@@ -6742,12 +6716,7 @@ Credentials imported: %5</source>
         <source>Disable User Account</source>
         <translation>禁用用户账号</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="95"/>
-        <source>Reset two-factor authentication</source>
-        <translation>重置双重验证</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
         <source>Sessions</source>
         <translation>会话</translation>
@@ -6777,12 +6746,7 @@ Credentials imported: %5</source>
         <source>Sign out all</source>
         <translation>全部注销</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="339"/>
-        <source>Resetting two-factor authentication will sign this user out of all sessions and force them to enroll again on next login. Continue?</source>
-        <translation>重置双重验证将使此用户从所有会话中注销，并要求其在下次登录时重新设置。要继续吗？</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
         <source>Are you sure you want to sign this user out of this session?</source>
         <translation>确定要将此用户从此会话中注销吗？</translation>
@@ -6807,12 +6771,7 @@ Credentials imported: %5</source>
         <source>The user was deleted from another console.</source>
         <translation>该用户已从另一个控制台删除。</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="337"/>
-        <source>Resetting two-factor authentication will sign you out of all sessions and force you to enroll again on next login. Continue?</source>
-        <translation>重置双重验证将使您从所有会话中注销，并要求您在下次登录时重新设置。要继续吗？</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
         <translation>这是您当前会话的令牌。撤销它将断开您的连接。要继续吗？</translation>
@@ -12410,95 +12369,6 @@ Credentials imported: %5</source>
         <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
         <source>Password</source>
         <translation>密码</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorCodeDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="14"/>
-        <source>Two-Factor Authentication</source>
-        <translation>双重验证</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="50"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>输入身份验证器应用中的 6 位数字代码。</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.cc" line="40"/>
-        <source>The previous code was not accepted.</source>
-        <translation>上一个代码未被接受。</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorDialog</name>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="70"/>
-        <source>Two-Factor Authentication</source>
-        <translation>双重验证</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="64"/>
-        <source>Add the setup key below to an authenticator app, then enter the 6-digit code it shows to confirm.</source>
-        <translation>将下方的设置密钥添加到身份验证器应用中，然后输入其显示的 6 位数字代码以确认。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="66"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>输入身份验证器应用中的 6 位数字代码。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="68"/>
-        <source>The previous code was not accepted.</source>
-        <translation>上一个代码未被接受。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="78"/>
-        <source>Setup Key</source>
-        <translation>设置密钥</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="84"/>
-        <source>Code</source>
-        <translation>代码</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="91"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="92"/>
-        <source>OK</source>
-        <translation>确定</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorEnrollDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="14"/>
-        <source>Enable Two-Factor Authentication</source>
-        <translation>启用双重验证</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="20"/>
-        <source>Open a TOTP authenticator app (Google Authenticator, Microsoft Authenticator or any compatible alternative) and add a new account by scanning the QR code below. If QR scanning is unavailable, type the setup key into the app instead.</source>
-        <translation>打开 TOTP 身份验证器应用（Google Authenticator、Microsoft Authenticator 或任何兼容的替代品），扫描下方二维码添加新帐户。如果无法扫描二维码，请改为在应用中输入设置密钥。</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="43"/>
-        <source>Setup key:</source>
-        <translation>设置密钥：</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="62"/>
-        <source>Enter the 6-digit code shown by the app to confirm:</source>
-        <translation>输入应用显示的 6 位数字代码以确认：</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.cc" line="87"/>
-        <source>The previous code was not accepted.</source>
-        <translation>上一个代码未被接受。</translation>
     </message>
 </context>
 <context>

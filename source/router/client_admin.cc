@@ -54,9 +54,9 @@ void ClientAdmin::onSessionMessage(quint8 channel_id, const QByteArray& buffer)
         return;
     }
 
-    if (!isTwoFactorCompleted())
+    if (!isAuthenticated())
     {
-        CLOG(ERROR) << "Admin message before 2FA completion";
+        CLOG(ERROR) << "Admin message before authentication";
         return;
     }
 
@@ -81,10 +81,6 @@ void ClientAdmin::onSessionMessage(quint8 channel_id, const QByteArray& buffer)
         doUserListRequest(message.user_list_request());
     else if (message.has_user_request())
         doUserRequest(message.user_request());
-    else if (message.has_user_token_list_request())
-        doUserTokenListRequest(message.user_token_list_request());
-    else if (message.has_user_token_request())
-        doUserTokenRequest(message.user_token_request());
     else if (message.has_peer_request())
         doPeerRequest(message.peer_request());
     else if (message.has_workspace_request())
@@ -125,34 +121,6 @@ void ClientAdmin::doUserListRequest(const proto::router::UserListRequest& reques
     handleUserList(database(), request, list);
 
     sendMessage(proto::router::CHANNEL_ID_ADMIN, serialize(message));
-}
-
-//--------------------------------------------------------------------------------------------------
-void ClientAdmin::doUserTokenListRequest(const proto::router::UserTokenListRequest& request)
-{
-    proto::router::RouterToAdmin message;
-    proto::router::UserTokenList* list = message.mutable_user_token_list();
-    list->set_request_id(request.request_id());
-
-    handleUserTokenList(database(), requestCaller(), request, list);
-
-    sendMessage(proto::router::CHANNEL_ID_ADMIN, serialize(message));
-}
-
-//--------------------------------------------------------------------------------------------------
-void ClientAdmin::doUserTokenRequest(const proto::router::UserTokenRequest& request)
-{
-    const RequestResult handled = handleUserTokenRequest(database(), requestCaller(), request);
-
-    proto::router::RouterToAdmin message;
-    proto::router::UserTokenResult* result = message.mutable_user_token_result();
-    result->set_request_id(request.request_id());
-    result->set_command_name(request.command_name());
-    result->set_error_code(handled.error_code);
-
-    sendMessage(proto::router::CHANNEL_ID_ADMIN, serialize(message));
-
-    applyRequestResult(handled);
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -436,12 +436,7 @@ Routers añadidos: %4</translation>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>El router asociado a este host se eliminó. Edite el host para seleccionar otro router o cambie a conexión directa.</translation>
     </message>
-    <message>
-        <location filename="../client/android/main_window.cc" line="555"/>
-        <source>Two-Factor Authentication - %1</source>
-        <translation>Autenticación de dos factores - %1</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/android/main_window.cc" line="433"/>
         <location filename="../client/android/main_window.cc" line="1011"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
@@ -6018,12 +6013,7 @@ Credenciales importadas: %5</translation>
         <source>The code was not accepted by router %1.</source>
         <translation>El router %1 no aceptó el código.</translation>
     </message>
-    <message>
-        <location filename="../client/router_controller.cc" line="321"/>
-        <source>Router %1 is waiting for a two-factor code.</source>
-        <translation>El router %1 está esperando un código de dos factores.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/router_controller.cc" line="350"/>
         <source>Connection to router %1 established.</source>
         <translation>Conexión con el router %1 establecida.</translation>
@@ -6654,13 +6644,7 @@ Credenciales importadas: %5</translation>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="42"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="230"/>
-        <source>The router is waiting for a two-factor code.</source>
-        <translation>El router está esperando un código de dos factores.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
         <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
         <source>Enter Code</source>
@@ -6684,17 +6668,7 @@ Credenciales importadas: %5</translation>
             <numerusform>%n eventos</numerusform>
         </translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="218"/>
-        <source>Two-factor authentication is blocked after too many failed attempts.</source>
-        <translation>La autenticación de dos factores está bloqueada tras demasiados intentos fallidos.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="235"/>
-        <source>Two-factor authentication has to be set up for this router.</source>
-        <translation>La autenticación de dos factores debe configurarse para este router.</translation>
-    </message>
-    <message>
+            <message>
         <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
         <source>Set Up</source>
         <translation>Configurar</translation>
@@ -6775,12 +6749,7 @@ Credenciales importadas: %5</translation>
         <source>Disable User Account</source>
         <translation>Deshabilitar cuenta de usuario</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="95"/>
-        <source>Reset two-factor authentication</source>
-        <translation>Restablecer autenticación de dos factores</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
         <source>Sessions</source>
         <translation>Sesiones</translation>
@@ -6810,12 +6779,7 @@ Credenciales importadas: %5</translation>
         <source>Sign out all</source>
         <translation>Cerrar todas las sesiones</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="339"/>
-        <source>Resetting two-factor authentication will sign this user out of all sessions and force them to enroll again on next login. Continue?</source>
-        <translation>Restablecer la autenticación de dos factores cerrará todas las sesiones de este usuario y le obligará a registrarse de nuevo en el próximo inicio de sesión. ¿Continuar?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
         <source>Are you sure you want to sign this user out of this session?</source>
         <translation>¿Seguro que desea cerrar esta sesión de este usuario?</translation>
@@ -6840,12 +6804,7 @@ Credenciales importadas: %5</translation>
         <source>The user was deleted from another console.</source>
         <translation>El usuario fue eliminado desde otra consola.</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="337"/>
-        <source>Resetting two-factor authentication will sign you out of all sessions and force you to enroll again on next login. Continue?</source>
-        <translation>Restablecer la autenticación de dos factores cerrará todas sus sesiones y le obligará a registrarse de nuevo en el próximo inicio de sesión. ¿Continuar?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
         <translation>Este es el token de su sesión actual. Revocarlo le desconectará. ¿Continuar?</translation>
@@ -12454,95 +12413,6 @@ Credenciales importadas: %5</translation>
         <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
         <source>Password</source>
         <translation>Contraseña</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorCodeDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="14"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Autenticación de dos factores</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="50"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Introduzca el código de 6 dígitos de su aplicación de autenticación.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.cc" line="40"/>
-        <source>The previous code was not accepted.</source>
-        <translation>El código anterior no fue aceptado.</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorDialog</name>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="70"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Autenticación de dos factores</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="64"/>
-        <source>Add the setup key below to an authenticator app, then enter the 6-digit code it shows to confirm.</source>
-        <translation>Añada la clave de configuración siguiente a una aplicación de autenticación y luego introduzca el código de 6 dígitos que muestra para confirmar.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="66"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Introduzca el código de 6 dígitos de su aplicación de autenticación.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="68"/>
-        <source>The previous code was not accepted.</source>
-        <translation>El código anterior no fue aceptado.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="78"/>
-        <source>Setup Key</source>
-        <translation>Clave de configuración</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="84"/>
-        <source>Code</source>
-        <translation>Código</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="91"/>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="92"/>
-        <source>OK</source>
-        <translation>Aceptar</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorEnrollDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="14"/>
-        <source>Enable Two-Factor Authentication</source>
-        <translation>Habilitar autenticación de dos factores</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="20"/>
-        <source>Open a TOTP authenticator app (Google Authenticator, Microsoft Authenticator or any compatible alternative) and add a new account by scanning the QR code below. If QR scanning is unavailable, type the setup key into the app instead.</source>
-        <translation>Abra una aplicación de autenticación TOTP (Google Authenticator, Microsoft Authenticator o cualquier alternativa compatible) y añada una cuenta nueva escaneando el código QR siguiente. Si no puede escanear el código QR, escriba la clave de configuración en la aplicación.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="43"/>
-        <source>Setup key:</source>
-        <translation>Clave de configuración:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="62"/>
-        <source>Enter the 6-digit code shown by the app to confirm:</source>
-        <translation>Introduzca el código de 6 dígitos que muestra la aplicación para confirmar:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.cc" line="87"/>
-        <source>The previous code was not accepted.</source>
-        <translation>El código anterior no fue aceptado.</translation>
     </message>
 </context>
 <context>

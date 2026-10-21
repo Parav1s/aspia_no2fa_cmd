@@ -1208,29 +1208,6 @@ TEST_F(DatabaseTest, ReencryptionKeepsDataReadable)
 }
 
 //--------------------------------------------------------------------------------------------------
-// A change of the master password rewrites every record of a router. The device token rides the
-// rewrite untouched, whether or not the keystore that wrapped it would open it right now.
-TEST_F(DatabaseTest, ReencryptionKeepsTheDeviceToken)
-{
-    const qint64 router_id = addRouter("router");
-
-    std::optional<RouterConfig> stored = findRouter(db_, router_id);
-    ASSERT_TRUE(stored.has_value());
-    stored->setDeviceToken("wrapped-elsewhere");
-    ASSERT_TRUE(db_.modifyRouter(*stored));
-
-    QList<RouterConfig> routers = routerList();
-    DataCryptor::instance().setKey(SecureByteArray(Random::byteArray(32)));
-
-    ASSERT_TRUE(db_.reencryptAll(allLocalHosts(), routers, allRouterHosts(), {},
-                                 "salt", "verifier", 1));
-
-    const std::optional<RouterConfig> reread = findRouter(db_, router_id);
-    ASSERT_TRUE(reread.has_value());
-    EXPECT_EQ(reread->deviceToken(), QByteArray("wrapped-elsewhere"));
-}
-
-//--------------------------------------------------------------------------------------------------
 // Without a choice of the user the application is never locked.
 TEST_F(DatabaseTest, LockTimeoutIsOffUntilChosen)
 {
@@ -1545,36 +1522,8 @@ TEST_F(DatabaseTest, RouterCannotBeEditedIntoOneWithoutAPassword)
 }
 
 //--------------------------------------------------------------------------------------------------
-// The device token is a wrap made by the OS keystore, and the record carries it as opaque bytes.
-// Re-wrapped on the way in or out, a wrap the keystore refuses to open right now (a record from
-// another machine, a locked keychain) would be destroyed by the first rewrite of the record.
-TEST_F(DatabaseTest, DeviceTokenRidesTheRecordAsOpaqueBytes)
-{
-    RouterConfig router;
-    router.setDisplayName("router");
-    router.setAddress("router.example.com");
-    router.setUsername("router-user");
-    router.setPassword(SecureString("router-secret"));
-    router.setDeviceToken("wrapped-elsewhere");
-
-    const std::optional<QByteArray> blob = router.encryptedData();
-    ASSERT_TRUE(blob.has_value());
-
-    // The column holds the wrap exactly as the object does.
-    const std::optional<QByteArray> plain = DataCryptor::instance().decrypt(*blob, "routers");
-    ASSERT_TRUE(plain.has_value());
-    proto::storage::RouterBlob data;
-    ASSERT_TRUE(parse(*plain, &data));
-    EXPECT_EQ(data.device_token(), "wrapped-elsewhere");
-
-    RouterConfig reopened;
-    ASSERT_TRUE(reopened.setEncryptedData(*blob));
-    EXPECT_EQ(reopened.deviceToken(), QByteArray("wrapped-elsewhere"));
-}
-
-//--------------------------------------------------------------------------------------------------
 // An update of a missing row succeeds as far as SQL cares. The report of the edit must not: the
-// caller persisting a fresh device token has to learn the record is gone.
+// caller has to learn the record is gone.
 TEST_F(DatabaseTest, RouterThatIsGoneCannotBeModified)
 {
     RouterConfig edited;

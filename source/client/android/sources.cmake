@@ -76,6 +76,4 @@ collect_sources(SOURCE_CLIENT_ANDROID
     settings_widget.cc
     settings_widget.h
     statistics_dialog.cc
-    statistics_dialog.h
-    two_factor_dialog.cc
-    two_factor_dialog.h)
+    statistics_dialog.h)

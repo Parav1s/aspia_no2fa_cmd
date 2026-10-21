@@ -436,12 +436,7 @@ Routers added: %4</source>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Ο δρομολογητής που είναι συσχετισμένος με αυτόν τον κεντρικό υπολογιστή έχει διαγραφεί. Επεξεργαστείτε τον κεντρικό υπολογιστή για να επιλέξετε άλλον δρομολογητή ή μεταβείτε σε απευθείας σύνδεση.</translation>
     </message>
-    <message>
-        <location filename="../client/android/main_window.cc" line="555"/>
-        <source>Two-Factor Authentication - %1</source>
-        <translation>Έλεγχος ταυτότητας δύο παραγόντων - %1</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/android/main_window.cc" line="433"/>
         <location filename="../client/android/main_window.cc" line="1011"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
@@ -6018,12 +6013,7 @@ Credentials imported: %5</source>
         <source>The code was not accepted by router %1.</source>
         <translation>Ο κωδικός δεν έγινε δεκτός από τον δρομολογητή %1.</translation>
     </message>
-    <message>
-        <location filename="../client/router_controller.cc" line="321"/>
-        <source>Router %1 is waiting for a two-factor code.</source>
-        <translation>Ο δρομολογητής %1 αναμένει κωδικό δύο παραγόντων.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/router_controller.cc" line="350"/>
         <source>Connection to router %1 established.</source>
         <translation>Η σύνδεση με τον δρομολογητή %1 πραγματοποιήθηκε.</translation>
@@ -6654,13 +6644,7 @@ Credentials imported: %5</source>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="42"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="230"/>
-        <source>The router is waiting for a two-factor code.</source>
-        <translation>Ο δρομολογητής αναμένει κωδικό δύο παραγόντων.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
         <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
         <source>Enter Code</source>
@@ -6684,17 +6668,7 @@ Credentials imported: %5</source>
             <numerusform>%n συμβάντα</numerusform>
         </translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="218"/>
-        <source>Two-factor authentication is blocked after too many failed attempts.</source>
-        <translation>Ο έλεγχος ταυτότητας δύο παραγόντων αποκλείστηκε μετά από πάρα πολλές αποτυχημένες προσπάθειες.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="235"/>
-        <source>Two-factor authentication has to be set up for this router.</source>
-        <translation>Ο έλεγχος ταυτότητας δύο παραγόντων πρέπει να ρυθμιστεί για αυτόν τον δρομολογητή.</translation>
-    </message>
-    <message>
+            <message>
         <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
         <source>Set Up</source>
         <translation>Ρύθμιση</translation>
@@ -6775,12 +6749,7 @@ Credentials imported: %5</source>
         <source>Disable User Account</source>
         <translation>Απενεργοποίηση λογαριασμού χρήστη</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="95"/>
-        <source>Reset two-factor authentication</source>
-        <translation>Επαναφορά ελέγχου ταυτότητας δύο παραγόντων</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
         <source>Sessions</source>
         <translation>Περίοδοι λειτουργίας</translation>
@@ -6810,12 +6779,7 @@ Credentials imported: %5</source>
         <source>Sign out all</source>
         <translation>Αποσύνδεση όλων</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="339"/>
-        <source>Resetting two-factor authentication will sign this user out of all sessions and force them to enroll again on next login. Continue?</source>
-        <translation>Η επαναφορά του ελέγχου ταυτότητας δύο παραγόντων θα αποσυνδέσει αυτόν τον χρήστη από όλες τις περιόδους λειτουργίας και θα τον υποχρεώσει να εγγραφεί ξανά στην επόμενη είσοδο. Συνέχεια;</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
         <source>Are you sure you want to sign this user out of this session?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε αυτόν τον χρήστη από αυτήν την περίοδο λειτουργίας;</translation>
@@ -6840,12 +6804,7 @@ Credentials imported: %5</source>
         <source>The user was deleted from another console.</source>
         <translation>Ο χρήστης διαγράφηκε από άλλη κονσόλα.</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="337"/>
-        <source>Resetting two-factor authentication will sign you out of all sessions and force you to enroll again on next login. Continue?</source>
-        <translation>Η επαναφορά του ελέγχου ταυτότητας δύο παραγόντων θα σας αποσυνδέσει από όλες τις περιόδους λειτουργίας και θα σας υποχρεώσει να εγγραφείτε ξανά στην επόμενη είσοδο. Συνέχεια;</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
         <translation>Αυτό είναι το διακριτικό της τρέχουσας περιόδου λειτουργίας σας. Η ανάκλησή του θα σας αποσυνδέσει. Συνέχεια;</translation>
@@ -12454,95 +12413,6 @@ Credentials imported: %5</source>
         <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
         <source>Password</source>
         <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorCodeDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="14"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Έλεγχος ταυτότητας δύο παραγόντων</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="50"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Εισαγάγετε τον 6ψήφιο κωδικό από την εφαρμογή ελέγχου ταυτότητας.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.cc" line="40"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Ο προηγούμενος κωδικός δεν έγινε δεκτός.</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorDialog</name>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="70"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Έλεγχος ταυτότητας δύο παραγόντων</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="64"/>
-        <source>Add the setup key below to an authenticator app, then enter the 6-digit code it shows to confirm.</source>
-        <translation>Προσθέστε το παρακάτω κλειδί ρύθμισης σε μια εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό που εμφανίζει για επιβεβαίωση.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="66"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Εισαγάγετε τον 6ψήφιο κωδικό από την εφαρμογή ελέγχου ταυτότητας.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="68"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Ο προηγούμενος κωδικός δεν έγινε δεκτός.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="78"/>
-        <source>Setup Key</source>
-        <translation>Κλειδί ρύθμισης</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="84"/>
-        <source>Code</source>
-        <translation>Κωδικός</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="91"/>
-        <source>Cancel</source>
-        <translation>Ακύρωση</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="92"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorEnrollDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="14"/>
-        <source>Enable Two-Factor Authentication</source>
-        <translation>Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="20"/>
-        <source>Open a TOTP authenticator app (Google Authenticator, Microsoft Authenticator or any compatible alternative) and add a new account by scanning the QR code below. If QR scanning is unavailable, type the setup key into the app instead.</source>
-        <translation>Ανοίξτε μια εφαρμογή ελέγχου ταυτότητας TOTP (Google Authenticator, Microsoft Authenticator ή οποιαδήποτε συμβατή εναλλακτική) και προσθέστε έναν νέο λογαριασμό σαρώνοντας τον παρακάτω κωδικό QR. Εάν η σάρωση QR δεν είναι διαθέσιμη, πληκτρολογήστε το κλειδί ρύθμισης στην εφαρμογή.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="43"/>
-        <source>Setup key:</source>
-        <translation>Κλειδί ρύθμισης:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="62"/>
-        <source>Enter the 6-digit code shown by the app to confirm:</source>
-        <translation>Εισαγάγετε τον 6ψήφιο κωδικό που εμφανίζει η εφαρμογή για επιβεβαίωση:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.cc" line="87"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Ο προηγούμενος κωδικός δεν έγινε δεκτός.</translation>
     </message>
 </context>
 <context>

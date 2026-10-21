@@ -436,12 +436,7 @@ Toegevoegde routers: %4</translation>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>De router die aan deze host is gekoppeld, is verwijderd. Bewerk de host om een andere router te selecteren of schakel over op een directe verbinding.</translation>
     </message>
-    <message>
-        <location filename="../client/android/main_window.cc" line="555"/>
-        <source>Two-Factor Authentication - %1</source>
-        <translation>Tweefactorauthenticatie - %1</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/android/main_window.cc" line="433"/>
         <location filename="../client/android/main_window.cc" line="1011"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
@@ -6018,12 +6013,7 @@ Aanmeldgegevens geïmporteerd: %5</translation>
         <source>The code was not accepted by router %1.</source>
         <translation>De code is niet geaccepteerd door router %1.</translation>
     </message>
-    <message>
-        <location filename="../client/router_controller.cc" line="321"/>
-        <source>Router %1 is waiting for a two-factor code.</source>
-        <translation>Router %1 wacht op een tweefactorcode.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/router_controller.cc" line="350"/>
         <source>Connection to router %1 established.</source>
         <translation>Verbinding met router %1 tot stand gebracht.</translation>
@@ -6654,13 +6644,7 @@ Aanmeldgegevens geïmporteerd: %5</translation>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="42"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="230"/>
-        <source>The router is waiting for a two-factor code.</source>
-        <translation>De router wacht op een tweefactorcode.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
         <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
         <source>Enter Code</source>
@@ -6684,17 +6668,7 @@ Aanmeldgegevens geïmporteerd: %5</translation>
             <numerusform>%n gebeurtenissen</numerusform>
         </translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="218"/>
-        <source>Two-factor authentication is blocked after too many failed attempts.</source>
-        <translation>Tweefactorauthenticatie is geblokkeerd na te veel mislukte pogingen.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="235"/>
-        <source>Two-factor authentication has to be set up for this router.</source>
-        <translation>Voor deze router moet tweefactorauthenticatie worden ingesteld.</translation>
-    </message>
-    <message>
+            <message>
         <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
         <source>Set Up</source>
         <translation>Instellen</translation>
@@ -6775,12 +6749,7 @@ Aanmeldgegevens geïmporteerd: %5</translation>
         <source>Disable User Account</source>
         <translation>Gebruikers account uitschakelen</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="95"/>
-        <source>Reset two-factor authentication</source>
-        <translation>Tweefactorauthenticatie resetten</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
         <source>Sessions</source>
         <translation>Sessies</translation>
@@ -6810,12 +6779,7 @@ Aanmeldgegevens geïmporteerd: %5</translation>
         <source>Sign out all</source>
         <translation>Alles afmelden</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="339"/>
-        <source>Resetting two-factor authentication will sign this user out of all sessions and force them to enroll again on next login. Continue?</source>
-        <translation>Als u de tweefactorauthenticatie reset, wordt deze gebruiker bij alle sessies afgemeld en moet deze zich bij de volgende aanmelding opnieuw registreren. Doorgaan?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
         <source>Are you sure you want to sign this user out of this session?</source>
         <translation>Weet u zeker dat u deze gebruiker bij deze sessie wilt afmelden?</translation>
@@ -6840,12 +6804,7 @@ Aanmeldgegevens geïmporteerd: %5</translation>
         <source>The user was deleted from another console.</source>
         <translation>De gebruiker is vanuit een andere console verwijderd.</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="337"/>
-        <source>Resetting two-factor authentication will sign you out of all sessions and force you to enroll again on next login. Continue?</source>
-        <translation>Als u de tweefactorauthenticatie reset, wordt u bij alle sessies afgemeld en moet u zich bij de volgende aanmelding opnieuw registreren. Doorgaan?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
         <translation>Dit is het token van uw huidige sessie. Als u het intrekt, wordt uw verbinding verbroken. Doorgaan?</translation>
@@ -12454,95 +12413,6 @@ Aanmeldgegevens geïmporteerd: %5</translation>
         <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorCodeDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="14"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Tweefactorauthenticatie</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="50"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Voer de 6-cijferige code uit uw authenticator-app in.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.cc" line="40"/>
-        <source>The previous code was not accepted.</source>
-        <translation>De vorige code is niet geaccepteerd.</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorDialog</name>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="70"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Tweefactorauthenticatie</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="64"/>
-        <source>Add the setup key below to an authenticator app, then enter the 6-digit code it shows to confirm.</source>
-        <translation>Voeg de onderstaande instelsleutel toe aan een authenticator-app en voer daarna ter bevestiging de 6-cijferige code in die de app toont.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="66"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Voer de 6-cijferige code uit uw authenticator-app in.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="68"/>
-        <source>The previous code was not accepted.</source>
-        <translation>De vorige code is niet geaccepteerd.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="78"/>
-        <source>Setup Key</source>
-        <translation>Instelsleutel</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="84"/>
-        <source>Code</source>
-        <translation>Code</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="91"/>
-        <source>Cancel</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="92"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorEnrollDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="14"/>
-        <source>Enable Two-Factor Authentication</source>
-        <translation>Tweefactorauthenticatie inschakelen</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="20"/>
-        <source>Open a TOTP authenticator app (Google Authenticator, Microsoft Authenticator or any compatible alternative) and add a new account by scanning the QR code below. If QR scanning is unavailable, type the setup key into the app instead.</source>
-        <translation>Open een TOTP-authenticator-app (Google Authenticator, Microsoft Authenticator of een compatibel alternatief) en voeg een nieuw account toe door de onderstaande QR-code te scannen. Als het scannen van QR-codes niet beschikbaar is, typt u in plaats daarvan de instelsleutel in de app.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="43"/>
-        <source>Setup key:</source>
-        <translation>Instelsleutel:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="62"/>
-        <source>Enter the 6-digit code shown by the app to confirm:</source>
-        <translation>Voer ter bevestiging de 6-cijferige code in die de app toont:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.cc" line="87"/>
-        <source>The previous code was not accepted.</source>
-        <translation>De vorige code is niet geaccepteerd.</translation>
     </message>
 </context>
 <context>

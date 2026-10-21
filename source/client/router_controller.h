@@ -20,17 +20,19 @@
 #define CLIENT_ROUTER_CONTROLLER_H
 
 #include <QObject>
+#include <QVersionNumber>
 
 #include <unordered_map>
 
+#include "base/scoped_qpointer.h"
 #include "base/shared_pointer.h"
-#include "client/router_2fa.h"
+#include "base/net/tcp_channel.h"
 #include "client/router_session.h"
 
-// The single owner of the router records at runtime. It runs their logins (Router2FA),
-// births the working sessions (RouterSession) from the completed ones and destroys them with their
-// connections. The signals of the short-lived sessions are relayed under its own stable ones,
-// and the connection journal is written here for both platforms.
+// The single owner of the router records at runtime. It runs their logins, births the working
+// sessions (RouterSession) from the completed ones and destroys them with their connections. The
+// signals of the short-lived sessions are relayed under its own stable ones, and the connection
+// journal is written here for both platforms.
 class RouterController final : public QObject
 {
     Q_OBJECT
@@ -47,10 +49,6 @@ public:
     // with the connection, so it is looked up at use and never kept.
     static RouterSession* session(qint64 router_id);
 
-    // The two-factor question of the record, nullptr while nothing is asked. Answered and
-    // dismissed through the object itself; who shows it and when is the business of the GUI.
-    static TwoFactorPrompt* twoFactorPrompt(qint64 router_id);
-
     // Syncs the logins and the sessions with the stored router records. A new record with
     // usable credentials starts logging in, a record that stays receives its fresh config, and
     // everything a record that is gone was running is destroyed.
@@ -65,7 +63,6 @@ public:
 signals:
     void sig_statusChanged(qint64 router_id, RouterStatus status);
     void sig_event(qint64 router_id, const RouterEvent& event);
-    void sig_twoFactorRequired(qint64 router_id);
     void sig_tempHostsChanged(qint64 router_id);
     void sig_hostsChanged(qint64 router_id);
     void sig_relaysChanged(qint64 router_id);
@@ -75,8 +72,6 @@ signals:
     void sig_groupsChanged(qint64 router_id);
 
 private slots:
-    void onTwoFactorRequired(qint64 router_id);
-    void onTwoFactorFinished(qint64 router_id, qint64 user_id, const QVersionNumber& peer_version);
     void onRouterAuthenticated(qint64 router_id, const QVersionNumber& peer_version);
     void onRouterReconnecting(qint64 router_id);
     void onRouterError(qint64 router_id, TcpChannel::ErrorCode error_code);
@@ -86,13 +81,15 @@ private:
     struct RouterContext
     {
         SharedPointer<RouterConfig> config;
-        ScopedQPointer<Router2FA> two_factor;
         ScopedQPointer<RouterSession> session;
+        QVersionNumber peer_version;
+        bool logging_in = false;
         RouterStatus last_status = RouterStatus::OFFLINE;
         QList<RouterEvent> events;
     };
 
-    void startTwoFactor(qint64 router_id);
+    void startLogin(qint64 router_id);
+    void finishLogin(qint64 router_id, qint64 user_id);
     void updateStatus(qint64 router_id);
 
     std::unordered_map<qint64, RouterContext> contexts_;

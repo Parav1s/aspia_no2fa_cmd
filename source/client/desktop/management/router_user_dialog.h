@@ -35,8 +35,6 @@ class RouterUserDialog;
 namespace proto::router {
 class UserList;
 class UserResult;
-class UserTokenList;
-class UserTokenResult;
 enum SessionType : int;
 } // namespace proto::router
 
@@ -55,49 +53,26 @@ protected:
 
 private slots:
     void onUserListReceived(const proto::router::UserList& list);
-    void onTokenListReceived(const proto::router::UserTokenList& list);
     void onUserResultReceived(const proto::router::UserResult& result);
-    void onResetOtpClicked();
-    void onResetOtpResultReceived(const proto::router::UserResult& result);
-    void onRevokeTokenClicked();
-    void onRevokeAllTokensClicked();
-    void onRevokeResultReceived(const proto::router::UserTokenResult& result);
-    void onTokenSelectionChanged();
     void onButtonBoxClicked(QAbstractButton* button);
 
 private:
-    struct Token
-    {
-        qint64 token_id     = 0;
-        qint64 created_at   = 0;
-        qint64 last_used_at = 0;
-        QString address;
-    };
-
     void fetchUser();
     void submitWithNameCheck(const RouterUser& request, const QString& username);
     void submitUser(const RouterUser& request);
     void setAccountChanged(bool changed);
     void updateLoadingState();
-    void updateTokenTree();
     void setAccessLevel(proto::router::SessionType session_type);
     static QString sessionTypeToString(proto::router::SessionType session_type);
-    static QString formatTimestamp(qint64 unix_seconds);
 
     std::unique_ptr<Ui::RouterUserDialog> ui;
     qint64 router_id_ = 0;
     qint64 entry_id_ = 0;
     UserEditModel model_;
-    QList<Token> tokens_;
-    qint64 current_token_id_ = 0;
-    bool tokens_loaded_ = false;
 
     // Guards against stacked error boxes and double reject: several replies can arrive with an
     // error while the first modal warning is still open.
     bool closing_ = false;
-    // Token ids of an in-flight revoke request. Empty when no revoke is pending; on success the
-    // listed ids are dropped from |tokens_| locally.
-    QList<qint64> pending_revoke_token_ids_;
 
     friend class RouterUserDialogTestPeer;
     Q_DISABLE_COPY_MOVE(RouterUserDialog)

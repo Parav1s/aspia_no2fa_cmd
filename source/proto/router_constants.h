@@ -31,26 +31,6 @@ namespace proto::router {
 [[maybe_unused]] constexpr int kMaxTempHostPageSize = 100;
 [[maybe_unused]] constexpr int kMaxUserPageSize = 100;
 
-// Device tokens one user holds at a time. Issuing a token over the cap drops the least recently
-// used ones, so a client that never comes back cannot grow the list without bound.
-[[maybe_unused]] constexpr int kMaxDeviceTokensPerUser = 50;
-
-// Size of a device token, in bytes. The router issues exactly this many and refuses any other
-// size on presentation, so the client stores nothing else either.
-[[maybe_unused]] constexpr int kDeviceTokenSize = 32;
-
-// Bound on the blocked_seconds of a TwoFactorChallenge. The router sends the remaining part of
-// a block that lasts minutes; the client clamps what it reads to [0, this], so a hostile peer
-// cannot overflow the arithmetic on the value or park a record behind a forever block.
-[[maybe_unused]] constexpr int64_t kMaxTwoFactorBlockSeconds = 24 * 60 * 60;
-
-// Bound on the otpauth:// URI of an enrollment challenge, in UTF-8 bytes. The client is the side
-// that checks it: it renders the URI into a QR code, and the encoder refuses a payload that does
-// not fit its largest symbol, leaving the enrollment without an image to scan. What the router
-// builds stays far below - the issuer, a user name bounded by User::kMaxUserNameLength and a
-// Base32 secret come to some 700 bytes even when every character of the name is percent-encoded.
-[[maybe_unused]] constexpr size_t kMaxOtpauthUriLength = 1024;
-
 // Bounds on the manager-editable fields of a host, a group and a workspace, in UTF-8 bytes.
 // Checked on both sides. An unbounded record grows the list reply that carries it past the message
 // limit, and such a reply ends the session instead of being sent, on every reconnect.
@@ -78,10 +58,6 @@ extern const char* const kCommandClientDisconnect;
 extern const char* const kCommandUserAdd;
 extern const char* const kCommandUserModify;
 extern const char* const kCommandUserDelete;
-extern const char* const kCommandUserResetOtp;
-
-// Command names for UserTokenRequest.
-extern const char* const kCommandUserTokenRevoke;
 
 // Command names for WorkspaceRequest.
 extern const char* const kCommandWorkspaceAdd;

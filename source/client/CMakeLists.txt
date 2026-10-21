@@ -51,8 +51,6 @@ list(APPEND SOURCE_CLIENT_CORE
     host_url.h
     master_password.cc
     master_password.h
-    router_2fa.cc
-    router_2fa.h
     router_cache.cc
     router_cache.h
     router_controller.cc
@@ -101,7 +99,6 @@ list(APPEND SOURCE_CLIENT_TESTS
     desktop/management/search_result_model_unittest.cc
     desktop/management/temp_host_list_model_unittest.cc
     desktop/management/user_list_model_unittest.cc
-    router_2fa_unittest.cc
     router_cache_unittest.cc
     router_controller_unittest.cc
     router_rpc_unittest.cc

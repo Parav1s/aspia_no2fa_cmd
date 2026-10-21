@@ -24,7 +24,6 @@
 #include "client/router_types.h"
 #include "common/android/expandable_panel.h"
 
-class Button;
 class Label;
 class QLabel;
 class QVBoxLayout;
@@ -42,7 +41,6 @@ public:
     qint64 routerId() const { return router_id_; }
 
     void setStatus(RouterStatus status);
-    void updateTwoFactorButton();
 
     void setEvents(const QList<RouterEvent>& events);
     void appendEvent(const RouterEvent& event);
@@ -50,7 +48,6 @@ public:
 signals:
     void sig_expandRequested(qint64 router_id);
     void sig_editRequested(qint64 router_id);
-    void sig_twoFactorClicked(qint64 router_id);
 
 private:
     void clearEvents();
@@ -58,7 +55,6 @@ private:
     qint64 router_id_;
     QLabel* label_status_icon_ = nullptr;
     Label* label_name_ = nullptr;
-    Button* button_two_factor_ = nullptr;
     QVBoxLayout* events_layout_ = nullptr;
 
     Q_DISABLE_COPY_MOVE(RouterCard)

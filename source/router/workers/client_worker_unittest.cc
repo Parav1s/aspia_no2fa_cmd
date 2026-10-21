@@ -15,8 +15,6 @@
 
 #include "router/workers/client_worker.h"
 
-#include <QDateTime>
-
 #include <gtest/gtest.h>
 
 #include <algorithm>
@@ -24,13 +22,11 @@
 
 #include "base/serialization.h"
 #include "base/version_constants.h"
-#include "base/crypto/totp.h"
 #include "router/client_admin.h"
 #include "router/client_operator.h"
 #include "router/fake_tcp_channel.h"
 #include "router/router_test_base.h"
 #include "router/router_test_worker.h"
-#include "router/handlers/two_factor_handler.h"
 
 namespace {
 
@@ -44,9 +40,8 @@ constexpr qint64 kAllSessions = -1;
 
 //--------------------------------------------------------------------------------------------------
 // "Disconnect everybody" must leave the console that asked for it alone: the administrator would
-// otherwise drop its own connection and have to pass the two-factor stage again to see the result
-// of its own command. Every other command of the admin channel that acts on sessions follows the
-// same rule.
+// otherwise drop its own connection and have to sign in again to see the result of its own
+// command. Every other command of the admin channel that acts on sessions follows the same rule.
 TEST(ClientWorkerTest, DisconnectAllSpareTheRequestingSession)
 {
     const std::vector<qint64> targets =
@@ -99,9 +94,9 @@ class ClientWorkerTestPeer
 public:
     static std::vector<ClientOperator*>& clients(ClientWorker& worker) { return worker.clients_; }
 
-    static void stopClients(ClientWorker& worker, qint64 user_id, const std::vector<qint64>& token_ids)
+    static void stopClients(ClientWorker& worker, qint64 user_id)
     {
-        worker.onStopClients(user_id, token_ids);
+        worker.onStopClients(user_id);
     }
 
     static void fireTimer(ClientWorker& worker, TimePoint now) { worker.onTimer(now); }
@@ -125,19 +120,16 @@ public:
     }
 };
 
-// The stop command against live sessions: which of them the pair (user, token list) takes down.
-// The sessions are the real ClientOperator over the fake channel, created and stopped in the
-// worker thread the way the router does it. The worker object itself is never started: the
-// command is a plain call, and the thread the sessions need is the test worker's.
+// The stop command against live sessions. The sessions are the real ClientOperator over the fake
+// channel, created and stopped in the worker thread the way the router does it. The worker object
+// itself is never started: the command is a plain call, and the thread the sessions need is the
+// test worker's.
 class ClientWorkerStopTest : public RouterTestBase
 {
 protected:
     void SetUp() override
     {
         RouterTestBase::SetUp();
-
-        secret_ = Totp::generateSecret();
-        ASSERT_TRUE(db_.setUserOtp(admin_.entry_id, secret_, 0));
 
         std::unique_ptr<RouterTestWorker> worker = std::make_unique<RouterTestWorker>(file_path_);
         worker_ = worker.get();
@@ -146,12 +138,11 @@ protected:
         workers_.start();
     }
 
-    // A session of |user| held by the worker. Of the wiring onNewConnection sets up, the stand
-    // reproduces the mask update on passing the stage and the removal on sig_finished. A negative
-    // |code_time| leaves the session at the two-factor stage; otherwise the stage is passed with
-    // the code of that step (the secret of the built-in administrator). Runs in the worker thread.
+    // A signed-in session of |user| held by the worker. Of the wiring onNewConnection sets up, the
+    // stand reproduces the mask update on authentication and the removal on sig_finished. Runs in
+    // the worker thread.
     template <typename ClientT = ClientOperator>
-    ClientT* addSession(ClientWorker& worker, const RouterUser& user, qint64 code_time,
+    ClientT* addSession(ClientWorker& worker, const RouterUser& user,
                         FakeTcpChannel** channel_out = nullptr,
                         quint32 session_type = proto::router::SESSION_TYPE_OPERATOR)
     {
@@ -163,20 +154,12 @@ protected:
 
         ClientT* client = new ClientT(worker_->database(), channel, nullptr);
         ClientWorkerTestPeer::clients(worker).push_back(client);
-        QObject::connect(client, &ClientOperator::sig_twoFactorCompleted, client,
+        QObject::connect(client, &ClientOperator::sig_authenticated, client,
                          [&worker]() { ClientWorkerTestPeer::updateClientsMask(worker); });
         ClientWorkerTestPeer::connectFinished(worker, client);
 
         client->start();
-
-        if (code_time >= 0)
-        {
-            proto::router::ClientToRouter message;
-            message.mutable_two_factor_response()->set_totp_code(
-                Totp::code(secret_, code_time).toStdString());
-            channel->receive(proto::router::CHANNEL_ID_CLIENT, serialize(message));
-            EXPECT_TRUE(client->isTwoFactorCompleted());
-        }
+        EXPECT_TRUE(client->isAuthenticated());
 
         return client;
     }
@@ -191,41 +174,11 @@ protected:
     // thread must be gone before the file it works with.
     WorkerManager workers_;
     RouterTestWorker* worker_ = nullptr;
-    QByteArray secret_;
 };
 
 //--------------------------------------------------------------------------------------------------
-// A revocation of specific tokens stops only the sessions opened with them. The one still at the
-// two-factor stage holds no token yet and stays, and so does the session of another token.
-TEST_F(ClientWorkerStopTest, TokenRevocationStopsOnlyTheListedSession)
-{
-    worker_->invoke([&]()
-    {
-        ClientWorker worker;
-
-        const qint64 now = QDateTime::currentSecsSinceEpoch();
-        ClientOperator* revoked = addSession(worker, admin_, now);
-        ClientOperator* kept = addSession(worker, admin_, now + Totp::kDefaultStepSec);
-        ClientOperator* at_stage = addSession(worker, admin_, -1);
-
-        ASSERT_GT(revoked->tokenId(), 0);
-        ASSERT_GT(kept->tokenId(), 0);
-        ASSERT_EQ(at_stage->tokenId(), 0);
-
-        ClientWorkerTestPeer::stopClients(worker, admin_.entry_id, { revoked->tokenId() });
-
-        EXPECT_FALSE(holds(worker, revoked));
-        EXPECT_TRUE(holds(worker, kept));
-        EXPECT_TRUE(holds(worker, at_stage));
-
-        ClientWorkerTestPeer::stop(worker);
-    });
-}
-
-//--------------------------------------------------------------------------------------------------
-// An empty token list means the whole user: every session of theirs goes, the one still at the
-// two-factor stage included, and the sessions of other users stay.
-TEST_F(ClientWorkerStopTest, FullStopTakesEverySessionOfTheUser)
+// A stop of the user takes every session of theirs and leaves the sessions of other users alone.
+TEST_F(ClientWorkerStopTest, UserStopTakesEverySessionOfTheUser)
 {
     const RouterUser bob = addUser("bob", proto::router::SESSION_TYPE_OPERATOR);
     ASSERT_GT(bob.entry_id, 0);
@@ -234,22 +187,18 @@ TEST_F(ClientWorkerStopTest, FullStopTakesEverySessionOfTheUser)
     {
         ClientWorker worker;
 
-        ClientOperator* logged_in = addSession(worker, admin_, QDateTime::currentSecsSinceEpoch());
-        ClientOperator* at_stage = addSession(worker, admin_, -1);
-        ClientOperator* other_user = addSession(worker, bob, -1);
+        ClientOperator* first = addSession(worker, admin_);
+        ClientOperator* second = addSession(worker, admin_);
+        ClientOperator* other_user = addSession(worker, bob);
 
-        ClientWorkerTestPeer::stopClients(worker, admin_.entry_id, {});
+        ClientWorkerTestPeer::stopClients(worker, admin_.entry_id);
 
-        EXPECT_FALSE(holds(worker, logged_in));
-        EXPECT_FALSE(holds(worker, at_stage));
+        EXPECT_FALSE(holds(worker, first));
+        EXPECT_FALSE(holds(worker, second));
         EXPECT_TRUE(holds(worker, other_user));
 
         ClientWorkerTestPeer::stop(worker);
     });
-
-    // The enrollment the session of bob opened lives in a static map and must not leak into the
-    // tests that follow.
-    TwoFactorHandler::forgetUser(bob.entry_id);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -264,22 +213,20 @@ TEST_F(ClientWorkerStopTest, ConnectionsOfOneAccountAreCapped)
     {
         ClientWorker worker;
 
-        addSession(worker, bob, -1);
+        addSession(worker, bob);
 
         for (size_t i = 0; i < ClientWorker::kMaxClientsPerUser - 1; ++i)
-            addSession(worker, admin_, -1);
+            addSession(worker, admin_);
 
         EXPECT_FALSE(ClientWorkerTestPeer::isUserLimitReached(worker, admin_.entry_id));
 
-        addSession(worker, admin_, -1);
+        addSession(worker, admin_);
 
         EXPECT_TRUE(ClientWorkerTestPeer::isUserLimitReached(worker, admin_.entry_id));
         EXPECT_FALSE(ClientWorkerTestPeer::isUserLimitReached(worker, bob.entry_id));
 
         ClientWorkerTestPeer::stop(worker);
     });
-
-    TwoFactorHandler::forgetUser(bob.entry_id);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -291,10 +238,9 @@ TEST_F(ClientWorkerStopTest, SocketDeathDropsOnlyTheDeadSession)
     {
         ClientWorker worker;
 
-        const qint64 now = QDateTime::currentSecsSinceEpoch();
         FakeTcpChannel* channel = nullptr;
-        ClientOperator* dying = addSession(worker, admin_, now, &channel);
-        ClientOperator* kept = addSession(worker, admin_, now + Totp::kDefaultStepSec);
+        ClientOperator* dying = addSession(worker, admin_, &channel);
+        ClientOperator* kept = addSession(worker, admin_);
 
         channel->fail(TcpChannel::ErrorCode::REMOTE_HOST_CLOSED);
 
@@ -306,58 +252,27 @@ TEST_F(ClientWorkerStopTest, SocketDeathDropsOnlyTheDeadSession)
 }
 
 //--------------------------------------------------------------------------------------------------
-// The stage does not wait forever: the timer drops a session that sits at the second factor past
-// the timeout and leaves the ones that passed it alone.
-TEST_F(ClientWorkerStopTest, StageTimeoutDropsOnlyTheStuckSession)
+// The periodic notifications are data of a signed-in session: the dirty host list reaches the
+// clients that are connected.
+TEST_F(ClientWorkerStopTest, HostNotificationReachesTheSession)
 {
     worker_->invoke([&]()
     {
         ClientWorker worker;
 
-        ClientOperator* ready = addSession(worker, admin_, QDateTime::currentSecsSinceEpoch());
-        ClientOperator* stuck = addSession(worker, admin_, -1);
+        FakeTcpChannel* channel = nullptr;
+        addSession(worker, admin_, &channel);
 
-        // Not enough time has passed: both stay.
-        ClientWorkerTestPeer::fireTimer(worker, Clock::now());
-        EXPECT_TRUE(holds(worker, ready));
-        EXPECT_TRUE(holds(worker, stuck));
-
-        // Past the two-minute stage timeout the stuck one goes.
-        ClientWorkerTestPeer::fireTimer(worker, Clock::now() + Minutes(3));
-        EXPECT_TRUE(holds(worker, ready));
-        EXPECT_FALSE(holds(worker, stuck));
-
-        ClientWorkerTestPeer::stop(worker);
-    });
-}
-
-//--------------------------------------------------------------------------------------------------
-// The periodic notifications are data of the session, so they wait for the second factor the same
-// way the requests do.
-TEST_F(ClientWorkerStopTest, NotificationsWaitForTheSecondFactor)
-{
-    worker_->invoke([&]()
-    {
-        ClientWorker worker;
-
-        FakeTcpChannel* ready_channel = nullptr;
-        FakeTcpChannel* stuck_channel = nullptr;
-        addSession(worker, admin_, QDateTime::currentSecsSinceEpoch(), &ready_channel);
-        addSession(worker, admin_, -1, &stuck_channel);
-
-        ready_channel->clearSent();
-        stuck_channel->clearSent();
+        channel->clearSent();
 
         ClientWorkerTestPeer::notifyChanged(worker, ClientWorker::NOTIFY_HOSTS);
         ClientWorkerTestPeer::fireTimer(worker, Clock::now());
 
-        ASSERT_EQ(ready_channel->sent().size(), 1);
+        ASSERT_EQ(channel->sent().size(), 1);
         proto::router::RouterToClient message;
-        ASSERT_TRUE(parse(ready_channel->sent().at(0).buffer, &message));
+        ASSERT_TRUE(parse(channel->sent().at(0).buffer, &message));
         ASSERT_TRUE(message.has_notification());
         EXPECT_TRUE(message.notification().hosts_dirty());
-
-        EXPECT_TRUE(stuck_channel->nothingSent());
 
         ClientWorkerTestPeer::stop(worker);
     });
@@ -372,12 +287,11 @@ TEST_F(ClientWorkerStopTest, UsersDirtyReachesTheAdminSessions)
     {
         ClientWorker worker;
 
-        const qint64 now = QDateTime::currentSecsSinceEpoch();
         FakeTcpChannel* admin_channel = nullptr;
         FakeTcpChannel* operator_channel = nullptr;
-        addSession<ClientAdmin>(worker, admin_, now, &admin_channel,
+        addSession<ClientAdmin>(worker, admin_, &admin_channel,
                                 proto::router::SESSION_TYPE_ADMIN);
-        addSession(worker, admin_, now + Totp::kDefaultStepSec, &operator_channel);
+        addSession(worker, admin_, &operator_channel);
 
         admin_channel->clearSent();
         operator_channel->clearSent();
@@ -398,28 +312,19 @@ TEST_F(ClientWorkerStopTest, UsersDirtyReachesTheAdminSessions)
 }
 
 //--------------------------------------------------------------------------------------------------
-// The kinds mask feeds the relay statistics polling, so it counts only the sessions that passed
-// the second factor. A peer that holds the password alone must not switch that work on, and the
-// mask catches up once the stage is passed.
-TEST_F(ClientWorkerStopTest, ClientsMaskWaitsForTheSecondFactor)
+// The kinds mask feeds the relay statistics polling, so it counts the sessions that are signed in,
+// by type.
+TEST_F(ClientWorkerStopTest, ClientsMaskFollowsTheSessionTypes)
 {
     worker_->invoke([&]()
     {
         ClientWorker worker;
 
-        FakeTcpChannel* channel = nullptr;
-        ClientOperator* client = addSession(worker, admin_, -1, &channel);
-        ClientWorkerTestPeer::updateClientsMask(worker);
-        EXPECT_EQ(ClientWorkerTestPeer::clientsMask(worker), 0u);
+        addSession<ClientAdmin>(worker, admin_, nullptr, proto::router::SESSION_TYPE_ADMIN);
+        addSession(worker, admin_);
 
-        proto::router::ClientToRouter message;
-        message.mutable_two_factor_response()->set_totp_code(
-            Totp::code(secret_, QDateTime::currentSecsSinceEpoch()).toStdString());
-        channel->receive(proto::router::CHANNEL_ID_CLIENT, serialize(message));
-
-        ASSERT_TRUE(client->isTwoFactorCompleted());
         EXPECT_EQ(ClientWorkerTestPeer::clientsMask(worker),
-                  quint32(ClientWorker::CLIENT_OPERATORS));
+                  quint32(ClientWorker::CLIENT_ADMINS | ClientWorker::CLIENT_OPERATORS));
 
         ClientWorkerTestPeer::stop(worker);
     });

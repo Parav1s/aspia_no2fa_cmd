@@ -30,7 +30,7 @@
 // exactly where a cap by index would delete it.
 TEST(RouterStatusWidgetTest, CapDropsTheOldestEventUnderAnySortOrder)
 {
-    // The widget reaches the controller for the prompt state; there is no worker in this stand.
+    // The widget reaches the controller for its status; there is no worker in this stand.
     RouterController controller;
 
     RouterStatusWidget widget;

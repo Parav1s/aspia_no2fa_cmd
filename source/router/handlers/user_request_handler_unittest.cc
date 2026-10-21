@@ -18,10 +18,6 @@
 
 #include "router/handlers/user_request_handler.h"
 
-#include <vector>
-
-#include "base/serialization.h"
-#include "base/crypto/random.h"
 #include "proto/router_admin.h"
 #include "router/router_test_base.h"
 #include "router/workers/client_worker.h"
@@ -45,43 +41,13 @@ protected:
         return request;
     }
 
-    // A request that only carries the id (delete, OTP reset).
+    // A request that only carries the id (delete).
     proto::router::UserRequest makeIdRequest(std::string_view command, qint64 user_id)
     {
         proto::router::UserRequest request;
         request.set_command_name(std::string(command));
         request.mutable_user()->set_entry_id(user_id);
         return request;
-    }
-
-    RequestResult handleTokens(const proto::router::UserTokenRequest& request)
-    {
-        return handleUserTokenRequest(db_, caller_, request);
-    }
-
-    proto::router::UserTokenRequest makeRevokeRequest(qint64 user_id)
-    {
-        proto::router::UserTokenRequest request;
-        request.set_command_name(proto::router::kCommandUserTokenRevoke);
-        request.set_user_id(user_id);
-        return request;
-    }
-
-    qint64 issueToken(qint64 user_id)
-    {
-        std::string token;
-        qint64 token_id = 0;
-        if (!db_.issueClientDeviceToken(user_id, "127.0.0.1", &token, &token_id))
-            return -1;
-        return token_id;
-    }
-
-    size_t tokenCount(qint64 user_id)
-    {
-        std::vector<DeviceToken> tokens;
-        if (db_.listClientDeviceTokens(user_id, &tokens) != proto::router::kErrorOk)
-            return static_cast<size_t>(-1);
-        return tokens.size();
     }
 };
 
@@ -101,14 +67,12 @@ TEST_F(UserRequestHandlerTest, AddClientNotifiesUsersOnly)
 }
 
 //--------------------------------------------------------------------------------------------------
-// A password rotation answers a leaked password: the device tokens derived from the old one are
-// revoked in the same transaction, and every live session of the user is dropped.
-TEST_F(UserRequestHandlerTest, PasswordRotationRevokesTokensAndStopsSessions)
+// A password rotation answers a leaked password: every live session of the user is dropped.
+TEST_F(UserRequestHandlerTest, PasswordRotationStopsSessions)
 {
     ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
               proto::router::kErrorOk);
     const qint64 user_id = findUser("bob").entry_id;
-    ASSERT_GT(issueToken(user_id), 0);
 
     RouterUser rotated = RouterUser::create("bob", SecureString("Rotated1234!"));
     rotated.entry_id = user_id;
@@ -120,18 +84,16 @@ TEST_F(UserRequestHandlerTest, PasswordRotationRevokesTokensAndStopsSessions)
     EXPECT_EQ(result.error_code, proto::router::kErrorOk);
     EXPECT_EQ(result.stop_user_id, user_id);
     EXPECT_EQ(result.notify_flags, quint32(ClientWorker::NOTIFY_USERS));
-    EXPECT_EQ(tokenCount(user_id), 0u);
 }
 
 //--------------------------------------------------------------------------------------------------
-// A request without credentials edits only the flags. Nothing here invalidates a session or a
-// token, so nobody is dropped.
+// A request without credentials edits only the flags. Nothing here invalidates a session, so
+// nobody is dropped.
 TEST_F(UserRequestHandlerTest, PropertyEditStopsNobody)
 {
     ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
               proto::router::kErrorOk);
     const qint64 user_id = findUser("bob").entry_id;
-    ASSERT_GT(issueToken(user_id), 0);
 
     RouterUser flags_only;
     flags_only.entry_id = user_id;
@@ -142,18 +104,15 @@ TEST_F(UserRequestHandlerTest, PropertyEditStopsNobody)
     EXPECT_EQ(result.error_code, proto::router::kErrorOk);
     EXPECT_EQ(result.stop_user_id, 0);
     EXPECT_EQ(result.notify_flags, quint32(ClientWorker::NOTIFY_USERS));
-    EXPECT_EQ(tokenCount(user_id), 1u);
 }
 
 //--------------------------------------------------------------------------------------------------
-// A disabled account must not keep the sessions it opened while it was enabled. The tokens stay:
-// disabling is reversible, and the SRP gate holds them off while it lasts.
+// A disabled account must not keep the sessions it opened while it was enabled.
 TEST_F(UserRequestHandlerTest, DisablingAUserStopsTheirSessions)
 {
     ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
               proto::router::kErrorOk);
     const qint64 user_id = findUser("bob").entry_id;
-    ASSERT_GT(issueToken(user_id), 0);
 
     RouterUser disabled;
     disabled.entry_id = user_id;
@@ -164,19 +123,16 @@ TEST_F(UserRequestHandlerTest, DisablingAUserStopsTheirSessions)
     EXPECT_EQ(result.error_code, proto::router::kErrorOk);
     EXPECT_EQ(result.stop_user_id, user_id);
     EXPECT_EQ(result.notify_flags, quint32(ClientWorker::NOTIFY_USERS));
-    EXPECT_EQ(tokenCount(user_id), 1u);
 }
 
 //--------------------------------------------------------------------------------------------------
 // The role of a session is fixed at login, so the sessions running with the old level are dropped
-// and the new one takes effect with the next login. The tokens stay: they are not bound to the
-// level.
+// and the new one takes effect with the next login.
 TEST_F(UserRequestHandlerTest, LevelChangeStopsTheSessions)
 {
     ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
               proto::router::kErrorOk);
     const qint64 user_id = findUser("bob").entry_id;
-    ASSERT_GT(issueToken(user_id), 0);
 
     RouterUser promoted;
     promoted.entry_id = user_id;
@@ -190,7 +146,6 @@ TEST_F(UserRequestHandlerTest, LevelChangeStopsTheSessions)
     EXPECT_EQ(result.notify_flags, quint32(ClientWorker::NOTIFY_USERS));
     EXPECT_EQ(findUser(user_id).sessions,
               proto::router::SESSION_TYPE_MANAGER | proto::router::SESSION_TYPE_OPERATOR);
-    EXPECT_EQ(tokenCount(user_id), 1u);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -224,16 +179,13 @@ TEST_F(UserRequestHandlerTest, ModifyOfUnknownUserIsNotFound)
 }
 
 //--------------------------------------------------------------------------------------------------
-// The cascade of the delete drops the workspace access rows and the device tokens of the user, so
-// both the user list and the workspace lists of the clients go stale, the sessions of the user go
-// down, and no token of the deleted account can be presented again. The rows are counted raw:
-// the list of a user that is gone answers not-found, not zero.
-TEST_F(UserRequestHandlerTest, DeleteRevokesTokensStopsSessionsAndMarksWorkspacesStale)
+// The cascade of the delete drops the workspace access rows of the user, so both the user list and
+// the workspace lists of the clients go stale, and the sessions of the user go down.
+TEST_F(UserRequestHandlerTest, DeleteStopsSessionsAndMarksWorkspacesStale)
 {
     ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
               proto::router::kErrorOk);
     const qint64 user_id = findUser("bob").entry_id;
-    ASSERT_GT(issueToken(user_id), 0);
 
     const RequestResult result = handle(makeIdRequest(proto::router::kCommandUserDelete, user_id));
 
@@ -242,8 +194,6 @@ TEST_F(UserRequestHandlerTest, DeleteRevokesTokensStopsSessionsAndMarksWorkspace
     EXPECT_EQ(result.notify_flags,
               quint32(ClientWorker::NOTIFY_USERS | ClientWorker::NOTIFY_WORKSPACES));
     EXPECT_FALSE(findUser(user_id).isValid());
-    EXPECT_EQ(countRaw(QString("SELECT COUNT(*) FROM client_device_tokens WHERE user_id=%1")
-                           .arg(user_id)), 0);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -257,161 +207,6 @@ TEST_F(UserRequestHandlerTest, DeleteOfUnknownUserIsNotFound)
 }
 
 //--------------------------------------------------------------------------------------------------
-// An OTP reset re-enrolls the user, which implies a new device key pair: the tokens issued against
-// the old secret die with it and the sessions holding them are dropped.
-TEST_F(UserRequestHandlerTest, ResetOtpRevokesTokensAndStopsSessions)
-{
-    ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-    const qint64 user_id = findUser("bob").entry_id;
-
-    ASSERT_TRUE(db_.setUserOtp(user_id, Random::byteArray(32), 100));
-    ASSERT_GT(issueToken(user_id), 0);
-
-    const RequestResult result =
-        handle(makeIdRequest(proto::router::kCommandUserResetOtp, user_id));
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorOk);
-    EXPECT_EQ(result.stop_user_id, user_id);
-    EXPECT_TRUE(result.stop_token_ids.empty());
-    EXPECT_EQ(result.notify_flags, quint32(ClientWorker::NOTIFY_USERS));
-    EXPECT_TRUE(findUser(user_id).otp_secret.isEmpty());
-    EXPECT_EQ(tokenCount(user_id), 0u);
-}
-
-//--------------------------------------------------------------------------------------------------
-TEST_F(UserRequestHandlerTest, ResetOtpRejectsInvalidUserId)
-{
-    const RequestResult result =
-        handle(makeIdRequest(proto::router::kCommandUserResetOtp, 0));
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorInvalidRequest);
-    EXPECT_EQ(result.stop_user_id, 0);
-}
-
-//--------------------------------------------------------------------------------------------------
-TEST_F(UserRequestHandlerTest, ResetOtpOfUnknownUserIsNotFound)
-{
-    const RequestResult result =
-        handle(makeIdRequest(proto::router::kCommandUserResetOtp, 12345));
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorNotFound);
-    EXPECT_EQ(result.stop_user_id, 0);
-    EXPECT_EQ(result.notify_flags, 0u);
-}
-
-//--------------------------------------------------------------------------------------------------
-// An empty token list means "every token of this user", and every session of the user goes with it.
-TEST_F(UserRequestHandlerTest, RevokeAllTokensStopsEverySession)
-{
-    ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-    const qint64 user_id = findUser("bob").entry_id;
-
-    ASSERT_GT(issueToken(user_id), 0);
-    ASSERT_GT(issueToken(user_id), 0);
-
-    const RequestResult result = handleTokens(makeRevokeRequest(user_id));
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorOk);
-    EXPECT_EQ(result.stop_user_id, user_id);
-    EXPECT_TRUE(result.stop_token_ids.empty());
-    EXPECT_EQ(result.notify_flags, quint32(ClientWorker::NOTIFY_USERS));
-    EXPECT_EQ(tokenCount(user_id), 0u);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Named tokens: only the sessions holding them are stopped, the rest of the user's sessions stay.
-TEST_F(UserRequestHandlerTest, RevokeSelectedTokensStopsOnlyThem)
-{
-    ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-    const qint64 user_id = findUser("bob").entry_id;
-
-    const qint64 first_token = issueToken(user_id);
-    const qint64 second_token = issueToken(user_id);
-    ASSERT_GT(first_token, 0);
-    ASSERT_GT(second_token, 0);
-
-    proto::router::UserTokenRequest request = makeRevokeRequest(user_id);
-    request.add_token_id(first_token);
-
-    const RequestResult result = handleTokens(request);
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorOk);
-    EXPECT_EQ(result.stop_user_id, user_id);
-    EXPECT_EQ(result.stop_token_ids, std::vector<qint64>({first_token}));
-    EXPECT_EQ(tokenCount(user_id), 1u);
-}
-
-//--------------------------------------------------------------------------------------------------
-// The batch is atomic: a token that is not there rolls the whole revocation back, and nothing is
-// stopped for a change that did not happen.
-TEST_F(UserRequestHandlerTest, RevokeUnknownTokenIsAtomic)
-{
-    ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-    const qint64 user_id = findUser("bob").entry_id;
-
-    const qint64 token_id = issueToken(user_id);
-    ASSERT_GT(token_id, 0);
-
-    proto::router::UserTokenRequest request = makeRevokeRequest(user_id);
-    request.add_token_id(token_id);
-    request.add_token_id(token_id + 1000);
-
-    const RequestResult result = handleTokens(request);
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorNotFound);
-    EXPECT_EQ(result.stop_user_id, 0);
-    EXPECT_EQ(result.notify_flags, 0u);
-    EXPECT_EQ(tokenCount(user_id), 1u);
-}
-
-//--------------------------------------------------------------------------------------------------
-// A token of another user must not be revoked through the id of this one.
-TEST_F(UserRequestHandlerTest, RevokeForeignTokenIsRejected)
-{
-    ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-    ASSERT_EQ(db_.addUser(makeUser("alice", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-
-    const qint64 bob_id = findUser("bob").entry_id;
-    const qint64 alice_id = findUser("alice").entry_id;
-
-    const qint64 alice_token = issueToken(alice_id);
-    ASSERT_GT(alice_token, 0);
-
-    proto::router::UserTokenRequest request = makeRevokeRequest(bob_id);
-    request.add_token_id(alice_token);
-
-    const RequestResult result = handleTokens(request);
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorNotFound);
-    EXPECT_EQ(result.stop_user_id, 0);
-    EXPECT_EQ(tokenCount(alice_id), 1u);
-}
-
-//--------------------------------------------------------------------------------------------------
-TEST_F(UserRequestHandlerTest, RevokeTokensRejectsInvalidTokenId)
-{
-    ASSERT_EQ(db_.addUser(makeUser("bob", proto::router::SESSION_TYPE_OPERATOR)),
-              proto::router::kErrorOk);
-    const qint64 user_id = findUser("bob").entry_id;
-    ASSERT_GT(issueToken(user_id), 0);
-
-    proto::router::UserTokenRequest request = makeRevokeRequest(user_id);
-    request.add_token_id(0);
-
-    const RequestResult result = handleTokens(request);
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorInvalidRequest);
-    EXPECT_EQ(result.stop_user_id, 0);
-    EXPECT_EQ(tokenCount(user_id), 1u);
-}
-
-//--------------------------------------------------------------------------------------------------
 TEST_F(UserRequestHandlerTest, UnknownCommandIsInvalidRequest)
 {
     const RequestResult result = handle(makeIdRequest("user_frobnicate", 1));
@@ -419,78 +214,6 @@ TEST_F(UserRequestHandlerTest, UnknownCommandIsInvalidRequest)
     EXPECT_EQ(result.error_code, proto::router::kErrorInvalidRequest);
     EXPECT_EQ(result.notify_flags, 0u);
     EXPECT_EQ(result.stop_user_id, 0);
-}
-
-//--------------------------------------------------------------------------------------------------
-TEST_F(UserRequestHandlerTest, UnknownTokenCommandIsInvalidRequest)
-{
-    proto::router::UserTokenRequest request = makeRevokeRequest(admin_.entry_id);
-    request.set_command_name("token_frobnicate");
-
-    const RequestResult result = handleTokens(request);
-
-    EXPECT_EQ(result.error_code, proto::router::kErrorInvalidRequest);
-    EXPECT_EQ(result.notify_flags, 0u);
-    EXPECT_EQ(result.stop_user_id, 0);
-}
-
-//--------------------------------------------------------------------------------------------------
-// The tokens of a user are a list of their own, and it carries the opaque metadata alone.
-TEST_F(UserRequestHandlerTest, TokenListExposesMetadataOnly)
-{
-    std::string token;
-    qint64 token_id = 0;
-    ASSERT_TRUE(db_.issueClientDeviceToken(admin_.entry_id, "127.0.0.1", &token, &token_id));
-
-    proto::router::UserTokenListRequest request;
-    request.set_user_id(admin_.entry_id);
-
-    proto::router::UserTokenList list;
-    handleUserTokenList(db_, caller_, request, &list);
-
-    ASSERT_EQ(list.error_code(), proto::router::kErrorOk);
-    EXPECT_EQ(list.user_id(), admin_.entry_id);
-    ASSERT_EQ(list.token_size(), 1);
-    EXPECT_EQ(list.token(0).token_id(), token_id);
-    EXPECT_EQ(list.token(0).address(), "127.0.0.1");
-
-    EXPECT_EQ(serialize(list).indexOf(QByteArray::fromStdString(token)), -1);
-}
-
-//--------------------------------------------------------------------------------------------------
-// The list names the token of the asking session, so the client can tell which row would sign
-// its own session out.
-TEST_F(UserRequestHandlerTest, TokenListNamesTheTokenOfTheCaller)
-{
-    const qint64 own_token = issueToken(admin_.entry_id);
-    ASSERT_GT(own_token, 0);
-    ASSERT_GT(issueToken(admin_.entry_id), 0);
-
-    RequestCaller caller = caller_;
-    caller.token_id = own_token;
-
-    proto::router::UserTokenListRequest request;
-    request.set_user_id(admin_.entry_id);
-
-    proto::router::UserTokenList list;
-    handleUserTokenList(db_, caller, request, &list);
-
-    ASSERT_EQ(list.error_code(), proto::router::kErrorOk);
-    EXPECT_EQ(list.current_token_id(), own_token);
-    EXPECT_EQ(list.token_size(), 2);
-}
-
-//--------------------------------------------------------------------------------------------------
-TEST_F(UserRequestHandlerTest, TokenListRejectsInvalidUserId)
-{
-    proto::router::UserTokenListRequest request;
-    request.set_user_id(0);
-
-    proto::router::UserTokenList list;
-    handleUserTokenList(db_, caller_, request, &list);
-
-    EXPECT_EQ(list.error_code(), proto::router::kErrorInvalidRequest);
-    EXPECT_EQ(list.token_size(), 0);
 }
 
 // The listing of the user records.
@@ -629,14 +352,9 @@ protected:
 };
 
 //--------------------------------------------------------------------------------------------------
-// The rotation replaces the credentials and revokes every device token issued against the old
-// ones, both in one transaction.
-TEST_F(ChangePasswordTest, RotatesCredentialsAndRevokesTokens)
+// The rotation replaces the credentials in one transaction.
+TEST_F(ChangePasswordTest, RotatesCredentials)
 {
-    std::string token;
-    qint64 token_id = 0;
-    ASSERT_TRUE(db_.issueClientDeviceToken(admin_.entry_id, "127.0.0.1", &token, &token_id));
-
     const RouterUser rotated = makeUser("admin", kAllSessions);
 
     proto::router::ChangePasswordRequest request = makeRequest(rotated);
@@ -653,29 +371,6 @@ TEST_F(ChangePasswordTest, RotatesCredentialsAndRevokesTokens)
     EXPECT_EQ(stored.name, admin_.name);
     EXPECT_EQ(stored.sessions, admin_.sessions);
     EXPECT_EQ(stored.flags, admin_.flags);
-
-    std::vector<DeviceToken> tokens;
-    ASSERT_EQ(db_.listClientDeviceTokens(admin_.entry_id, &tokens), proto::router::kErrorOk);
-    EXPECT_TRUE(tokens.empty());
-}
-
-//--------------------------------------------------------------------------------------------------
-// The second factor is not derived from the password: a rotation must leave the enrollment alone,
-// otherwise every password change would silently drop the user back to a fresh TOTP enrollment.
-TEST_F(ChangePasswordTest, KeepsOtpEnrollment)
-{
-    const QByteArray secret = Random::byteArray(32);
-    ASSERT_TRUE(db_.setUserOtp(admin_.entry_id, secret, 100));
-
-    const RouterUser rotated = makeUser("admin", kAllSessions);
-
-    proto::router::ChangePasswordRequest request = makeRequest(rotated);
-
-    ASSERT_EQ(handleChangePassword(db_, caller_, request).error_code, proto::router::kErrorOk);
-
-    const RouterUser stored = findUser(admin_.entry_id);
-    EXPECT_EQ(stored.otp_secret, secret);
-    EXPECT_EQ(stored.otp_counter, 100u);
 }
 
 //--------------------------------------------------------------------------------------------------

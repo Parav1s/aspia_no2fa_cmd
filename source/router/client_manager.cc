@@ -53,9 +53,9 @@ void ClientManager::onSessionMessage(quint8 channel_id, const QByteArray& buffer
     if (channel_id != proto::router::CHANNEL_ID_MANAGER)
         return;
 
-    if (!isTwoFactorCompleted())
+    if (!isAuthenticated())
     {
-        CLOG(ERROR) << "Manager message before 2FA completion";
+        CLOG(ERROR) << "Manager message before authentication";
         return;
     }
 

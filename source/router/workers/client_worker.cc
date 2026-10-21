@@ -46,8 +46,8 @@ namespace {
 // Accumulated NOTIFY_* bits are flushed to the connected sessions at this interval.
 const Seconds kNotifyInterval{ 5 };
 
-// How long a session may sit at the two-factor stage.
-const Minutes kTwoFactorStageTimeout{ 2 };
+// How long a session may sit at the login stage.
+const Minutes kLoginStageTimeout{ 2 };
 
 } // namespace
 
@@ -132,7 +132,7 @@ void ClientWorker::onPrepare()
         stun_port_ = settings.stunPort();
 
     // Clients (admins/managers/clients) are interactive operators: bursty but human-bounded, and
-    // each connection runs the heavier SRP + 2FA handshake, so the caps sit in between the host
+    // each connection runs the heavier SRP handshake, so the caps sit in between the host
     // and relay listeners of the sibling workers.
     static constexpr int kMaxPendingConnections = 30;
     static constexpr int kMaxConnectionsPerMinute = 60;
@@ -184,7 +184,7 @@ void ClientWorker::onTimer(TimePoint now)
     std::vector<qint64> expired;
     for (ClientOperator* client : std::as_const(clients_))
     {
-        if (client->isTwoFactorCompleted() || now - client->startTime() < kTwoFactorStageTimeout)
+        if (client->isAuthenticated() || now - client->startTime() < kLoginStageTimeout)
             continue;
 
         expired.emplace_back(client->sessionId());
@@ -193,7 +193,7 @@ void ClientWorker::onTimer(TimePoint now)
     for (qint64 client_id : std::as_const(expired))
     {
         if (stopClient(client_id))
-            LOG(INFO) << "Session" << client_id << "left at the two-factor stage. Stopped";
+            LOG(INFO) << "Session" << client_id << "left at the login stage. Stopped";
     }
 
     if (now < next_notify_time_)
@@ -246,7 +246,7 @@ void ClientWorker::onTimer(TimePoint now)
     const std::vector<ClientOperator*> client_sessions = clients_;
     for (ClientOperator* client : client_sessions)
     {
-        if (!client->isTwoFactorCompleted())
+        if (!client->isAuthenticated())
             continue;
 
         switch (client->sessionType())
@@ -321,7 +321,7 @@ void ClientWorker::onNewConnection()
             client->setStunInfo(stun_port_);
 
         clients_.emplace_back(client);
-        connect(client, &ClientOperator::sig_twoFactorCompleted, this, &ClientWorker::updateClientsMask);
+        connect(client, &ClientOperator::sig_authenticated, this, &ClientWorker::updateClientsMask);
         connect(client, &ClientOperator::sig_finished, this, &ClientWorker::onSessionFinished);
         connect(client, &ClientOperator::sig_notifyChanged, this, &ClientWorker::onNotifyChanged);
         connect(client, &ClientOperator::sig_stopClients, this, &ClientWorker::onStopClients);
@@ -345,20 +345,12 @@ void ClientWorker::onNotifyChanged(quint32 flags)
 }
 
 //--------------------------------------------------------------------------------------------------
-void ClientWorker::onStopClients(qint64 user_id, const std::vector<qint64>& token_ids)
+void ClientWorker::onStopClients(qint64 user_id)
 {
     std::vector<qint64> client_ids;
     for (ClientOperator* client : std::as_const(clients_))
     {
         if (client->userId() != user_id)
-            continue;
-
-        // Sessions still at the 2FA stage are included. The drop is by user, not by what
-        // exactly the command revoked, and a session that has not passed the stage yet loses
-        // nothing but the SRP round it repeats on reconnect. A revocation of specific tokens
-        // skips them for free, because their token id is still 0 and token ids are validated
-        // as positive before they reach here.
-        if (!token_ids.empty() && std::ranges::find(token_ids, client->tokenId()) == token_ids.end())
             continue;
 
         client_ids.emplace_back(client->sessionId());
@@ -562,9 +554,9 @@ void ClientWorker::updateClientsMask()
 
     for (const ClientOperator* client : std::as_const(clients_))
     {
-        // Sessions still at the two-factor stage do not count. The mask switches the relay
-        // statistics polling, and nothing of it can be seen before the stage is passed.
-        if (!client->isTwoFactorCompleted())
+        // Sessions still at the login stage do not count. The mask switches the relay
+        // statistics polling, and nothing of it can be seen before the login completes.
+        if (!client->isAuthenticated())
             continue;
 
         switch (client->sessionType())

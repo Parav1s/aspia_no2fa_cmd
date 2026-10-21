@@ -22,7 +22,6 @@
 #include <QtTypes>
 
 #include <string>
-#include <vector>
 
 // The error code of a command reply and everything the session must do after sending it. Shared by
 // every database-backed command handler; the fields a command cannot produce keep their defaults.
@@ -37,13 +36,8 @@ struct RequestResult
     quint32 notify_flags = 0;
 
     // Live sessions of this user must be dropped (0 - nothing to drop): the credentials they
-    // authenticated with are gone (password rotation, OTP reset, token revocation) or the account
-    // itself is gone or disabled.
+    // authenticated with are gone (password rotation) or the account itself is gone or disabled.
     qint64 stop_user_id = 0;
-
-    // Restricts the drop to the sessions holding these device tokens; empty means every session of
-    // |stop_user_id|.
-    std::vector<qint64> stop_token_ids;
 };
 
 #endif // ROUTER_HANDLERS_REQUEST_RESULT_H

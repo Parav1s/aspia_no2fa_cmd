@@ -19,11 +19,7 @@
 #include "client/desktop/management/router_user_dialog.h"
 
 #include <QAbstractButton>
-#include <QDateTime>
-#include <QHeaderView>
-#include <QLocale>
 #include <QPushButton>
-#include <QScrollBar>
 
 #include "base/logging.h"
 #include "base/crypto/secure_string.h"
@@ -109,32 +105,6 @@ RouterUserDialog::RouterUserDialog(qint64 router_id, qint64 user_id, QWidget* pa
             ui->combo_access_level->itemData(index).toInt()));
     });
 
-    connect(ui->button_reset_otp, &QPushButton::clicked,
-            this, &RouterUserDialog::onResetOtpClicked);
-
-    // The reset is an action, not an indicator: whether there is anything to reset (a confirmed
-    // secret, a half-done enrollment, a code block) lives on the router and cannot be judged
-    // from here. Any existing record can be reset, and the router handles an empty reset fine.
-    ui->button_reset_otp->setVisible(entry_id_ > 0);
-
-    connect(ui->button_revoke_token, &QPushButton::clicked,
-            this, &RouterUserDialog::onRevokeTokenClicked);
-    connect(ui->button_revoke_all_tokens, &QPushButton::clicked,
-            this, &RouterUserDialog::onRevokeAllTokensClicked);
-    connect(ui->tree_tokens, &QTreeWidget::itemSelectionChanged,
-            this, &RouterUserDialog::onTokenSelectionChanged);
-
-    QHeaderView* tokens_header = ui->tree_tokens->header();
-    tokens_header->setSectionResizeMode(0, QHeaderView::ResizeToContents);
-    tokens_header->setSectionResizeMode(1, QHeaderView::ResizeToContents);
-    tokens_header->setStretchLastSection(true);
-
-    // Tokens are device credentials owned by an existing user; in create mode there is nothing
-    // to show and nothing to revoke until the user is persisted.
-    if (entry_id_ == 0)
-        ui->tab_widget->setTabEnabled(ui->tab_widget->indexOf(ui->tab_sessions), false);
-
-    updateTokenTree();
     updateLoadingState();
 
     RouterController& controller = RouterController::instance();
@@ -256,47 +226,6 @@ void RouterUserDialog::onUserListReceived(const proto::router::UserList& list)
 }
 
 //--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onTokenListReceived(const proto::router::UserTokenList& list)
-{
-    if (list.error_code() != proto::router::kErrorOk)
-    {
-        LOG(ERROR) << "Unable to get the device tokens:" << list.error_code();
-
-        // Nothing has been shown yet, and an empty tree would pass for "no remembered devices".
-        // The tab goes gray until a refetch delivers the list. Once one did, the stale list
-        // stays usable, the way the user form does.
-        if (!tokens_loaded_)
-            ui->tab_sessions->setEnabled(false);
-        return;
-    }
-
-    // The first list to arrive lifts the gray-out of a failed initial fetch.
-    if (!tokens_loaded_)
-    {
-        tokens_loaded_ = true;
-        ui->tab_sessions->setEnabled(true);
-    }
-
-    tokens_.clear();
-    tokens_.reserve(list.token_size());
-    current_token_id_ = list.current_token_id();
-
-    for (int i = 0; i < list.token_size(); ++i)
-    {
-        const proto::router::UserToken& src = list.token(i);
-
-        Token token;
-        token.token_id     = src.token_id();
-        token.created_at   = src.created_at();
-        token.last_used_at = src.last_used_at();
-        token.address      = QString::fromStdString(src.address());
-        tokens_.append(token);
-    }
-
-    updateTokenTree();
-}
-
-//--------------------------------------------------------------------------------------------------
 void RouterUserDialog::onUserResultReceived(const proto::router::UserResult& result)
 {
     // The dialog is already going away (a refetch found the record deleted, or the list never
@@ -316,169 +245,6 @@ void RouterUserDialog::onUserResultReceived(const proto::router::UserResult& res
     LOG(ERROR) << "User save failed:" << error_code;
     setEnabled(true);
     MsgBox::warning(this, routerErrorText(error_code));
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onResetOtpClicked()
-{
-    if (entry_id_ <= 0)
-        return;
-
-    RouterSession* session = RouterController::session(router_id_);
-    if (!session)
-    {
-        LOG(ERROR) << "No session for router" << router_id_;
-        return;
-    }
-
-    // Resetting the OTP of the account this session runs on takes the session down with it, so
-    // the question says whose sessions are about to go.
-    const QString question = entry_id_ == session->userId() ?
-        tr("Resetting two-factor authentication will sign you out of all sessions and force you "
-           "to enroll again on next login. Continue?") :
-        tr("Resetting two-factor authentication will sign this user out of all sessions and "
-           "force them to enroll again on next login. Continue?");
-
-    if (MsgBox::question(this, question) != MsgBox::Yes)
-        return;
-
-    // The question ran a nested event loop, so the session is looked up anew.
-    session = RouterController::session(router_id_);
-    if (!session)
-    {
-        LOG(ERROR) << "No session for router" << router_id_;
-        return;
-    }
-
-    ui->button_reset_otp->setEnabled(false);
-    LOG(INFO) << "[ACTION] Resetting OTP for user" << entry_id_;
-    session->resetUserOtp(entry_id_, { this, &RouterUserDialog::onResetOtpResultReceived });
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onResetOtpResultReceived(const proto::router::UserResult& result)
-{
-    if (closing_)
-        return;
-
-    ui->button_reset_otp->setEnabled(true);
-
-    const std::string& error_code = result.error_code();
-    if (error_code == proto::router::kErrorOk)
-    {
-        // Side effect on the router side: every device token of the user was revoked too. The
-        // button stays: the user can start enrolling again at once, and a repeated reset is
-        // harmless.
-        tokens_.clear();
-        updateTokenTree();
-        return;
-    }
-
-    LOG(ERROR) << "OTP reset failed:" << error_code;
-    MsgBox::warning(this, routerErrorText(error_code));
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onRevokeTokenClicked()
-{
-    QTreeWidgetItem* item = ui->tree_tokens->currentItem();
-    if (!item)
-        return;
-
-    const qint64 token_id = item->data(0, Qt::UserRole).toLongLong();
-    if (token_id <= 0)
-        return;
-
-    const QString question = token_id == current_token_id_ ?
-        tr("This is the token of your current session. Revoking it will disconnect you. Continue?") :
-        tr("Are you sure you want to sign this user out of this session?");
-    if (MsgBox::question(this, question) != MsgBox::Yes)
-        return;
-
-    RouterSession* session = RouterController::session(router_id_);
-    if (!session)
-    {
-        LOG(ERROR) << "No session for router" << router_id_;
-        return;
-    }
-
-    pending_revoke_token_ids_ = { token_id };
-    ui->tab_sessions->setEnabled(false);
-    LOG(INFO) << "[ACTION] Revoking device token" << token_id << "of user" << entry_id_;
-    session->revokeUserTokens(entry_id_, pending_revoke_token_ids_,
-                              { this, &RouterUserDialog::onRevokeResultReceived });
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onRevokeAllTokensClicked()
-{
-    if (tokens_.isEmpty())
-        return;
-
-    if (MsgBox::question(this,
-                         tr("Are you sure you want to sign this user out of all sessions?"))
-        != MsgBox::Yes)
-    {
-        return;
-    }
-
-    RouterSession* session = RouterController::session(router_id_);
-    if (!session)
-    {
-        LOG(ERROR) << "No session for router" << router_id_;
-        return;
-    }
-
-    // Snapshot the current ids so we can drop them from |tokens_| once the router confirms; the
-    // wire request itself carries an empty list which the router interprets as "drop every token
-    // of this user" atomically.
-    pending_revoke_token_ids_.clear();
-    pending_revoke_token_ids_.reserve(tokens_.size());
-    for (const Token& token : std::as_const(tokens_))
-        pending_revoke_token_ids_.append(token.token_id);
-
-    ui->tab_sessions->setEnabled(false);
-    LOG(INFO) << "[ACTION] Revoking all device tokens of user" << entry_id_;
-    session->revokeUserTokens(entry_id_, /*token_ids=*/QList<qint64>(),
-                              { this, &RouterUserDialog::onRevokeResultReceived });
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onRevokeResultReceived(const proto::router::UserTokenResult& result)
-{
-    if (closing_)
-        return;
-
-    const QList<qint64> targets = std::move(pending_revoke_token_ids_);
-    pending_revoke_token_ids_.clear();
-    ui->tab_sessions->setEnabled(true);
-
-    const std::string& error_code = result.error_code();
-    if (error_code == proto::router::kErrorOk)
-    {
-        for (qint64 id : std::as_const(targets))
-        {
-            for (int i = 0; i < tokens_.size(); ++i)
-            {
-                if (tokens_.at(i).token_id == id)
-                {
-                    tokens_.removeAt(i);
-                    break;
-                }
-            }
-        }
-        updateTokenTree();
-        return;
-    }
-
-    LOG(ERROR) << "Token revoke failed:" << error_code;
-    MsgBox::warning(this, routerErrorText(error_code));
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterUserDialog::onTokenSelectionChanged()
-{
-    ui->button_revoke_token->setEnabled(ui->tree_tokens->currentItem() != nullptr);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -616,7 +382,6 @@ void RouterUserDialog::fetchUser()
         return;
 
     session->findUser(entry_id_, { this, &RouterUserDialog::onUserListReceived });
-    session->listUserTokens(entry_id_, { this, &RouterUserDialog::onTokenListReceived });
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -760,50 +525,6 @@ void RouterUserDialog::updateLoadingState()
 }
 
 //--------------------------------------------------------------------------------------------------
-void RouterUserDialog::updateTokenTree()
-{
-    // A rebuild also runs on every refetch (batched notifications arrive every few seconds
-    // while another console is active), so the selection and the scroll position are carried
-    // over - same reasoning as the lists of the workspace dialog.
-    QVariant selected_token;
-    if (QTreeWidgetItem* current = ui->tree_tokens->currentItem())
-        selected_token = current->data(0, Qt::UserRole);
-    const int scroll = ui->tree_tokens->verticalScrollBar()->value();
-
-    ui->tree_tokens->clear();
-
-    for (const Token& token : std::as_const(tokens_))
-    {
-        QTreeWidgetItem* item = new QTreeWidgetItem();
-        item->setText(0, formatTimestamp(token.created_at));
-        item->setText(1, formatTimestamp(token.last_used_at));
-        item->setText(2, token.address);
-        item->setData(0, Qt::UserRole, QVariant::fromValue(token.token_id));
-
-        if (token.token_id == current_token_id_)
-        {
-            QFont font = item->font(0);
-            font.setBold(true);
-            for (int column = 0; column < ui->tree_tokens->columnCount(); ++column)
-            {
-                item->setFont(column, font);
-                item->setToolTip(column, tr("The token of your current session."));
-            }
-        }
-
-        ui->tree_tokens->addTopLevelItem(item);
-
-        if (selected_token.isValid() && item->data(0, Qt::UserRole) == selected_token)
-            ui->tree_tokens->setCurrentItem(item);
-    }
-
-    ui->tree_tokens->verticalScrollBar()->setValue(scroll);
-
-    ui->button_revoke_token->setEnabled(ui->tree_tokens->currentItem() != nullptr);
-    ui->button_revoke_all_tokens->setEnabled(!tokens_.isEmpty());
-}
-
-//--------------------------------------------------------------------------------------------------
 void RouterUserDialog::setAccessLevel(proto::router::SessionType session_type)
 {
     int index = ui->combo_access_level->findData(QVariant(session_type));
@@ -839,14 +560,4 @@ QString RouterUserDialog::sessionTypeToString(proto::router::SessionType session
         return QString();
 
     return tr(str);
-}
-
-//--------------------------------------------------------------------------------------------------
-// static
-QString RouterUserDialog::formatTimestamp(qint64 unix_seconds)
-{
-    if (unix_seconds <= 0)
-        return tr("Never");
-
-    return QLocale().toString(QDateTime::fromSecsSinceEpoch(unix_seconds), QLocale::ShortFormat);
 }

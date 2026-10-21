@@ -60,9 +60,6 @@ signals:
     // Emitted when the set returned by appBarActions() changes (the editor hides the actions).
     void sig_appBarActionsChanged();
 
-    // The button of a card asks the two-factor question of its record again.
-    void sig_twoFactorClicked(qint64 router_id);
-
 private slots:
     void onAddRouter();
     void onCardExpandRequested(qint64 router_id);

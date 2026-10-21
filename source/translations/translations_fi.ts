@@ -436,12 +436,7 @@ Lisättyjä reitittimiä: %4</translation>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Tähän isäntään liitetty reititin on poistettu. Muokkaa isäntää valitaksesi toisen reitittimen tai siirry suoraan yhteyteen.</translation>
     </message>
-    <message>
-        <location filename="../client/android/main_window.cc" line="555"/>
-        <source>Two-Factor Authentication - %1</source>
-        <translation>Kaksivaiheinen todennus - %1</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/android/main_window.cc" line="433"/>
         <location filename="../client/android/main_window.cc" line="1011"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
@@ -6018,12 +6013,7 @@ Tuotuja kirjautumistietoja: %5</translation>
         <source>The code was not accepted by router %1.</source>
         <translation>Reititin %1 ei hyväksynyt koodia.</translation>
     </message>
-    <message>
-        <location filename="../client/router_controller.cc" line="321"/>
-        <source>Router %1 is waiting for a two-factor code.</source>
-        <translation>Reititin %1 odottaa kaksivaiheisen todennuksen koodia.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/router_controller.cc" line="350"/>
         <source>Connection to router %1 established.</source>
         <translation>Yhteys reitittimeen %1 muodostettu.</translation>
@@ -6654,13 +6644,7 @@ Tuotuja kirjautumistietoja: %5</translation>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="42"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="230"/>
-        <source>The router is waiting for a two-factor code.</source>
-        <translation>Reititin odottaa kaksivaiheisen todennuksen koodia.</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
         <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
         <source>Enter Code</source>
@@ -6684,17 +6668,7 @@ Tuotuja kirjautumistietoja: %5</translation>
             <numerusform>%n tapahtumaa</numerusform>
         </translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="218"/>
-        <source>Two-factor authentication is blocked after too many failed attempts.</source>
-        <translation>Kaksivaiheinen todennus on estetty liian monen epäonnistuneen yrityksen jälkeen.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="235"/>
-        <source>Two-factor authentication has to be set up for this router.</source>
-        <translation>Kaksivaiheinen todennus on määritettävä tälle reitittimelle.</translation>
-    </message>
-    <message>
+            <message>
         <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
         <source>Set Up</source>
         <translation>Määritä</translation>
@@ -6775,12 +6749,7 @@ Tuotuja kirjautumistietoja: %5</translation>
         <source>Disable User Account</source>
         <translation>Poista käyttäjätili käytöstä</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="95"/>
-        <source>Reset two-factor authentication</source>
-        <translation>Nollaa kaksivaiheinen todennus</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
         <source>Sessions</source>
         <translation>Istunnot</translation>
@@ -6810,12 +6779,7 @@ Tuotuja kirjautumistietoja: %5</translation>
         <source>Sign out all</source>
         <translation>Kirjaa ulos kaikista</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="339"/>
-        <source>Resetting two-factor authentication will sign this user out of all sessions and force them to enroll again on next login. Continue?</source>
-        <translation>Kaksivaiheisen todennuksen nollaaminen kirjaa käyttäjän ulos kaikista istunnoista ja pakottaa hänet rekisteröitymään uudelleen seuraavan kirjautumisen yhteydessä. Jatketaanko?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
         <source>Are you sure you want to sign this user out of this session?</source>
         <translation>Haluatko varmasti kirjata tämän käyttäjän ulos tästä istunnosta?</translation>
@@ -6840,12 +6804,7 @@ Tuotuja kirjautumistietoja: %5</translation>
         <source>The user was deleted from another console.</source>
         <translation>Käyttäjä poistettiin toisesta konsolista.</translation>
     </message>
-    <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="337"/>
-        <source>Resetting two-factor authentication will sign you out of all sessions and force you to enroll again on next login. Continue?</source>
-        <translation>Kaksivaiheisen todennuksen nollaaminen kirjaa sinut ulos kaikista istunnoista ja pakottaa sinut rekisteröitymään uudelleen seuraavan kirjautumisen yhteydessä. Jatketaanko?</translation>
-    </message>
-    <message>
+        <message>
         <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
         <translation>Tämä on nykyisen istuntosi tunniste. Sen peruminen katkaisee yhteytesi. Jatketaanko?</translation>
@@ -12454,95 +12413,6 @@ Tuotuja kirjautumistietoja: %5</translation>
         <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
         <source>Password</source>
         <translation>Salasana</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorCodeDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="14"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Kaksivaiheinen todennus</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.ui" line="50"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Syötä todentajasovelluksen 6-numeroinen koodi.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_code_dialog.cc" line="40"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Edellistä koodia ei hyväksytty.</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorDialog</name>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="70"/>
-        <source>Two-Factor Authentication</source>
-        <translation>Kaksivaiheinen todennus</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="64"/>
-        <source>Add the setup key below to an authenticator app, then enter the 6-digit code it shows to confirm.</source>
-        <translation>Lisää alla oleva määritysavain todentajasovellukseen ja vahvista syöttämällä sen näyttämä 6-numeroinen koodi.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="66"/>
-        <source>Enter the 6-digit code from your authenticator app.</source>
-        <translation>Syötä todentajasovelluksen 6-numeroinen koodi.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="68"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Edellistä koodia ei hyväksytty.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="78"/>
-        <source>Setup Key</source>
-        <translation>Määritysavain</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="84"/>
-        <source>Code</source>
-        <translation>Koodi</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="91"/>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
-    </message>
-    <message>
-        <location filename="../client/android/two_factor_dialog.cc" line="92"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>TwoFactorEnrollDialog</name>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="14"/>
-        <source>Enable Two-Factor Authentication</source>
-        <translation>Ota kaksivaiheinen todennus käyttöön</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="20"/>
-        <source>Open a TOTP authenticator app (Google Authenticator, Microsoft Authenticator or any compatible alternative) and add a new account by scanning the QR code below. If QR scanning is unavailable, type the setup key into the app instead.</source>
-        <translation>Avaa TOTP-todentajasovellus (Google Authenticator, Microsoft Authenticator tai muu yhteensopiva vaihtoehto) ja lisää uusi tili skannaamalla alla oleva QR-koodi. Jos QR-koodin skannaus ei ole käytettävissä, syötä määritysavain sovellukseen käsin.</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="43"/>
-        <source>Setup key:</source>
-        <translation>Määritysavain:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.ui" line="62"/>
-        <source>Enter the 6-digit code shown by the app to confirm:</source>
-        <translation>Vahvista syöttämällä sovelluksen näyttämä 6-numeroinen koodi:</translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/two_factor_enroll_dialog.cc" line="87"/>
-        <source>The previous code was not accepted.</source>
-        <translation>Edellistä koodia ei hyväksytty.</translation>
     </message>
 </context>
 <context>

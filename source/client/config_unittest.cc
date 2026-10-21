@@ -38,9 +38,9 @@ RouterConfig makeConfig()
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
-// The account predicate decides whether the editors carry the device token over: the router
-// binds the token to the user, so the address, the user name and the password make the account.
-// The display name and the session type are not part of it.
+// The account predicate decides whether the editors keep the running session: the login is bound
+// to the account, so the address, the user name and the password make the account. The display
+// name and the session type are not part of it.
 TEST(RouterConfigTest, SameAccountFollowsTheCredentialsOnly)
 {
     const RouterConfig base = makeConfig();

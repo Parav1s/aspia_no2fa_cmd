@@ -33,10 +33,11 @@ message HostBlob
 // The encrypted column of a router record.
 message RouterBlob
 {
-    string address     = 1;
-    string username    = 2;
-    string password    = 3;
-    bytes device_token = 4;
+    string address  = 1;
+    string username = 2;
+    string password = 3;
+
+    reserved 4; // Formerly device_token.
 }
 
 // The exported backup. |data| and |verifier| are sealed with a key derived from |salt| and the

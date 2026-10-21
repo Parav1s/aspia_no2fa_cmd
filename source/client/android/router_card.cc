@@ -28,7 +28,6 @@
 
 #include "base/gui_application.h"
 #include "client/router_controller.h"
-#include "common/android/button.h"
 #include "common/android/card.h"
 #include "common/android/controls.h"
 #include "common/android/label.h"
@@ -53,9 +52,6 @@ QString statusIconPath(RouterStatus status)
 
         case RouterStatus::ONLINE:
             return ":/img/router-online.svg";
-
-        case RouterStatus::TWO_FACTOR:
-            return ":/img/router-lock.svg";
 
         case RouterStatus::UNREADABLE:
             return ":/img/router-warning.svg";
@@ -174,14 +170,6 @@ RouterCard::RouterCard(qint64 router_id, const QString& name, QWidget* parent)
     // Panel: the connection event log on a lifted surface.
     contentLayout()->setContentsMargins(kContentHMargin, 0, kContentHMargin, kContentHMargin);
 
-    // The way to answer the two-factor stage: shown only while the session stands at it, so the
-    // panel of a working router is the event log alone.
-    button_two_factor_ = new Button(tr("Enter Code"), Button::Role::FILLED);
-    button_two_factor_->setVisible(false);
-    connect(button_two_factor_, &Button::clicked, this,
-            [this]() { emit sig_twoFactorClicked(router_id_); });
-    contentLayout()->addWidget(button_two_factor_);
-
     Card* card = new Card(Card::Role::FILLED);
 
     QWidget* events_container = new QWidget(card);
@@ -205,31 +193,6 @@ void RouterCard::setStatus(RouterStatus status)
 {
     label_status_icon_->setPixmap(GuiApplication::svgPixmap(statusIconPath(status),
                                                       QSize(kStatusIconSize, kStatusIconSize)));
-    updateTwoFactorButton();
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterCard::updateTwoFactorButton()
-{
-    // The router does not look at codes while the block runs, so the button is disabled for it,
-    // but it stays on the card. A hidden button would read as if no question existed, and the
-    // journal line naming the wait can be pushed out by the reconnect noise of the blocked stage.
-    TwoFactorPrompt* prompt = RouterController::twoFactorPrompt(router_id_);
-    button_two_factor_->setVisible(prompt != nullptr);
-
-    if (prompt)
-    {
-        const bool blocked = prompt->blockedSeconds() > 0;
-        button_two_factor_->setEnabled(!blocked);
-
-        // An account with no secret yet is walked through the enrollment first, and the button says so.
-        if (blocked)
-            button_two_factor_->setText(tr("Blocked"));
-        else
-            button_two_factor_->setText(prompt->otpauthUri().isEmpty() ? tr("Enter Code") : tr("Set Up"));
-    }
-
-    contentChanged();
 }
 
 //--------------------------------------------------------------------------------------------------

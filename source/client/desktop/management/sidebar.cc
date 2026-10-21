@@ -623,10 +623,9 @@ void Sidebar::changeRouterPassword(qint64 router_id)
     if (dialog.exec() != QDialog::Accepted)
         return;
 
-    // On success the router revokes every device token of the account and drops all of its
-    // sessions, this one included, so a reply arrives only when it refuses. The client reconnects
-    // with the new password, and the user is asked for a code again on the fresh session (handled
-    // by the existing two-factor plumbing).
+    // On success the router drops every session of the account, this one included, so a reply
+    // arrives only when it refuses. The client reconnects with the new password on a fresh
+    // session.
     RouterController::instance().addEvent(router_id, RouterEvent::Severity::INFO,
         tr("Changing the password. Waiting for the session to sign in again..."));
 
@@ -1084,7 +1083,6 @@ void Sidebar::onRouterStatusChanged(qint64 router_id, RouterStatus status)
     {
         case RouterStatus::OFFLINE:    sidebar_status = SidebarRouter::Status::OFFLINE;    break;
         case RouterStatus::CONNECTING: sidebar_status = SidebarRouter::Status::CONNECTING; break;
-        case RouterStatus::TWO_FACTOR: sidebar_status = SidebarRouter::Status::TWO_FACTOR; break;
         case RouterStatus::ONLINE:     sidebar_status = SidebarRouter::Status::ONLINE;     break;
         case RouterStatus::UNREADABLE: sidebar_status = SidebarRouter::Status::UNREADABLE; break;
     }

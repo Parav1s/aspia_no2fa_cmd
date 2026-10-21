@@ -136,7 +136,6 @@ std::optional<QByteArray> RouterConfig::encryptedData() const
     proto::storage::RouterBlob data;
     data.set_address(address_.toStdString());
     data.set_username(username_.toStdString());
-    data.set_device_token(device_token_.toStdString());
 
     const SecureByteArray password = password_.toUtf8();
     data.set_password(password.constData(), static_cast<size_t>(password.size()));
@@ -156,7 +155,6 @@ bool RouterConfig::setEncryptedData(const QByteArray& blob)
     address_.clear();
     username_.clear();
     password_.clear();
-    device_token_.clear();
 
     if (blob.isEmpty())
         return true;
@@ -168,7 +166,6 @@ bool RouterConfig::setEncryptedData(const QByteArray& blob)
     address_ = QString::fromStdString(data.address());
     username_ = QString::fromStdString(data.username());
     password_ = toSecureString(data.password());
-    device_token_ = QByteArray::fromStdString(data.device_token());
 
     memZero(data.mutable_address());
     memZero(data.mutable_username());

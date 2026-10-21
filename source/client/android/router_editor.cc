@@ -195,26 +195,6 @@ void RouterEditor::onSaveClicked()
 
     Database& db = Database::instance();
 
-    // The token is not edited here. The login of this record writes a fresh one whenever a TOTP
-    // code is accepted, so it is read now instead of when the editor opened and a token issued
-    // meanwhile survives the save. It belongs to the account of the record, and an edit that
-    // changes the account leaves it behind, because presented for another one it would only be
-    // refused.
-    if (router_id_ >= 0)
-    {
-        RouterConfig stored;
-        const Database::FindResult stored_found = db.findRouter(router_id_, &stored);
-        if (stored_found == Database::FindResult::NOT_FOUND ||
-            stored_found == Database::FindResult::FAILED)
-        {
-            LOG(ERROR) << "Failed to re-read router" << router_id_;
-            showError(tr("Failed to save the router."));
-            return;
-        }
-        if (stored.hasSameAccount(data))
-            data.setDeviceToken(stored.deviceToken());
-    }
-
     const bool saved = (router_id_ < 0) ? db.addRouter(data) : db.modifyRouter(data);
     if (!saved)
     {

@@ -45,7 +45,6 @@
 #include "client/android/remote_widget.h"
 #include "client/android/routers_widget.h"
 #include "client/android/settings_widget.h"
-#include "client/android/two_factor_dialog.h"
 #include "client/workers/update_worker.h"
 #include "common/android/app_bar.h"
 #include "common/android/bottom_navigation_bar.h"
@@ -138,8 +137,6 @@ AndroidMainWindow::AndroidMainWindow(QWidget* parent)
       nav_bar_(new BottomNavigationBar(this))
 {
     RouterController* router_controller = new RouterController(this);
-    connect(router_controller, &RouterController::sig_twoFactorRequired,
-            this, &AndroidMainWindow::onTwoFactorRequired);
 
     LocalWidget* local = new LocalWidget(this);
     RoutersWidget* routers = new RoutersWidget(this);
@@ -151,7 +148,6 @@ AndroidMainWindow::AndroidMainWindow(QWidget* parent)
     stack_content_->addWidget(routers);
     stack_content_->addWidget(settings);
 
-    connect(routers, &RoutersWidget::sig_twoFactorClicked, this, &AndroidMainWindow::onTwoFactorRequired);
     connect(routers, &RoutersWidget::sig_appBarActionsChanged, this, &AndroidMainWindow::onRouterActionsChanged);
     connect(routers, &RoutersWidget::sig_titleChanged, this, &AndroidMainWindow::onRoutersTitleChanged);
     connect(local, &LocalWidget::sig_titleChanged, this, &AndroidMainWindow::onLocalTitleChanged);
@@ -220,7 +216,6 @@ AndroidMainWindow::AndroidMainWindow(QWidget* parent)
 //--------------------------------------------------------------------------------------------------
 AndroidMainWindow::~AndroidMainWindow()
 {
-    delete two_factor_dialog_;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -522,64 +517,6 @@ void AndroidMainWindow::onAuthorizationClosed()
 }
 
 //--------------------------------------------------------------------------------------------------
-void AndroidMainWindow::onTwoFactorRequired(qint64 router_id)
-{
-    // Being asked again, by a fresh question or by the button of the record, puts the record
-    // back into the rotation, even when another dialog holds the screen right now.
-    dismissed_two_factor_.remove(router_id);
-
-    // The lock screen owns the display: both are overlays of the same window, so a dialog
-    // opened now would rise above the master password prompt, and an enrollment would put the
-    // new setup key in front of whoever holds the phone. The question waits for the unlock.
-    if (relocking_)
-        return;
-
-    if (two_factor_dialog_)
-        return;
-
-    // The question of the record. Gone or blocked means nothing to put on screen.
-    QPointer<TwoFactorPrompt> prompt(RouterController::twoFactorPrompt(router_id));
-    if (!prompt || prompt->blockedSeconds() > 0)
-        return;
-
-    // The record exists for as long as the prompt does; a failure to read it here is a transient
-    // one, and the question matters more than the name in the title.
-    RouterConfig record;
-    const bool record_read = Database::instance().findRouter(router_id, &record) == Database::FindResult::FOUND;
-
-    TwoFactorDialog* dialog =
-        new TwoFactorDialog(prompt->otpauthUri(), prompt->codeRefused(), this);
-
-    // The title names the router, so with several of them the user can tell whose code is asked.
-    if (record_read)
-        dialog->setTitle(tr("Two-Factor Authentication - %1").arg(record.displayLabel()));
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    two_factor_dialog_ = dialog;
-
-    connect(dialog, &QDialog::finished, this, [this, prompt, dialog, router_id](int result)
-    {
-        two_factor_dialog_.clear();
-
-        if (result == QDialog::Accepted && prompt)
-            prompt->submitCode(dialog->code());
-        else if (prompt)
-            dismissed_two_factor_.insert(router_id);
-
-        // The next record waiting takes the screen. A dismissed question steps aside instead
-        // of silencing it.
-        showNextTwoFactorPrompt();
-    });
-
-    // The question can leave the screen before the operator does: its death (the record left,
-    // the challenge changed) closes the dialog.
-    connect(prompt, &QObject::destroyed, dialog, &QWidget::close);
-
-    // open() and not exec(): the prompt is modal, so it cannot be missed, but it does not spin a
-    // nested event loop inside the delivery of the challenge that opened it.
-    dialog->open();
-}
-
-//--------------------------------------------------------------------------------------------------
 void AndroidMainWindow::onApplicationStateChanged(Qt::ApplicationState state)
 {
     if (state == Qt::ApplicationActive)
@@ -611,25 +548,6 @@ void AndroidMainWindow::onUrlOpened(const QString& url)
     }
 
     connectToUrl(url);
-}
-
-//--------------------------------------------------------------------------------------------------
-void AndroidMainWindow::showNextTwoFactorPrompt()
-{
-    QList<RouterConfig> routers;
-    Database::instance().routerList(&routers);
-    for (const RouterConfig& config : std::as_const(routers))
-    {
-        if (dismissed_two_factor_.contains(config.routerId()))
-            continue;
-
-        TwoFactorPrompt* prompt = RouterController::twoFactorPrompt(config.routerId());
-        if (prompt && prompt->blockedSeconds() == 0)
-        {
-            onTwoFactorRequired(config.routerId());
-            return;
-        }
-    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -719,10 +637,6 @@ void AndroidMainWindow::relock()
     }
 
     relocking_ = false;
-
-    // The questions that arrived while the screen was locked were not shown. The first one
-    // waiting takes the screen now.
-    showNextTwoFactorPrompt();
 }
 //--------------------------------------------------------------------------------------------------
 void AndroidMainWindow::openSession(HostConfig host, proto::peer::SessionType session_type)

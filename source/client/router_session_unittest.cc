@@ -94,21 +94,20 @@ protected:
         DataCryptor::instance().setKey(SecureByteArray(QByteArray(32, 'k')));
     }
 
-    static SharedPointer<RouterConfig> config(const QByteArray& device_token = QByteArray())
+    static SharedPointer<RouterConfig> config()
     {
         RouterConfig* config = new RouterConfig();
         config->setRouterId(kRouterId);
         config->setAddress("router.example.com");
         config->setUsername("user");
         config->setPassword(SecureString(QString("secret")));
-        config->setDeviceToken(device_token);
         return SharedPointer<RouterConfig>(config);
     }
 
     // Puts the record the session works with into the isolated book.
-    void seedRecord(const QByteArray& device_token = QByteArray())
+    void seedRecord()
     {
-        RouterConfig record = *config(device_token);
+        RouterConfig record = *config();
         ASSERT_TRUE(Database::instance().addRouter(record));
         ASSERT_EQ(record.routerId(), kRouterId);
     }
@@ -494,9 +493,10 @@ TEST_F(RouterSessionTest, WorkspacesAndGroupsComeByName)
 // an answer that may never come.
 TEST_F(RouterSessionTest, PasswordRotationIsStoredWithoutAReply)
 {
-    seedRecord("device-token");
+    seedRecord();
 
-    SharedPointer<RouterConfig> shared = config("device-token");
+    SharedPointer<RouterConfig> shared = config();
+
     RouterSession router(shared, kUserId, QVersionNumber(3, 0, 0));
 
     router.changePassword(SecureString(QString("new-password")),
@@ -514,9 +514,9 @@ TEST_F(RouterSessionTest, PasswordRotationIsStoredWithoutAReply)
 // rotation looks like from here. The stored password stays the new one.
 TEST_F(RouterSessionTest, PasswordRotationSurvivesTheLostConnection)
 {
-    seedRecord("device-token");
+    seedRecord();
 
-    SharedPointer<RouterConfig> shared = config("device-token");
+    SharedPointer<RouterConfig> shared = config();
     RouterSession router(shared, kUserId, QVersionNumber(3, 0, 0));
 
     int calls = 0;
@@ -545,9 +545,9 @@ TEST_F(RouterSessionTest, PasswordRotationSurvivesTheLostConnection)
 // still opens the account, so the record is put back as it was.
 TEST_F(RouterSessionTest, RefusedPasswordRotationIsRolledBack)
 {
-    seedRecord("device-token");
+    seedRecord();
 
-    SharedPointer<RouterConfig> shared = config("device-token");
+    SharedPointer<RouterConfig> shared = config();
     RouterSession router(shared, kUserId, QVersionNumber(3, 0, 0));
 
     int calls = 0;
@@ -564,12 +564,10 @@ TEST_F(RouterSessionTest, RefusedPasswordRotationIsRolledBack)
     RouterSessionTestPeer::onMessageReceived(router, reply);
 
     EXPECT_EQ(calls, 1);
-    EXPECT_FALSE(shared->deviceToken().isEmpty());
     EXPECT_TRUE(shared->password() == SecureString(QString("secret")));
 
     const std::optional<RouterConfig> stored = findRouter(Database::instance(), kRouterId);
     ASSERT_TRUE(stored.has_value());
-    EXPECT_FALSE(stored->deviceToken().isEmpty());
     EXPECT_TRUE(stored->password() == SecureString(QString("secret")));
 }
 

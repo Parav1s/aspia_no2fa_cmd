@@ -59,8 +59,6 @@
 #include "common/desktop/credentials_dialog.h"
 #include "common/desktop/msg_box.h"
 #include "common/desktop/session_type.h"
-#include "common/desktop/two_factor_code_dialog.h"
-#include "common/desktop/two_factor_enroll_dialog.h"
 #include "proto/peer.h"
 #include "proto/router_admin.h"
 #include "proto/router_constants.h"
@@ -163,15 +161,7 @@ ManagementTab::ManagementTab(QWidget* parent)
     connect(&controller, &RouterController::sig_event,
             router_status_widget_, &RouterStatusWidget::onEvent);
     connect(&controller, &RouterController::sig_statusChanged,
-            router_status_widget_, &RouterStatusWidget::onStatusChanged);
-    connect(&controller, &RouterController::sig_twoFactorRequired,
-            this, &ManagementTab::onTwoFactorRequired);
-    connect(&controller, &RouterController::sig_statusChanged,
             this, &ManagementTab::updateActionsState);
-
-    // The button of the status widget asks the question of its record again.
-    connect(router_status_widget_, &RouterStatusWidget::sig_twoFactorClicked,
-            this, &ManagementTab::onTwoFactorRequired);
 
     connect(router_hosts_widget_, &RouterHostsWidget::sig_currentChanged,
             this, &ManagementTab::updateActionsState);
@@ -312,17 +302,12 @@ ManagementTab::ManagementTab(QWidget* parent)
     local_group_widget_->showGroup(ui->sidebar->currentGroupId());
     switchContent(local_group_widget_);
     updateActionsState();
-
-    // A question asked while the application was locked had no window to show it.
-    QTimer::singleShot(0, this, [this]() { showNextTwoFactorPrompt(); });
 }
 
 //--------------------------------------------------------------------------------------------------
 ManagementTab::~ManagementTab()
 {
     LOG(INFO) << "Dtor";
-
-    delete two_factor_dialog_;
 
     Settings settings;
     settings.setSessionType(defaultSessionType());
@@ -1742,101 +1727,6 @@ void ManagementTab::onOnlineCheckToggled(bool checked)
     Settings settings;
     settings.setOnlineCheckEnabled(checked);
     local_group_widget_->setOnlineCheckEnabled(checked);
-}
-
-//--------------------------------------------------------------------------------------------------
-void ManagementTab::onTwoFactorRequired(qint64 router_id)
-{
-    // Being asked again, by a fresh question or by the button of the record, puts the record
-    // back into the rotation, even when another dialog holds the screen right now.
-    dismissed_two_factor_.remove(router_id);
-
-    if (two_factor_dialog_)
-        return;
-
-    // The question of the record. Gone or blocked means nothing to put on screen.
-    QPointer<TwoFactorPrompt> prompt(RouterController::twoFactorPrompt(router_id));
-    if (!prompt || prompt->blockedSeconds() > 0)
-        return;
-
-    // The record exists for as long as the prompt does; a failure to read it here is a transient
-    // one, and the question matters more than the name in the title.
-    RouterConfig record;
-    const bool record_read = Database::instance().findRouter(router_id, &record) == Database::FindResult::FOUND;
-
-    // An account with no secret yet scans what the router handed out before it can answer, so the
-    // two are asked in different dialogs.
-    const QString otpauth_uri = prompt->otpauthUri();
-    const bool code_refused = prompt->codeRefused();
-
-    QDialog* dialog = nullptr;
-    if (otpauth_uri.isEmpty())
-    {
-        TwoFactorCodeDialog* code_dialog = new TwoFactorCodeDialog(code_refused, this);
-        connect(code_dialog, &QDialog::finished, this, [this, prompt, code_dialog, router_id](int result)
-        {
-            two_factor_dialog_.clear();
-
-            if (result == QDialog::Accepted && prompt)
-                prompt->submitCode(code_dialog->code());
-            else if (prompt)
-                dismissed_two_factor_.insert(router_id);
-
-            // The next record waiting takes the screen. A dismissed question steps aside
-            // instead of silencing it.
-            showNextTwoFactorPrompt();
-        });
-        dialog = code_dialog;
-    }
-    else
-    {
-        TwoFactorEnrollDialog* enroll_dialog =
-            new TwoFactorEnrollDialog(otpauth_uri, code_refused, this);
-        connect(enroll_dialog, &QDialog::finished, this,
-                [this, prompt, enroll_dialog, router_id](int result)
-        {
-            two_factor_dialog_.clear();
-
-            if (result == QDialog::Accepted && prompt)
-                prompt->submitCode(enroll_dialog->code());
-            else if (prompt)
-                dismissed_two_factor_.insert(router_id);
-
-            showNextTwoFactorPrompt();
-        });
-        dialog = enroll_dialog;
-    }
-
-    // The question can leave the screen before the operator does: its death (the record left,
-    // the challenge changed) closes the dialog.
-    connect(prompt, &QObject::destroyed, dialog, &QWidget::close);
-
-    // The title names the router, so with several of them the user can tell whose code is asked.
-    if (record_read)
-        dialog->setWindowTitle(dialog->windowTitle() + " - " + record.displayLabel());
-    dialog->setAttribute(Qt::WA_DeleteOnClose);
-    two_factor_dialog_ = dialog;
-
-    // open() and not exec(): the prompt is modal, so it cannot be missed, but it does not spin a
-    // nested event loop inside the delivery of the challenge that opened it.
-    dialog->open();
-}
-
-//--------------------------------------------------------------------------------------------------
-void ManagementTab::showNextTwoFactorPrompt()
-{
-    for (qint64 router_id : ui->sidebar->routerIds())
-    {
-        if (dismissed_two_factor_.contains(router_id))
-            continue;
-
-        TwoFactorPrompt* prompt = RouterController::twoFactorPrompt(router_id);
-        if (prompt && prompt->blockedSeconds() == 0)
-        {
-            onTwoFactorRequired(router_id);
-            return;
-        }
-    }
 }
 
 //--------------------------------------------------------------------------------------------------

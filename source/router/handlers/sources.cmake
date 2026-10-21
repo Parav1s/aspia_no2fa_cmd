@@ -27,8 +27,6 @@ collect_sources(SOURCE_ROUTER_HANDLERS
     host_request_handler.h
     request_caller.h
     request_result.h
-    two_factor_handler.cc
-    two_factor_handler.h
     user_request_handler.cc
     user_request_handler.h
     workspace_request_handler.cc
@@ -39,6 +37,5 @@ collect_sources(SOURCE_ROUTER_HANDLERS_TESTS
     group_request_handler_unittest.cc
     host_id_handler_unittest.cc
     host_request_handler_unittest.cc
-    two_factor_handler_unittest.cc
     user_request_handler_unittest.cc
     workspace_request_handler_unittest.cc)

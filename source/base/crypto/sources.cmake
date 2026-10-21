@@ -17,8 +17,6 @@
 #
 
 collect_sources(SOURCE_BASE_CRYPTO
-    base32.cc
-    base32.h
     big_num.cc
     big_num.h
     data_cryptor.cc
@@ -55,9 +53,7 @@ collect_sources(SOURCE_BASE_CRYPTO
     signature.cc
     signature.h
     srp_math.cc
-    srp_math.h
-    totp.cc
-    totp.h)
+    srp_math.h)
 
 if (WIN32)
     collect_sources(SOURCE_BASE_CRYPTO os_crypt_win.cc)
@@ -72,7 +68,6 @@ if (LINUX OR ANDROID)
 endif()
 
 collect_sources(SOURCE_BASE_CRYPTO_TESTS
-    base32_unittest.cc
     big_num_unittest.cc
     stream_cryptor_unittest.cc
     data_cryptor_unittest.cc
@@ -84,5 +79,4 @@ collect_sources(SOURCE_BASE_CRYPTO_TESTS
     password_generator_unittest.cc
     password_hash_unittest.cc
     signature_unittest.cc
-    srp_math_unittest.cc
-    totp_unittest.cc)
+    srp_math_unittest.cc)

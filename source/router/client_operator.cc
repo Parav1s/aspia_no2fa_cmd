@@ -18,7 +18,6 @@
 
 #include "router/client_operator.h"
 
-
 #include "base/core_application.h"
 #include "base/serialization.h"
 #include "base/threading/worker.h"
@@ -161,12 +160,9 @@ void ClientOperator::onSessionMessage(quint8 channel_id, const QByteArray& buffe
         return;
     }
 
-    if (!two_factor_completed_)
+    if (!authenticated_)
     {
-        if (message.has_two_factor_response())
-            readTwoFactorResponse(message.two_factor_response());
-        else
-            CLOG(ERROR) << "Unexpected message before 2FA completion";
+        CLOG(ERROR) << "Unexpected message before login completion";
         return;
     }
 
@@ -215,7 +211,6 @@ RequestCaller ClientOperator::requestCaller() const
     caller.user_id = userId();
     caller.name = userName();
     caller.session_type = sessionType();
-    caller.token_id = token_id_;
     return caller;
 }
 
@@ -226,7 +221,7 @@ void ClientOperator::applyRequestResult(const RequestResult& result)
         emit sig_notifyChanged(result.notify_flags);
 
     if (result.stop_user_id > 0)
-        emit sig_stopClients(result.stop_user_id, result.stop_token_ids);
+        emit sig_stopClients(result.stop_user_id);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -245,63 +240,11 @@ void ClientOperator::onTcpMessageReceived(quint8 channel_id, const QByteArray& b
 //--------------------------------------------------------------------------------------------------
 void ClientOperator::onStarted()
 {
-    doTwoFactorChallenge();
+    completeLogin();
 }
 
 //--------------------------------------------------------------------------------------------------
-void ClientOperator::doTwoFactorChallenge()
-{
-    applyTwoFactorResult(two_factor_.start(database_, requestCaller(), secondsSinceEpoch()));
-}
-
-//--------------------------------------------------------------------------------------------------
-void ClientOperator::readTwoFactorResponse(const proto::router::TwoFactorResponse& response)
-{
-    applyTwoFactorResult(two_factor_.handleResponse(
-        database_, requestCaller(), response, address(), secondsSinceEpoch()));
-}
-
-//--------------------------------------------------------------------------------------------------
-void ClientOperator::applyTwoFactorResult(TwoFactorHandler::Result&& result)
-{
-    switch (result.action)
-    {
-        case TwoFactorHandler::Action::SEND_CHALLENGE:
-        {
-            proto::router::RouterToClient message;
-            proto::router::TwoFactorChallenge* challenge = message.mutable_two_factor_challenge();
-            challenge->set_mode(result.challenge.mode);
-            if (!result.challenge.otpauth_uri.empty())
-                challenge->set_otpauth_uri(std::move(result.challenge.otpauth_uri));
-            if (result.challenge.token_rejected)
-                challenge->set_token_rejected(true);
-            if (result.challenge.code_rejected)
-                challenge->set_code_rejected(true);
-            if (result.challenge.blocked_seconds)
-                challenge->set_blocked_seconds(result.challenge.blocked_seconds);
-
-            sendMessage(proto::router::CHANNEL_ID_CLIENT, serialize(message));
-            tcp_channel_->setPaused(false);
-        }
-        return;
-
-        case TwoFactorHandler::Action::ACCEPT:
-            token_id_ = result.token_id;
-            // Every accepted login writes user state: the token path refreshes the row of its
-            // token, a code issues a fresh one, an enrollment stores the secret. The user lists
-            // an administrator watches (devices, the OTP state) change with it.
-            emit sig_notifyChanged(ClientWorker::NOTIFY_USERS);
-            completeTwoFactor(std::move(result.new_token));
-            return;
-
-        case TwoFactorHandler::Action::CLOSE:
-            emit sig_finished(session_id_);
-            return;
-    }
-}
-
-//--------------------------------------------------------------------------------------------------
-void ClientOperator::completeTwoFactor(std::string&& new_token)
+void ClientOperator::completeLogin()
 {
     // The account is read once more here: the session was authenticated against the user list, and
     // a user removed or disabled in between must not get in. Any failure tears the session down,
@@ -330,16 +273,17 @@ void ClientOperator::completeTwoFactor(std::string&& new_token)
         return;
     }
 
-    two_factor_completed_ = true;
-    emit sig_twoFactorCompleted();
+    authenticated_ = true;
+    emit sig_authenticated();
 
-    // Sent on every login, with or without a token to hand over: this is what opens the session on
-    // the client side.
+    // Sent on every login: this is what opens the session on the client side.
     proto::router::RouterToClient message;
-    proto::router::LoginResult* login_result = message.mutable_login_result();
-    login_result->set_new_token(std::move(new_token));
-    login_result->set_user_id(userId());
+    message.mutable_login_result()->set_user_id(userId());
     sendMessage(proto::router::CHANNEL_ID_CLIENT, serialize(message));
+
+    // The channel is paused between the end of the SRP handshake and the login completion. Nothing
+    // of the session may be served before the login result is out, so the pause is lifted here.
+    tcp_channel_->setPaused(false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -527,10 +471,9 @@ void ClientOperator::readChangePasswordRequest(const proto::router::ChangePasswo
     CLOG(INFO) << "User" << userName() << "rotated own credentials";
 
     // Every session of the user, this one included: their SRP keys were derived from the password
-    // that is gone and their device tokens died with it in the same transaction. The result sent
-    // above shares the fate of the channel, so the client keeps the new password by itself and
-    // signs in with it, passing the two-factor stage on a fresh session.
-    emit sig_stopClients(userId(), {});
+    // that is gone. The result sent above shares the fate of the channel, so the client keeps the
+    // new password by itself and signs in with it on a fresh session.
+    emit sig_stopClients(userId());
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -173,7 +173,6 @@ void RoutersWidget::reload()
 
         connect(card, &RouterCard::sig_expandRequested, this, &RoutersWidget::onCardExpandRequested);
         connect(card, &RouterCard::sig_editRequested, this, &RoutersWidget::onEditRouter);
-        connect(card, &RouterCard::sig_twoFactorClicked, this, &RoutersWidget::sig_twoFactorClicked);
 
         cards_layout_->addWidget(card);
         cards_.insert(router_id, card);
@@ -250,8 +249,6 @@ void RoutersWidget::onRouterEvent(qint64 router_id, const RouterEvent& event)
     RouterCard* card = cards_.value(router_id);
     if (!card)
         return;
-
-    card->updateTwoFactorButton();
 
     // Only the open panel shows its log live; the others are refilled from the journal when
     // expanded.

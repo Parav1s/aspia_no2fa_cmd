@@ -211,8 +211,7 @@ TEST_F(RouterCacheTest, UserResultDropsTheWorkspacesForDeleteOnly)
     }
 
     for (const char* command : { proto::router::kCommandUserAdd,
-                                 proto::router::kCommandUserModify,
-                                 proto::router::kCommandUserResetOtp })
+                                 proto::router::kCommandUserModify })
     {
         fillAll();
 

@@ -152,8 +152,6 @@ bool RouterSession::storeCredentials(const QString& user_name, const SecureStrin
 {
     LOG(INFO) << "Credentials changed for router" << config_->routerId();
 
-    // The device token is left as it is. This runs before the router has answered and can be
-    // undone, and a token the rotation revoked is dropped by the login that gets it rejected.
     config_->setUsername(user_name);
     config_->setPassword(password);
     if (!Database::instance().modifyRouter(*config_))
@@ -225,18 +223,6 @@ void RouterSession::findUser(const QString& name, RouterCallback<proto::router::
 }
 
 //--------------------------------------------------------------------------------------------------
-void RouterSession::listUserTokens(qint64 user_id,
-                            RouterCallback<proto::router::UserTokenList> callback)
-{
-    proto::router::AdminToRouter message;
-    auto* request = message.mutable_user_token_list_request();
-    request->set_request_id(rpc_.nextRequestId());
-    request->set_user_id(user_id);
-    rpc_.registerPending(request, std::move(callback));
-    send(proto::router::CHANNEL_ID_ADMIN, message);
-}
-
-//--------------------------------------------------------------------------------------------------
 void RouterSession::addUser(const proto::router::User& user,
                      RouterCallback<proto::router::UserResult> callback)
 {
@@ -270,33 +256,6 @@ void RouterSession::deleteUser(qint64 entry_id, RouterCallback<proto::router::Us
     request->set_request_id(rpc_.nextRequestId());
     request->set_command_name(proto::router::kCommandUserDelete);
     request->mutable_user()->set_entry_id(entry_id);
-    rpc_.registerPending(request, std::move(callback));
-    send(proto::router::CHANNEL_ID_ADMIN, message);
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterSession::resetUserOtp(qint64 user_id, RouterCallback<proto::router::UserResult> callback)
-{
-    proto::router::AdminToRouter message;
-    auto* request = message.mutable_user_request();
-    request->set_request_id(rpc_.nextRequestId());
-    request->set_command_name(proto::router::kCommandUserResetOtp);
-    request->mutable_user()->set_entry_id(user_id);
-    rpc_.registerPending(request, std::move(callback));
-    send(proto::router::CHANNEL_ID_ADMIN, message);
-}
-
-//--------------------------------------------------------------------------------------------------
-void RouterSession::revokeUserTokens(qint64 user_id, const QList<qint64>& token_ids,
-                              RouterCallback<proto::router::UserTokenResult> callback)
-{
-    proto::router::AdminToRouter message;
-    auto* request = message.mutable_user_token_request();
-    request->set_request_id(rpc_.nextRequestId());
-    request->set_command_name(proto::router::kCommandUserTokenRevoke);
-    request->set_user_id(user_id);
-    for (qint64 token_id : token_ids)
-        request->add_token_id(token_id);
     rpc_.registerPending(request, std::move(callback));
     send(proto::router::CHANNEL_ID_ADMIN, message);
 }
@@ -766,15 +725,6 @@ void RouterSession::onMessageReceived(const proto::router::RouterToAdmin& messag
     else if (message.has_user_list())
     {
         rpc_.dispatch(message.user_list().request_id(), message.user_list());
-    }
-    else if (message.has_user_token_list())
-    {
-        rpc_.dispatch(message.user_token_list().request_id(), message.user_token_list());
-    }
-    else if (message.has_user_token_result())
-    {
-        const proto::router::UserTokenResult& result = message.user_token_result();
-        rpc_.dispatch(result.request_id(), result);
     }
     else if (message.has_user_result())
     {

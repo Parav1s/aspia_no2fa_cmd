@@ -44,8 +44,8 @@ public:
     ~ClientWorker() final;
 
     // Whom the router is serving right now. A bit stands for the kind of client with at least
-    // one session past the two-factor stage, and a worker turns the work only one of them
-    // needs on and off by this mask.
+    // one signed-in session, and a worker turns the work only one of them needs on and off by
+    // this mask.
     enum : quint32
     {
         CLIENT_OPERATORS = 1u << 0,
@@ -68,16 +68,16 @@ public:
 
     // The sessions a "disconnect" command of the admin channel targets, taken from the ids of the
     // live ones. |entry_id| == -1 means every session except the one that sent the command, so an
-    // administrator that disconnects everybody does not have to reconnect and pass the two-factor
-    // stage again. Any other value names one session, and the administrator may pick the
+    // administrator that disconnects everybody does not have to reconnect and sign in
+    // again. Any other value names one session, and the administrator may pick the
     // requesting one explicitly in the list. An id that is not there yields an empty result,
     // which the caller reports as an invalid entry id.
     static std::vector<qint64> sessionsToStop(const std::vector<qint64>& session_ids,
                                               qint64 entry_id, qint64 requesting_session_id);
 
 signals:
-    // Emitted when the first client of a kind passes the two-factor stage or the last one
-    // disconnects, with the mask of the kinds that remain.
+    // Emitted when the first client of a kind signs in or the last one disconnects, with the
+    // mask of the kinds that remain.
     void sig_clientsChanged(quint32 clients_mask);
 
 protected:
@@ -95,9 +95,8 @@ private slots:
     // connected sessions by the periodic worker timer.
     void onNotifyChanged(quint32 flags);
 
-    // Stops live client sessions (CLIENT/MANAGER/ADMIN) of |user_id|. An empty |token_ids| stops
-    // every such session; otherwise only those whose device token id is listed.
-    void onStopClients(qint64 user_id, const std::vector<qint64>& token_ids);
+    // Stops live client sessions (CLIENT/MANAGER/ADMIN) of |user_id|.
+    void onStopClients(qint64 user_id);
 
     // Admin requests against the session collection; the response is sent through the requesting
     // session (the signal sender).
