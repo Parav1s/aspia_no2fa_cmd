@@ -2,7 +2,7 @@
 
 _Do a quick recap of your work here._
 
-Issue: [#XXXX](https://github.com/dchapyshev/aspia/issues/XXXX)
+Issue: [#XXXX](https://github.com/Parav1s/aspia_no2fa/issues/XXXX)
 
 ## Proposed changes
 
