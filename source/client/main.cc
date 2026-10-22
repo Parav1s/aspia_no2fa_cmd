@@ -19,6 +19,7 @@
 #include <QSysInfo>
 
 #include "version.h"
+#include "base/build_config.h"
 #include "base/logging.h"
 #include "base/sys_info.h"
 #include "client/application.h"
@@ -40,18 +41,68 @@
 #include <functional>
 
 #include "base/crypto/secure_string.h"
+#include "client/config.h"
 #include "client/database.h"
 #include "client/host_url.h"
 #include "client/master_password.h"
+#include "client/router_controller.h"
 #include "client/desktop/app_lock.h"
 #include "client/desktop/main_window.h"
+#include "client/desktop/chat/chat_window.h"
+#include "client/desktop/desktop/desktop_window.h"
+#include "client/desktop/file_transfer/file_transfer_window.h"
+#include "client/desktop/sys_info/system_info_window.h"
+#include "client/desktop/terminal/terminal_window.h"
 #include "common/desktop/credentials_dialog.h"
 #include "common/desktop/msg_box.h"
 #include "common/desktop/update_dialog.h"
+#include "proto/desktop_control.h"
+#include "proto/peer.h"
 #endif // defined(Q_OS_ANDROID)
 
 #if !defined(Q_OS_ANDROID)
 namespace {
+
+//--------------------------------------------------------------------------------------------------
+// Appends |port| to an address that does not carry one. An IPv6 literal is expected in brackets
+// ("[::1]:8050"), as everywhere else in the client.
+QString withPort(const QString& address, quint16 port)
+{
+    const QString trimmed = address.trimmed();
+
+    if (trimmed.startsWith('['))
+        return trimmed.contains("]:") ? trimmed : trimmed + ':' + QString::number(port);
+
+    // A single colon separates a host from its port; more than one is a bare IPv6 literal.
+    if (trimmed.count(':') == 1)
+    {
+        bool ok = false;
+        trimmed.section(':', 1, 1).toUShort(&ok);
+        if (ok)
+            return trimmed;
+    }
+
+    return trimmed + ':' + QString::number(port);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Reads a "0"/"1" command line value. Returns false for anything else.
+bool parseBool(const QString& value, bool* result)
+{
+    if (value == "0")
+    {
+        *result = false;
+        return true;
+    }
+
+    if (value == "1")
+    {
+        *result = true;
+        return true;
+    }
+
+    return false;
+}
 
 //--------------------------------------------------------------------------------------------------
 void backupOnStartup()
@@ -204,7 +255,348 @@ int main(int argc, char* argv[])
     parser.addVersionOption();
     parser.addPositionalArgument("url",
         QApplication::translate("Client", "An aspia:// link to connect to a host."), "[url]");
+
+    // Command line connection. The set mirrors the one the 2.x client had, so existing shortcuts
+    // and scripts keep working. Options of the old protocol that the current one no longer has
+    // (codec, color depth, compression ratio, font smoothing, clear clipboard) are accepted and
+    // ignored.
+    QCommandLineOption address_option("address",
+        QApplication::translate("Client", "Remote computer address or host ID."), "address");
+    QCommandLineOption port_option("port",
+        QApplication::translate("Client", "Remote computer port."), "port",
+        QString::number(kDefaultHostTcpPort));
+    QCommandLineOption name_option("name",
+        QApplication::translate("Client", "Name of the host."), "name");
+    QCommandLineOption username_option("username",
+        QApplication::translate("Client", "User name."), "username");
+    QCommandLineOption password_option("password",
+        QApplication::translate("Client", "Password of the user."), "password");
+    QCommandLineOption display_name_option("display-name",
+        QApplication::translate("Client", "Display name when connected."), "display-name");
+    QCommandLineOption session_type_option("session-type",
+        QApplication::translate("Client", "Session type. Possible values: desktop-manage, "
+                                "desktop-view, file-transfer, system-info, text-chat, terminal."),
+        "session-type", "desktop-manage");
+    QCommandLineOption codec_option("codec",
+        QApplication::translate("Client", "Type of codec. Possible values: vp8, vp9, zstd. "
+                                "Not supported by the current protocol."), "codec");
+    QCommandLineOption color_depth_option("color-depth",
+        QApplication::translate("Client", "Color depth. Possible values: 3, 6, 8, 16, 32. "
+                                "Not supported by the current protocol."), "color-depth");
+    QCommandLineOption compress_ratio_option("compress-ratio",
+        QApplication::translate("Client", "Compression ratio. Possible values: 1-22. "
+                                "Not supported by the current protocol."), "compress-ratio");
+    QCommandLineOption audio_option("audio",
+        QApplication::translate("Client", "Enable or disable audio. Possible values: 0 or 1."),
+        "audio");
+    QCommandLineOption cursor_shape_option("cursor-shape",
+        QApplication::translate("Client", "Enable or disable cursor shape. Possible values: 0 or 1."),
+        "cursor-shape");
+    QCommandLineOption cursor_position_option("cursor-position",
+        QApplication::translate("Client", "Enable or disable cursor position. Possible values: 0 or 1."),
+        "cursor-position");
+    QCommandLineOption clipboard_option("clipboard",
+        QApplication::translate("Client", "Enable or disable clipboard. Possible values: 0 or 1."),
+        "clipboard");
+    QCommandLineOption desktop_effects_option("desktop-effects",
+        QApplication::translate("Client", "Enable or disable desktop effects. Possible values: 0 or 1."),
+        "desktop-effects");
+    QCommandLineOption desktop_wallpaper_option("desktop-wallpaper",
+        QApplication::translate("Client", "Enable or disable desktop wallpaper. Possible values: 0 or 1."),
+        "desktop-wallpaper");
+    QCommandLineOption font_smoothing_option("font-smoothing",
+        QApplication::translate("Client", "Enable or disable font smoothing. Possible values: 0 or 1. "
+                                "Not supported by the current protocol."), "font-smoothing");
+    QCommandLineOption clear_clipboard_option("clear-clipboard",
+        QApplication::translate("Client", "Clear clipboard at disconnect. Possible values: 0 or 1. "
+                                "Not supported by the current protocol."), "clear-clipboard");
+    QCommandLineOption lock_at_disconnect_option("lock-at-disconnect",
+        QApplication::translate("Client", "Lock computer at disconnect. Possible values: 0 or 1."),
+        "lock-at-disconnect");
+    QCommandLineOption block_remote_input_option("block-remote-input",
+        QApplication::translate("Client", "Block remote input. Possible values: 0 or 1."),
+        "block-remote-input");
+    QCommandLineOption router_address_option("router-address",
+        QApplication::translate("Client", "Router address."), "router-address");
+    QCommandLineOption router_port_option("router-port",
+        QApplication::translate("Client", "Router port."), "router-port",
+        QString::number(kDefaultRouterClientTcpPort));
+    QCommandLineOption router_username_option("router-username",
+        QApplication::translate("Client", "Router user name."), "router-username");
+    QCommandLineOption router_password_option("router-password",
+        QApplication::translate("Client", "Router password of the user."), "router-password");
+
+    parser.addOption(address_option);
+    parser.addOption(port_option);
+    parser.addOption(name_option);
+    parser.addOption(username_option);
+    parser.addOption(password_option);
+    parser.addOption(display_name_option);
+    parser.addOption(session_type_option);
+    parser.addOption(codec_option);
+    parser.addOption(color_depth_option);
+    parser.addOption(compress_ratio_option);
+    parser.addOption(audio_option);
+    parser.addOption(cursor_shape_option);
+    parser.addOption(cursor_position_option);
+    parser.addOption(clipboard_option);
+    parser.addOption(desktop_effects_option);
+    parser.addOption(desktop_wallpaper_option);
+    parser.addOption(font_smoothing_option);
+    parser.addOption(clear_clipboard_option);
+    parser.addOption(lock_at_disconnect_option);
+    parser.addOption(block_remote_input_option);
+    parser.addOption(router_address_option);
+    parser.addOption(router_port_option);
+    parser.addOption(router_username_option);
+    parser.addOption(router_password_option);
+
     parser.process(application);
+
+    // Command line connection: no address book, no master password, no dialogs. The session window
+    // either appears already connecting or reports the error and exits when it is closed.
+    if (parser.isSet(address_option))
+    {
+        LOG(INFO) << "Command line start";
+
+        const QString address = parser.value(address_option);
+        const QString user_name = parser.value(username_option);
+        const QString password = parser.value(password_option);
+
+        proto::peer::SessionType session_type = proto::peer::SESSION_TYPE_DESKTOP;
+        proto::control::Config desktop_config = defaultDesktopConfig();
+        bool desktop_session = true;
+
+        const QString session_type_name = parser.value(session_type_option);
+
+        if (session_type_name == "desktop-manage" || session_type_name == "desktop")
+        {
+            session_type = proto::peer::SESSION_TYPE_DESKTOP;
+        }
+        else if (session_type_name == "desktop-view")
+        {
+            // The current protocol has a single desktop session; view only is the host-side
+            // "block input" switch.
+            session_type = proto::peer::SESSION_TYPE_DESKTOP;
+            desktop_config.set_block_input(true);
+        }
+        else if (session_type_name == "file-transfer")
+        {
+            session_type = proto::peer::SESSION_TYPE_FILE_TRANSFER;
+            desktop_session = false;
+        }
+        else if (session_type_name == "system-info")
+        {
+            session_type = proto::peer::SESSION_TYPE_SYSTEM_INFO;
+            desktop_session = false;
+        }
+        else if (session_type_name == "text-chat")
+        {
+            session_type = proto::peer::SESSION_TYPE_CHAT;
+            desktop_session = false;
+        }
+        else if (session_type_name == "terminal")
+        {
+            session_type = proto::peer::SESSION_TYPE_TERMINAL;
+            desktop_session = false;
+        }
+        else
+        {
+            LOG(ERROR) << "Unknown session type:" << session_type_name;
+            return 1;
+        }
+
+        auto apply_bool = [&parser](const QCommandLineOption& option, const char* name,
+                                    const std::function<void(bool)>& setter) -> bool
+        {
+            if (!parser.isSet(option))
+                return true;
+
+            bool value = false;
+            if (!parseBool(parser.value(option), &value))
+            {
+                LOG(ERROR) << "Incorrect value for --" << name << "(expected 0 or 1)";
+                return false;
+            }
+
+            setter(value);
+            return true;
+        };
+
+        if (desktop_session)
+        {
+            if (!apply_bool(audio_option, "audio", [&](bool value)
+                    { desktop_config.set_audio(value); }) ||
+                !apply_bool(cursor_shape_option, "cursor-shape", [&](bool value)
+                    { desktop_config.set_cursor_shape(value); }) ||
+                !apply_bool(cursor_position_option, "cursor-position", [&](bool value)
+                    { desktop_config.set_cursor_position(value); }) ||
+                !apply_bool(clipboard_option, "clipboard", [&](bool value)
+                    { desktop_config.set_clipboard(value); }) ||
+                !apply_bool(desktop_effects_option, "desktop-effects", [&](bool value)
+                    { desktop_config.set_effects(value); }) ||
+                !apply_bool(desktop_wallpaper_option, "desktop-wallpaper", [&](bool value)
+                    { desktop_config.set_wallpaper(value); }) ||
+                !apply_bool(lock_at_disconnect_option, "lock-at-disconnect", [&](bool value)
+                    { desktop_config.set_lock_at_disconnect(value); }) ||
+                !apply_bool(block_remote_input_option, "block-remote-input", [&](bool value)
+                    { desktop_config.set_block_input(value); }))
+            {
+                return 1;
+            }
+
+            // Accepted for compatibility with the 2.x command line; the current protocol has no
+            // such settings any more.
+            if (parser.isSet(codec_option))
+            {
+                const QString codec = parser.value(codec_option);
+                if (codec != "vp8" && codec != "vp9" && codec != "zstd")
+                {
+                    LOG(ERROR) << "Incorrect value for --codec (vp8, vp9, zstd)";
+                    return 1;
+                }
+                LOG(WARNING) << "The video codec is chosen by the host now - ignoring --codec";
+            }
+
+            if (parser.isSet(color_depth_option))
+            {
+                const QString color_depth = parser.value(color_depth_option);
+                if (color_depth != "3" && color_depth != "6" && color_depth != "8" &&
+                    color_depth != "16" && color_depth != "32")
+                {
+                    LOG(ERROR) << "Incorrect value for --color-depth (3, 6, 8, 16, 32)";
+                    return 1;
+                }
+                LOG(WARNING) << "The color depth is chosen by the host now - ignoring --color-depth";
+            }
+
+            if (parser.isSet(compress_ratio_option))
+            {
+                bool ok = false;
+                const uint ratio = parser.value(compress_ratio_option).toUInt(&ok);
+                if (!ok || ratio < 1 || ratio > 22)
+                {
+                    LOG(ERROR) << "Incorrect value for --compress-ratio (1-22)";
+                    return 1;
+                }
+                LOG(WARNING) << "The compression ratio is chosen by the host now - ignoring "
+                                "--compress-ratio";
+            }
+
+            bool ignored = false;
+            if ((parser.isSet(font_smoothing_option) &&
+                 !parseBool(parser.value(font_smoothing_option), &ignored)) ||
+                (parser.isSet(clear_clipboard_option) &&
+                 !parseBool(parser.value(clear_clipboard_option), &ignored)))
+            {
+                LOG(ERROR) << "Incorrect value for --font-smoothing or --clear-clipboard "
+                              "(expected 0 or 1)";
+                return 1;
+            }
+
+            if (parser.isSet(font_smoothing_option))
+                LOG(WARNING) << "Font smoothing is not supported by the current protocol - ignoring";
+            if (parser.isSet(clear_clipboard_option))
+                LOG(WARNING) << "Clearing the clipboard is not supported by the current protocol - "
+                                "ignoring";
+        }
+
+        HostConfig host;
+        host.setAddress(address);
+        host.setName(parser.value(name_option));
+        host.setUsername(user_name);
+        host.setPassword(SecureString(password));
+
+        if (isHostId(address))
+        {
+            LOG(INFO) << "Connection by host ID";
+
+            if (!parser.isSet(router_address_option))
+            {
+                LOG(ERROR) << "A host ID requires --router-address, --router-username and "
+                              "--router-password";
+                return 1;
+            }
+
+            bool ok = false;
+            const quint16 router_port = parser.value(router_port_option).toUShort(&ok);
+            if (!ok || router_port == 0)
+            {
+                LOG(ERROR) << "Incorrect value for --router-port";
+                return 1;
+            }
+
+            const QString router_address = withPort(parser.value(router_address_option), router_port);
+
+            RouterController* controller = new RouterController(&application);
+            const qint64 router_id = controller->addTemporaryRouter(
+                router_address, parser.value(router_username_option),
+                parser.value(router_password_option));
+            if (router_id < 0)
+                return 1;
+
+            host.setRouterId(router_id);
+        }
+        else
+        {
+            LOG(INFO) << "Direct connection";
+
+            bool ok = false;
+            const quint16 host_port = parser.value(port_option).toUShort(&ok);
+            if (!ok || host_port == 0)
+            {
+                LOG(ERROR) << "Incorrect value for --port";
+                return 1;
+            }
+
+            host.setAddress(withPort(address, host_port));
+        }
+
+        ClientWindow* client_window = nullptr;
+
+        switch (session_type)
+        {
+            case proto::peer::SESSION_TYPE_DESKTOP:
+                client_window = new DesktopWindow(desktop_config);
+                break;
+
+            case proto::peer::SESSION_TYPE_FILE_TRANSFER:
+                client_window = new FileTransferWindow();
+                break;
+
+            case proto::peer::SESSION_TYPE_SYSTEM_INFO:
+                client_window = new SystemInfoWindow();
+                break;
+
+            case proto::peer::SESSION_TYPE_CHAT:
+                client_window = new ChatWindow();
+                break;
+
+            case proto::peer::SESSION_TYPE_TERMINAL:
+                client_window = new TerminalWindow();
+                break;
+
+            default:
+                break;
+        }
+
+        if (!client_window)
+        {
+            LOG(ERROR) << "Unable to create the session window";
+            return 1;
+        }
+
+        client_window->setAttribute(Qt::WA_DeleteOnClose);
+
+        if (!client_window->connectToHost(host, parser.value(display_name_option), true))
+        {
+            delete client_window;
+            return 0;
+        }
+
+        client_window->show();
+        return application.exec();
+    }
 
     QString start_url;
     QStringList positional_arguments = parser.positionalArguments();

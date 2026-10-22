@@ -20,6 +20,8 @@
 
 #include <QSet>
 
+#include <limits>
+
 #include "base/gui_application.h"
 #include "base/logging.h"
 #include "base/serialization.h"
@@ -27,6 +29,7 @@
 #include "client/database.h"
 #include "client/router_hosts_cleaner.h"
 #include "client/workers/router_worker.h"
+#include "proto/router.h"
 #include "proto/router_constants.h"
 
 namespace {
@@ -142,6 +145,10 @@ void RouterController::reload()
         if (present.contains(router_id))
             continue;
 
+        auto context_it = contexts_.find(router_id);
+        if (context_it != contexts_.end() && context_it->second.temporary)
+            continue;
+
         contexts_.erase(router_id);
 
         if (router_worker_)
@@ -238,6 +245,51 @@ void RouterController::reload()
 }
 
 //--------------------------------------------------------------------------------------------------
+qint64 RouterController::addTemporaryRouter(const QString& address, const QString& user_name,
+                                            const QString& password)
+{
+    if (!router_worker_)
+    {
+        LOG(ERROR) << "Router worker not found";
+        return -1;
+    }
+
+    // Ids of the stored records are autoincrement values and are small. Counting down from the top
+    // of the range cannot collide with them.
+    static qint64 next_id = std::numeric_limits<qint64>::max();
+    const qint64 router_id = --next_id;
+
+    RouterConfig config;
+    config.setRouterId(router_id);
+    config.setAddress(address);
+    config.setUsername(user_name);
+    config.setPassword(SecureString(password));
+    config.setSessionType(proto::router::SESSION_TYPE_OPERATOR);
+
+    if (!config.isValid())
+    {
+        LOG(ERROR) << "The router account passed on the command line is incomplete";
+        return -1;
+    }
+
+    RouterContext& context = contexts_[router_id];
+    context.config.reset(new RouterConfig(config));
+    context.temporary = true;
+
+    LOG(INFO) << "Connecting to router from the command line:" << address;
+    startLogin(router_id);
+    addEvent(router_id, RouterEvent::Severity::INFO,
+             tr("Connecting to router %1...").arg(address));
+
+    QMetaObject::invokeMethod(router_worker_, &RouterWorker::onConnectWithConfig,
+                              Qt::QueuedConnection, router_id, address, user_name, password,
+                              static_cast<quint32>(proto::router::SESSION_TYPE_OPERATOR));
+    updateStatus(router_id);
+
+    return router_id;
+}
+
+//--------------------------------------------------------------------------------------------------
 QList<RouterEvent> RouterController::events(qint64 router_id) const
 {
     auto it = contexts_.find(router_id);
@@ -331,32 +383,36 @@ void RouterController::onRouterError(qint64 router_id, TcpChannel::ErrorCode err
     // reconnect cycle running by itself, so the record goes back to logging in.
     context.session.reset();
 
-    RouterConfig config;
-    const Database::FindResult found = Database::instance().findRouter(router_id, &config);
-    if (found == Database::FindResult::UNREADABLE)
+    if (!context.temporary)
     {
-        LOG(ERROR) << "Data of router" << router_id << "could not be read";
-        context.config.reset(new RouterConfig(config));
-        context.logging_in = false;
-        context.peer_version = QVersionNumber();
-
-        if (router_worker_)
+        RouterConfig config;
+        const Database::FindResult found = Database::instance().findRouter(router_id, &config);
+        if (found == Database::FindResult::UNREADABLE)
         {
-            QMetaObject::invokeMethod(router_worker_, &RouterWorker::onDisconnect,
-                                      Qt::QueuedConnection, router_id);
+            LOG(ERROR) << "Data of router" << router_id << "could not be read";
+            context.config.reset(new RouterConfig(config));
+            context.logging_in = false;
+            context.peer_version = QVersionNumber();
+
+            if (router_worker_)
+            {
+                QMetaObject::invokeMethod(router_worker_, &RouterWorker::onDisconnect,
+                                          Qt::QueuedConnection, router_id);
+            }
+
+            updateStatus(router_id);
+            return;
         }
 
-        updateStatus(router_id);
-        return;
-    }
-
-    if (found == Database::FindResult::FOUND && config.isValid())
-    {
-        *context.config = config;
-    }
-    else
-    {
-        LOG(WARNING) << "Failed to re-read record (router_id:" << router_id << "): using the in-memory copy";
+        if (found == Database::FindResult::FOUND && config.isValid())
+        {
+            *context.config = config;
+        }
+        else
+        {
+            LOG(WARNING) << "Failed to re-read record (router_id:" << router_id
+                         << "): using the in-memory copy";
+        }
     }
 
     addEvent(router_id, RouterEvent::Severity::INFO,
@@ -479,13 +535,19 @@ void RouterController::finishLogin(qint64 router_id, qint64 user_id)
     context.logging_in = false;
 
     RouterConfig config;
-    if (Database::instance().findRouter(router_id, &config) == Database::FindResult::FOUND && config.isValid())
+
+    if (!context.temporary)
     {
-        *context.config = config;
-    }
-    else
-    {
-        LOG(WARNING) << "Failed to re-read record (router_id:" << router_id << "): using the in-memory copy";
+        if (Database::instance().findRouter(router_id, &config) == Database::FindResult::FOUND &&
+            config.isValid())
+        {
+            *context.config = config;
+        }
+        else
+        {
+            LOG(WARNING) << "Failed to re-read record (router_id:" << router_id
+                         << "): using the in-memory copy";
+        }
     }
 
     LOG(INFO) << "Login completed for router" << router_id;
@@ -494,6 +556,10 @@ void RouterController::finishLogin(qint64 router_id, qint64 user_id)
     addEvent(router_id, RouterEvent::Severity::INFO,
              tr("Connection to router %1 established.").arg(context.config->address()));
     updateStatus(router_id);
+
+    // A router the caller supplied has no record of its own, so there is nothing to clean up here.
+    if (context.temporary)
+        return;
 
     // The saved credentials of hosts this router no longer knows are of no use to anyone.
     RouterHostsCleaner* cleaner = new RouterHostsCleaner(router_id, this);

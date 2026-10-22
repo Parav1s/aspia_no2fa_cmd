@@ -110,25 +110,29 @@ ClientWindow::~ClientWindow()
 }
 
 //--------------------------------------------------------------------------------------------------
-bool ClientWindow::connectToHost(HostConfig host, const QString& display_name)
+bool ClientWindow::connectToHost(HostConfig host, const QString& display_name, bool command_line)
 {
-    LOG(INFO) << "Connecting to host";
+    LOG(INFO) << "Connecting to host (command line:" << command_line << ")";
+    command_line_ = command_line;
     setClientTitle(host, session_type_);
 
-    std::optional<std::pair<QString, SecureString>> credentials = storedCredentials(host);
-    if (credentials.has_value())
+    if (!command_line_)
     {
-        LOG(INFO) << "Using stored credentials of host" << host.address();
-        host.setUsername(credentials->first);
-        host.setPassword(credentials->second);
-    }
+        std::optional<std::pair<QString, SecureString>> credentials = storedCredentials(host);
+        if (credentials.has_value())
+        {
+            LOG(INFO) << "Using stored credentials of host" << host.address();
+            host.setUsername(credentials->first);
+            host.setPassword(credentials->second);
+        }
 
-    if (host.username().isEmpty() || host.password().isEmpty())
-    {
-        LOG(INFO) << "Empty user name or password";
+        if (host.username().isEmpty() || host.password().isEmpty())
+        {
+            LOG(INFO) << "Empty user name or password";
 
-        if (!askCredentials(&host))
-            return false;
+            if (!askCredentials(&host))
+                return false;
+        }
     }
 
     startConnection(host, display_name);
@@ -266,11 +270,14 @@ void ClientWindow::onStatusChanged(NetworkWorker::Status status, const QVariant&
                 TcpChannel::ErrorCode error_code = data.value<TcpChannel::ErrorCode>();
 
                 if (error_code == TcpChannel::ErrorCode::ACCESS_DENIED)
-                    forgetRefusedCredentials();
+                {
+                    if (!command_line_)
+                        forgetRefusedCredentials();
+                }
 
                 onErrorOccurred(TcpChannel::errorToString(error_code));
 
-                if (error_code == TcpChannel::ErrorCode::ACCESS_DENIED)
+                if (error_code == TcpChannel::ErrorCode::ACCESS_DENIED && !command_line_)
                 {
                     reconnect_timeout_timer_->stop();
                     askCredentialsAgain();
@@ -562,6 +569,20 @@ void ClientWindow::fetchConnectionOffer()
             onErrorOccurred(tr("The specified router is unavailable."));
         else if (router_status == RouterStatus::UNREADABLE)
             onErrorOccurred(tr("The data of the router is damaged. Edit the router and enter it again."));
+        else if (command_line_)
+        {
+            // A command line launch starts the router connection itself, so the login is still in
+            // progress at the first attempt. Wait for it instead of failing. A router that refuses
+            // the account keeps retrying in the background, hence the bound.
+            if (++router_wait_attempts_ > 12)
+            {
+                onErrorOccurred(tr("Unable to connect to the router."));
+                return;
+            }
+
+            status_overlay_->setProgress(tr("Connecting to the router..."));
+            QTimer::singleShot(kReconnectRetryDelay, this, &ClientWindow::fetchConnectionOffer);
+        }
         else
             onErrorOccurred(tr("The specified router is offline."));
         return;

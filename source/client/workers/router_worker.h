@@ -20,6 +20,7 @@
 #define CLIENT_WORKERS_ROUTER_WORKER_H
 
 #include <QHash>
+#include <QString>
 #include <QVersionNumber>
 
 #include "base/net/tcp_channel.h"
@@ -37,6 +38,11 @@ public slots:
     // Starts (and keeps reconnecting) the connection to |router_id|. Its config is read from the
     // database. A no-op if it is already active.
     void onConnect(qint64 router_id);
+
+    // Starts the connection to |router_id| with the given account instead of a database record.
+    // Used by a command line launch, which must work without an unlocked address book.
+    void onConnectWithConfig(qint64 router_id, const QString& address, const QString& user_name,
+                             const QString& password, quint32 session_type);
 
     // Stops the connection to |router_id| and cancels its reconnect.
     void onDisconnect(qint64 router_id);
@@ -63,10 +69,17 @@ protected:
 private:
     // One router's connection state. |channel| is null while waiting to reconnect;
     // |reconnect_countdown| is the number of one-second ticks left before the next attempt.
+    // |has_config| marks a connection whose account was passed in directly (command line launch)
+    // instead of being read from the database.
     struct Connection
     {
         TcpChannel* channel = nullptr;
         int reconnect_countdown = 0;
+        bool has_config = false;
+        QString address;
+        QString user_name;
+        QString password;
+        quint32 session_type = 0;
     };
 
     void startConnection(qint64 router_id);

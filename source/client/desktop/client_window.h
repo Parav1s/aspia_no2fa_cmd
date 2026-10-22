@@ -48,7 +48,11 @@ public:
 
     // Connects to a host. Asks for the missing credentials before the attempt and asks again if
     // the host refuses credentials that are not stored for it.
-    bool connectToHost(HostConfig host, const QString& display_name);
+    //
+    // In |command_line| mode the window is started from the command line: the credentials come
+    // from the caller, nothing is read from or written to the address book, and no dialog is shown
+    // (an unattended launch must not wait for input).
+    bool connectToHost(HostConfig host, const QString& display_name, bool command_line = false);
 
     std::shared_ptr<SessionState> sessionState() { return session_state_; }
     proto::peer::SessionType sessionType() const { return session_type_; }
@@ -175,6 +179,10 @@ private:
     SessionKeeper* session_keeper_ = nullptr;
     bool is_legacy_mode_ = false;
     bool credentials_saved_ = false;
+    // Started from the command line: no credential prompts, no address book access.
+    bool command_line_ = false;
+    // Number of times a command line launch has waited for its router to come online.
+    int router_wait_attempts_ = 0;
 };
 
 #endif // CLIENT_DESKTOP_CLIENT_WINDOW_H

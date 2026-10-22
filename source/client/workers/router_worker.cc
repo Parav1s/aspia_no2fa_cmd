@@ -58,6 +58,25 @@ void RouterWorker::onConnect(qint64 router_id)
 }
 
 //--------------------------------------------------------------------------------------------------
+void RouterWorker::onConnectWithConfig(qint64 router_id, const QString& address,
+                                       const QString& user_name, const QString& password,
+                                       quint32 session_type)
+{
+    if (connections_.contains(router_id))
+        return;
+
+    Connection connection;
+    connection.has_config = true;
+    connection.address = address;
+    connection.user_name = user_name;
+    connection.password = password;
+    connection.session_type = session_type;
+
+    connections_.insert(router_id, connection);
+    startConnection(router_id);
+}
+
+//--------------------------------------------------------------------------------------------------
 void RouterWorker::onDisconnect(qint64 router_id)
 {
     auto it = connections_.find(router_id);
@@ -154,23 +173,47 @@ void RouterWorker::startConnection(qint64 router_id)
     // local connection) instead of shuttling them across threads on every connect. A record whose
     // sealed column did not open (a master password change in flight) is not handed out and is
     // retried, not connected with.
-    RouterConfig config;
-    if (Database::instance().findRouter(router_id, &config) != Database::FindResult::FOUND || !config.isValid())
+    //
+    // A connection started from the command line carries its own account: there is no record to
+    // read and the address book may well be locked.
+    QString address;
+    QString user_name;
+    SecureString password;
+    quint32 session_type = 0;
+
+    if (it->has_config)
     {
-        LOG(ERROR) << "No readable config for router" << router_id;
-        it->reconnect_countdown = kReconnectTicks;
-        return;
+        address = it->address;
+        user_name = it->user_name;
+        password = SecureString(it->password);
+        session_type = it->session_type;
+    }
+    else
+    {
+        RouterConfig config;
+        if (Database::instance().findRouter(router_id, &config) != Database::FindResult::FOUND ||
+            !config.isValid())
+        {
+            LOG(ERROR) << "No readable config for router" << router_id;
+            it->reconnect_countdown = kReconnectTicks;
+            return;
+        }
+
+        address = config.address();
+        user_name = config.username();
+        password = config.password();
+        session_type = static_cast<quint32>(config.sessionType());
     }
 
-    LOG(INFO) << "Connecting to router" << router_id << config.address();
+    LOG(INFO) << "Connecting to router" << router_id << address;
 
-    const Address addr = Address::fromString(config.address(), kDefaultRouterClientTcpPort);
+    const Address addr = Address::fromString(address, kDefaultRouterClientTcpPort);
 
     auto* authenticator = new ClientAuthenticator();
     authenticator->setIdentify(proto::key_exchange::IDENTIFY_SRP);
-    authenticator->setSessionType(static_cast<quint32>(config.sessionType()));
-    authenticator->setUserName(config.username());
-    authenticator->setPassword(config.password());
+    authenticator->setSessionType(session_type);
+    authenticator->setUserName(user_name);
+    authenticator->setPassword(password);
 
     // The channel takes ownership of the authenticator and lives on this worker thread.
     TcpChannel* channel = new TcpChannelNG(authenticator, this);

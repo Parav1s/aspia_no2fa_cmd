@@ -20,6 +20,7 @@
 #define CLIENT_ROUTER_CONTROLLER_H
 
 #include <QObject>
+#include <QString>
 #include <QVersionNumber>
 
 #include <unordered_map>
@@ -54,6 +55,13 @@ public:
     // everything a record that is gone was running is destroyed.
     void reload();
 
+    // Starts a router the caller supplies itself, without a record in the address book. Used by a
+    // command line launch, which must not require an unlocked address book. The returned id is
+    // reserved for this connection and is never written to the database; -1 means the router
+    // worker is unavailable.
+    qint64 addTemporaryRouter(const QString& address, const QString& user_name,
+                              const QString& password);
+
     static constexpr int kMaxStoredEvents = 100;
 
     QList<RouterEvent> events(qint64 router_id) const;
@@ -86,6 +94,9 @@ private:
         bool logging_in = false;
         RouterStatus last_status = RouterStatus::OFFLINE;
         QList<RouterEvent> events;
+        // Not backed by a database record (command line launch): the in-memory config is the only
+        // source of the account, and the record-aware housekeeping is skipped.
+        bool temporary = false;
     };
 
     void startLogin(qint64 router_id);
