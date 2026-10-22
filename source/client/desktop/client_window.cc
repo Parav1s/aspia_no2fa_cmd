@@ -46,6 +46,11 @@ namespace {
 
 constexpr MilliSeconds kDragPollInterval{ 50 };
 const Seconds kReconnectRetryDelay { 5 };
+// A command-line launch starts the router login itself, so the first attempt to fetch the offer
+// usually finds the session still being created. Waiting the full reconnect delay here made every
+// launch take five seconds; the login itself takes tens of milliseconds.
+constexpr MilliSeconds kRouterLoginRetryDelay{ 100 };
+constexpr int kRouterLoginMaxAttempts = 100;
 const Minutes kReconnectBudget { 5 };
 
 //--------------------------------------------------------------------------------------------------
@@ -574,14 +579,14 @@ void ClientWindow::fetchConnectionOffer()
             // A command line launch starts the router connection itself, so the login is still in
             // progress at the first attempt. Wait for it instead of failing. A router that refuses
             // the account keeps retrying in the background, hence the bound.
-            if (++router_wait_attempts_ > 12)
+            if (++router_wait_attempts_ > kRouterLoginMaxAttempts)
             {
                 onErrorOccurred(tr("Unable to connect to the router."));
                 return;
             }
 
             status_overlay_->setProgress(tr("Connecting to the router..."));
-            QTimer::singleShot(kReconnectRetryDelay, this, &ClientWindow::fetchConnectionOffer);
+            QTimer::singleShot(kRouterLoginRetryDelay, this, &ClientWindow::fetchConnectionOffer);
         }
         else
             onErrorOccurred(tr("The specified router is offline."));
