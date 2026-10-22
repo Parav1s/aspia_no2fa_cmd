@@ -8,6 +8,7 @@ name: macos-hosted
 on:
   push:
     branches:
+      - master
       - no2fa-3.0.18
       - v3.0
     paths-ignore:
@@ -115,3 +116,18 @@ jobs:
         run: |
           security list-keychains -d user -s login.keychain-db || true
           security delete-keychain "$RUNNER_TEMP/aspia-ci.keychain-db" || true
+
+      - name: Package the build
+        if: success()
+        run: |
+          mkdir -p artifacts
+          tar -czf "artifacts/aspia-macos-${{ matrix.arch }}-${{ matrix.build_type }}.tar.gz" \
+            -C builds/ci/Release .
+
+      - name: Upload the build
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aspia-macos-${{ matrix.arch }}-${{ matrix.build_type }}
+          path: artifacts/*
+          if-no-files-found: error
