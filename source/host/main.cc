@@ -58,7 +58,9 @@
 
 #if defined(Q_OS_WINDOWS)
 #include "base/process_util.h"
+#include "base/session_id.h"
 #include "base/win/desktop.h"
+#include "base/win/session_info.h"
 #endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_LINUX)
@@ -387,6 +389,15 @@ bool waitForValidInputDesktop()
             wchar_t desktop_name[100] = { 0 };
             if (input_desktop.name(desktop_name, sizeof(desktop_name)))
                 LOG(INFO) << "Attached to desktop:" << desktop_name;
+            break;
+        }
+
+        // A locked session shows the Winlogon desktop, which a user process cannot open. The GUI
+        // would wait here until the session is unlocked, and the service rejects connections while
+        // there is no GUI. The GUI starts on the default desktop it was launched on instead.
+        if (SessionInfo(currentProcessSessionId()).isUserLocked())
+        {
+            LOG(INFO) << "Session is locked, the input desktop is not available";
             break;
         }
 #elif defined(Q_OS_LINUX)
