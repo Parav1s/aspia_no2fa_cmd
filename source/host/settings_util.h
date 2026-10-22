@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ public:
     static bool exportToFile(const QString& path, bool silent, QWidget* parent = nullptr);
 
 private:
-    // Platform-specific dialogs: MsgBox on the desktop, MessageDialog on Android.
+    // Platform-specific confirmation and message dialogs.
     static bool confirmOverwrite(QWidget* parent);
     static void showError(QWidget* parent, const QString& text);
     static void showInfo(QWidget* parent, const QString& text);

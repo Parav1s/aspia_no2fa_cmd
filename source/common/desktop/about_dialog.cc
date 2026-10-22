@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -40,10 +40,13 @@ namespace {
 
 const char kGplLink[] = "https://www.gnu.org/licenses/gpl.html";
 const char kGplTranslationLink[] = "https://www.gnu.org/licenses/translations.html";
-const char kHomeLink[] = "https://aspia.org";
-const char kGitHubLink[] = "https://github.com/dchapyshev/aspia";
+const char kGitHubLink[] = "https://github.com/Parav1s/aspia_no2fa_cmd";
 
-const char* kDevelopers[] = { "Dmitry Chapyshev (dmitry@aspia.ru)" };
+const char* kDevelopers[] =
+{
+    "Dmitry Chapyshev",
+    "Parav1s (fork maintainer)"
+};
 
 const char* kTranslators[] =
 {
@@ -115,9 +118,8 @@ AboutDialog::AboutDialog(const QString& application_name, QWidget* parent)
         .arg(tr("You can also get a translation of GNU GPL license here:"), kGplTranslationLink);
 
     QString links =
-        QString("<b>%1</b><br>%2 <a href='%3'>%3</a><br>%4 <a href='%5'>%5</a>")
+        QString("<b>%1</b><br>%2 <a href='%3'>%3</a>")
         .arg(tr("Links"),
-             tr("Home page:"), kHomeLink,
              tr("GitHub page:"), kGitHubLink);
 
     QString developers =
@@ -208,12 +210,6 @@ AboutDialog::AboutDialog(const QString& application_name, QWidget* parent)
     service_html += "</body></html>";
 
     service->setHtml(service_html);
-
-    connect(ui->push_button_donate, &QPushButton::clicked, this, []()
-    {
-        LOG(INFO) << "[ACTION] Donate button clicked";
-        QDesktopServices::openUrl(QUrl("https://aspia.org/donate"));
-    });
 
     connect(ui->push_button_close, &QPushButton::clicked, this, [this]()
     {

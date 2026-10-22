@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -20,9 +20,6 @@
 
 #include "base/logging.h"
 
-#if defined(Q_OS_ANDROID)
-#include <malloc.h>
-#endif
 
 //--------------------------------------------------------------------------------------------------
 void* alignedAlloc(size_t size, size_t alignment)
@@ -35,8 +32,6 @@ void* alignedAlloc(size_t size, size_t alignment)
 
 #if defined(Q_OS_WINDOWS)
     ptr = _aligned_malloc(size, alignment);
-#elif defined(Q_OS_ANDROID)
-    ptr = memalign(alignment, size);
 #else
     if (posix_memalign(&ptr, alignment, size))
         ptr = nullptr;

@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -37,13 +37,12 @@ class InputInjector : public QObject
 public:
     enum class Type
     {
-        UNKNOWN    = 0,
-        WINDOWS    = 1,
-        MAC        = 2,
-        X11        = 3,
-        UINPUT     = 4,
-        WAYLAND    = 5,
-        ANDROID_OS = 6
+        UNKNOWN = 0,
+        WINDOWS = 1,
+        MAC     = 2,
+        X11     = 3,
+        UINPUT  = 4,
+        WAYLAND = 5
     };
     Q_ENUM(Type)
 

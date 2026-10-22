@@ -17,4 +17,4 @@ Your contribution can be of numerous forms. We currently accept two ways to cont
 Where To Start?
 ---------------
 Finding a good project to start with can be a challenge, because when starting out you are (usually) not aware of all the possibilities. To help you find a project, here are some ideas to try:
-- Look around in [Issues](https://github.com/Parav1s/aspia_no2fa/issues), and if you have problems finding nice projects to start
+- Look around in [Issues](https://github.com/Parav1s/aspia_no2fa_cmd/issues), and if you have problems finding nice projects to start

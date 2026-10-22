@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 #include "host/desktop_environment_win.h"
 #elif defined(Q_OS_MACOS)
 #include "host/desktop_environment_mac.h"
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #include "host/desktop_environment_linux.h"
 #else
 #warning Not supported platform
@@ -51,7 +51,7 @@ DesktopEnvironment* DesktopEnvironment::create(QObject* parent)
     return new DesktopEnvironmentWin(parent);
 #elif defined(Q_OS_MACOS)
     return new DesktopEnvironmentMac(parent);
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return new DesktopEnvironmentLinux(parent);
 #else
 #warning Not supported platform

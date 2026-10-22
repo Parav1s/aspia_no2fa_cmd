@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@
 // On Windows an unhandled SEH filter is set that writes a stack trace to the
 // log and produces a minidump file. On Linux and macOS handlers for the fatal
 // signals are installed that write a crash report to the log and re-raise the
-// signal so the OS produces a core dump. On Android this is a no-op.
+// signal so the OS produces a core dump.
 void installCrashHandler(const QString& dump_file_prefix);
 
 // Provides the active log file native descriptor so the crash handler can append

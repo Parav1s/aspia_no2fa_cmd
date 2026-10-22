@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,9 +24,9 @@
 
 namespace {
 
-const char kPath[] = "https://aspia.org/download";
+const char kPath[] = "https://example.com/download";
 const char kFile[] = "aspia-host-3.0.6-x86_64.msi";
-const char kUrl[] = "https://aspia.org/download/aspia-host-3.0.6-x86_64.msi";
+const char kUrl[] = "https://example.com/download/aspia-host-3.0.6-x86_64.msi";
 const char kSha256[] = "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08";
 
 //--------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ QByteArray manifestJson(const QString& version, const QString& description, cons
         "format": 1,
         "version": "%1",
         "description": "%2",
-        "path": "https://aspia.org/download",
+        "path": "https://example.com/download",
         "packages": {
             "host": {
                 "windows": {

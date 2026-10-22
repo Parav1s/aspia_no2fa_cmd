@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 
 #if defined(Q_OS_WINDOWS)
 #include "common/clipboard_win.h"
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #include "common/clipboard_x11.h"
 #elif defined(Q_OS_MACOS)
 #include "common/clipboard_mac.h"
@@ -43,14 +43,12 @@ constexpr qint64 kMaxEventSize = 2 * 1024 * 1024; // 2 MB
 const std::string_view kSupportedMimeTypes[] =
 {
     Clipboard::kMimeTypeTextUtf8,
-#if defined(Q_OS_WINDOWS) || defined(Q_OS_MACOS) || (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID))
+#if defined(Q_OS_WINDOWS) || defined(Q_OS_MACOS) || defined(Q_OS_LINUX)
     Clipboard::kMimeTypeTextHtml,
     Clipboard::kMimeTypeTextRtf,
     Clipboard::kMimeTypeTextCsv,
     Clipboard::kMimeTypeImagePng,
     Clipboard::kMimeTypeImageSvg,
-#elif defined(Q_OS_ANDROID)
-    Clipboard::kMimeTypeTextHtml,
 #endif
 #if defined(Q_OS_WINDOWS) || defined(Q_OS_MACOS)
     Clipboard::kMimeTypeFileList,
@@ -157,12 +155,10 @@ Clipboard* Clipboard::create(QObject* parent)
 {
 #if defined(Q_OS_WINDOWS)
     return new ClipboardWin(parent);
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return new ClipboardX11(parent);
 #elif defined(Q_OS_MACOS)
     return new ClipboardMac(parent);
-#elif defined(Q_OS_ANDROID)
-    return new ClipboardAndroid(parent);
 #else
     LOG(ERROR) << "No clipboard implementation for this platform";
     return nullptr;
@@ -255,6 +251,6 @@ void Clipboard::onData(proto::clipboard::Event&& event)
         return;
 
     // The change caused by our own injection is suppressed per platform (owner check on Windows,
-    // change count on macOS, selection ownership on X11, injected-value compare on Android).
+    // change count on macOS, selection ownership on X11).
     emit sig_clipboardEvent(sanitized);
 }

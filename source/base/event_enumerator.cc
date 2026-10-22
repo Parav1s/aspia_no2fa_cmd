@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 #if defined(Q_OS_WINDOWS)
 #include "base/event_enumerator_win.h"
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #include "base/event_enumerator_linux.h"
 #elif defined(Q_OS_MACOS)
 #include "base/event_enumerator_mac.h"
@@ -33,7 +33,7 @@ std::unique_ptr<EventEnumerator> EventEnumerator::create(
 {
 #if defined(Q_OS_WINDOWS)
     return std::make_unique<EventEnumeratorWin>(log_name, cursor, direction, count);
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return std::make_unique<EventEnumeratorLinux>(log_name, cursor, direction, count);
 #elif defined(Q_OS_MACOS)
     return std::make_unique<EventEnumeratorMac>(log_name, cursor, direction, count);

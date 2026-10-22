@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -45,7 +45,6 @@ const char kFlagAudioOpus[] = "opus";
 const char kFlagOSWindows[] = "windows";
 const char kFlagOSMacOS[] = "macos";
 const char kFlagOSLinux[] = "linux";
-const char kFlagOSAndroid[] = "android";
 const char kFlagPasteAsKeystrokes[] = "paste_as_keystrokes";
 const char kFlagClipboard[] = "clipboard";
 const char kFlagCursorShape[] = "cursor_shape";

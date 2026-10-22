@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -25,9 +25,9 @@
 #include "host/audio_capturer_win.h"
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include "host/audio_capturer_linux.h"
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 //--------------------------------------------------------------------------------------------------
 // Returns true if the sampling rate is supported by Pepper.
@@ -51,7 +51,7 @@ std::unique_ptr<AudioCapturer> AudioCapturer::create()
 {
 #if defined(Q_OS_WINDOWS)
     return std::unique_ptr<AudioCapturer>(new AudioCapturerWin());
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return std::unique_ptr<AudioCapturer>(new AudioCapturerLinux());
 #else
     NOTIMPLEMENTED();

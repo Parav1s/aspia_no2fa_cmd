@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -32,97 +32,9 @@
 #include "common/file_task.h"
 #include "proto/file_transfer.h"
 
-#if defined(Q_OS_ANDROID)
-#include <QCoreApplication>
-#include <QJniEnvironment>
-#include <QJniObject>
-#endif // defined(Q_OS_ANDROID)
 
 namespace {
 
-#if defined(Q_OS_ANDROID)
-
-//--------------------------------------------------------------------------------------------------
-// Builds the drive list shown for the local Android device: the user storages and a few quick
-// folders, instead of the raw POSIX mount points reported by QStorageInfo.
-void addAndroidDrives(proto::file_transfer::DriveList* drive_list)
-{
-    QJniObject ext_dir = QJniObject::callStaticObjectMethod(
-        "android/os/Environment", "getExternalStorageDirectory", "()Ljava/io/File;");
-    QString internal_path;
-    if (ext_dir.isValid())
-    {
-        internal_path = ext_dir.callObjectMethod(
-            "getAbsolutePath", "()Ljava/lang/String;").toString();
-    }
-
-    if (!internal_path.isEmpty())
-    {
-        proto::file_transfer::DriveList::Item* item = drive_list->add_item();
-        item->set_type(proto::file_transfer::DriveList::Item::TYPE_INTERNAL_STORAGE);
-        item->set_path(internal_path.toStdString());
-    }
-
-    // Removable storage: the second and later entries of getExternalFilesDirs point at SD cards. The
-    // returned path is the app sandbox on that volume, so trim it back to the volume root.
-    QJniObject context = QNativeInterface::QAndroidApplication::context();
-    if (context.isValid())
-    {
-        QJniObject dirs = context.callObjectMethod(
-            "getExternalFilesDirs", "(Ljava/lang/String;)[Ljava/io/File;", nullptr);
-        if (dirs.isValid())
-        {
-            QJniEnvironment env;
-            jobjectArray array = dirs.object<jobjectArray>();
-            const jsize count = env->GetArrayLength(array);
-
-            for (jsize i = 1; i < count; ++i)
-            {
-                QJniObject dir = QJniObject::fromLocalRef(env->GetObjectArrayElement(array, i));
-                if (!dir.isValid())
-                    continue;
-
-                const QString path = dir.callObjectMethod(
-                    "getAbsolutePath", "()Ljava/lang/String;").toString();
-                const int android_index = path.indexOf("/Android/");
-                if (android_index <= 0)
-                    continue;
-
-                proto::file_transfer::DriveList::Item* item = drive_list->add_item();
-                item->set_type(proto::file_transfer::DriveList::Item::TYPE_SD_CARD);
-                item->set_path(path.left(android_index).toStdString());
-            }
-        }
-    }
-
-    if (internal_path.isEmpty())
-        return;
-
-    const struct
-    {
-        const char* sub_path;
-        proto::file_transfer::DriveList::Item::Type type;
-    } kQuickFolders[] =
-    {
-        { "/Download",  proto::file_transfer::DriveList::Item::TYPE_DOWNLOAD_FOLDER },
-        { "/DCIM",      proto::file_transfer::DriveList::Item::TYPE_CAMERA_FOLDER },
-        { "/Pictures",  proto::file_transfer::DriveList::Item::TYPE_PICTURES_FOLDER },
-        { "/Documents", proto::file_transfer::DriveList::Item::TYPE_DOCUMENTS_FOLDER },
-    };
-
-    for (const auto& folder : kQuickFolders)
-    {
-        const QString path = internal_path + folder.sub_path;
-        if (!QDir(path).exists())
-            continue;
-
-        proto::file_transfer::DriveList::Item* item = drive_list->add_item();
-        item->set_type(folder.type);
-        item->set_path(path.toStdString());
-    }
-}
-
-#else // defined(Q_OS_ANDROID)
 
 #if defined(Q_OS_LINUX)
 //--------------------------------------------------------------------------------------------------
@@ -237,7 +149,6 @@ void addDesktopDrives(proto::file_transfer::DriveList* drive_list)
     }
 }
 
-#endif // defined(Q_OS_ANDROID)
 
 } // namespace
 
@@ -319,11 +230,7 @@ void FileRequestHandler::doDriveListRequest(proto::file_transfer::Reply* reply)
 {
     proto::file_transfer::DriveList* drive_list = reply->mutable_drive_list();
 
-#if defined(Q_OS_ANDROID)
-    addAndroidDrives(drive_list);
-#else
     addDesktopDrives(drive_list);
-#endif
 
     if (drive_list->item_size() == 0)
         reply->set_error_code(proto::file_transfer::ERROR_CODE_NO_DRIVES_FOUND);

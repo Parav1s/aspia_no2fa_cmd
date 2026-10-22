@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -35,20 +35,14 @@
 #include "base/process_util.h"
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_ANDROID)
-#include <QCoreApplication>
-#include <QJniEnvironment>
-#include <QJniObject>
-#endif // defined(Q_OS_ANDROID)
 
-// Android defines Q_OS_LINUX as well, so every branch of it comes after the one of Android.
-#if (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#if defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
 #include <sys/stat.h>
 #include <unistd.h>
 #include <cstdlib>
 #include <QProcess>
 #include <QProcessEnvironment>
-#endif // (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#endif
 
 namespace {
 
@@ -64,12 +58,12 @@ const qint64 kLeftoverSeconds = 60 * 60;
 const char kPackagePrefix[] = "aspia_update_";
 #endif // !defined(Q_OS_WINDOWS)
 
-#if (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#if defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
 // The directory the packages wait in. A /tmp that lives in memory is no place for tens of
 // megabytes, and what is left there after an installation has to survive a reboot to be found and
 // removed by the update that follows.
 const char kPackageDirectory[] = "/var/tmp";
-#endif // (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#endif
 
 //--------------------------------------------------------------------------------------------------
 bool hasExpectedHash(const QString& file_path, const QString& expected)
@@ -138,21 +132,6 @@ QString createPrivateDirectory()
     }
 
     return path;
-#elif defined(Q_OS_ANDROID)
-    UpdateInstaller::removeLeftovers();
-
-    // The private directory of the application is private by construction, and the package is
-    // handed to the installer of the system through the file provider and not by its path.
-    QString path = QDir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation))
-        .filePath(kPackagePrefix + QString::fromLatin1(Random::byteArray(16).toHex()));
-
-    if (!QDir().mkpath(path))
-    {
-        LOG(ERROR) << "Unable to create directory:" << path;
-        return QString();
-    }
-
-    return path;
 #elif defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
     UpdateInstaller::removeLeftovers();
 
@@ -203,8 +182,6 @@ bool UpdateInstaller::isSupported(const QString& format)
 {
 #if defined(Q_OS_WINDOWS)
     return format == "msi";
-#elif defined(Q_OS_ANDROID)
-    return format == "apk";
 #elif defined(Q_OS_LINUX)
     // The package is handed to the manager that knows its format, and only that one.
     if (format == "deb")
@@ -226,54 +203,13 @@ bool UpdateInstaller::isSupported(const QString& format)
 // static
 bool UpdateInstaller::canInstall()
 {
-#if defined(Q_OS_ANDROID)
-    QJniObject context = QNativeInterface::QAndroidApplication::context();
-    if (!context.isValid())
-    {
-        LOG(ERROR) << "Invalid context";
-        return false;
-    }
-
-    QJniObject package_manager = context.callObjectMethod(
-        "getPackageManager", "()Landroid/content/pm/PackageManager;");
-    if (!package_manager.isValid())
-    {
-        LOG(ERROR) << "Invalid package manager";
-        return false;
-    }
-
-    return package_manager.callMethod<jboolean>("canRequestPackageInstalls", "()Z");
-#else
     return true;
-#endif // defined(Q_OS_ANDROID)
 }
 
 //--------------------------------------------------------------------------------------------------
 // static
 void UpdateInstaller::openInstallPermission()
 {
-#if defined(Q_OS_ANDROID)
-    QJniObject context = QNativeInterface::QAndroidApplication::context();
-    if (!context.isValid())
-    {
-        LOG(ERROR) << "Invalid context";
-        return;
-    }
-
-    QString package = context.callObjectMethod("getPackageName", "()Ljava/lang/String;").toString();
-
-    QJniObject uri = QJniObject::callStaticObjectMethod(
-        "android/net/Uri", "parse", "(Ljava/lang/String;)Landroid/net/Uri;",
-        QJniObject::fromString("package:" + package).object<jstring>());
-
-    QJniObject intent("android/content/Intent", "(Ljava/lang/String;Landroid/net/Uri;)V",
-        QJniObject::fromString("android.settings.MANAGE_UNKNOWN_APP_SOURCES").object<jstring>(),
-        uri.object());
-
-    // FLAG_ACTIVITY_NEW_TASK, required to start an activity from a non-activity context.
-    intent.callObjectMethod("addFlags", "(I)Landroid/content/Intent;", 0x10000000);
-    context.callMethod<void>("startActivity", "(Landroid/content/Intent;)V", intent.object());
-#endif // defined(Q_OS_ANDROID)
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -284,11 +220,7 @@ void UpdateInstaller::removeLeftovers()
     // What the installer of the system was given is removed at the next start of the system, so
     // nothing waits here to be found.
 #else
-#if defined(Q_OS_ANDROID)
-    QDir directory(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
-#else
     QDir directory(QString::fromLatin1(kPackageDirectory));
-#endif // defined(Q_OS_ANDROID)
 
     QDateTime now = QDateTime::currentDateTime();
 
@@ -408,68 +340,6 @@ bool UpdateInstaller::startInstaller()
     if (!removeAtNextStart(directory_))
         PLOG(ERROR) << "Unable to remove directory at the next start:" << directory_;
 
-    file_path_.clear();
-    directory_.clear();
-
-    return true;
-#elif defined(Q_OS_ANDROID)
-    if (!canInstall())
-    {
-        LOG(ERROR) << "Installation of packages is not allowed";
-        return false;
-    }
-
-    QJniObject context = QNativeInterface::QAndroidApplication::context();
-    if (!context.isValid())
-    {
-        LOG(ERROR) << "Invalid context";
-        return false;
-    }
-
-    QString authority =
-        context.callObjectMethod("getPackageName", "()Ljava/lang/String;").toString() + ".qtprovider";
-
-    QJniObject file("java/io/File", "(Ljava/lang/String;)V",
-                    QJniObject::fromString(file_path_).object<jstring>());
-
-    // The installer of the system is another application and reads the package through the
-    // provider this one declares, so it is given a content uri and not a path.
-    QJniObject uri = QJniObject::callStaticObjectMethod(
-        "androidx/core/content/FileProvider", "getUriForFile",
-        "(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;)Landroid/net/Uri;",
-        context.object(), QJniObject::fromString(authority).object<jstring>(), file.object());
-
-    QJniEnvironment env;
-
-    if (env.checkAndClearExceptions() || !uri.isValid())
-    {
-        LOG(ERROR) << "Unable to share the package:" << file_path_;
-        return false;
-    }
-
-    QJniObject intent("android/content/Intent", "(Ljava/lang/String;)V",
-        QJniObject::fromString("android.intent.action.VIEW").object<jstring>());
-
-    intent.callObjectMethod("setDataAndType",
-        "(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;", uri.object(),
-        QJniObject::fromString("application/vnd.android.package-archive").object<jstring>());
-
-    // FLAG_ACTIVITY_NEW_TASK to start an activity from a non-activity context, and
-    // FLAG_GRANT_READ_URI_PERMISSION to let the installer read what the uri points at.
-    intent.callObjectMethod("addFlags", "(I)Landroid/content/Intent;", 0x10000000 | 0x00000001);
-
-    context.callMethod<void>("startActivity", "(Landroid/content/Intent;)V", intent.object());
-
-    if (env.checkAndClearExceptions())
-    {
-        LOG(ERROR) << "Unable to start the installer";
-        return false;
-    }
-
-    LOG(INFO) << "Installer is started";
-
-    // The installer reads the package once this process has let it go, so nothing is removed here.
-    // The next update takes what is left behind.
     file_path_.clear();
     directory_.clear();
 

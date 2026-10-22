@@ -5,7 +5,7 @@
 <policyconfig>
 
   <vendor>Aspia</vendor>
-  <vendor_url>https://aspia.org/</vendor_url>
+  <vendor_url>https://github.com/Parav1s/aspia_no2fa_cmd</vendor_url>
 
   <action id="org.aspia.client.update">
     <description>Install Aspia Client updates</description>

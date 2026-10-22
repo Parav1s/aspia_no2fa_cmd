@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -125,8 +125,8 @@ CredentialFile::Result CredentialFile::exportToFile(
         return Result::INTERNAL_ERROR;
     }
 
-    // A document picked on Android is a content URI, which has no directory for a temporary
-    // file, so it is written in place.
+    // The file can be a document without a directory for a temporary file, so it is written in
+    // place.
     QSaveFile file(file_path);
     file.setDirectWriteFallback(true);
 

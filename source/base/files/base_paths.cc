@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -54,9 +54,6 @@ QString BasePaths::genericConfigDir()
     }
 
     return QDir::fromNativeSeparators(QString::fromWCharArray(buffer));
-#elif defined(Q_OS_ANDROID)
-    // Android also defines Q_OS_LINUX, so this branch must come first.
-    return QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
 #elif defined(Q_OS_LINUX)
     return "/etc";
 #else
@@ -81,9 +78,6 @@ QString BasePaths::genericUserConfigDir()
     }
 
     return QDir::fromNativeSeparators(QString::fromWCharArray(buffer));
-#elif defined(Q_OS_ANDROID)
-    // Android also defines Q_OS_LINUX, so this branch must come first.
-    return QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation);
 #elif defined(Q_OS_LINUX)
     QString path = qEnvironmentVariable("XDG_CONFIG_HOME");
     if (path.isEmpty())
@@ -124,9 +118,6 @@ QString BasePaths::genericDataDir()
 {
 #if defined(Q_OS_WINDOWS)
     return genericConfigDir();
-#elif defined(Q_OS_ANDROID)
-    // Android also defines Q_OS_LINUX, so this branch must come first.
-    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 #elif defined(Q_OS_LINUX)
     return "/var/lib";
 #else
@@ -143,9 +134,6 @@ QString BasePaths::genericUserDataDir()
 {
 #if defined(Q_OS_WINDOWS)
     return genericUserConfigDir();
-#elif defined(Q_OS_ANDROID)
-    // Android also defines Q_OS_LINUX, so this branch must come first.
-    return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
 #elif defined(Q_OS_LINUX)
     QString path = qEnvironmentVariable("XDG_DATA_HOME");
     if (path.isEmpty())

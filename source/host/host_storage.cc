@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -78,14 +78,8 @@ int countAfter(const QList<qint64>& timepoints, qint64 boundary)
 
 //--------------------------------------------------------------------------------------------------
 HostStorage::HostStorage()
-    // The desktop host runs as a system service and keeps these values machine-wide (SystemScope). On
-    // Android the app is sandboxed and cannot write to the system scope, so the values would be lost on
-    // every start; the app-private user scope persists them instead.
-#if defined(Q_OS_ANDROID)
-    : impl_(QSettings::IniFormat, QSettings::UserScope, "aspia", "host_storage")
-#else
+    // The desktop host runs as a system service and keeps these values machine-wide (SystemScope).
     : impl_(QSettings::IniFormat, QSettings::SystemScope, "aspia", "host_storage")
-#endif
 {
     // Nothing
 }

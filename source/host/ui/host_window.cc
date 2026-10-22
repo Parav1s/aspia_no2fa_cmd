@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -764,7 +764,7 @@ void HostWindow::onShowHide()
 void HostWindow::onHelp()
 {
     LOG(INFO) << "[ACTION] Help";
-    QDesktopServices::openUrl(QUrl("https://aspia.org/help"));
+    QDesktopServices::openUrl(QUrl("https://github.com/Parav1s/aspia_no2fa_cmd#readme"));
 }
 
 //--------------------------------------------------------------------------------------------------

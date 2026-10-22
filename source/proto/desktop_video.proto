@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -58,7 +58,8 @@ enum ScreenCapturerType
     SCREEN_CAPTURER_TYPE_LINUX_KWIN    = 7;
     SCREEN_CAPTURER_TYPE_LINUX_WLR     = 8;
     SCREEN_CAPTURER_TYPE_MACOSX        = 9;
-    SCREEN_CAPTURER_TYPE_ANDROID_MEDIA = 10;
+
+    reserved 10;
 }
 
 message PacketFormat

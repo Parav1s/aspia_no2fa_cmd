@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -30,9 +30,6 @@
 #include "base/codec/video_encoder_h264_vt.h"
 #endif
 
-#if defined(Q_OS_ANDROID)
-#include "base/codec/video_encoder_h264_mc.h"
-#endif
 
 //--------------------------------------------------------------------------------------------------
 // static
@@ -58,10 +55,6 @@ std::unique_ptr<VideoEncoder> VideoEncoder::create(proto::video::Encoding encodi
             return VideoEncoderH264VT::create();
 #endif
 
-#if defined(Q_OS_ANDROID)
-        case proto::video::ENCODING_H264:
-            return VideoEncoderH264MC::create();
-#endif
 
         default:
             LOG(ERROR) << "Unsupported video encoding:" << encoding;
@@ -89,10 +82,6 @@ bool VideoEncoder::isSupported(proto::video::Encoding encoding)
             return VideoEncoderH264VT::isHardwareSupported();
 #endif
 
-#if defined(Q_OS_ANDROID)
-        case proto::video::ENCODING_H264:
-            return VideoEncoderH264MC::isHardwareSupported();
-#endif
 
         default:
             return false;

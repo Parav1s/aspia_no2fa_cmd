@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -34,10 +34,10 @@ volatile auto g_powerEventType = qRegisterMetaType<CoreApplication::PowerEvent>(
 #include "base/win/message_window.h"
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include <QSocketNotifier>
 #include "base/linux/libsystemd.h"
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 #include <SystemConfiguration/SystemConfiguration.h>
@@ -318,7 +318,7 @@ CoreApplication::CoreApplication(int& argc, char* argv[])
     ui_thread_->start();
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
     // Watch the active session on the local seat via logind and report changes, so the service can
     // follow the console session (user switching, display-manager greeter) like the WTS session
     // notifications on Windows.
@@ -363,13 +363,13 @@ CoreApplication::~CoreApplication()
         ui_thread_->stop();
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
     if (session_notifier_)
         session_notifier_->setEnabled(false);
 
     if (login_monitor_)
         login_monitor_ = LibSystemd::loginMonitorUnref(login_monitor_);
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
     event_monitor_.reset();

@@ -21,9 +21,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-VENDOR="Dmitry Chapyshev"
-MAINTAINER="Dmitry Chapyshev <dmitry@aspia.ru>"
-HOMEPAGE="https://aspia.org/"
+VENDOR="Parav1s"
+MAINTAINER="Parav1s"
+HOMEPAGE="https://github.com/Parav1s/aspia_no2fa_cmd"
 LICENSE="GPLv3"
 
 #--------------------------------------------------------------------------------------------------

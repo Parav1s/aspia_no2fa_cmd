@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
 #include "base/crypto/generic_hash.h"
 #include "base/crypto/secure_byte_array.h"
 
-// Linux (Android included) has no keystore every device exposes to native code, so the wrap key
+// Linux has no keystore every device exposes to native code, so the wrap key
 // is derived from the identity of the machine instead. A copy of the storage taken to another
 // machine does not open; on the machine itself the identity is readable and guards nothing.
 

@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 #include "client/audio_output_win.h"
 #elif defined(Q_OS_MACOS)
 #include "client/audio_output_mac.h"
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #include "client/audio_output_pulse.h"
 #endif
 
@@ -45,10 +45,8 @@ std::unique_ptr<AudioOutput> AudioOutput::create(const NeedMoreDataCB& need_more
     return std::make_unique<AudioOutputWin>(need_more_data_cb);
 #elif defined(Q_OS_MACOS)
     return std::make_unique<AudioOutputMac>(need_more_data_cb);
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return std::make_unique<AudioOutputPulse>(need_more_data_cb);
-#elif defined(Q_OS_ANDROID)
-    return std::make_unique<AudioOutputAndroid>(need_more_data_cb);
 #else
     NOTIMPLEMENTED();
     return nullptr;

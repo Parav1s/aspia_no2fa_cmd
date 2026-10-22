@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -115,7 +115,6 @@ QByteArray manifest()
     QString msi = files.arg("msi", "aspia-host.msi");
     QString deb = files.arg("deb", "aspia-host.deb");
     QString pkg = files.arg("pkg", "aspia-host.pkg");
-    QString apk = files.arg("apk", "aspia-host.apk");
 
     return QString(R"({
         "format": 1,
@@ -126,11 +125,10 @@ QByteArray manifest()
             "host": {
                 "windows": { "x86_64": %2, "x86": %2, "arm64": %2 },
                 "linux":   { "x86_64": %3, "arm64": %3 },
-                "macosx":  { "x86_64": %4, "arm64": %4 },
-                "android": { "arm64": %5, "arm": %5 }
+                "macosx":  { "x86_64": %4, "arm64": %4 }
             }
         }
-    })").arg(version, msi, deb, pkg, apk).toUtf8();
+    })").arg(version, msi, deb, pkg).toUtf8();
 }
 
 //--------------------------------------------------------------------------------------------------

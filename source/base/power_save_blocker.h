@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -39,10 +39,10 @@ public:
     ~PowerSaveBlocker() final;
 
 private:
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
     // Feeds a net-zero nudge through the wake device; driven by the wake timer.
     void onWakeUp();
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_WINDOWS)
     ScopedHandle handle_;
@@ -53,7 +53,7 @@ private:
     quint32 display_assertion_ = 0;
     quint32 system_assertion_ = 0;
     quint32 activity_assertion_ = 0;
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     // Persistent virtual pointer that keeps the display awake (and wakes it when already off) by feeding
     // net-zero motion through the kernel input subsystem. It must outlive the create-nudge call: a
     // throwaway device is destroyed before the compositor's input stack enumerates it, so its events are

@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -335,33 +335,20 @@ bool SettingsUtil::exportToFile(const QString& path, bool silent, QWidget* paren
 // static
 bool SettingsUtil::confirmOverwrite(QWidget* parent)
 {
-#if defined(Q_OS_ANDROID)
-    return MessageDialog::confirm(parent, tr("Warning"),
-        tr("The existing settings will be overwritten. Continue?"), tr("Continue"));
-#else
     return MsgBox::warning(parent, tr("The existing settings will be overwritten. Continue?"),
                            MsgBox::Yes | MsgBox::No) == MsgBox::Yes;
-#endif
 }
 
 //--------------------------------------------------------------------------------------------------
 // static
 void SettingsUtil::showError(QWidget* parent, const QString& text)
 {
-#if defined(Q_OS_ANDROID)
-    MessageDialog::info(parent, tr("Error"), text);
-#else
     MsgBox::warning(parent, text);
-#endif
 }
 
 //--------------------------------------------------------------------------------------------------
 // static
 void SettingsUtil::showInfo(QWidget* parent, const QString& text)
 {
-#if defined(Q_OS_ANDROID)
-    MessageDialog::info(parent, tr("Aspia"), text);
-#else
     MsgBox::information(parent, text);
-#endif
 }

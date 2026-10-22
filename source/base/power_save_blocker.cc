@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
 
 #include "base/power_save_blocker.h"
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include <QTimer>
 
 #include <linux/uinput.h>
@@ -28,7 +28,7 @@
 #include <unistd.h>
 
 #include <cstring>
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #include "base/logging.h"
 #include "base/time_types.h"
@@ -43,7 +43,7 @@
 
 namespace {
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 // Delay before the first nudge, to let the compositor's input stack enumerate the new uinput device
 // (via udev/logind) - a nudge emitted before anyone reads the device is lost.
 const Seconds kInitialWakeDelay{ 1 };
@@ -121,7 +121,7 @@ void emitWakeNudge(int fd)
     emitEvent(EV_REL, REL_Y, -1);
     emitEvent(EV_SYN, SYN_REPORT, 0);
 }
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_WINDOWS)
 
@@ -212,7 +212,7 @@ PowerSaveBlocker::PowerSaveBlocker(QObject* parent)
 
     // The power request keeps the display on, but does not turn it back on if it is already off.
     wakeUpDisplay();
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     // Keep the screen from blanking for the duration of the session (on Wayland a blank makes the
     // compositor renegotiate the screen-cast stream and breaks capture; with KMS a blanked CRTC has no
     // scan-out to read at all). A screen-saver inhibit over D-Bus is unreliable (GNOME does not provide
@@ -274,7 +274,7 @@ PowerSaveBlocker::~PowerSaveBlocker()
         IOPMAssertionRelease(system_assertion_);
     if (display_assertion_)
         IOPMAssertionRelease(display_assertion_);
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     // |wake_timer_| is a child object and is destroyed with this one.
     if (uinput_fd_ >= 0)
     {
@@ -285,10 +285,10 @@ PowerSaveBlocker::~PowerSaveBlocker()
 #endif // defined(Q_OS_*)
 }
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 //--------------------------------------------------------------------------------------------------
 void PowerSaveBlocker::onWakeUp()
 {
     emitWakeNudge(uinput_fd_);
 }
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif

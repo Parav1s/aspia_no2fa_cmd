@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,12 +24,10 @@ namespace {
 
 #if defined(Q_OS_WINDOWS)
 #define USB_KEYMAP(usb, evdev, xkb, win, mac, qt) {usb, win, qt}
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #define USB_KEYMAP(usb, evdev, xkb, win, mac, qt) {usb, xkb, qt}
 #elif defined(Q_OS_MACOS)
 #define USB_KEYMAP(usb, evdev, xkb, win, mac, qt) {usb, mac, qt}
-#elif defined(Q_OS_ANDROID)
-#define USB_KEYMAP(usb, evdev, xkb, win, mac, qt) {usb, evdev, qt}
 #else
 #define USB_KEYMAP(usb, evdev, xkb, win, mac, qt) {usb, 0, qt}
 #endif

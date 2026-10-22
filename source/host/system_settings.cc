@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -39,14 +39,8 @@ const QString kUpdateCheckFrequency = "update/check_frequency";
 
 //--------------------------------------------------------------------------------------------------
 SystemSettings::SystemSettings()
-    // The desktop host runs as a system service and keeps these machine-wide (SystemScope). On Android
-    // the app is sandboxed and cannot write to the system scope, so use the app-private user scope there
-    // (the same split as HostStorage).
-#if defined(Q_OS_ANDROID)
-    : settings_(QSettings::IniFormat, QSettings::UserScope, kOrganization, kApplication)
-#else
+    // The desktop host runs as a system service and keeps these machine-wide (SystemScope).
     : settings_(QSettings::IniFormat, QSettings::SystemScope, kOrganization, kApplication)
-#endif
 {
     // Nothing
 }

@@ -10,7 +10,7 @@ Layout
 ------
 Versions grow one way whatever the channel, and a release is the same release in every channel that
 offers it. So the manifests are shared, and a channel is one file with its rules. The server is
-`https://aspia.org/updates`, an application reads `<server>/<channel>.json` and then
+`https://updates.example.com`, an application reads `<server>/<channel>.json` and then
 `<server>/versions/<version>.json`.
 
 ```
@@ -127,11 +127,6 @@ hash to. It is the same for every channel, so its description is too.
         "arm64": [
           { "format": "pkg", "file": "aspia-host-3.0.5-universal.pkg", "sha256": "d5cb..." }
         ]
-      },
-      "android": {
-        "arm64": [
-          { "format": "apk", "file": "aspia-host-3.0.5-arm64.apk", "sha256": "9bad..." }
-        ]
       }
     },
     "client": { },
@@ -147,9 +142,9 @@ looked at:
 | Level            | Values                                  |
 | :--------------- | :-------------------------------------- |
 | Application      | `host`, `client`, `router`, `relay`     |
-| Operating system | `windows`, `linux`, `macosx`, `android` |
+| Operating system | `windows`, `linux`, `macosx`           |
 | Architecture     | `x86`, `x86_64`, `arm`, `arm64`         |
-| Package format   | `msi`, `deb`, `rpm`, `pkg`, `apk`       |
+| Package format   | `msi`, `deb`, `rpm`, `pkg`              |
 
 A key that is absent is legal and means the release has no build for that combination: no update is
 offered and nothing is reported as broken. That is how a platform is dropped. Since 3.0.3 the
@@ -219,7 +214,7 @@ public key, which is exactly what the applications will do.
 What an application does
 ------------------------
 First it works out what it is. The operating system and the architecture come from the build; the
-package format it prefers is `msi` on Windows, `apk` on Android, `pkg` on macOS, and on Linux `deb`
+package format it prefers is `msi` on Windows, `pkg` on macOS, and on Linux `deb`
 when `apt-get` is on the machine or `rpm` when `dnf` is.
 
 1. Reads `<channel>.json` and its signature.
@@ -231,8 +226,7 @@ when `apt-get` is on the machine or `rpm` when `dnf` is.
 5. Downloads the file into a directory only its owner can write to, and compares the hash with the
    manifest. A file that does not match is refused and nothing is started.
 6. Hands the package to the system. Windows gets `msiexec /i`, quiet when nobody is watching;
-   macOS `installer -pkg`; Linux `apt-get install -y` or `dnf install -y`; Android passes the file
-   to the installer of the system, which asks the user.
+   macOS `installer -pkg`; Linux `apt-get install -y` or `dnf install -y`.
 
 What this asks of the hosting:
 
@@ -266,10 +260,10 @@ Example
 -------
 A Windows host of version 3.0.4.8006 on the beta channel, against the files above:
 
-1. `https://aspia.org/updates/beta.json` and its signature are read, and the signature is good.
+1. `https://updates.example.com/beta.json` and its signature are read, and the signature is good.
 2. The running version is 3.0.4, the entry `{ "source": "3.0.4", "target": "@latest" }` matches,
    the label `latest` resolves to 3.0.5, which is newer.
-3. `https://aspia.org/updates/versions/3.0.5.json` and its signature are read.
+3. `https://updates.example.com/versions/3.0.5.json` and its signature are read.
 4. Under `packages.host.windows.x86_64` there is one entry, an `msi`, which is what Windows wants.
 5. The file is `https://files.aspia.net/beta/3.0.5/aspia-host-3.0.5-x86_64.msi` and must hash to
    what the entry says.

@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -34,10 +34,10 @@
 #include <sys/socket.h>
 #endif // defined(Q_OS_LINUX)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include <cstdlib>
 #include "base/linux/libsystemd.h"
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 #include <sys/socket.h>
@@ -148,7 +148,7 @@ SessionId peerSessionId(PipeHandle pipe_handle, bool is_server_side)
     }
 
     return static_cast<SessionId>(uid);
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     // A session is identified by the VT number of its logind session (see activeConsoleSessionId).
     // A peer that belongs to no seat session (a system service, a unit of the user manager) has no
     // session id.

@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -31,13 +31,13 @@
 #include <shellapi.h>
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include <unistd.h>
 #include <QGuiApplication>
 #include <QProcess>
 #include <QtGui/qguiapplication_platform.h>
 #include <xcb/xcb.h>
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 #include <unistd.h>
@@ -174,7 +174,7 @@ public:
 
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 
 // What pkexec returns when the user dismissed the authentication dialog. Everything else it
 // returns for itself, 127 among it, is a failure to report.
@@ -275,7 +275,7 @@ public:
     }
 };
 
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 
@@ -427,7 +427,7 @@ ScopedQPointer<ElevateUtil> ElevateUtil::create(QObject* parent)
 {
 #if defined(Q_OS_WINDOWS)
     return ScopedQPointer<ElevateUtil>(new WinElevateUtil(parent));
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return ScopedQPointer<ElevateUtil>(new LinuxElevateUtil(parent));
 #elif defined(Q_OS_MACOS)
     return ScopedQPointer<ElevateUtil>(new MacElevateUtil(parent));

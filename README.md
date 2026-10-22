@@ -9,7 +9,7 @@ With Aspia, you can create your own NAT traversal infrastructure (using Router a
 
 |Build Status|
 |:--:|
-|[![Build status](https://github.com/Parav1s/aspia_no2fa/actions/workflows/windows.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa/actions/workflows/windows.yml) [![Build status](https://github.com/Parav1s/aspia_no2fa/actions/workflows/linux.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa/actions/workflows/linux.yml) [![Build status](https://github.com/Parav1s/aspia_no2fa/actions/workflows/macos.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa/actions/workflows/macos.yml)|
+|[![Build status](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/windows.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/windows.yml) [![Build status](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/linux.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/linux.yml) [![Build status](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos.yml)|
 
 Currently supported
 -------------------
@@ -26,7 +26,7 @@ Currently supported
 - Direct connections
 - Audio support
 - Video recording
-- Host and Client for Windows, MacOSX, Linux and Android
+- Host and Client for Windows, MacOSX and Linux
 - Router/Relay for Windows and Linux
 - And much more
 
@@ -35,7 +35,6 @@ System requirements
 - Windows 7/2008 R2 or higher (x86 or x86_64 CPU)
 - Ubuntu 22.04 / RHEL 8.10 (x86_64 CPU)
 - MacOSX (x86_64 or ARM64 CPU)
-- Android 12+
 
 Command line
 ------------

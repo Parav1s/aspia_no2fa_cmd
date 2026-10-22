@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -97,11 +97,11 @@ private:
     bool is_service_ = false;
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
     sd_login_monitor* login_monitor_ = nullptr;
     ScopedQPointer<QSocketNotifier> session_notifier_;
     int last_active_session_ = -1;
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
     std::unique_ptr<EventMonitor> event_monitor_;

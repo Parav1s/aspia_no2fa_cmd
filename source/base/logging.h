@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -100,9 +100,7 @@ enum LoggingDestination
 
     LOG_TO_ALL    = LOG_TO_FILE | LOG_TO_STDOUT,
 
-#if defined(Q_OS_ANDROID)
-    LOG_DEFAULT = LOG_TO_STDOUT
-#elif defined(NDEBUG)
+#if defined(NDEBUG)
     LOG_DEFAULT = LOG_TO_FILE
 #else
     LOG_DEFAULT = LOG_TO_ALL
@@ -133,7 +131,6 @@ struct LoggingSettings
     //             $XDG_STATE_HOME/aspia/logs (~/.local/state/aspia/logs) for users; the component
     //             is the name of the executable without "aspia_"
     //    MacOS:   $TMPDIR/aspia
-    //    Android: <application cache>/aspia
     LoggingSettings();
 
     LoggingDestination destination;

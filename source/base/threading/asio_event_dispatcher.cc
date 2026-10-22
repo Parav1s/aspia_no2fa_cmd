@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -807,7 +807,7 @@ AsioEventDispatcher::SocketData::~SocketData()
 {
 #if defined(Q_OS_UNIX)
     // The fd is owned by the notifier source, not by us. Detach it without closing to avoid a double
-    // close (fatal under fdsan on Android).
+    // close.
     if (!handle.is_open())
         return;
 

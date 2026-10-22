@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@
 #include "base/win/scoped_impersonator.h"
 #include "base/win/scoped_object.h"
 #include "base/win/session_info.h"
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -104,7 +104,7 @@ bool createPrivilegedToken(ScopedHandle* token_out)
 }
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 //--------------------------------------------------------------------------------------------------
 QDBusMessage logindManagerCall(const QString& method)
 {
@@ -152,7 +152,7 @@ QString activeSessionId()
 
     return session_id;
 }
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 //--------------------------------------------------------------------------------------------------
@@ -223,7 +223,7 @@ bool PowerController::shutdown()
     }
 
     return result;
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     QDBusMessage call = logindManagerCall("PowerOff");
     call << false;
     return callLogind(call);
@@ -271,7 +271,7 @@ bool PowerController::reboot()
         PLOG(ERROR) << "InitiateSystemShutdownExW failed";
 
     return result;
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     QDBusMessage call = logindManagerCall("Reboot");
     call << false;
     return callLogind(call);
@@ -310,7 +310,7 @@ bool PowerController::logoff()
     }
 
     return true;
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     QString session_id = activeSessionId();
     if (session_id.isEmpty())
     {
@@ -346,7 +346,7 @@ bool PowerController::lock()
     }
 
     return true;
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return callLogind(logindManagerCall("LockSessions"));
 #elif defined(Q_OS_MACOS)
     // Called from the user's Aqua session (the desktop agent). SACLockScreenImmediate (private

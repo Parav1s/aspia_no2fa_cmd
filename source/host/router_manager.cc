@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -492,8 +492,6 @@ void RouterManager::sendTelemetry()
 
     QJsonObject update;
     update.insert("channel", settings.updateChannel());
-#if !defined(Q_OS_ANDROID)
-    // The mobile host checks for updates only on request.
     update.insert("auto_update", settings.isAutoUpdateEnabled());
     update.insert("check_frequency", settings.updateCheckFrequency());
     update.insert("last_check_time", storage.lastUpdateCheck());
@@ -501,7 +499,6 @@ void RouterManager::sendTelemetry()
     const QString check_result = storage.updateCheckResult();
     if (!check_result.isEmpty())
         update.insert("last_check_result", check_result);
-#endif
 
     const QVector<User> user_list = database_.userList();
 

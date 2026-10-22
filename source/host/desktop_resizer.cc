@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,9 +24,9 @@
 #include "host/desktop_resizer_win.h"
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include "host/desktop_resizer_x11.h"
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 #include "host/desktop_resizer_mac.h"
@@ -38,7 +38,7 @@ std::unique_ptr<DesktopResizer> DesktopResizer::create()
 {
 #if defined(Q_OS_WINDOWS)
     return std::make_unique<DesktopResizerWin>();
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return std::make_unique<DesktopResizerX11>();
 #elif defined(Q_OS_MACOS)
     return std::make_unique<DesktopResizerMac>();

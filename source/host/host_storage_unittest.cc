@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -39,8 +39,8 @@ protected:
     {
         ASSERT_TRUE(temp_dir_.isValid());
 
-        // The storage lives in the scope of the machine (of the user on Android). Moving both scopes
-        // into the temporary directory keeps the test off the real storage.
+        // The storage lives in the scope of the machine. Moving both scopes into the temporary
+        // directory keeps the test off the real storage.
         QSettings::setPath(QSettings::IniFormat, QSettings::SystemScope, temp_dir_.path());
         QSettings::setPath(QSettings::IniFormat, QSettings::UserScope, temp_dir_.path());
     }

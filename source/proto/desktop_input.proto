@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -94,10 +94,8 @@ message TouchEvent
     // the screen.
     // A CANCEL event means that the touch points that have been STARTed were canceled, e.g. a finger
     // went off the screen.
-    // Cancel event is simlar to END but slighly different. For example, Android
-    // MotionEvent's ACTION_CANCEL documentation mentions that a cancel should be
-    // treated as an ACTION_UP (END) event but might not perform the exact same
-    // actions as a normal ACTION_UP event.
+    // A CANCEL event is similar to END but slightly different: a cancel should usually be treated
+    // as an END event, but might not perform the exact same actions as a normal END event.
     enum TouchEventType
     {
         TOUCH_POINT_UNKNOWN = 0;
@@ -110,9 +108,8 @@ message TouchEvent
     TouchEventType event_type = 1;
 
     // Only the changed touch points are added to this field.
-    // Given the existing touch point APIs (e.g. Android and PPAPI)
-    // for START, END, and CANCEL events the size of this field will typically be 1, but for MOVE
-    // events it is likely to have multiple points.
+    // Given the existing touch point APIs, for START, END, and CANCEL events the size of this field
+    // will typically be 1, but for MOVE events it is likely to have multiple points.
     repeated TouchEventPoint touch_points = 2;
 }
 

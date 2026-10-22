@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -27,11 +27,11 @@
 #include "base/win/session_info.h"
 #endif // defined(Q_OS_WINDOWS)
 
-#if defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#if defined(Q_OS_LINUX)
 #include <cstdlib>
 #include <cstring>
 #include "base/linux/libsystemd.h"
-#endif // defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#endif
 
 #if defined(Q_OS_MACOS)
 #include <SystemConfiguration/SystemConfiguration.h>
@@ -56,7 +56,7 @@ SessionId activeConsoleSessionId()
 {
 #if defined(Q_OS_WINDOWS)
     return WTSGetActiveConsoleSessionId();
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     // The session currently shown on the local console of the primary seat - a logged-in user or
     // the display manager greeter. Identified by its VT number, which changes when the user is
     // switched, so callers can detect the change and follow the active session.
@@ -186,7 +186,7 @@ ConsoleUserState consoleUserState()
         return ConsoleUserState::ACTIVE;
 
     return ConsoleUserState::NO_USER;
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     // seat0's active session exists both for a logged-in user and for the display-manager greeter;
     // the session class ("user" vs "greeter") tells them apart.
     char* session = nullptr;

@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -133,8 +133,6 @@ void UpdateChecker::check()
     QString os;
 #if defined(Q_OS_WINDOWS)
     os = "windows";
-#elif defined(Q_OS_ANDROID)
-    os = "android";
 #elif defined(Q_OS_LINUX)
     os = "linux";
 #elif defined(Q_OS_MACOS)
@@ -159,8 +157,6 @@ void UpdateChecker::check()
     QString format;
 #if defined(Q_OS_WINDOWS)
     format = "msi";
-#elif defined(Q_OS_ANDROID)
-    format = "apk";
 #elif defined(Q_OS_LINUX)
     if (!QStandardPaths::findExecutable("apt-get").isEmpty())
         format = "deb";

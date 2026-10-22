@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -49,9 +49,8 @@ public:
         LINUX_KMS     = 6,
         LINUX_KWIN    = 7,
         LINUX_WLR     = 8,
-        MACOSX        = 9,
-        ANDROID_MEDIA = 10,
-        WIN_WGC       = 11
+        MACOSX  = 9,
+        WIN_WGC = 11
     };
     Q_ENUM(Type)
 

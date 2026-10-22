@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -42,7 +42,6 @@ QString capturerToString(quint32 type)
         case proto::video::SCREEN_CAPTURER_TYPE_LINUX_KWIN: return "LINUX_KWIN";
         case proto::video::SCREEN_CAPTURER_TYPE_LINUX_WLR: return "LINUX_WLR";
         case proto::video::SCREEN_CAPTURER_TYPE_MACOSX: return "MACOSX";
-        case proto::video::SCREEN_CAPTURER_TYPE_ANDROID_MEDIA: return "ANDROID_MEDIA";
         default: return "UNKNOWN";
     }
 }

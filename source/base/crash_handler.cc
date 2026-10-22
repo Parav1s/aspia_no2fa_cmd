@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@
 #include <io.h>
 #endif // defined(Q_OS_WINDOWS)
 
-#if (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#if defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
 #include <cxxabi.h>
 #include <dlfcn.h>
 #include <execinfo.h>
@@ -43,7 +43,7 @@
 
 namespace {
 
-#if defined(Q_OS_WINDOWS) || (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#if defined(Q_OS_WINDOWS) || defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
 
 constexpr int kMaxFrames = 128;
 
@@ -396,7 +396,7 @@ LONG WINAPI exceptionFilter(EXCEPTION_POINTERS* exception_pointers)
     return EXCEPTION_EXECUTE_HANDLER;
 }
 
-#elif (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#elif defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
 
 // Fatal signals the crash handler is installed for.
 const int kFatalSignals[] = { SIGSEGV, SIGBUS, SIGILL, SIGFPE, SIGABRT, SIGSYS };
@@ -571,7 +571,7 @@ QString captureStackTrace(int skip_frames)
     return formatStackTable(frames);
 }
 
-#elif (defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)) || defined(Q_OS_MACOS)
+#elif defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
 
 //--------------------------------------------------------------------------------------------------
 void installCrashHandler(const QString& /* dump_file_prefix */)
@@ -652,7 +652,7 @@ QString captureStackTrace(int skip_frames)
     return formatStackTable(frames);
 }
 
-#else // Android and any other platform without a crash handler implementation.
+#else
 
 //--------------------------------------------------------------------------------------------------
 void installCrashHandler(const QString& /* dump_file_prefix */)

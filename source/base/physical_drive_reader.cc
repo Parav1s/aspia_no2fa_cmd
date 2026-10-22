@@ -1,6 +1,6 @@
 //
 // Aspia Project
-// Copyright (C) 2016-2026 Dmitry Chapyshev <dmitry@aspia.ru>
+// Copyright (C) 2016-2026 Dmitry Chapyshev
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 
 #if defined(Q_OS_WINDOWS)
 #include "base/physical_drive_reader_win.h"
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
 #include "base/physical_drive_reader_linux.h"
 #elif defined(Q_OS_MACOS)
 #include "base/physical_drive_reader_mac.h"
@@ -34,7 +34,7 @@ QStringList PhysicalDriveReader::devicePaths()
 {
 #if defined(Q_OS_WINDOWS)
     return PhysicalDriveReaderWin::devicePaths();
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     return PhysicalDriveReaderLinux::devicePaths();
 #elif defined(Q_OS_MACOS)
     return PhysicalDriveReaderMac::devicePaths();
@@ -52,7 +52,7 @@ std::unique_ptr<PhysicalDriveReader> PhysicalDriveReader::create(const QString& 
 
 #if defined(Q_OS_WINDOWS)
     reader = std::make_unique<PhysicalDriveReaderWin>();
-#elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
+#elif defined(Q_OS_LINUX)
     reader = std::make_unique<PhysicalDriveReaderLinux>();
 #elif defined(Q_OS_MACOS)
     reader = std::make_unique<PhysicalDriveReaderMac>();
