@@ -36,10 +36,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: macos-15-intel
-            arch: x86_64
-            triplet: x64-osx
-            build_type: release
           - os: macos-15
             arch: arm64
             triplet: arm64-osx
@@ -70,6 +66,7 @@ jobs:
           if ! command -v ninja >/dev/null 2>&1; then
             brew install ninja
           fi
+          brew install autoconf autoconf-archive automake libtool pkg-config
           cmake --version
           ninja --version
           # Qt 6.10+ requires the full Xcode toolchain, not CommandLineTools
