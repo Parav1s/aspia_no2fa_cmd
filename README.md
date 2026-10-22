@@ -1,5 +1,5 @@
-> # ⚠️ ВЕРСИЯ ТОЛЬКО ДЛЯ ИСПОЛЬЗОВАНИЯ В ЛОКАЛЬНОЙ СЕТИ!!!
-> ## НЕЛЬЗЯ ВЫПУСКАТЬ В ИНТЕРНЕТ!!!
+> # ⚠️ LOCAL NETWORK USE ONLY!!!
+> ## DO NOT EXPOSE THIS BUILD TO THE INTERNET!!!
 
 Aspia
 =====
