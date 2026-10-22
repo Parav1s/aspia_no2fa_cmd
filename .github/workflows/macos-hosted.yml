@@ -35,14 +35,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build_type: [release]
         include:
           - os: macos-15-intel
             arch: x86_64
             triplet: x64-osx
+            build_type: release
           - os: macos-15
             arch: arm64
             triplet: arm64-osx
+            build_type: release
 
     steps:
       - name: Checkout
