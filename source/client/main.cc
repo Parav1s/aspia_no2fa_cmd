@@ -39,6 +39,7 @@
 #include "client/database.h"
 #include "client/host_url.h"
 #include "client/master_password.h"
+#include "client/router_config_storage.h"
 #include "client/router_controller.h"
 #include "client/desktop/app_lock.h"
 #include "client/desktop/main_window.h"
@@ -455,27 +456,43 @@ int main(int argc, char* argv[])
         {
             LOG(INFO) << "Connection by host ID";
 
-            if (!parser.isSet(router_address_option))
+            RouterConfig router_config;
+
+            if (parser.isSet(router_address_option))
             {
-                LOG(ERROR) << "A host ID requires --router-address, --router-username and "
-                              "--router-password";
-                return 1;
+                bool ok = false;
+                const quint16 router_port = parser.value(router_port_option).toUShort(&ok);
+                if (!ok || router_port == 0)
+                {
+                    LOG(ERROR) << "Incorrect value for --router-port";
+                    return 1;
+                }
+
+                router_config.setAddress(withPort(parser.value(router_address_option), router_port));
+                router_config.setUsername(parser.value(router_username_option));
+                router_config.setPassword(SecureString(parser.value(router_password_option)));
+            }
+            else
+            {
+                router_config = RouterConfigStorage().routerConfig();
+
+                if (!router_config.isValid())
+                {
+                    LOG(ERROR) << "A host ID needs a configured router. Pass --router-address, "
+                                  "--router-username and --router-password once, or connect "
+                                  "through a router in the client to remember it.";
+                    return 1;
+                }
+
+                LOG(INFO) << "Using the saved router:" << router_config.address();
             }
 
-            bool ok = false;
-            const quint16 router_port = parser.value(router_port_option).toUShort(&ok);
-            if (!ok || router_port == 0)
-            {
-                LOG(ERROR) << "Incorrect value for --router-port";
-                return 1;
-            }
-
-            const QString router_address = withPort(parser.value(router_address_option), router_port);
+            const QString router_address =
+                withPort(router_config.address(), kDefaultRouterClientTcpPort);
 
             RouterController* controller = new RouterController(&application);
             const qint64 router_id = controller->addTemporaryRouter(
-                router_address, parser.value(router_username_option),
-                parser.value(router_password_option));
+                router_address, router_config.username(), router_config.password().toString());
             if (router_id < 0)
                 return 1;
 

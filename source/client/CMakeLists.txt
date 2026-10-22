@@ -53,6 +53,8 @@ list(APPEND SOURCE_CLIENT_CORE
     master_password.h
     router_cache.cc
     router_cache.h
+    router_config_storage.cc
+    router_config_storage.h
     router_controller.cc
     router_controller.h
     router_hosts_cleaner.cc

@@ -27,6 +27,7 @@
 #include "base/serialization.h"
 #include "client/config.h"
 #include "client/database.h"
+#include "client/router_config_storage.h"
 #include "client/router_hosts_cleaner.h"
 #include "client/workers/router_worker.h"
 #include "proto/router.h"
@@ -552,6 +553,10 @@ void RouterController::finishLogin(qint64 router_id, qint64 user_id)
 
     LOG(INFO) << "Login completed for router" << router_id;
     context.session = new RouterSession(context.config, user_id, context.peer_version, this);
+
+    // Remember the account for the next command-line launch. The address book stays the owner of
+    // the record; this is only the last account that worked, kept where a shortcut can find it.
+    RouterConfigStorage().setRouterConfig(*context.config);
 
     addEvent(router_id, RouterEvent::Severity::INFO,
              tr("Connection to router %1 established.").arg(context.config->address()));
