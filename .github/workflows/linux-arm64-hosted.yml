@@ -34,6 +34,9 @@ jobs:
           sudo apt-get install -y cmake ninja-build build-essential pkg-config \
             autoconf autoconf-archive automake libtool m4 gettext gperf \
             libssl-dev zlib1g-dev
+          sudo apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev \
+            libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev \
+            libegl1-mesa-dev libx11-dev libxext-dev
 
       - name: Restore vcpkg binary cache
         uses: actions/cache@v4
