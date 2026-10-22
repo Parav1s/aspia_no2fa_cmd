@@ -32,6 +32,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake ninja-build build-essential pkg-config \
+            autoconf automake libtool m4 gettext \
             libssl-dev zlib1g-dev
 
       - name: Restore vcpkg binary cache
