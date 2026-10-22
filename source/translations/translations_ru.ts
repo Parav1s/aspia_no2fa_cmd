@@ -4398,6 +4398,16 @@ Credentials imported: %5</source>
         <source>The data of the router is damaged. Enter it again.</source>
         <translation>Данные маршрутизатора повреждены. Введите их заново.</translation>
     </message>
+    <message>
+        <location filename="../client/desktop/router_dialog.ui" line="100"/>
+        <source>Remember the password for command-line connections</source>
+        <translation>Запомнить пароль для подключения из командной строки</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/router_dialog.ui" line="104"/>
+        <source>The router account is stored for the whole computer and is used when the client is started with a host ID and without router options.</source>
+        <translation>Учётная запись роутера сохраняется для всего компьютера и используется, когда клиент запускается с ID хоста без параметров роутера.</translation>
+    </message>
 </context>
 <context>
     <name>RouterError</name>
