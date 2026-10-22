@@ -54,13 +54,6 @@ if (LINUX)
         file_platform_util_linux.cc)
 endif()
 
-if (ANDROID)
-    list(APPEND SOURCE_COMMON
-        clipboard_android.cc
-        clipboard_android.h
-        file_platform_util_android.cc)
-endif()
-
 if (APPLE)
     list(APPEND SOURCE_COMMON
         clipboard_mac.mm
@@ -77,16 +70,10 @@ list(APPEND SOURCE_COMMON_TESTS
 
 include(desktop/sources.cmake)
 
-if (NOT ANDROID)
-    include(sys_info/sources.cmake)
-endif()
+include(sys_info/sources.cmake)
 
 if (WIN32)
     include(win/sources.cmake)
-endif()
-
-if (ANDROID)
-    include(android/sources.cmake)
 endif()
 
 list(APPEND SOURCE_COMMON_RESOURCES resources/common.qrc)
@@ -104,13 +91,8 @@ if (APPLE)
     source_group(mac FILES ${SOURCE_COMMON_MAC})
 endif()
 
-if (ANDROID)
-    source_group(android FILES ${SOURCE_COMMON_ANDROID})
-endif()
-
 add_library(aspia_common STATIC
     ${SOURCE_COMMON}
-    ${SOURCE_COMMON_ANDROID}
     ${SOURCE_COMMON_DESKTOP}
     ${SOURCE_COMMON_SYS_INFO}
     ${SOURCE_COMMON_WIN}

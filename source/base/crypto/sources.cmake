@@ -63,7 +63,7 @@ if (APPLE)
     collect_sources(SOURCE_BASE_CRYPTO os_crypt_mac.mm)
 endif()
 
-if (LINUX OR ANDROID)
+if (LINUX)
     collect_sources(SOURCE_BASE_CRYPTO os_crypt_linux.cc)
 endif()
 

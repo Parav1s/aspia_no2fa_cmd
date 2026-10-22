@@ -122,11 +122,6 @@ if (APPLE)
         sys_info_mac.mm)
 endif()
 
-if (ANDROID)
-    list(APPEND SOURCE_BASE
-        sys_info_android.cc)
-endif()
-
 list(APPEND SOURCE_BASE_TESTS
     aligned_memory_unittest.cc
     bitset_unittest.cc
@@ -223,10 +218,6 @@ if (LINUX)
     find_package(X11 REQUIRED)
     list(APPEND BASE_PLATFORM_LIBS
         X11::X11 X11::Xext X11::Xdamage X11::Xfixes X11::Xi X11::Xrandr X11::Xtst)
-endif()
-
-if (ANDROID)
-    set(BASE_PLATFORM_LIBS log mediandk oboe::oboe)
 endif()
 
 if (APPLE)

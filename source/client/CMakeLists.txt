@@ -130,13 +130,6 @@ if (APPLE)
         session_keeper_mac.h)
 endif()
 
-if (ANDROID)
-    list(APPEND SOURCE_CLIENT_CORE
-        audio_output_android.cc
-        audio_output_android.h)
-endif()
-
-include(android/sources.cmake)
 include(online_checker/sources.cmake)
 include(desktop/sources.cmake)
 include(desktop/desktop/sources.cmake)
@@ -154,7 +147,6 @@ endif()
 
 source_group("" FILES ${SOURCE_CLIENT_CORE} ${SOURCE_CLIENT})
 source_group(tests FILES ${SOURCE_CLIENT_TESTS})
-source_group(android FILES ${SOURCE_CLIENT_ANDROID})
 source_group(online_checker FILES ${SOURCE_CLIENT_CORE_ONLINE_CHECKER})
 source_group(desktop FILES ${SOURCE_CLIENT_CORE_DESKTOP})
 source_group(desktop\\desktop FILES ${SOURCE_CLIENT_CORE_DESKTOP_DESKTOP})
@@ -190,27 +182,19 @@ if (APPLE)
     set_source_files_properties(${aspia_client_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION Resources)
 endif()
 
-if (ANDROID)
-    add_library(aspia_client_core STATIC
-        ${SOURCE_CLIENT_CORE}
-        ${SOURCE_CLIENT_ANDROID}
-        ${SOURCE_CLIENT_CORE_ONLINE_CHECKER}
-        ${SOURCE_CLIENT_WORKERS})
-else()
-    add_library(aspia_client_core STATIC
-        ${SOURCE_CLIENT_CORE}
-        ${SOURCE_CLIENT_CORE_ONLINE_CHECKER}
-        ${SOURCE_CLIENT_CORE_DESKTOP}
-        ${SOURCE_CLIENT_CORE_DESKTOP_DESKTOP}
-        ${SOURCE_CLIENT_CORE_DESKTOP_FILE_TRANSFER}
-        ${SOURCE_CLIENT_CORE_DESKTOP_SYS_INFO}
-        ${SOURCE_CLIENT_CORE_DESKTOP_CHAT}
-        ${SOURCE_CLIENT_CORE_DESKTOP_CREDENTIALS}
-        ${SOURCE_CLIENT_CORE_DESKTOP_TERMINAL}
-        ${SOURCE_CLIENT_CORE_DESKTOP_MANAGEMENT_TAB}
-        ${SOURCE_CLIENT_WIN}
-        ${SOURCE_CLIENT_WORKERS})
-endif()
+add_library(aspia_client_core STATIC
+    ${SOURCE_CLIENT_CORE}
+    ${SOURCE_CLIENT_CORE_ONLINE_CHECKER}
+    ${SOURCE_CLIENT_CORE_DESKTOP}
+    ${SOURCE_CLIENT_CORE_DESKTOP_DESKTOP}
+    ${SOURCE_CLIENT_CORE_DESKTOP_FILE_TRANSFER}
+    ${SOURCE_CLIENT_CORE_DESKTOP_SYS_INFO}
+    ${SOURCE_CLIENT_CORE_DESKTOP_CHAT}
+    ${SOURCE_CLIENT_CORE_DESKTOP_CREDENTIALS}
+    ${SOURCE_CLIENT_CORE_DESKTOP_TERMINAL}
+    ${SOURCE_CLIENT_CORE_DESKTOP_MANAGEMENT_TAB}
+    ${SOURCE_CLIENT_WIN}
+    ${SOURCE_CLIENT_WORKERS})
 
 target_link_libraries(aspia_client_core
     aspia_base
@@ -226,13 +210,9 @@ set_property(TARGET aspia_client_core PROPERTY AUTORCC ON)
 
 add_ui_headers(aspia_client_core)
 
-if (ANDROID)
-    qt_add_executable(aspia_client ${SOURCE_CLIENT})
-else()
-    add_executable(aspia_client MACOSX_BUNDLE
-        ${aspia_client_ICON}
-        ${SOURCE_CLIENT})
-endif()
+add_executable(aspia_client MACOSX_BUNDLE
+    ${aspia_client_ICON}
+    ${SOURCE_CLIENT})
 
 target_link_libraries(aspia_client PRIVATE
     aspia_client_core)
@@ -241,40 +221,28 @@ set_property(TARGET aspia_client PROPERTY AUTOUIC ON)
 set_property(TARGET aspia_client PROPERTY AUTORCC ON)
 qt_import_plugins(aspia_client INCLUDE "" EXCLUDE "" INCLUDE_BY_TYPE imageformats iconengines EXCLUDE_BY_TYPE "")
 
-if (ANDROID)
-    set_target_properties(aspia_client PROPERTIES
-        QT_ANDROID_PACKAGE_NAME "org.aspia.client"
-        QT_ANDROID_APP_NAME "Aspia Client"
-        QT_ANDROID_APP_ICON "@mipmap/ic_launcher"
-        QT_ANDROID_VERSION_CODE ${GIT_COMMIT_COUNT}
-        QT_ANDROID_VERSION_NAME "${ASPIA_VERSION_MAJOR}.${ASPIA_VERSION_MINOR}.${ASPIA_VERSION_PATCH}.${GIT_COMMIT_COUNT}"
-        QT_ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android/packaging")
-endif()
-
 if (WIN32)
     set_target_properties(aspia_client PROPERTIES WIN32_EXECUTABLE TRUE)
     set_target_properties(aspia_client PROPERTIES LINK_FLAGS "/MANIFEST:NO")
 endif()
 
-if (NOT ANDROID)
-    add_executable(aspia_client_tests ${SOURCE_CLIENT_TESTS})
+add_executable(aspia_client_tests ${SOURCE_CLIENT_TESTS})
 
-    # The widget tests draw into memory, so the run needs the offscreen platform plugin. In a static
-    # build it has to be linked in.
-    target_link_libraries(aspia_client_tests
-        aspia_client_core
-        GTest::gtest
-        Qt6::Test
-        Qt6::QOffscreenIntegrationPlugin
-        ${THIRD_PARTY_LIBS})
+# The widget tests draw into memory, so the run needs the offscreen platform plugin. In a static
+# build it has to be linked in.
+target_link_libraries(aspia_client_tests
+    aspia_client_core
+    GTest::gtest
+    Qt6::Test
+    Qt6::QOffscreenIntegrationPlugin
+    ${THIRD_PARTY_LIBS})
 
-    set_property(TARGET aspia_client_tests PROPERTY AUTOMOC ON)
-    set_property(TARGET aspia_client_tests PROPERTY AUTOUIC ON)
-    set_property(TARGET aspia_client_tests PROPERTY AUTORCC ON)
-    qt_import_plugins(aspia_client_tests INCLUDE "" EXCLUDE "" INCLUDE_BY_TYPE "" EXCLUDE_BY_TYPE imageformats)
+set_property(TARGET aspia_client_tests PROPERTY AUTOMOC ON)
+set_property(TARGET aspia_client_tests PROPERTY AUTOUIC ON)
+set_property(TARGET aspia_client_tests PROPERTY AUTORCC ON)
+qt_import_plugins(aspia_client_tests INCLUDE "" EXCLUDE "" INCLUDE_BY_TYPE "" EXCLUDE_BY_TYPE imageformats)
 
-    add_test(NAME aspia_client_tests COMMAND aspia_client_tests)
-endif()
+add_test(NAME aspia_client_tests COMMAND aspia_client_tests)
 
 if (APPLE)
     set_target_properties(aspia_client PROPERTIES MACOSX_BUNDLE_INFO_PLIST ${aspia_client_PLIST})

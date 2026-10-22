@@ -58,14 +58,12 @@ set(QT_COMMON_LIBS
     Qt6::Svg
     Qt6::Xml)
 
-if (NOT ANDROID)
-    list(APPEND QT_COMMON_LIBS
-        Qt6::DeviceDiscoverySupportPrivate
-        Qt6::FbSupportPrivate
-        Qt6::QICOPlugin
-        Qt6::PrintSupport Qt6::PrintSupport_resources_1 Qt6::PrintSupport_resources_2
-        Qt6::Widgets_resources_1 Qt6::Widgets_resources_2)
-endif()
+list(APPEND QT_COMMON_LIBS
+    Qt6::DeviceDiscoverySupportPrivate
+    Qt6::FbSupportPrivate
+    Qt6::QICOPlugin
+    Qt6::PrintSupport Qt6::PrintSupport_resources_1 Qt6::PrintSupport_resources_2
+    Qt6::Widgets_resources_1 Qt6::Widgets_resources_2)
 
 if (WIN32)
     set(QT_PLATFORM_LIBS Qt6::QWindowsIntegrationPlugin)
@@ -233,15 +231,13 @@ if (NOT ASPIA_HOST_ONLY)
     add_subdirectory(client)
 endif()
 
-if (NOT ANDROID)
-    add_subdirectory(drivers)
+add_subdirectory(drivers)
 
-    if (NOT ASPIA_HOST_ONLY)
-        add_subdirectory(relay)
-        add_subdirectory(router)
-    endif()
+if (NOT ASPIA_HOST_ONLY)
+    add_subdirectory(relay)
+    add_subdirectory(router)
 endif()
 
-if (WIN32 OR LINUX OR APPLE OR ANDROID)
+if (WIN32 OR LINUX OR APPLE)
     add_subdirectory(host)
 endif()

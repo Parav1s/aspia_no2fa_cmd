@@ -33,11 +33,7 @@
 #include "host/system_settings.h"
 
 // The settings dialogs differ per platform, but the imported/exported data does not.
-#if defined(Q_OS_ANDROID)
-#include "common/android/message_dialog.h"
-#else
 #include "common/desktop/msg_box.h"
-#endif
 
 namespace {
 

@@ -16,64 +16,6 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 #
 
-# On Android the host is a standalone application: the portable core files (host root) plus the Android
-# UI (host/android). The desktop host (service, agents, desktop capturers/injectors, host/ui) is not
-# built - the same split as the client, where host/ui is the desktop UI and host/android the Android UI.
-if (ANDROID)
-    # Portable core files this build needs. More are added here as the host is ported to Android.
-    list(APPEND SOURCE_HOST
-        client.cc
-        client.h
-        database.cc
-        database.h
-        host_storage.cc
-        host_storage.h
-        host_user_list.cc
-        host_user_list.h
-        input_injector.h
-        router_manager.cc
-        router_manager.h
-        scale_reducer.cc
-        scale_reducer.h
-        screen_capturer.cc
-        screen_capturer.h
-        settings_util.cc
-        settings_util.h
-        system_settings.cc
-        system_settings.h
-        udp_attempt.cc
-        udp_attempt.h
-        user_settings.cc
-        user_settings.h)
-
-    # Android UI.
-    include(android/sources.cmake)
-
-    source_group("" FILES ${SOURCE_HOST})
-    source_group(android FILES ${SOURCE_HOST_ANDROID})
-
-    qt_add_executable(aspia_host ${SOURCE_HOST} ${SOURCE_HOST_ANDROID})
-    target_link_libraries(aspia_host PRIVATE
-        aspia_base
-        aspia_common
-        aspia_proto
-        ${QT_COMMON_LIBS}
-        ${THIRD_PARTY_LIBS})
-    set_property(TARGET aspia_host PROPERTY AUTOMOC ON)
-    set_property(TARGET aspia_host PROPERTY AUTORCC ON)
-    qt_import_plugins(aspia_host INCLUDE "" EXCLUDE "" INCLUDE_BY_TYPE imageformats iconengines EXCLUDE_BY_TYPE "")
-
-    set_target_properties(aspia_host PROPERTIES
-        QT_ANDROID_PACKAGE_NAME "org.aspia.host"
-        QT_ANDROID_APP_NAME "Aspia Host"
-        QT_ANDROID_APP_ICON "@mipmap/ic_launcher"
-        QT_ANDROID_VERSION_CODE ${GIT_COMMIT_COUNT}
-        QT_ANDROID_VERSION_NAME "${ASPIA_VERSION_MAJOR}.${ASPIA_VERSION_MINOR}.${ASPIA_VERSION_PATCH}.${GIT_COMMIT_COUNT}"
-        QT_ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android/packaging")
-
-    return()
-endif()
-
 list(APPEND SOURCE_HOST_CORE
     audio_capturer.cc
     audio_capturer.h

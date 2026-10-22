@@ -26,8 +26,6 @@
 #include "client/audio_output_mac.h"
 #elif defined(Q_OS_LINUX) && !defined(Q_OS_ANDROID)
 #include "client/audio_output_pulse.h"
-#elif defined(Q_OS_ANDROID)
-#include "client/audio_output_android.h"
 #endif
 
 #include <cstring>

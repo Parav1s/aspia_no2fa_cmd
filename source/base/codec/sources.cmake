@@ -77,14 +77,6 @@ if (APPLE)
         video_encoder_h264_vt.h)
 endif()
 
-if (ANDROID)
-    collect_sources(SOURCE_BASE_CODEC
-        video_decoder_h264_mc.cc
-        video_decoder_h264_mc.h
-        video_encoder_h264_mc.cc
-        video_encoder_h264_mc.h)
-endif()
-
 collect_sources(SOURCE_BASE_CODEC_TESTS
     cursor_codec_unittest.cc
     video_encoder_vpx_unittest.cc

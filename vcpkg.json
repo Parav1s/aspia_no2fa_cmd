@@ -16,10 +16,6 @@
     "libyuv",
     "miniupnpc",
     "nayuki-qr-code-generator",
-    {
-      "name": "oboe",
-      "platform": "android"
-    },
     "openh264",
     "openssl",
     "opus",
@@ -27,7 +23,6 @@
     "zstd",
     {
       "name": "qtbase",
-      "platform": "!android",
       "default-features": false,
       "features": [
         "zstd",
@@ -98,12 +93,10 @@
       ]
     },
     {
-      "name": "qtsvg",
-      "platform": "!android"
+      "name": "qtsvg"
     },
     {
-      "name": "qttools",
-      "platform": "!android"
+      "name": "qttools"
     },
     {
       "name": "dbus",

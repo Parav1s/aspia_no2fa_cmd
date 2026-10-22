@@ -29,8 +29,6 @@
 #include "common/clipboard_x11.h"
 #elif defined(Q_OS_MACOS)
 #include "common/clipboard_mac.h"
-#elif defined(Q_OS_ANDROID)
-#include "common/clipboard_android.h"
 #endif
 
 namespace {
