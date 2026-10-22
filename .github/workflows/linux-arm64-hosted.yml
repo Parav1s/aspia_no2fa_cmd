@@ -1,4 +1,4 @@
-name: linux-arm64-hosted
+﻿name: linux-arm64-hosted
 
 # Router and relay for 64-bit ARM Linux (Raspberry Pi and similar) on a stock
 # GitHub-hosted arm64 runner. The GUI client and host need the same kind of
@@ -32,7 +32,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y cmake ninja-build build-essential pkg-config \
-            autoconf autoconf-archive automake libtool m4 gettext \
+            autoconf autoconf-archive automake libtool m4 gettext gperf \
             libssl-dev zlib1g-dev
 
       - name: Restore vcpkg binary cache

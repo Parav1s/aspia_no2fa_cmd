@@ -1,4 +1,4 @@
-name: macos-hosted
+﻿name: macos-hosted
 
 # macOS build for GitHub-hosted runners (no self-hosted infrastructure required).
 # The upstream workflow (.github/workflows/macos.yml) targets self-hosted runners
@@ -66,7 +66,7 @@ jobs:
           if ! command -v ninja >/dev/null 2>&1; then
             brew install ninja
           fi
-          brew install autoconf autoconf-archive automake libtool pkg-config
+          brew install autoconf autoconf-archive automake libtool pkg-config nasm
           cmake --version
           ninja --version
           # Qt 6.10+ requires the full Xcode toolchain, not CommandLineTools
