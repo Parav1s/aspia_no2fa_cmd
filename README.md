@@ -1,3 +1,6 @@
+> # ⚠️ ВЕРСИЯ ТОЛЬКО ДЛЯ ИСПОЛЬЗОВАНИЯ В ЛОКАЛЬНОЙ СЕТИ!!!
+> ## НЕЛЬЗЯ ВЫПУСКАТЬ В ИНТЕРНЕТ!!!
+
 Aspia
 =====
 Remote desktop, file transfer and system information tool.
