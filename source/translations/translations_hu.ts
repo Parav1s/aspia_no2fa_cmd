@@ -96,142 +96,117 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="126"/>
+        <location filename="../common/desktop/about_dialog.cc" line="104"/>
         <source>Version: %1 (%2)</source>
         <translation>Verzió: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="131"/>
+        <location filename="../common/desktop/about_dialog.cc" line="109"/>
         <source>Aspia is free software released under GNU General Public License 3.</source>
         <translation>Az Aspia szabad szoftver, amely a GNU General Public License 3 feltételei szerint jelent meg.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="132"/>
+        <location filename="../common/desktop/about_dialog.cc" line="110"/>
         <source>You can get a copy of license here:</source>
         <translation>A licenc másolata itt érhető el:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="137"/>
+        <location filename="../common/desktop/about_dialog.cc" line="115"/>
         <source>You can also get a translation of GNU GPL license here:</source>
         <translation>A GNU GPL licenc fordítása itt is elérhető:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="141"/>
+        <location filename="../common/desktop/about_dialog.cc" line="119"/>
         <source>Links</source>
         <translation>Hivatkozások</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="142"/>
+        <location filename="../common/desktop/about_dialog.cc" line="120"/>
         <source>Home page:</source>
         <translation>Honlap:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="143"/>
+        <location filename="../common/desktop/about_dialog.cc" line="121"/>
         <source>GitHub page:</source>
         <translation>GitHub-oldal:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="156"/>
-        <source>Connect to a host by its ID from the command line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="157"/>
-        <source>Switch the second factor off per role in the configuration of the router</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="158"/>
-        <source>The whole desktop of the host as one screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="161"/>
-        <source>Modifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="163"/>
-        <source>The changes and the sources:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="167"/>
+        <location filename="../common/desktop/about_dialog.cc" line="124"/>
         <source>Developers</source>
         <translation>Fejlesztők</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="169"/>
+        <location filename="../common/desktop/about_dialog.cc" line="126"/>
         <source>Translators</source>
         <translation>Fordítók</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="171"/>
+        <location filename="../common/desktop/about_dialog.cc" line="128"/>
         <source>Third-party components</source>
         <translation>Külső összetevők</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="173"/>
+        <location filename="../common/desktop/about_dialog.cc" line="130"/>
         <source>Graphics and images</source>
         <translation>Grafika és képek</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="174"/>
+        <location filename="../common/desktop/about_dialog.cc" line="131"/>
         <source>Icons by %1</source>
         <translation>Ikonok: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="205"/>
+        <location filename="../common/desktop/about_dialog.cc" line="158"/>
         <source>Application</source>
         <translation>Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="206"/>
+        <location filename="../common/desktop/about_dialog.cc" line="159"/>
         <source>Path: %1</source>
         <translation>Útvonal: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="207"/>
+        <location filename="../common/desktop/about_dialog.cc" line="160"/>
         <source>Logging directory: %1</source>
         <translation>Naplózási könyvtár: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="209"/>
+        <location filename="../common/desktop/about_dialog.cc" line="162"/>
         <source>Logging file: %1</source>
         <translation>Naplófájl: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="214"/>
+        <location filename="../common/desktop/about_dialog.cc" line="167"/>
         <source>Build Information</source>
         <translation>Build-információk</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="215"/>
+        <location filename="../common/desktop/about_dialog.cc" line="168"/>
         <source>Git branch: %1</source>
         <translation>Git-ág: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="217"/>
+        <location filename="../common/desktop/about_dialog.cc" line="170"/>
         <source>Git commit: %1</source>
         <translation>Git-commit: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="222"/>
+        <location filename="../common/desktop/about_dialog.cc" line="175"/>
         <source>Compilation</source>
         <translation>Fordítás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="223"/>
+        <location filename="../common/desktop/about_dialog.cc" line="176"/>
         <source>Compilation date: %1</source>
         <translation>Fordítás dátuma: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="224"/>
+        <location filename="../common/desktop/about_dialog.cc" line="177"/>
         <source>Compilation time: %1</source>
         <translation>Fordítás ideje: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="253"/>
+        <location filename="../common/desktop/about_dialog.cc" line="206"/>
         <source>Version Information</source>
         <translation>Verzióinformációk</translation>
     </message>
@@ -644,118 +619,46 @@ Hozzáadott útválasztók: %4</translation>
 <context>
     <name>Client</name>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="78"/>
-=======
-        <location filename="../client/main.cc" line="85"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést. Az adatbázis néhány rekordja sérült. Javítsa vagy törölje őket.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="257"/>
-=======
-        <location filename="../client/main.cc" line="239"/>
-        <source>Connect to the host of the address book with this record ID or host ID, using the login and the password stored in it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="242"/>
-        <source>id</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="246"/>
-        <source>Kind of the session to open: desktop, file, info, chat or terminal (default: the one from the settings of the application).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="249"/>
-        <source>type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="253"/>
-        <source>Log in with this user name instead of the one stored in the host. Requires --password.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="256"/>
-        <source>name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="260"/>
-        <source>Log in with this password instead of the stored one. Requires --username. A password on a command line is visible to the other users of the machine.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="263"/>
-        <source>password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="387"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set Master Password</source>
         <translation>Mesterjelszó beállítása</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="259"/>
-=======
-        <location filename="../client/main.cc" line="389"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set a master password required to unlock the application.</source>
         <translation>Állítson be egy mesterjelszót, amely az alkalmazás feloldásához szükséges.</translation>
     </message>
     <message numerus="yes">
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="267"/>
-=======
-        <location filename="../client/main.cc" line="397"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="275"/>
-=======
-        <location filename="../client/main.cc" line="405"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Password you entered does not meet the security requirements!</source>
         <translation>A megadott jelszó nem felel meg a biztonsági követelményeknek!</translation>
     </message>
     <message numerus="yes">
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="277"/>
-=======
-        <location filename="../client/main.cc" line="407"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszónak tartalmaznia kell kisbetűket és nagybetűket, számokat, és nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="281"/>
-=======
-        <location filename="../client/main.cc" line="411"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Do you want to enter a different password?</source>
         <translation>Szeretne másik jelszót megadni?</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="291"/>
-=======
-        <location filename="../client/main.cc" line="421"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to set master password.</source>
         <translation>Nem lehet beállítani a mesterjelszót.</translation>
     </message>
@@ -765,29 +668,17 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Feloldás</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="72"/>
-=======
-        <location filename="../client/main.cc" line="79"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést a(z) &quot;%1&quot; könyvtárban.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="84"/>
-=======
-        <location filename="../client/main.cc" line="91"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="206"/>
-=======
-        <location filename="../client/main.cc" line="274"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>An aspia:// link to connect to a host.</source>
         <translation>Egy aspia:// hivatkozás a gazdagéphez való csatlakozáshoz.</translation>
     </message>
@@ -807,63 +698,9 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Érvénytelen mesterjelszó.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="202"/>
-=======
-        <location filename="../client/main.cc" line="266"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia kliens</translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="127"/>
-        <source>&quot;%1&quot; is neither a host ID nor a record ID.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="129"/>
-        <source>The host ID of --connect is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="151"/>
-        <source>&quot;%1&quot; is not a valid session type. Use desktop, file, info, chat or terminal.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="154"/>
-        <source>The session type of --session-type is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="171"/>
-        <source>The user name of --username is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="187"/>
-        <source>The password of --password is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="217"/>
-        <source>&quot;%1&quot; is neither an aspia:// link nor a host ID.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="235"/>
-        <source>--username requires --password as well.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="237"/>
-        <source>--password requires --username as well.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="248"/>
-        <source>--username and --password need a host to connect to (--connect or an aspia:// link).</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -902,65 +739,37 @@ Hozzáadott útválasztók: %4</translation>
 <context>
     <name>ClientWindow</name>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="268"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="280"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Session started.</source>
         <translation>A munkamenet elindult.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="515"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="599"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is unavailable.</source>
         <translation>A megadott útválasztó nem érhető el.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="517"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="601"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="519"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="603"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is offline.</source>
         <translation>A megadott útválasztó offline.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="280"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="292"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1...</source>
         <translation>Csatlakozás a(z) %1 gazdagéphez...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="284"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="296"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1:%2...</source>
         <translation>Csatlakozás a(z) %1:%2 gazdagéphez...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="314"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="332"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>A gazdagép még nem érhető el. Várakozás az újracsatlakozásra...</translation>
     </message>
@@ -970,43 +779,27 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Időtúllépés a gazdagéphez való újracsatlakozásra várakozás közben.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="334"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="352"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>A gazdagép verziója újabb, mint a kliens verziója (%1 &gt; %2). Kérjük, frissítse az alkalmazást.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="340"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>Csatlakozási kísérlet kompatibilitási módban...</translation>
     </message>
     <message>
         <location filename="../client/desktop/client_window.cc" line="526"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="610"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Requesting connection to the host...</source>
         <translation>Kapcsolat kérése a gazdagéphez...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="534"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="618"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection offer received.</source>
         <translation>Kapcsolati ajánlat érkezett.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="551"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="635"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Error requesting connection via router.</source>
         <translation>Hiba az útválasztón keresztüli kapcsolat kérésekor.</translation>
     </message>
@@ -2092,165 +1885,6 @@ Lecserélt hitelesítő adatok: %2</translation>
         <source>Could not save image</source>
         <translation>Nem sikerült menteni a képet</translation>
     </message>
-<<<<<<< HEAD
-=======
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="517"/>
-        <source>Connecting...</source>
-        <translation>Csatlakozás...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="541"/>
-        <source>The specified router is unavailable.</source>
-        <translation>A megadott útválasztó nem érhető el.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="568"/>
-        <source>Requesting connection to the host...</source>
-        <translation>Kapcsolat kérése a gazdagéphez...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="80"/>
-        <source>Session %1</source>
-        <translation>Munkamenet %1</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="81"/>
-        <source>Session %1 (%2)</source>
-        <translation>Munkamenet %1 (%2)</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="540"/>
-        <source>The data of the router is damaged. Edit the router and enter it again.</source>
-        <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="547"/>
-        <source>Connecting to router...</source>
-        <translation>Csatlakozás az útválasztóhoz...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="776"/>
-        <source>Connecting to host %1...</source>
-        <translation>Csatlakozás a(z) %1 gazdagéphez...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="782"/>
-        <source>Connection established.</source>
-        <translation>A kapcsolat létrejött.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="795"/>
-        <source>The connection to the host has been lost.</source>
-        <translation>A kapcsolat a gazdagéppel megszakadt.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="808"/>
-        <source>The host version is newer than the client. Please update the application.</source>
-        <translation>A gazdagép verziója újabb, mint a kliensé. Kérjük, frissítse az alkalmazást.</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="174"/>
-        <source>Monitor %1</source>
-        <translation>Monitor %1</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="170"/>
-        <source>All monitors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="183"/>
-        <source>Power</source>
-        <translation>Tápellátás</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="187"/>
-        <source>Keyboard</source>
-        <translation>Billentyűzet</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="193"/>
-        <source>Ctrl+Alt+Del</source>
-        <translation>Ctrl+Alt+Del</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="200"/>
-        <source>Users</source>
-        <translation>Felhasználók</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="205"/>
-        <source>Disconnect</source>
-        <translation>Leválasztás</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="663"/>
-        <location filename="../client/android/desktop_window.cc" line="720"/>
-        <source>Back</source>
-        <translation>Vissza</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="664"/>
-        <source>Shutdown</source>
-        <translation>Leállítás</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="665"/>
-        <source>Reboot</source>
-        <translation>Újraindítás</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="670"/>
-        <source>Safe Mode</source>
-        <translation>Csökkentett mód</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="671"/>
-        <source>Logoff</source>
-        <translation>Kijelentkezés</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="672"/>
-        <source>Lock</source>
-        <translation>Zárolás</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="688"/>
-        <source>Are you sure you want to shutdown the remote computer?</source>
-        <translation>Biztosan leállítja a távoli számítógépet?</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="692"/>
-        <source>Are you sure you want to reboot the remote computer?</source>
-        <translation>Biztosan újraindítja a távoli számítógépet?</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="696"/>
-        <source>Are you sure you want to reboot the remote computer in Safe Mode?</source>
-        <translation>Biztosan újraindítja a távoli számítógépet csökkentett módban?</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="700"/>
-        <source>Are you sure you want to end the user session on the remote computer?</source>
-        <translation>Biztosan befejezi a felhasználói munkamenetet a távoli számítógépen?</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="704"/>
-        <source>Are you sure you want to lock the user session on the remote computer?</source>
-        <translation>Biztosan zárolja a felhasználói munkamenetet a távoli számítógépen?</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="759"/>
-        <source>Confirmation</source>
-        <translation>Megerősítés</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="759"/>
-        <source>Yes</source>
-        <translation>Igen</translation>
-    </message>
->>>>>>> e8ce28d2d (Name the screen of the whole desktop and show the changes of this fork)
 </context>
 <context>
     <name>DialogButtonBox</name>
@@ -3629,11 +3263,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="404"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="916"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia kliens</translation>
     </message>
@@ -3698,141 +3328,68 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Mindig felül</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="99"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="128"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Search...</source>
         <translation>Keresés...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="179"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="218"/>
-        <source>Unable to turn on the MCP connector.</source>
-        <translation>Nem lehet bekapcsolni az MCP-összekötőt.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="236"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Management</source>
         <translation>Kezelés</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="225"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="282"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>Érvénytelen hivatkozás: &quot;%1&quot;.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="248"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="305"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>A hivatkozásban szereplő útválasztó nincs a mentett útválasztók között.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="297"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="354"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>A hivatkozásban szereplő gazdagép nincs a mentett gazdagépek között.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="380"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="892"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all sessions to lock the application.</source>
         <translation>Zárja be az összes munkamenetet az alkalmazás zárolásához.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="386"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="898"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all dialogs to lock the application.</source>
         <translation>Zárja be az összes párbeszédablakot az alkalmazás zárolásához.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="502"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="1013"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>A gazdagép tulajdonságaiban ID szerinti kapcsolat van megadva, de az útválasztó nincs konfigurálva. Ellenőrizze az útválasztó paramétereit a gazdagép tulajdonságaiban.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="309"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="1280"/>
-        <source>Unknown application</source>
-        <translation>Ismeretlen alkalmazás</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="1283"/>
-        <source>MCP Connector. Connected: %1</source>
-        <translation>MCP-összekötő. Csatlakoztatva: %1</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="1284"/>
-        <source>%1 - AI is connected</source>
-        <translation>%1 - MI csatlakoztatva</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="366"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>A gazdagéphez tartozó útválasztó törölve lett. Szerkessze a gazdagépet másik útválasztó kiválasztásához, vagy váltson közvetlen kapcsolatra.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="256"/>
         <location filename="../client/desktop/main_window.cc" line="308"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="313"/>
-        <location filename="../client/desktop/main_window.cc" line="365"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="296"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="353"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>A gazdagép adatai sérültek. Szerkessze a gazdagépet, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="339"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="851"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Credentials</source>
         <translation>Hitelesítő adatok</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="370"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="882"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
@@ -4032,123 +3589,67 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Állapot automatikus frissítése</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1034"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1133"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>(copy)</source>
         <translation>(másolat)</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1002"/>
         <location filename="../client/desktop/management_tab.cc" line="1075"/>
         <location filename="../client/desktop/management_tab.cc" line="2162"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1101"/>
-        <location filename="../client/desktop/management_tab.cc" line="1175"/>
-        <location filename="../client/desktop/management_tab.cc" line="2274"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to retrieve host information from the local database.</source>
         <translation>Nem sikerült lekérni a gazdagép adatait a helyi adatbázisból.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1039"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="911"/>
-        <source>The &quot;%1&quot; session type is not available for Quick Support.</source>
-        <translation>A(z) &quot;%1&quot; munkamenet-típus nem érhető el a Quick Support számára.</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management_tab.cc" line="1138"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to add the host to the local database.</source>
         <translation>Nem sikerült hozzáadni a gazdagépet a helyi adatbázishoz.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1079"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1179"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; gazdagépet?</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1089"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1189"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to remove host</source>
         <translation>Nem lehet eltávolítani a gazdagépet</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
         <location filename="../client/desktop/management_tab.cc" line="1190"/>
         <location filename="../client/desktop/management_tab.cc" line="1215"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1252"/>
-        <location filename="../client/desktop/management_tab.cc" line="1322"/>
-        <location filename="../client/desktop/management_tab.cc" line="1348"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Row</source>
         <translation>Sor másolása</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
         <location filename="../client/desktop/management_tab.cc" line="1191"/>
         <location filename="../client/desktop/management_tab.cc" line="1216"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1253"/>
-        <location filename="../client/desktop/management_tab.cc" line="1323"/>
-        <location filename="../client/desktop/management_tab.cc" line="1349"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Value</source>
         <translation>Érték másolása</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1315"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1450"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; munkaterületet?</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1335"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1470"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the workspace.</source>
         <translation>Nem sikerült törölni a munkaterületet.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1430"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1572"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; csoportot? A csoporthoz vagy alcsoportjaihoz rendelt gazdagépek a munkaterület gyökerébe kerülnek.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1449"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1590"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the group.</source>
         <translation>Nem sikerült törölni a csoportot.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1488"/>
         <source>Import Old Address Book</source>
         <translation>Régi címjegyzék importálása</translation>
@@ -4161,149 +3662,83 @@ Lecserélt hitelesítő adatok: %2</translation>
     <message>
         <location filename="../client/desktop/management_tab.cc" line="1512"/>
         <location filename="../client/desktop/management_tab.cc" line="1569"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1629"/>
-        <location filename="../client/desktop/management_tab.cc" line="1686"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The database is not available.</source>
         <translation>Az adatbázis nem érhető el.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1518"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1635"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Create Backup</source>
         <translation>Biztonsági mentés készítése</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1535"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1652"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>There is nothing to save.</source>
         <translation>Nincs mit menteni.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2157"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2269"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>A gazdagép adatai sérültek. Szerkessze a gazdagépet, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2178"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2290"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1547"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1664"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to create the backup.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1575"/>
         <location filename="../client/desktop/management_tab.cc" line="1601"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1692"/>
-        <location filename="../client/desktop/management_tab.cc" line="1718"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Restore from Backup</source>
         <translation>Visszaállítás biztonsági mentésből</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1584"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1701"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>Minden jelenleg tárolt adat törlődik, és a biztonsági mentés tartalmára cserélődik. Folytatja?</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1603"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1720"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>A biztonsági mentés egy másik telepítésen készült. Adja meg az ott használt mesterjelszót.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1628"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1745"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>A biztonsági mentés nem tartalmaz adatokat, ezért semmi sem változott.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1636"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1753"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The file is not a valid backup.</source>
         <translation>A fájl nem érvényes biztonsági mentés.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1640"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1757"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to restore from the backup.</source>
         <translation>Nem sikerült visszaállítani a biztonsági mentésből.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1519"/>
         <location filename="../client/desktop/management_tab.cc" line="1576"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1636"/>
-        <location filename="../client/desktop/management_tab.cc" line="1693"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Aspia biztonsági mentés (*.aspia-backup);;Minden fájl (*)</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1539"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1656"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to write the file.</source>
         <translation>Nem lehet írni a fájlt.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1632"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1749"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to read the file.</source>
         <translation>Nem lehet olvasni a fájlt.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1552"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1669"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -4318,38 +3753,22 @@ Exportált mentett jelszavak: %4
 Exportált hitelesítő adatok: %5</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1543"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1660"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Az adatbázis néhány rekordja sérült. Javítsa vagy törölje őket, majd próbálja újra.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1620"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1737"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>A fájl nem fejthető vissza a megadott jelszóval.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1624"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1741"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unsupported file format version.</source>
         <translation>Nem támogatott fájlformátum-verzió.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1645"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1762"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -4364,51 +3783,29 @@ Importált mentett jelszavak: %4
 Importált hitelesítő adatok: %5</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2085"/>
         <location filename="../client/desktop/management_tab.cc" line="2116"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2197"/>
-        <location filename="../client/desktop/management_tab.cc" line="2228"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Link</source>
         <translation>Hivatkozás másolása</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2104"/>
         <location filename="../client/desktop/management_tab.cc" line="2138"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2216"/>
-        <location filename="../client/desktop/management_tab.cc" line="2250"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a link for this host.</source>
         <translation>Nem lehet hivatkozást létrehozni ehhez a gazdagéphez.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2179"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2291"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>A gazdagéphez tartozó útválasztó törölve lett. Szerkessze a gazdagépet másik útválasztó kiválasztásához, vagy váltson közvetlen kapcsolatra.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2186"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2298"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an invalid host ID.</source>
         <translation>A gazdagép ID-ja érvénytelen.</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2195"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2307"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an incorrect address.</source>
         <translation>A gazdagép címe hibás.</translation>
     </message>
@@ -5755,35 +5152,6 @@ Importált hitelesítő adatok: %5</translation>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
-=======
-    <name>RoutersWidget</name>
-    <message>
-        <location filename="../client/android/routers_widget.cc" line="127"/>
-        <source>No routers added</source>
-        <translation>Nincs hozzáadott útválasztó</translation>
-    </message>
-    <message>
-        <location filename="../client/android/routers_widget.cc" line="206"/>
-        <source>Add Router</source>
-        <translation>Útválasztó hozzáadása</translation>
-    </message>
-    <message>
-        <location filename="../client/android/routers_widget.cc" line="243"/>
-        <source>Edit Router</source>
-        <translation>Útválasztó szerkesztése</translation>
-    </message>
-</context>
-<context>
-    <name>ScreenWorker</name>
-    <message>
-        <location filename="../host/workers/screen_worker.cc" line="1245"/>
-        <source>All monitors</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
     <name>SearchDialog</name>
     <message>
         <location filename="../client/desktop/management/search_dialog.ui" line="14"/>
@@ -5900,17 +5268,12 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SelectScreenAction</name>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="42"/>
-        <source>All monitors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="48"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="38"/>
         <source>Monitor %1 (primary)</source>
         <translation>Monitor %1 (elsődleges)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="50"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="40"/>
         <source>Monitor %1</source>
         <translation>Monitor %1</translation>
     </message>

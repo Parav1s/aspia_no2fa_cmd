@@ -96,142 +96,117 @@ Routers added: %4</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="126"/>
+        <location filename="../common/desktop/about_dialog.cc" line="104"/>
         <source>Version: %1 (%2)</source>
         <translation>版本：%1 (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="131"/>
+        <location filename="../common/desktop/about_dialog.cc" line="109"/>
         <source>Aspia is free software released under GNU General Public License 3.</source>
         <translation>Aspia 是依据 GNU General Public License 3 发布的自由软件。</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="132"/>
+        <location filename="../common/desktop/about_dialog.cc" line="110"/>
         <source>You can get a copy of license here:</source>
         <translation>您可以在这里获取许可证副本：</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="137"/>
+        <location filename="../common/desktop/about_dialog.cc" line="115"/>
         <source>You can also get a translation of GNU GPL license here:</source>
         <translation>您也可以在这里获取 GNU GPL 许可证的翻译：</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="141"/>
+        <location filename="../common/desktop/about_dialog.cc" line="119"/>
         <source>Links</source>
         <translation>链接</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="142"/>
+        <location filename="../common/desktop/about_dialog.cc" line="120"/>
         <source>Home page:</source>
         <translation>主页：</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="143"/>
+        <location filename="../common/desktop/about_dialog.cc" line="121"/>
         <source>GitHub page:</source>
         <translation>GitHub 页面：</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="156"/>
-        <source>Connect to a host by its ID from the command line</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="157"/>
-        <source>Switch the second factor off per role in the configuration of the router</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="158"/>
-        <source>The whole desktop of the host as one screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="161"/>
-        <source>Modifications</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="163"/>
-        <source>The changes and the sources:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../common/desktop/about_dialog.cc" line="167"/>
+        <location filename="../common/desktop/about_dialog.cc" line="124"/>
         <source>Developers</source>
         <translation>开发人员</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="169"/>
+        <location filename="../common/desktop/about_dialog.cc" line="126"/>
         <source>Translators</source>
         <translation>翻译人员</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="171"/>
+        <location filename="../common/desktop/about_dialog.cc" line="128"/>
         <source>Third-party components</source>
         <translation>第三方组件</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="173"/>
+        <location filename="../common/desktop/about_dialog.cc" line="130"/>
         <source>Graphics and images</source>
         <translation>图形与图像</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="174"/>
+        <location filename="../common/desktop/about_dialog.cc" line="131"/>
         <source>Icons by %1</source>
         <translation>图标由 %1 提供</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="205"/>
+        <location filename="../common/desktop/about_dialog.cc" line="158"/>
         <source>Application</source>
         <translation>应用程序</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="206"/>
+        <location filename="../common/desktop/about_dialog.cc" line="159"/>
         <source>Path: %1</source>
         <translation>路径：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="207"/>
+        <location filename="../common/desktop/about_dialog.cc" line="160"/>
         <source>Logging directory: %1</source>
         <translation>日志目录：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="209"/>
+        <location filename="../common/desktop/about_dialog.cc" line="162"/>
         <source>Logging file: %1</source>
         <translation>日志文件：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="214"/>
+        <location filename="../common/desktop/about_dialog.cc" line="167"/>
         <source>Build Information</source>
         <translation>构建信息</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="215"/>
+        <location filename="../common/desktop/about_dialog.cc" line="168"/>
         <source>Git branch: %1</source>
         <translation>Git 分支：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="217"/>
+        <location filename="../common/desktop/about_dialog.cc" line="170"/>
         <source>Git commit: %1</source>
         <translation>Git 提交：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="222"/>
+        <location filename="../common/desktop/about_dialog.cc" line="175"/>
         <source>Compilation</source>
         <translation>编译</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="223"/>
+        <location filename="../common/desktop/about_dialog.cc" line="176"/>
         <source>Compilation date: %1</source>
         <translation>编译日期：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="224"/>
+        <location filename="../common/desktop/about_dialog.cc" line="177"/>
         <source>Compilation time: %1</source>
         <translation>编译时间：%1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="253"/>
+        <location filename="../common/desktop/about_dialog.cc" line="206"/>
         <source>Version Information</source>
         <translation>版本信息</translation>
     </message>
@@ -644,118 +619,46 @@ Routers added: %4</source>
 <context>
     <name>Client</name>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="78"/>
-=======
-        <location filename="../client/main.cc" line="85"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>无法创建备份。部分记录已损坏。请修复或删除这些记录。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="257"/>
-=======
-        <location filename="../client/main.cc" line="239"/>
-        <source>Connect to the host of the address book with this record ID or host ID, using the login and the password stored in it.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="242"/>
-        <source>id</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="246"/>
-        <source>Kind of the session to open: desktop, file, info, chat or terminal (default: the one from the settings of the application).</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="249"/>
-        <source>type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="253"/>
-        <source>Log in with this user name instead of the one stored in the host. Requires --password.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="256"/>
-        <source>name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="260"/>
-        <source>Log in with this password instead of the stored one. Requires --username. A password on a command line is visible to the other users of the machine.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="263"/>
-        <source>password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/main.cc" line="387"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set Master Password</source>
         <translation>设置主密码</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="259"/>
-=======
-        <location filename="../client/main.cc" line="389"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Set a master password required to unlock the application.</source>
         <translation>设置解锁应用程序所需的主密码。</translation>
     </message>
     <message numerus="yes">
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="267"/>
-=======
-        <location filename="../client/main.cc" line="397"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>密码长度不能少于 %n 个字符。</numerusform>
         </translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="275"/>
-=======
-        <location filename="../client/main.cc" line="405"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Password you entered does not meet the security requirements!</source>
         <translation>输入的密码不符合安全要求！</translation>
     </message>
     <message numerus="yes">
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="277"/>
-=======
-        <location filename="../client/main.cc" line="407"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>密码必须包含大小写字母和数字，且长度不能少于 %n 个字符。</numerusform>
         </translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="281"/>
-=======
-        <location filename="../client/main.cc" line="411"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Do you want to enter a different password?</source>
         <translation>要输入其他密码吗？</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="291"/>
-=======
-        <location filename="../client/main.cc" line="421"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to set master password.</source>
         <translation>无法设置主密码。</translation>
     </message>
@@ -765,29 +668,17 @@ Routers added: %4</source>
         <translation>解锁</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="72"/>
-=======
-        <location filename="../client/main.cc" line="79"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>无法在目录&quot;%1&quot;中创建备份。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="84"/>
-=======
-        <location filename="../client/main.cc" line="91"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a backup.</source>
         <translation>无法创建备份。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="206"/>
-=======
-        <location filename="../client/main.cc" line="274"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>An aspia:// link to connect to a host.</source>
         <translation>用于连接到主机的 aspia:// 链接。</translation>
     </message>
@@ -807,63 +698,9 @@ Routers added: %4</source>
         <translation>主密码无效。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/main.cc" line="202"/>
-=======
-        <location filename="../client/main.cc" line="266"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia 客户端</translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="127"/>
-        <source>&quot;%1&quot; is neither a host ID nor a record ID.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="129"/>
-        <source>The host ID of --connect is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="151"/>
-        <source>&quot;%1&quot; is not a valid session type. Use desktop, file, info, chat or terminal.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="154"/>
-        <source>The session type of --session-type is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="171"/>
-        <source>The user name of --username is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="187"/>
-        <source>The password of --password is missing.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="217"/>
-        <source>&quot;%1&quot; is neither an aspia:// link nor a host ID.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="235"/>
-        <source>--username requires --password as well.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="237"/>
-        <source>--password requires --username as well.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/connect_request.cc" line="248"/>
-        <source>--username and --password need a host to connect to (--connect or an aspia:// link).</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -902,65 +739,37 @@ Routers added: %4</source>
 <context>
     <name>ClientWindow</name>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="268"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="280"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Session started.</source>
         <translation>会话已开始。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="515"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="599"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is unavailable.</source>
         <translation>指定的路由器不可用。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="517"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="601"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>路由器的数据已损坏。请编辑路由器并重新输入。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="519"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="603"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The specified router is offline.</source>
         <translation>指定的路由器不在线。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="280"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="292"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1...</source>
         <translation>正在连接到主机 %1...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="284"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="296"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connecting to host %1:%2...</source>
         <translation>正在连接到主机 %1:%2...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="314"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="332"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>主机当前不可用。正在等待重新连接...</translation>
     </message>
@@ -970,43 +779,27 @@ Routers added: %4</source>
         <translation>等待重新连接到主机超时。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="334"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="352"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>主机版本比客户端版本新（%1 &gt; %2）。请更新应用程序。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="340"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>正在尝试以兼容模式连接...</translation>
     </message>
     <message>
         <location filename="../client/desktop/client_window.cc" line="526"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="610"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Requesting connection to the host...</source>
         <translation>正在请求连接到主机...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="534"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="618"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection offer received.</source>
         <translation>已收到连接请求。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/client_window.cc" line="551"/>
-=======
-        <location filename="../client/desktop/client_window.cc" line="635"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Error requesting connection via router.</source>
         <translation>通过路由器请求连接时发生错误。</translation>
     </message>
@@ -2092,165 +1885,6 @@ Credentials replaced: %2</source>
         <source>Could not save image</source>
         <translation>无法保存图像</translation>
     </message>
-<<<<<<< HEAD
-=======
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="517"/>
-        <source>Connecting...</source>
-        <translation>正在连接...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="541"/>
-        <source>The specified router is unavailable.</source>
-        <translation>指定的路由器不可用。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="568"/>
-        <source>Requesting connection to the host...</source>
-        <translation>正在请求连接到主机...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="80"/>
-        <source>Session %1</source>
-        <translation>会话 %1</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="81"/>
-        <source>Session %1 (%2)</source>
-        <translation>会话 %1 (%2)</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="540"/>
-        <source>The data of the router is damaged. Edit the router and enter it again.</source>
-        <translation>路由器的数据已损坏。请编辑路由器并重新输入。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="547"/>
-        <source>Connecting to router...</source>
-        <translation>正在连接到路由器...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="776"/>
-        <source>Connecting to host %1...</source>
-        <translation>正在连接到主机 %1...</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="782"/>
-        <source>Connection established.</source>
-        <translation>连接已建立。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="795"/>
-        <source>The connection to the host has been lost.</source>
-        <translation>与主机的连接已断开。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="808"/>
-        <source>The host version is newer than the client. Please update the application.</source>
-        <translation>主机版本比客户端新。请更新应用程序。</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="174"/>
-        <source>Monitor %1</source>
-        <translation>显示器 %1</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="170"/>
-        <source>All monitors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="183"/>
-        <source>Power</source>
-        <translation>电源</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="187"/>
-        <source>Keyboard</source>
-        <translation>键盘</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="193"/>
-        <source>Ctrl+Alt+Del</source>
-        <translation>Ctrl+Alt+Del</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="200"/>
-        <source>Users</source>
-        <translation>用户</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="205"/>
-        <source>Disconnect</source>
-        <translation>断开连接</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="663"/>
-        <location filename="../client/android/desktop_window.cc" line="720"/>
-        <source>Back</source>
-        <translation>返回</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="664"/>
-        <source>Shutdown</source>
-        <translation>关机</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="665"/>
-        <source>Reboot</source>
-        <translation>重新启动</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="670"/>
-        <source>Safe Mode</source>
-        <translation>安全模式</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="671"/>
-        <source>Logoff</source>
-        <translation>注销</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="672"/>
-        <source>Lock</source>
-        <translation>锁定</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="688"/>
-        <source>Are you sure you want to shutdown the remote computer?</source>
-        <translation>确定要关闭远程计算机吗？</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="692"/>
-        <source>Are you sure you want to reboot the remote computer?</source>
-        <translation>确定要重新启动远程计算机吗？</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="696"/>
-        <source>Are you sure you want to reboot the remote computer in Safe Mode?</source>
-        <translation>确定要以安全模式重新启动远程计算机吗？</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="700"/>
-        <source>Are you sure you want to end the user session on the remote computer?</source>
-        <translation>确定要结束远程计算机上的用户会话吗？</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="704"/>
-        <source>Are you sure you want to lock the user session on the remote computer?</source>
-        <translation>确定要锁定远程计算机上的用户会话吗？</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="759"/>
-        <source>Confirmation</source>
-        <translation>确认</translation>
-    </message>
-    <message>
-        <location filename="../client/android/desktop_window.cc" line="759"/>
-        <source>Yes</source>
-        <translation>是</translation>
-    </message>
->>>>>>> e8ce28d2d (Name the screen of the whole desktop and show the changes of this fork)
 </context>
 <context>
     <name>DialogButtonBox</name>
@@ -3624,11 +3258,7 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="404"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="916"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Client</source>
         <translation>Aspia 客户端</translation>
     </message>
@@ -3698,141 +3328,68 @@ Credentials replaced: %2</source>
         <translation>设置...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="99"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="128"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Search...</source>
         <translation>搜索...</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="179"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="218"/>
-        <source>Unable to turn on the MCP connector.</source>
-        <translation>无法启用 MCP 连接器。</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="236"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Management</source>
         <translation>管理</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="225"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="282"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>无效链接&quot;%1&quot;。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="248"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="305"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>在已保存的路由器中找不到链接所指的路由器。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="297"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="354"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>在已保存的主机中找不到链接所指的主机。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="380"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="892"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all sessions to lock the application.</source>
         <translation>请关闭所有会话以锁定应用程序。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="386"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="898"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Close all dialogs to lock the application.</source>
         <translation>请关闭所有对话框以锁定应用程序。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="502"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="1013"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>主机属性中指定了按 ID 连接，但尚未配置路由器。请检查主机属性中的路由器参数。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="309"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="1280"/>
-        <source>Unknown application</source>
-        <translation>未知应用程序</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="1283"/>
-        <source>MCP Connector. Connected: %1</source>
-        <translation>MCP 连接器。已连接：%1</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="1284"/>
-        <source>%1 - AI is connected</source>
-        <translation>%1 - AI 已连接</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/main_window.cc" line="366"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>与此主机关联的路由器已被删除。请编辑主机以选择其他路由器，或改用直接连接。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="256"/>
         <location filename="../client/desktop/main_window.cc" line="308"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="313"/>
-        <location filename="../client/desktop/main_window.cc" line="365"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>路由器的数据已损坏。请编辑路由器并重新输入。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="296"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="353"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>主机的数据已损坏。请编辑主机并重新输入。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="339"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="851"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Credentials</source>
         <translation>凭据</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/main_window.cc" line="370"/>
-=======
-        <location filename="../client/desktop/main_window.cc" line="882"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -4032,123 +3589,67 @@ Credentials replaced: %2</source>
         <translation>自动刷新状态</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1034"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1133"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>(copy)</source>
         <translation>（副本）</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1002"/>
         <location filename="../client/desktop/management_tab.cc" line="1075"/>
         <location filename="../client/desktop/management_tab.cc" line="2162"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1101"/>
-        <location filename="../client/desktop/management_tab.cc" line="1175"/>
-        <location filename="../client/desktop/management_tab.cc" line="2274"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to retrieve host information from the local database.</source>
         <translation>无法从本地数据库获取主机信息。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1039"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="911"/>
-        <source>The &quot;%1&quot; session type is not available for Quick Support.</source>
-        <translation>会话类型&quot;%1&quot;不适用于快速支持。</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management_tab.cc" line="1138"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to add the host to the local database.</source>
         <translation>无法将主机添加到本地数据库。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1079"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1179"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>确定要删除主机&quot;%1&quot;吗？</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1089"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1189"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to remove host</source>
         <translation>无法移除主机</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
         <location filename="../client/desktop/management_tab.cc" line="1190"/>
         <location filename="../client/desktop/management_tab.cc" line="1215"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1252"/>
-        <location filename="../client/desktop/management_tab.cc" line="1322"/>
-        <location filename="../client/desktop/management_tab.cc" line="1348"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Row</source>
         <translation>复制行</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
         <location filename="../client/desktop/management_tab.cc" line="1191"/>
         <location filename="../client/desktop/management_tab.cc" line="1216"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1253"/>
-        <location filename="../client/desktop/management_tab.cc" line="1323"/>
-        <location filename="../client/desktop/management_tab.cc" line="1349"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Value</source>
         <translation>复制值</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1315"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1450"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>确定要删除工作区&quot;%1&quot;吗？</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1335"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1470"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the workspace.</source>
         <translation>无法删除工作区。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1430"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1572"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>确定要删除组&quot;%1&quot;吗？分配给该组或其子组的主机将被移动到工作区根目录。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1449"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1590"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to delete the group.</source>
         <translation>无法删除组。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1488"/>
         <source>Import Old Address Book</source>
         <translation>导入旧版通讯簿</translation>
@@ -4161,149 +3662,83 @@ Credentials replaced: %2</source>
     <message>
         <location filename="../client/desktop/management_tab.cc" line="1512"/>
         <location filename="../client/desktop/management_tab.cc" line="1569"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1629"/>
-        <location filename="../client/desktop/management_tab.cc" line="1686"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The database is not available.</source>
         <translation>数据库不可用。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1518"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1635"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Create Backup</source>
         <translation>创建备份</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1535"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1652"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>There is nothing to save.</source>
         <translation>没有可保存的内容。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2157"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2269"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>主机的数据已损坏。请编辑主机并重新输入。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2178"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2290"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>路由器的数据已损坏。请编辑路由器并重新输入。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1547"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1664"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to create the backup.</source>
         <translation>无法创建备份。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1575"/>
         <location filename="../client/desktop/management_tab.cc" line="1601"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1692"/>
-        <location filename="../client/desktop/management_tab.cc" line="1718"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Restore from Backup</source>
         <translation>从备份恢复</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1584"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1701"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>当前存储的所有内容都将被删除，并替换为备份中的内容。要继续吗？</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1603"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1720"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>该备份创建自另一个应用安装。请输入该安装使用的主密码。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1628"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1745"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>该备份不包含任何数据，因此未做任何更改。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1636"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1753"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The file is not a valid backup.</source>
         <translation>该文件不是有效的备份。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1640"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1757"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Failed to restore from the backup.</source>
         <translation>无法从备份恢复。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1519"/>
         <location filename="../client/desktop/management_tab.cc" line="1576"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1636"/>
-        <location filename="../client/desktop/management_tab.cc" line="1693"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Aspia 备份 (*.aspia-backup);;所有文件 (*)</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1539"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1656"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to write the file.</source>
         <translation>无法写入文件。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1632"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1749"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to read the file.</source>
         <translation>无法读取文件。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1552"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1669"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -4318,38 +3753,22 @@ Credentials exported: %5</source>
 已导出凭据：%5</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1543"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1660"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>部分记录已损坏。请修复或删除这些记录后重试。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1620"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1737"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>无法使用指定的密码解密文件。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1624"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1741"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unsupported file format version.</source>
         <translation>不支持的文件格式版本。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="1645"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="1762"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -4364,51 +3783,29 @@ Credentials imported: %5</source>
 已导入凭据：%5</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2085"/>
         <location filename="../client/desktop/management_tab.cc" line="2116"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2197"/>
-        <location filename="../client/desktop/management_tab.cc" line="2228"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Copy Link</source>
         <translation>复制链接</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2104"/>
         <location filename="../client/desktop/management_tab.cc" line="2138"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2216"/>
-        <location filename="../client/desktop/management_tab.cc" line="2250"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>Unable to create a link for this host.</source>
         <translation>无法为此主机创建链接。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2179"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2291"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>与此主机关联的路由器已被删除。请编辑主机以选择其他路由器，或改用直接连接。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2186"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2298"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an invalid host ID.</source>
         <translation>主机的 ID 无效。</translation>
     </message>
     <message>
-<<<<<<< HEAD
         <location filename="../client/desktop/management_tab.cc" line="2195"/>
-=======
-        <location filename="../client/desktop/management_tab.cc" line="2307"/>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
         <source>The host has an incorrect address.</source>
         <translation>主机的地址不正确。</translation>
     </message>
@@ -5755,35 +5152,6 @@ Credentials imported: %5</source>
     </message>
 </context>
 <context>
-<<<<<<< HEAD
-=======
-    <name>RoutersWidget</name>
-    <message>
-        <location filename="../client/android/routers_widget.cc" line="127"/>
-        <source>No routers added</source>
-        <translation>尚未添加路由器</translation>
-    </message>
-    <message>
-        <location filename="../client/android/routers_widget.cc" line="206"/>
-        <source>Add Router</source>
-        <translation>添加路由器</translation>
-    </message>
-    <message>
-        <location filename="../client/android/routers_widget.cc" line="243"/>
-        <source>Edit Router</source>
-        <translation>编辑路由器</translation>
-    </message>
-</context>
-<context>
-    <name>ScreenWorker</name>
-    <message>
-        <location filename="../host/workers/screen_worker.cc" line="1245"/>
-        <source>All monitors</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
->>>>>>> 0f1686953 (Let the list of the screens be built where it belongs)
     <name>SearchDialog</name>
     <message>
         <location filename="../client/desktop/management/search_dialog.ui" line="14"/>
@@ -5900,17 +5268,12 @@ Credentials imported: %5</source>
 <context>
     <name>SelectScreenAction</name>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="42"/>
-        <source>All monitors</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="48"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="38"/>
         <source>Monitor %1 (primary)</source>
         <translation>显示器 %1（主）</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="50"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="40"/>
         <source>Monitor %1</source>
         <translation>显示器 %1</translation>
     </message>
