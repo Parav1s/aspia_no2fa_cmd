@@ -45,6 +45,12 @@ enum class ConsoleUserState
 };
 
 SessionId activeConsoleSessionId();
+
+// The session a user is actually working in: the active console session when someone is logged on
+// there, otherwise an active session that has a logged-on user (a machine reached only over RDP has
+// nobody at the physical console). Equal to activeConsoleSessionId() when nothing better is known.
+SessionId activeUserSessionId();
+
 SessionId currentProcessSessionId();
 ConsoleUserState consoleUserState();
 const char* sessionStatusToString(quint32 status);

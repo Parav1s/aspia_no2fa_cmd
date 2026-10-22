@@ -50,7 +50,8 @@ public:
         LINUX_KWIN    = 7,
         LINUX_WLR     = 8,
         MACOSX        = 9,
-        ANDROID_MEDIA = 10
+        ANDROID_MEDIA = 10,
+        WIN_WGC       = 11
     };
     Q_ENUM(Type)
 

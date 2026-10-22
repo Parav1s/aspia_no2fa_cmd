@@ -67,6 +67,13 @@ constexpr int kMinScreenCaptureFps = 10;
 constexpr int kMaxScreenCaptureFpsHighEnd = 30;
 constexpr int kMaxScreenCaptureFpsLowEnd = 20;
 
+#if defined(Q_OS_WINDOWS)
+// How many capture failures in a row are tolerated before the whole capturer chain is tried again.
+// A capturer can refuse a session that later becomes capturable again: DXGI cannot duplicate a
+// minimized RDP window, and WGC cannot create a capture session for it. At 25 fps this is ~2 s.
+constexpr int kMaxCaptureFailuresBeforeReselect = 50;
+#endif // defined(Q_OS_WINDOWS)
+
 #if defined(Q_OS_LINUX)
 // Right after login the compositor needs a moment to register its screen-cast interface, so every
 // Wayland probe can fail transiently. Retry the probe chain within this window before falling back to
@@ -689,12 +696,31 @@ void ScreenWorker::onCaptureScreen()
 
         emit sig_videoData(serializer_.serialize<proto::video::HostToClient>(), false);
 
+#if defined(Q_OS_WINDOWS)
+        // A capturer that cannot capture the current session may start working again when the
+        // session changes (an RDP window that is minimized and then restored, for example). Re-run
+        // the whole selection from time to time instead of staying on a capturer that refuses the
+        // session forever.
+        if (error == ScreenCapturer::Error::TEMPORARY &&
+            ++capture_failure_count_ >= kMaxCaptureFailuresBeforeReselect)
+        {
+            capture_failure_count_ = 0;
+
+            QTimer::singleShot(MilliSeconds(0), this, [this]()
+            {
+                selectCapturer(ScreenCapturer::Error::TEMPORARY);
+            });
+        }
+#endif // defined(Q_OS_WINDOWS)
+
 #if defined(Q_OS_LINUX)
         registerCaptureFailure();
 #endif
     }
     else
     {
+        capture_failure_count_ = 0;
+
         updateInjectorScreenInfo(frame);
         encodeScreen(frame);
 
@@ -1052,6 +1078,13 @@ void ScreenWorker::selectCapturer(ScreenCapturer::Error last_error)
 {
     LOG(INFO) << "Selecting screen capturer. Preferred capturer:" << preferred_capturer_;
 
+    // On a permanent error the capturer that failed must not be selected again: pass its type to
+    // ScreenCapturerWin::create(), which then moves on to the next capturer in the chain instead of
+    // looping on the same broken capture path.
+    ScreenCapturer::Type capturer_type = preferred_capturer_;
+    if (last_error == ScreenCapturer::Error::PERMANENT && screen_capturer_)
+        capturer_type = screen_capturer_->type();
+
     // Release the injector before the capturer: on Linux it may be a Wayland injector that references
     // capturer-owned resources. A Wayland capture recreates it in onCompositorSourceStarted(); for
     // X11/uinput it stays null - InputWorker owns those, keyed off the capture type in
@@ -1074,7 +1107,7 @@ void ScreenWorker::selectCapturer(ScreenCapturer::Error last_error)
     emit sig_screenInfoChanged(ScreenCapturer::Type::UNKNOWN, QSize(), QPoint());
 
 #if defined(Q_OS_WINDOWS)
-    screen_capturer_ = ScreenCapturerWin::create(preferred_capturer_, last_error, this);
+    screen_capturer_ = ScreenCapturerWin::create(capturer_type, last_error, this);
 #elif defined(Q_OS_MACOS)
     screen_capturer_ = ScreenCapturerMac::create(this);
 

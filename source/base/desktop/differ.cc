@@ -269,7 +269,24 @@ void Differ::mergeBlocks(Region* dirty_region)
 //--------------------------------------------------------------------------------------------------
 void Differ::calcDirtyRegion(const quint8* prev_image, const quint8* curr_image, Region* dirty_region)
 {
+    DCHECK(dirty_region);
     dirty_region->clear();
+
+    // A frame whose pixels are not available (the capturer failed to fill its buffer, or the buffer
+    // has been reallocated) must not be diffed: report the whole screen as dirty instead of
+    // dereferencing a null pointer. The next frame builds a fresh diff anyway.
+    if (!prev_image || !curr_image || !diff_info_ || bytes_per_row_ <= 0)
+    {
+        static thread_local bool logged = false;
+        if (!logged)
+        {
+            LOG(ERROR) << "Differ: no image data, the whole screen is reported as dirty";
+            logged = true;
+        }
+
+        *dirty_region += screen_rect_;
+        return;
+    }
 
     // Identify all the blocks that contain changed pixels.
     markDirtyBlocks(prev_image, curr_image);

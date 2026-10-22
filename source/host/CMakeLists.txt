@@ -177,6 +177,8 @@ if (WIN32)
         screen_capturer_gdi.h
         screen_capturer_win.cc
         screen_capturer_win.h
+        screen_capturer_wgc.cc
+        screen_capturer_wgc.h
         terminal_process_win.cc
         terminal_process_win.h)
 endif()
@@ -260,7 +262,7 @@ if (WIN32)
 
     set(HOST_PLATFORM_LIBS
         advapi32 avrt crypt32 dbghelp dxgi d3d11 imm32 iphlpapi netapi32 setupapi shlwapi userenv
-        uxtheme version winmm wtsapi32)
+        uxtheme version windowsapp winmm wtsapi32)
 endif()
 
 if (LINUX)

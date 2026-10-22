@@ -189,6 +189,7 @@ private:
     qint64 last_bandwidth_ = 0;
 
     int screen_count_ = 0;
+    int capture_failure_count_ = 0;
     QPoint last_cursor_pos_;
     QSize source_size_;
     QSize preferred_size_;

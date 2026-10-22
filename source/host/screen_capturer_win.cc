@@ -21,6 +21,7 @@
 #include <QTimer>
 
 #include <array>
+#include <utility>
 
 #include "base/logging.h"
 #include "base/time_types.h"
@@ -30,6 +31,7 @@
 #include "base/win/windows_version.h"
 #include "host/screen_capturer_dxgi.h"
 #include "host/screen_capturer_gdi.h"
+#include "host/screen_capturer_wgc.h"
 
 namespace {
 
@@ -282,26 +284,82 @@ ScreenCapturerWin::~ScreenCapturerWin()
 //--------------------------------------------------------------------------------------------------
 ScreenCapturer* ScreenCapturerWin::create(Type preferred_type, Error last_error, QObject* parent)
 {
+    // The capturers are tried in this order: an OS/hardware level capturer first, the generic GDI
+    // one last, because GDI cannot capture every session (for example an RDP session rendered by an
+    // indirect display driver, where BitBlt from the screen DC returns an error).
+    QList<Type> candidates;
+
+    switch (preferred_type)
+    {
+        case Type::WIN_GDI:
+            candidates = { Type::WIN_GDI };
+            break;
+
+        case Type::WIN_DXGI:
+            candidates = { Type::WIN_DXGI, Type::WIN_WGC, Type::WIN_GDI };
+            break;
+
+        case Type::WIN_WGC:
+            candidates = { Type::WIN_WGC, Type::WIN_DXGI, Type::WIN_GDI };
+            break;
+
+        default:
+            candidates = { Type::WIN_DXGI, Type::WIN_WGC, Type::WIN_GDI };
+            break;
+    }
+
+    // A permanent error means that the capturer which has just failed must not be selected again,
+    // otherwise the host would loop on the same broken capture path. When last_error is PERMANENT
+    // preferred_type is the type of the failed capturer (see ScreenWorker::selectCapturer()).
+    if (last_error == Error::PERMANENT)
+    {
+        LOG(INFO) << "Permanent error. Selecting the next capturer";
+
+        if (candidates.size() > 1 && candidates.first() == preferred_type)
+            candidates.removeFirst();
+    }
+
     ScreenCapturer* screen_capturer = nullptr;
 
-    if (last_error == ScreenCapturer::Error::PERMANENT)
+    for (Type type : std::as_const(candidates))
     {
-        LOG(INFO) << "Permanent error. Reset to GDI capturer";
-    }
-    else if (preferred_type == ScreenCapturer::Type::WIN_DXGI ||
-             preferred_type == ScreenCapturer::Type::UNKNOWN)
-    {
-        if (windowsVersion() >= VERSION_WIN8)
+        switch (type)
         {
-            // Desktop Duplication API is available in Windows 8+.
-            std::unique_ptr<ScreenCapturerDxgi> capturer_dxgi =
-                std::make_unique<ScreenCapturerDxgi>();
-            if (capturer_dxgi->isSupported())
+            case Type::WIN_DXGI:
             {
-                LOG(INFO) << "Using DXGI capturer";
-                screen_capturer = capturer_dxgi.release();
+                if (windowsVersion() < VERSION_WIN8)
+                    break;
+
+                std::unique_ptr<ScreenCapturerDxgi> dxgi_capturer =
+                    std::make_unique<ScreenCapturerDxgi>();
+
+                if (dxgi_capturer->isSupported())
+                {
+                    LOG(INFO) << "Using DXGI capturer";
+                    screen_capturer = dxgi_capturer.release();
+                }
             }
+            break;
+
+            case Type::WIN_WGC:
+            {
+                if (ScreenCapturerWgc::isSupported())
+                {
+                    LOG(INFO) << "Using WGC capturer";
+                    screen_capturer = new ScreenCapturerWgc();
+                }
+            }
+            break;
+
+            case Type::WIN_GDI:
+            default:
+                LOG(INFO) << "Using GDI capturer";
+                screen_capturer = new ScreenCapturerGdi();
+                break;
         }
+
+        if (screen_capturer)
+            break;
     }
 
     if (!screen_capturer)
@@ -558,7 +616,15 @@ const MouseCursor* ScreenCapturerWin::captureCursor()
     }
     else
     {
-        PLOG(ERROR) << "GetCursorInfo failed";
+        // GetCursorInfo() fails with "access denied" in sessions rendered by an indirect display
+        // driver (an RDP session, for example), so do not write one error per captured frame.
+        static thread_local int fail_count = 0;
+
+        if (fail_count == 0)
+            PLOG(ERROR) << "GetCursorInfo failed";
+
+        if (++fail_count >= 500)
+            fail_count = 0;
     }
 
     return nullptr;

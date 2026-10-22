@@ -213,11 +213,11 @@ bool startProcessWithToken(HANDLE token, const QString& command_line)
 #endif // defined(Q_OS_WINDOWS)
 
 //--------------------------------------------------------------------------------------------------
-// The console session to follow. Normally activeConsoleSessionId(), but on macOS it maps the login
-// window (which has no console user) to LoginUtils::kSessionId so it can be captured.
+// The session to follow: normally activeConsoleSessionId(), but on a machine reached only over RDP
+// the physical console has no user, so the active remote session is followed instead.
 SessionId activeTargetSessionId()
 {
-    SessionId session_id = activeConsoleSessionId();
+    SessionId session_id = activeUserSessionId();
 
 #if defined(Q_OS_MACOS)
     // No console user, but the login window is showing: capture it as a distinct session. Its agent is

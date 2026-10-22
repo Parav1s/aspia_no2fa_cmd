@@ -23,6 +23,7 @@
 
 #if defined(Q_OS_WINDOWS)
 #include <qt_windows.h>
+#include <wtsapi32.h>
 #include "base/win/session_info.h"
 #endif // defined(Q_OS_WINDOWS)
 
@@ -95,6 +96,59 @@ SessionId activeConsoleSessionId()
     return static_cast<SessionId>(uid);
 #else
     return 1;
+#endif
+}
+
+//--------------------------------------------------------------------------------------------------
+SessionId activeUserSessionId()
+{
+#if defined(Q_OS_WINDOWS)
+    const SessionId console_session_id = WTSGetActiveConsoleSessionId();
+
+    auto has_logged_on_user = [](SessionId session_id) -> bool
+    {
+        if (session_id == kInvalidSessionId || session_id == kServiceSessionId)
+            return false;
+
+        SessionInfo session_info(session_id);
+        return session_info.isValid() && !session_info.userName().isEmpty();
+    };
+
+    if (has_logged_on_user(console_session_id))
+        return console_session_id;
+
+    // A machine reached only over RDP has nobody logged on at the physical console. Following the
+    // console session there means attaching to an empty session: no UI is started and clients see a
+    // blank desktop. Follow the active remote session instead.
+    PWTS_SESSION_INFOA sessions = nullptr;
+    DWORD count = 0;
+
+    if (WTSEnumerateSessionsA(WTS_CURRENT_SERVER_HANDLE, 0, 1, &sessions, &count))
+    {
+        SessionId found = kInvalidSessionId;
+
+        for (DWORD i = 0; i < count; ++i)
+        {
+            if (sessions[i].State != WTSActive)
+                continue;
+
+            if (has_logged_on_user(sessions[i].SessionId))
+            {
+                found = sessions[i].SessionId;
+                break;
+            }
+        }
+
+        WTSFreeMemory(sessions);
+
+        if (found != kInvalidSessionId)
+            return found;
+    }
+
+    // Nothing is logged on anywhere - keep the old behaviour and let the caller decide.
+    return console_session_id;
+#else
+    return activeConsoleSessionId();
 #endif
 }
 

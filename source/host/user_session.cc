@@ -195,10 +195,10 @@ bool UserSession::start()
     }
 
     LOG(INFO) << "IPC server for UI is started";
-    SessionId session_id = activeConsoleSessionId();
+    SessionId session_id = activeUserSessionId();
     if (session_id == kInvalidSessionId)
     {
-        LOG(ERROR) << "Unable to get active console session id";
+        LOG(ERROR) << "Unable to get active user session id";
         return false;
     }
 
@@ -355,7 +355,7 @@ void UserSession::onClientFinished()
 
             LOG(INFO) << "Last desktop client is disconnected";
 
-            SessionId session_id = activeConsoleSessionId();
+            SessionId session_id = activeUserSessionId();
             if (session_id_ != session_id && session_id_ != kInvalidSessionId)
             {
                 dettach(FROM_HERE);
@@ -491,9 +491,9 @@ void UserSession::onIpcNewConnection()
 
         LOG(INFO) << "User GUI started by user with session id" << ipc_session_id;
 
-        if (ipc_session_id != activeConsoleSessionId())
+        if (ipc_session_id != activeUserSessionId())
         {
-            LOG(WARNING) << "Launching GUI is only possible in console session";
+            LOG(WARNING) << "Launching GUI is only possible in the user session";
             ipc_channel->deleteLater();
             return;
         }
@@ -707,7 +707,7 @@ void UserSession::startupUserCheck()
     // detected missing when a client connects, even though the user is still logged in, and the
     // client will be rejected.
     // Settings > Accounts > Sign-in options > Use my sign-in info to automatically finish...
-    SessionInfo session_info(activeConsoleSessionId());
+    SessionInfo session_info(activeUserSessionId());
     if (session_info.isValid() && session_info.connectState() == SessionInfo::ConnectState::ACTIVE)
     {
         attach(FROM_HERE, AttachReason::OTHER, session_info.sessionId());
