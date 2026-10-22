@@ -661,6 +661,11 @@ void ScreenWorker::onCaptureScreen()
         {
             for (const auto& screen : std::as_const(screen_list.screens))
             {
+                // The screen of every monitor at once is not a monitor and has no resolutions of
+                // its own: the size of it is the size of the desktop.
+                if (screen.id == ScreenCapturer::kAllScreensId)
+                    continue;
+
                 if (!screen_resizer_->supportedResolutions(screen.id).contains(preferred_resolution_))
                 {
                     LOG(INFO) << "Preferred resolution" << preferred_resolution_
@@ -1301,6 +1306,33 @@ void ScreenWorker::selectScreen(ScreenCapturer::ScreenId screen_id, const QSize&
 }
 
 //--------------------------------------------------------------------------------------------------
+void ScreenWorker::appendAllScreens(ScreenCapturer::ScreenList* screen_list)
+{
+    if (!screen_capturer_ || !screen_capturer_->supportsAllScreens())
+        return;
+
+    // The screen of every monitor at once is not a monitor of its own, but the desktop they
+    // all make up, and the client is offered it as any other screen: the frame of it is the
+    // picture of the whole desktop.
+    //
+    // The title travels to the client as it is and is shown in the list of the screens
+    // there, so it is translated here, in the language of the host: the client cannot
+    // translate it, for the list of the screens is built by the client out of what the
+    // host sends.
+    ScreenCapturer::Screen all_screens;
+
+    all_screens.id = ScreenCapturer::kAllScreensId;
+    all_screens.title = tr("All monitors");
+    all_screens.position = screen_capturer_->allScreensRect().topLeft();
+    all_screens.resolution = screen_capturer_->allScreensRect().size();
+    all_screens.dpi = QPoint(96, 96);
+    all_screens.is_primary = false;
+    all_screens.is_all_screens = true;
+
+    screen_list->screens.emplace_back(all_screens);
+}
+
+//--------------------------------------------------------------------------------------------------
 void ScreenWorker::sendCurrentScreenList()
 {
     if (!screen_capturer_)
@@ -1316,10 +1348,14 @@ void ScreenWorker::sendCurrentScreenList()
         return;
     }
 
+    appendAllScreens(&screen_list);
+
     const ScreenCapturer::ScreenId current = screen_capturer_->currentScreen();
 
-    if (screen_resizer_)
+    if (screen_resizer_ && current != ScreenCapturer::kAllScreensId)
     {
+        // The screen of every monitor at once has no resolutions of its own: it is the desktop
+        // as it is, and the size of it is not something the host may choose.
         screen_list.resolutions = screen_resizer_->supportedResolutions(current);
         if (screen_list.resolutions.isEmpty())
             LOG(INFO) << "No supported resolutions";
@@ -1366,6 +1402,10 @@ void ScreenWorker::sendScreenList(
         proto::screen::Point* dpi = screen->mutable_dpi();
         dpi->set_x(screen_item.dpi.x());
         dpi->set_y(screen_item.dpi.y());
+
+        // The client tells the screen of the whole desktop from the monitors by this flag,
+        // and shows it with a name and an icon of its own.
+        screen->set_all_screens(screen_item.is_all_screens);
 
         if (screen_item.is_primary)
             screen_list->set_primary_screen(screen_item.id);

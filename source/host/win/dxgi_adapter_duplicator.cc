@@ -171,9 +171,12 @@ bool DxgiAdapterDuplicator::duplicate(Context* context, SharedPointer<Frame>& ta
 
     for (size_t i = 0; i < duplicators_.size(); ++i)
     {
-        if (!duplicators_[i].duplicate(&context->contexts[i],
-                                       duplicators_[i].desktopRect().topLeft(),
-                                       target))
+        // The place of the output on the desktop it belongs to, counted from the origin of
+        // that desktop. The rects of the outputs are normalized to the origin of the desktop
+        // before this call (see DxgiDuplicatorController::translateRect), and the frame is
+        // of the size of the desktop as well, so the two are counted from the same origin
+        // and the output lands in the frame where it belongs.
+        if (!duplicators_[i].duplicate(&context->contexts[i], duplicators_[i].desktopRect().topLeft(), target))
         {
             return false;
         }

@@ -79,6 +79,15 @@ public:
 
     static const ScreenId kInvalidScreenId = -2;
 
+    // The screen of every monitor at once. It is not a monitor of its own but the whole desktop
+    // they make up, so the frame of it covers them all and the picture of it is the picture of
+    // the desktop as a whole.
+    //
+    // A capturer that cannot take such a frame says so with supportsAllScreens(), and then the
+    // screen is not in the list at all - the client is never offered a choice the host cannot
+    // carry out.
+    static const ScreenId kAllScreensId = -1;
+
     struct Screen
     {
         ScreenId id = kInvalidScreenId;
@@ -87,6 +96,10 @@ public:
         QSize resolution;
         QPoint dpi;
         bool is_primary = false;
+
+        // Whether the screen is the whole desktop at once rather than one of the monitors.
+        // The client shows such a screen with a name and an icon of its own.
+        bool is_all_screens = false;
     };
 
     struct ScreenList
@@ -99,6 +112,11 @@ public:
     virtual int screenCount() = 0;
     virtual bool screenList(ScreenList* screens) = 0;
     virtual bool selectScreen(ScreenId screen_id) = 0;
+
+    // Whether this capturer can take the frame of every monitor at once. A capturer that cannot
+    // leaves the screen of them all out of the list, so the choice is never offered to a client
+    // that could not carry it out.
+    virtual bool supportsAllScreens() const { return false; }
     virtual ScreenId currentScreen() const = 0;
     virtual const Frame* captureFrame(Error* error) = 0;
     virtual const MouseCursor* captureCursor() = 0;
@@ -110,6 +128,12 @@ public:
 
     // Rect of the screen currently being captured.
     virtual const QRect& currentScreenRect() const = 0;
+
+    // Rect of the entire virtual desktop in the coordinates of the screen. It is not the same
+    // as the rect of the desktop when a monitor stands to the left of the primary one: the
+    // desktop of Windows starts where it starts and not where the screen does, and the frame
+    // of the whole desktop and the mouse of the client are placed by that offset.
+    virtual const QRect& allScreensRect() const { return desktopRect(); }
 
     Type type() const;
 

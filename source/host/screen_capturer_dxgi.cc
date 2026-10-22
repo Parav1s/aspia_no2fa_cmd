@@ -153,13 +153,31 @@ bool ScreenCapturerDxgi::screenList(ScreenList* screens)
         return false;
     }
 
-    return screenListFromDeviceNames(device_names, screens);
+    if (!screenListFromDeviceNames(device_names, screens))
+        return false;
+
+    return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 bool ScreenCapturerDxgi::selectScreen(ScreenId screen_id)
 {
     LOG(INFO) << "Select screen with ID:" << screen_id;
+
+    // The screen of every monitor at once is not a monitor and has no index among them: the frame
+    // of it is the frame of the whole desktop, which is captured and drawn in one go.
+    if (screen_id == ScreenCapturer::kAllScreensId)
+    {
+        all_screens_ = true;
+        current_screen_id_ = screen_id;
+
+        // Force the next captured frame to report the whole desktop as updated (see
+        // |force_full_update_|).
+        force_full_update_ = true;
+        return true;
+    }
+
+    all_screens_ = false;
 
     // The frame is not dropped here: each monitor keeps its own retained frame in |frames_|, so
     // switching to a monitor reuses the content captured last time it was shown. The client is sent a
@@ -196,7 +214,15 @@ const Frame* ScreenCapturerDxgi::captureFrame(Error* error)
     if (!frame)
         frame = std::make_unique<DxgiFrame>(controller_);
 
-    DxgiDuplicatorController::Result result =
+    // The frame of the screen holds the content from the last time it was shown, and the
+    // monitors that are not shown are not updated while the whole desktop is captured, so the
+    // frame of a monitor is stale by the time it is shown again. The diff of the new capture
+    // would not make it whole, so a complete copy is asked for.
+    if (force_full_update_)
+        controller_->requestFullCopy(frame.get());
+
+    DxgiDuplicatorController::Result result = all_screens_ ?
+        controller_->duplicateDesktop(frame.get()) :
         controller_->duplicateMonitor(frame.get(), current_screen_index_);
 
     using DuplicateResult = DxgiDuplicatorController::Result;
@@ -279,10 +305,22 @@ const QRect& ScreenCapturerDxgi::desktopRect() const
 }
 
 //--------------------------------------------------------------------------------------------------
+const QRect& ScreenCapturerDxgi::allScreensRect() const
+{
+    // The desktop as Windows knows it, before the rects are normalized to the origin. The
+    // positions of the screens in the list are in this space as well, so the screen of every
+    // monitor at once is placed among them where it belongs.
+    return controller_->initialDesktopRect();
+}
+
+//--------------------------------------------------------------------------------------------------
 const QRect& ScreenCapturerDxgi::currentScreenRect() const
 {
     // The cursor position is reported by the OS in Windows virtual-screen coordinates, so this must
     // return the screen rect in the same space (not the normalized rect DXGI uses for compositing).
+    if (all_screens_)
+        return controller_->initialDesktopRect();
+
     return controller_->initialScreenRect(current_screen_index_);
 }
 
