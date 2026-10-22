@@ -39,6 +39,10 @@ public:
     // per-user place could be written.
     bool setRouterConfig(const RouterConfig& config);
 
+    // Forgets the stored account when it is the same account as |config|. Used when the user
+    // turns the "remember" option off for the router that was stored.
+    void clearRouterConfig(const RouterConfig& config);
+
 private:
     Q_DISABLE_COPY_MOVE(RouterConfigStorage)
 };

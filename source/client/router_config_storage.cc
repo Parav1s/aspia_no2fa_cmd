@@ -199,3 +199,19 @@ bool RouterConfigStorage::setRouterConfig(const RouterConfig& config)
     LOG(ERROR) << "Unable to save the router config";
     return false;
 }
+
+//--------------------------------------------------------------------------------------------------
+void RouterConfigStorage::clearRouterConfig(const RouterConfig& config)
+{
+    const RouterConfig stored = routerConfig();
+    if (!stored.isValid() || !stored.hasSameAccount(config))
+        return;
+
+    QSettings machine = machineSettings();
+    machine.remove("router");
+    machine.sync();
+
+    QSettings user = userSettings();
+    user.remove("router");
+    user.sync();
+}

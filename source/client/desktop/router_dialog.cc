@@ -29,6 +29,7 @@
 #include "base/peer/user.h"
 #include "client/config.h"
 #include "client/database.h"
+#include "client/router_config_storage.h"
 #include "client/desktop/ui_router_dialog.h"
 #include "common/desktop/msg_box.h"
 #include "common/desktop/password_edit.h"
@@ -142,6 +143,19 @@ void RouterDialog::onButtonBoxClicked(QAbstractButton* button)
         }
     }
 
+    // The address book keeps its own record; this one is what a command line finds when it is
+    // given a host ID and no router options. The password is sealed for the machine, so it is
+    // never asked for again on this computer.
+    if (ui->check_box_remember->isChecked())
+    {
+        if (!RouterConfigStorage().setRouterConfig(data))
+            LOG(WARNING) << "Unable to remember the router for command-line connections";
+    }
+    else
+    {
+        RouterConfigStorage().clearRouterConfig(data);
+    }
+
     accept();
 }
 
@@ -171,6 +185,10 @@ void RouterDialog::onLoadData()
 
     ui->edit_username->setText(router.username());
     ui->edit_password->setPassword(router.password());
+
+    const RouterConfig remembered = RouterConfigStorage().routerConfig();
+    ui->check_box_remember->setChecked(
+        remembered.isValid() && remembered.hasSameAccount(router));
 
     if (found == Database::FindResult::UNREADABLE)
     {

@@ -94,6 +94,19 @@
     </layout>
    </item>
    <item>
+    <widget class="QCheckBox" name="check_box_remember">
+     <property name="text">
+      <string>Remember the password for command-line connections</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="toolTip">
+      <string>The router account is stored for the whole computer and is used when the client is started with a host ID and without router options.</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Orientation::Vertical</enum>
