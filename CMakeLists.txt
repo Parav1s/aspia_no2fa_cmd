@@ -50,13 +50,7 @@ add_definitions(-DASPIA_VERSION_MAJOR=${ASPIA_VERSION_MAJOR}
                 -DASPIA_VERSION_MINOR=${ASPIA_VERSION_MINOR}
                 -DASPIA_VERSION_PATCH=${ASPIA_VERSION_PATCH})
 
-if (ANDROID)
-    message(STATUS "Android detected")
-
-    # Only the Android toolchain knows the NDK sysroot, so generate the clangd config here. This lets
-    # clangd resolve <jni.h> for the Android sources without committing a machine-specific path.
-    configure_file(${CMAKE_SOURCE_DIR}/.clangd.in ${CMAKE_SOURCE_DIR}/.clangd @ONLY)
-elseif (UNIX AND NOT APPLE)
+if (UNIX AND NOT APPLE)
     message(STATUS "Linux detected")
     set(LINUX TRUE)
 endif()
@@ -100,19 +94,6 @@ if (WIN32)
     find_package(WDK REQUIRED)
 
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-endif()
-
-if (ANDROID)
-    # The oboe vcpkg port installs only the library and headers (no CMake config), so wrap them in an
-    # imported target. Oboe pulls in the NDK system libraries log and OpenSLES.
-    find_library(OBOE_LIBRARY NAMES oboe REQUIRED)
-    find_path(OBOE_INCLUDE_DIR "oboe/Oboe.h" REQUIRED)
-
-    add_library(oboe::oboe UNKNOWN IMPORTED)
-    set_target_properties(oboe::oboe PROPERTIES
-        IMPORTED_LOCATION "${OBOE_LIBRARY}"
-        INTERFACE_INCLUDE_DIRECTORIES "${OBOE_INCLUDE_DIR}"
-        INTERFACE_LINK_LIBRARIES "log;OpenSLES")
 endif()
 
 if (LINUX)
