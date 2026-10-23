@@ -253,7 +253,17 @@ void UserSession::onClientSwitchSession(SessionId session_id)
                   << "without a logged-on user; keeping the host UI in the current session";
         return;
     }
-#endif // defined(Q_OS_WINDOWS)
+#else
+    // On Linux and macOS the host UI always lives in the active console session. The desktop agent
+    // is the part that follows the client's requested session; moving the UI to a session that is
+    // not active only detaches it from the service.
+    if (session_id != activeUserSessionId())
+    {
+        LOG(INFO) << "Client switched to session" << session_id
+                  << "that is not the active user session; keeping the host UI in the current session";
+        return;
+    }
+#endif
 
     LOG(INFO) << "Switch session:" << session_id;
     dettach(FROM_HERE);
@@ -500,6 +510,25 @@ void UserSession::onUserSessionEvent(quint32 status, quint32 session_id)
     // environment (mirrors the startup path).
     if (state_ != State::DETTACHED && session_id == static_cast<quint32>(session_id_))
         return;
+
+#if defined(Q_OS_LINUX)
+    // A display-manager greeter is not a user session: dropping the GUI for it would leave the
+    // host without a window until somebody logs in. Keep the current one instead.
+    QString sd_session_id;
+    uid_t uid = 0;
+    if (!SessionUtil::activeSession(&sd_session_id, &uid) ||
+        SessionUtil::sessionClass(sd_session_id) != SessionUtil::SessionClass::USER)
+    {
+        LOG(INFO) << "Active session is not a user session; keeping the host UI";
+        return;
+    }
+#elif defined(Q_OS_MACOS)
+    if (activeUserSessionId() == kInvalidSessionId)
+    {
+        LOG(INFO) << "No user owns the console; keeping the host UI";
+        return;
+    }
+#endif
 
     LOG(INFO) << "Active console session changed to" << session_id << "- relaunching GUI";
 
