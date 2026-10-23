@@ -262,18 +262,6 @@ Settings::WhiteList Settings::hostWhiteList() const
 }
 
 //--------------------------------------------------------------------------------------------------
-void Settings::setAutoApproveHosts(bool enable)
-{
-    ini_.setBooleanValue(kHostSection, "auto_approve", enable);
-}
-
-//--------------------------------------------------------------------------------------------------
-bool Settings::isAutoApproveHosts() const
-{
-    return ini_.booleanValue(kHostSection, "auto_approve", false);
-}
-
-//--------------------------------------------------------------------------------------------------
 void Settings::setRelayWhiteList(const WhiteList& list)
 {
     setWhiteList(kRelaySection, list);

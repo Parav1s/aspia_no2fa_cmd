@@ -130,10 +130,6 @@ void HostWorker::onPrepare()
 {
     Settings settings;
 
-    // Read once here: the setting describes the policy of the whole listener, not of a connection.
-    auto_approve_ = settings.isAutoApproveHosts();
-    LOG(INFO) << "Auto-approval of new hosts:" << (auto_approve_ ? "enabled" : "disabled");
-
     SecureByteArray private_key(settings.hostPrivateKey());
     if (private_key.isEmpty())
     {
@@ -283,7 +279,7 @@ void HostWorker::onNewHostConnection()
         TcpChannel* channel = server_->nextReadyConnection();
         LOG(INFO) << "New host:" << channel->peerAddress();
 
-        HostNG* host = new HostNG(Database::instance(), channel, this, auto_approve_);
+        HostNG* host = new HostNG(Database::instance(), channel, this);
         hosts_.emplace_back(host);
         connect(host, &HostNG::sig_hostIdAssigned, this, &HostWorker::onHostIdAssigned);
         connect(host, &Host::sig_finished, this, &HostWorker::onHostFinished);

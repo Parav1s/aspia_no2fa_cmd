@@ -35,7 +35,7 @@ class HostNG final : public Host
     Q_OBJECT
 
 public:
-    HostNG(Database& database, TcpChannel* channel, QObject* parent, bool auto_approve = false);
+    HostNG(Database& database, TcpChannel* channel, QObject* parent);
     ~HostNG() final;
 
     HostId hostId() const { return host_id_; }
@@ -69,9 +69,6 @@ private:
     TimePoint next_telemetry_time_ = TimePoint::min();
     int id_request_count_ = 0;
     bool remove_command_sent_ = false;
-
-    // From the configuration: a new host is approved at once instead of getting a temporary id.
-    bool auto_approve_ = false;
 
     friend class HostNGTestPeer;
     Q_DISABLE_COPY_MOVE(HostNG)

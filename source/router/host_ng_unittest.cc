@@ -53,11 +53,6 @@ public:
         host.readHostTelemetry(telemetry, now);
     }
 
-    // Turns on the behaviour the router reads from its configuration file.
-    static void enableAutoApprove(HostNG& host)
-    {
-        host.auto_approve_ = true;
-    }
 };
 
 // A host connection end to end: what it answers to an id request, which hosts it announces to the
@@ -157,39 +152,12 @@ protected:
 };
 
 //--------------------------------------------------------------------------------------------------
-// A host nobody approved yet gets a temporary id and a key of its own, and nothing is written to
-// the database: the record appears only when an administrator approves it.
-TEST_F(HostNGTest, NewHostGetsATemporaryIdAndIsAnnounced)
+// A new host is written to the database before the answer, so it receives a permanent id at once,
+// is announced as a reachable one and never appears among the temporary hosts.
+TEST_F(HostNGTest, NewHostIsApprovedAndIsAnnounced)
 {
     withHost([this](HostNG& host, FakeTcpChannel* channel)
     {
-        host.start();
-        channel->clearSent();
-
-        channel->receive(0, idRequest(proto::router::HostIdRequest::NEW_ID, nullptr));
-
-        const std::optional<proto::router::RouterToHost> message = lastMessage(channel);
-        ASSERT_TRUE(message.has_value());
-        ASSERT_TRUE(message->has_host_id_response());
-        EXPECT_EQ(message->host_id_response().error_code(), proto::router::kErrorOk);
-        EXPECT_TRUE(isTempHostId(message->host_id_response().host_id()));
-        EXPECT_FALSE(message->host_id_response().key().empty());
-
-        ASSERT_EQ(announced_.size(), 1);
-        EXPECT_EQ(announced_.at(0), host.hostId());
-    });
-
-    EXPECT_EQ(countRaw("SELECT COUNT(*) FROM hosts"), 0);
-}
-
-//--------------------------------------------------------------------------------------------------
-// With auto-approval the record is written before the answer, so a new host receives a permanent id
-// at once, is announced as a reachable one and never appears among the temporary hosts.
-TEST_F(HostNGTest, NewHostIsApprovedAutomaticallyWhenConfigured)
-{
-    withHost([this](HostNG& host, FakeTcpChannel* channel)
-    {
-        HostNGTestPeer::enableAutoApprove(host);
         host.start();
         channel->clearSent();
 

@@ -63,9 +63,8 @@ void releaseTempHostId(HostId host_id)
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
-HostNG::HostNG(Database& database, TcpChannel* channel, QObject* parent, bool auto_approve)
-    : Host(database, channel, parent),
-      auto_approve_(auto_approve)
+HostNG::HostNG(Database& database, TcpChannel* channel, QObject* parent)
+    : Host(database, channel, parent)
 {
     CLOG(TRACE) << "Ctor";
 }
@@ -187,40 +186,35 @@ void HostNG::readHostIdRequest(const proto::router::HostIdRequest& host_id_reque
 
     if (result.action == HostIdResult::Action::ISSUE_TEMP_ID)
     {
-        // The key and the temporary id belong to this connection. The key is random material
-        // handed to the host, and the id is reserved until the connection ends.
+        // The key belongs to this connection. The record of the host is written before the answer
+        // goes out, so a new host receives a permanent id at once instead of waiting for an
+        // administrator. A failure to write leaves the old path: a temporary id is handed out and
+        // the host asks again on its next connection.
         std::string key = Random::string(kHostKeySize);
         const QByteArray key_hash = GenericHash::hash(GenericHash::Type::BLAKE2b512, key);
 
-        // Auto-approval: the record is written before the answer goes out, so the host receives a
-        // permanent id at once and does not have to wait for an administrator. A failure to write
-        // leaves the usual path intact - the host gets a temporary id and stays in the console.
-        if (auto_approve_)
+        Database& db = database();
+        HostId permanent_id = kInvalidHostId;
+
+        if (db.isValid() && db.addHost(key_hash, hw_id_) &&
+            db.hostId(key_hash, &permanent_id) == proto::router::kErrorOk &&
+            permanent_id != kInvalidHostId)
         {
-            Database& db = database();
-            HostId permanent_id = kInvalidHostId;
+            key_hash_ = key_hash;
+            host_id_ = permanent_id;
 
-            if (db.isValid() && db.addHost(key_hash, hw_id_) &&
-                db.hostId(key_hash, &permanent_id) == proto::router::kErrorOk &&
-                permanent_id != kInvalidHostId)
-            {
-                key_hash_ = key_hash;
-                host_id_ = permanent_id;
+            host_id_response->set_error_code(proto::router::kErrorOk);
+            host_id_response->set_host_id(host_id_);
+            host_id_response->set_key(std::move(key));
+            sendMessage(0, serialize(message));
 
-                host_id_response->set_error_code(proto::router::kErrorOk);
-                host_id_response->set_host_id(host_id_);
-                host_id_response->set_key(std::move(key));
-                sendMessage(0, serialize(message));
-
-                CLOG(INFO) << "New host" << host_id_ << "approved automatically ("
-                           << peer.address << ")";
-                emit sig_hostIdAssigned(host_id_);
-                emit sig_notifyChanged(ClientWorker::NOTIFY_HOSTS);
-                return;
-            }
-
-            CLOG(ERROR) << "Auto-approval of a new host failed; issuing a temporary id";
+            CLOG(INFO) << "New host" << host_id_ << "approved (" << peer.address << ")";
+            emit sig_hostIdAssigned(host_id_);
+            emit sig_notifyChanged(ClientWorker::NOTIFY_HOSTS);
+            return;
         }
+
+        CLOG(ERROR) << "Unable to store the new host; issuing a temporary id";
 
         key_hash_ = key_hash;
         host_id_ = reserveTempHostId();
