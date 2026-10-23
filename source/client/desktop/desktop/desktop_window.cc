@@ -329,6 +329,9 @@ void DesktopWindow::onSessionStarted()
     toolbar_->enableTextChat(true);
     toolbar_->enableTerminal(!isLegacy());
     toolbar_->enableSystemInfo(!isLegacy());
+    // The host reports this too; enabling it here keeps the button usable when the report does not
+    // arrive (a command-line session starts with no container to repeat the request).
+    toolbar_->enablePasteAsKeystrokesFeature(!isLegacy());
 
     if (isLegacy())
         return;

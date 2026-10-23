@@ -549,6 +549,65 @@ int main(int argc, char* argv[])
 
         client_window->setAttribute(Qt::WA_DeleteOnClose);
 
+        // A command-line session has no window container that could act on these requests, so the
+        // window handles them itself: it toggles its own fullscreen and opens the sessions the
+        // toolbar asks for as windows of their own.
+        if (auto* desktop_window = qobject_cast<DesktopWindow*>(client_window))
+        {
+            QObject::connect(desktop_window, &DesktopWindow::sig_fullscreenRequested,
+                             desktop_window, [desktop_window](bool enabled)
+            {
+                LOG(INFO) << "Command line session: fullscreen" << enabled;
+
+                if (enabled)
+                    desktop_window->showFullScreen();
+                else
+                    desktop_window->showNormal();
+            });
+
+            QObject::connect(desktop_window, &DesktopWindow::sig_connectRequested,
+                             desktop_window,
+                             [](const HostConfig& host, proto::peer::SessionType session_type)
+            {
+                ClientWindow* window = nullptr;
+
+                switch (session_type)
+                {
+                    case proto::peer::SESSION_TYPE_FILE_TRANSFER:
+                        window = new FileTransferWindow();
+                        break;
+
+                    case proto::peer::SESSION_TYPE_SYSTEM_INFO:
+                        window = new SystemInfoWindow();
+                        break;
+
+                    case proto::peer::SESSION_TYPE_CHAT:
+                        window = new ChatWindow();
+                        break;
+
+                    case proto::peer::SESSION_TYPE_TERMINAL:
+                        window = new TerminalWindow();
+                        break;
+
+                    default:
+                        break;
+                }
+
+                if (!window)
+                    return;
+
+                window->setAttribute(Qt::WA_DeleteOnClose);
+
+                if (!window->connectToHost(host, QString(), true))
+                {
+                    delete window;
+                    return;
+                }
+
+                window->show();
+            });
+        }
+
         if (!client_window->connectToHost(host, parser.value(display_name_option), true))
         {
             delete client_window;
