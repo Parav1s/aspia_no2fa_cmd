@@ -115,6 +115,7 @@ private:
     bool doUpdateHost(HostId host_id);
     std::string_view doApproveHost(HostId host_id);
 
+    bool auto_approve_ = false;
     QString listen_interface_;
     quint16 listen_port_ = 0;
     quint16 legacy_listen_port_ = 0;

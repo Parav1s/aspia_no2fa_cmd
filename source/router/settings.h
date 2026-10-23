@@ -78,6 +78,11 @@ public:
     void setHostWhiteList(const WhiteList& list);
     WhiteList hostWhiteList() const;
 
+    // A host that connects for the first time is approved right away and receives a permanent id
+    // instead of waiting for an administrator in the console.
+    void setAutoApproveHosts(bool enable);
+    bool isAutoApproveHosts() const;
+
     void setRelayWhiteList(const WhiteList& list);
     WhiteList relayWhiteList() const;
 

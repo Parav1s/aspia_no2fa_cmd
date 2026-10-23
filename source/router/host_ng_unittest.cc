@@ -52,6 +52,12 @@ public:
         telemetry.set_json(json);
         host.readHostTelemetry(telemetry, now);
     }
+
+    // Turns on the behaviour the router reads from its configuration file.
+    static void enableAutoApprove(HostNG& host)
+    {
+        host.auto_approve_ = true;
+    }
 };
 
 // A host connection end to end: what it answers to an id request, which hosts it announces to the
@@ -174,6 +180,42 @@ TEST_F(HostNGTest, NewHostGetsATemporaryIdAndIsAnnounced)
     });
 
     EXPECT_EQ(countRaw("SELECT COUNT(*) FROM hosts"), 0);
+}
+
+//--------------------------------------------------------------------------------------------------
+// With auto-approval the record is written before the answer, so a new host receives a permanent id
+// at once, is announced as a reachable one and never appears among the temporary hosts.
+TEST_F(HostNGTest, NewHostIsApprovedAutomaticallyWhenConfigured)
+{
+    withHost([this](HostNG& host, FakeTcpChannel* channel)
+    {
+        HostNGTestPeer::enableAutoApprove(host);
+        host.start();
+        channel->clearSent();
+
+        channel->receive(0, idRequest(proto::router::HostIdRequest::NEW_ID, nullptr));
+
+        const std::optional<proto::router::RouterToHost> message = lastMessage(channel);
+        ASSERT_TRUE(message.has_value());
+        ASSERT_TRUE(message->has_host_id_response());
+        EXPECT_EQ(message->host_id_response().error_code(), proto::router::kErrorOk);
+        EXPECT_FALSE(isTempHostId(message->host_id_response().host_id()));
+
+        const std::string key = message->host_id_response().key();
+        EXPECT_FALSE(key.empty());
+
+        const HostId host_id = message->host_id_response().host_id();
+        EXPECT_EQ(countRaw(QString("SELECT COUNT(*) FROM hosts WHERE id=%1").arg(host_id)), 1);
+
+        // The key handed to the host is the one its record was created from: the host comes back
+        // with it and gets the same id.
+        HostId found_id = kInvalidHostId;
+        EXPECT_EQ(worker_->database().hostId(keyHash(key), &found_id), proto::router::kErrorOk);
+        EXPECT_EQ(found_id, host_id);
+
+        ASSERT_EQ(announced_.size(), 1);
+        EXPECT_EQ(announced_.at(0), host_id);
+    });
 }
 
 //--------------------------------------------------------------------------------------------------
