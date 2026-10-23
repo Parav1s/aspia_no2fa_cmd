@@ -72,6 +72,16 @@ const char kExecutableNameForUi[] = "aspia_host.exe";
 const wchar_t kDefaultDesktopName[] = L"winsta0\\default";
 
 //--------------------------------------------------------------------------------------------------
+bool hasLoggedOnUser(SessionId session_id)
+{
+    if (session_id == kInvalidSessionId || session_id == kServiceSessionId)
+        return false;
+
+    SessionInfo session_info(session_id);
+    return session_info.isValid() && !session_info.userName().isEmpty();
+}
+
+//--------------------------------------------------------------------------------------------------
 bool createLoggedOnUserToken(DWORD session_id, ScopedHandle* token_out)
 {
     if (!WTSQueryUserToken(session_id, token_out->recieve()))
@@ -405,8 +415,7 @@ void UserSession::onUserSessionEvent(quint32 status, quint32 session_id)
                 // A console that only reached the logon screen has no user to serve. Attaching to
                 // it would take the host away from the remote session a user is actually working
                 // in and leave its host window without a service.
-                SessionInfo console_info(session_id);
-                if (!console_info.isValid() || console_info.userName().isEmpty())
+                if (!hasLoggedOnUser(session_id))
                 {
                     LOG(INFO) << "Console session has no logged-on user; keeping the current session";
                     break;
@@ -419,8 +428,21 @@ void UserSession::onUserSessionEvent(quint32 status, quint32 session_id)
 
         case WTS_CONSOLE_DISCONNECT:
         {
-            if (is_console_)
+            if (!is_console_)
+                break;
+
+            // If the console goes away while a remote user is still logged on, keep the host with
+            // that user instead of dropping the user interface and waiting for a reconnect.
+            const SessionId target = activeUserSessionId();
+            if (hasLoggedOnUser(target) && target != session_id_)
+            {
                 dettach(FROM_HERE);
+                attach(FROM_HERE, AttachReason::OTHER, target);
+            }
+            else
+            {
+                dettach(FROM_HERE);
+            }
         }
         break;
 
@@ -429,19 +451,28 @@ void UserSession::onUserSessionEvent(quint32 status, quint32 session_id)
             if (is_console_ || session_id_ != session_id)
                 return;
 
+            // Follow the console only when somebody is logged on there. Following an empty console
+            // tears down the IPC channel of the host window in the remote session and makes it
+            // report a service error until the session comes back.
+            const SessionId target = activeUserSessionId();
+            if (target == kInvalidSessionId || target == session_id_ || !hasLoggedOnUser(target))
+            {
+                LOG(INFO) << "No logged-on session to switch to; keeping the current session";
+                return;
+            }
+
             dettach(FROM_HERE);
-            attach(FROM_HERE, AttachReason::OTHER, activeConsoleSessionId());
+            attach(FROM_HERE, AttachReason::OTHER, target);
         }
         break;
 
         case WTS_SESSION_LOGON:
         case WTS_SESSION_UNLOCK:
         {
-            if (state_ == State::DETTACHED && is_console_ && session_id == activeConsoleSessionId())
+            if (state_ == State::DETTACHED && is_console_ && session_id == activeConsoleSessionId() &&
+                hasLoggedOnUser(session_id))
             {
-                SessionInfo session_info(session_id);
-                if (session_info.isValid() && !session_info.userName().isEmpty())
-                    attach(FROM_HERE, AttachReason::OTHER, session_id);
+                attach(FROM_HERE, AttachReason::OTHER, session_id);
             }
         }
         break;
