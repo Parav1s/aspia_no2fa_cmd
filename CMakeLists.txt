@@ -27,7 +27,13 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/source/cmake)
 include(Utils)
 
 if (WIN32)
-    include(FindWDK)
+    # The UMDF virtual display driver needs the WDK. Stock CI runners do not
+    # ship it, so the driver can be switched off for builds that only produce
+    # the applications (it is not part of the MSI packages anyway).
+    option(ASPIA_BUILD_VIRTUAL_DISPLAY "Build the UMDF virtual display driver (requires WDK)" ON)
+    if (ASPIA_BUILD_VIRTUAL_DISPLAY)
+        include(FindWDK)
+    endif()
 endif()
 
 set(ASPIA_VERSION_MAJOR 3)
@@ -91,7 +97,9 @@ find_library(OPENH264_LIBRARY NAMES openh264 REQUIRED)
 
 if (WIN32)
     find_package(Qt6EntryPointPrivate CONFIG REQUIRED)
-    find_package(WDK REQUIRED)
+    if (ASPIA_BUILD_VIRTUAL_DISPLAY)
+        find_package(WDK REQUIRED)
+    endif()
 
     set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()

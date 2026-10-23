@@ -89,7 +89,9 @@ jobs:
         env:
           VCPKG_TRIPLET: ${{ matrix.triplet }}
           VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.triplet }}
-        run: cmake --preset ci
+        # The virtual display driver needs the WDK, which windows-2025 does not
+        # include. It is not part of the MSI packages, so the build skips it.
+        run: cmake --preset ci -DASPIA_BUILD_VIRTUAL_DISPLAY=OFF
 
       - name: Build
         env:

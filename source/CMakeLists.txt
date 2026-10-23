@@ -231,7 +231,10 @@ if (NOT ASPIA_HOST_ONLY)
     add_subdirectory(client)
 endif()
 
-add_subdirectory(drivers)
+# The directory holds the virtual display driver, which needs the WDK.
+if (ASPIA_BUILD_VIRTUAL_DISPLAY)
+    add_subdirectory(drivers)
+endif()
 
 if (NOT ASPIA_HOST_ONLY)
     add_subdirectory(relay)
