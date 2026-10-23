@@ -15,10 +15,6 @@ concurrency:
 env:
   VCPKG_INSTALLED_DIR: ${{ github.workspace }}/builds/ci/vcpkg_installed
   VCPKG_BINARY_SOURCES: 'default,readwrite'
-  # The arm64 runner has 4 cores and 16 GB of RAM. Qt's translation units need
-  # 2-3 GB each, so building with full parallelism is a reliable way to get the
-  # compiler OOM-killed in the middle of the one-hour Qt build.
-  VCPKG_MAX_CONCURRENCY: 2
 
 jobs:
   build:
@@ -62,6 +58,12 @@ jobs:
           sudo apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev \
             libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev \
             libegl1-mesa-dev libx11-dev libxext-dev
+          # The host target is configured even though only router and relay are
+          # built, and its Linux screen capturers need these development files:
+          # host/CMakeLists.txt requires the PipeWire and libdrm pkg-config
+          # modules, and the sources include gbm.h and security/pam_appl.h.
+          sudo apt-get install -y libpipewire-0.3-dev libspa-0.2-dev libdrm-dev \
+            libgbm-dev libpam0g-dev libffi-dev
 
       # Restore and save are split on purpose: actions/cache only writes the cache
       # when the whole job succeeds, but this job has to build Qt from scratch and
