@@ -204,7 +204,7 @@ if (WIN32)
 
     set(HOST_PLATFORM_LIBS
         advapi32 avrt crypt32 dbghelp dxgi d3d11 imm32 iphlpapi netapi32 setupapi shlwapi userenv
-        uxtheme version windowsapp winmm wtsapi32)
+        uxtheme version winmm wtsapi32)
 endif()
 
 if (LINUX)

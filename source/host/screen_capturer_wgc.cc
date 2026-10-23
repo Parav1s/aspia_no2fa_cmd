@@ -55,13 +55,24 @@ struct WinrtFunctions
 };
 
 //--------------------------------------------------------------------------------------------------
+// Loads a library that belongs to the system. The dedicated search flag is understood only by an
+// updated Windows 7, and the plain call is safe enough for a name without a path.
+HMODULE loadSystemLibrary(const wchar_t* name)
+{
+    HMODULE module = LoadLibraryExW(name, nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+    if (!module)
+        module = LoadLibraryW(name);
+    return module;
+}
+
+//--------------------------------------------------------------------------------------------------
 const WinrtFunctions& winrtFunctions()
 {
     static const WinrtFunctions functions = []()
     {
         WinrtFunctions result = {};
 
-        HMODULE combase = LoadLibraryExW(L"combase.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+        HMODULE combase = loadSystemLibrary(L"combase.dll");
         if (combase)
         {
             result.ro_initialize = reinterpret_cast<decltype(result.ro_initialize)>(
@@ -77,7 +88,7 @@ const WinrtFunctions& winrtFunctions()
                 GetProcAddress(combase, "WindowsDeleteString"));
         }
 
-        HMODULE d3d11 = LoadLibraryExW(L"d3d11.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+        HMODULE d3d11 = loadSystemLibrary(L"d3d11.dll");
         if (d3d11)
         {
             result.create_d3d11_device_from_dxgi_device =
@@ -211,6 +222,15 @@ bool ScreenCapturerWgc::isSupported()
         return false;
     }
 
+    // S_OK and S_FALSE both count as an initialization this call owns; RPC_E_CHANGED_MODE means
+    // the thread already lives in another apartment and nothing was added.
+    const bool uninitialize = SUCCEEDED(initialized);
+    auto release_apartment = [uninitialize]()
+    {
+        if (uninitialize)
+            winrtFunctions().ro_uninitialize();
+    };
+
     // Direct3D11CaptureFramePool.CreateFreeThreaded() does not need a DispatcherQueue, so it can be
     // used from the worker thread. It is available since Windows 10 1809; without it the frame pool
     // can only be created on a thread with a DispatcherQueue.
@@ -222,6 +242,7 @@ bool ScreenCapturerWgc::isSupported()
     {
         LOG(INFO) << "WGC is not supported:"
                   << _com_error(hr);
+        release_apartment();
         return false;
     }
 
@@ -232,6 +253,7 @@ bool ScreenCapturerWgc::isSupported()
     {
         LOG(INFO) << "WGC is not supported:"
                   << _com_error(hr);
+        release_apartment();
         return false;
     }
 
@@ -247,10 +269,12 @@ bool ScreenCapturerWgc::isSupported()
         if (SUCCEEDED(hr) && !supported)
         {
             LOG(INFO) << "WGC is not supported: capture is disabled on this system";
+            release_apartment();
             return false;
         }
     }
 
+    release_apartment();
     return true;
 }
 
@@ -601,7 +625,7 @@ bool ScreenCapturerWgc::createSession()
         if (FAILED(hr))
         {
             log_error("CreateForMonitor failed: ", hr);
-            return false;
+        return false;
         }
     }
 
@@ -718,7 +742,7 @@ bool ScreenCapturerWgc::acquireFrame(ComPtr<wgc::IDirect3D11CaptureFrame>* frame
         }
 
         if (waited >= wait_ms)
-            return false;
+        return false;
 
         QThread::msleep(kWaitStepMs);
     }
@@ -751,7 +775,7 @@ bool ScreenCapturerWgc::copyTexture(ID3D11Texture2D* texture, const QSize& size)
         if (FAILED(hr))
         {
             LOG(ERROR) << "CreateTexture2D(staging) failed:" << _com_error(hr);
-            return false;
+        return false;
         }
 
         staging_size_ = size;
@@ -778,7 +802,7 @@ bool ScreenCapturerWgc::copyTexture(ID3D11Texture2D* texture, const QSize& size)
         {
             d3d_context_->Unmap(staging_texture_.Get(), 0);
             LOG(ERROR) << "Failed to allocate a frame";
-            return false;
+        return false;
         }
 
         frame->setCapturerType(static_cast<quint32>(type()));

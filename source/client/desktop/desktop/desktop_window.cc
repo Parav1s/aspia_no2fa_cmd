@@ -359,8 +359,13 @@ void DesktopWindow::applySettings()
 
     Database& db = Database::instance();
 
-    desktop_config_ = db.desktopConfig();
-    onDesktopConfigChanged(desktop_config_);
+    // A session started from the command line keeps the options it was started with: the stored
+    // desktop settings belong to the interactive client and would silently replace them.
+    if (!isCommandLineSession())
+    {
+        desktop_config_ = db.desktopConfig();
+        onDesktopConfigChanged(desktop_config_);
+    }
 
     desktop_->enableRemoteCursorPosition(desktop_config_.cursor_position());
     if (!desktop_config_.cursor_shape())

@@ -136,6 +136,9 @@ protected:
     NetworkWorker* networkWorker() const;
     bool isLegacy() const;
 
+    // Started from the command line: the options of the launch win over the stored settings.
+    bool isCommandLineSession() const { return command_line_; }
+
     // Returns actions that launch every session type except this window's own, targeting the
     // current host, in a fixed order. Built once on construction. The default tabActionGroups()
     // exposes them in the ACTION group; subclasses that override tabActionGroups() insert them
