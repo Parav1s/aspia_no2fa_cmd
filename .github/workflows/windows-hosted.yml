@@ -47,11 +47,15 @@ jobs:
         with:
           submodules: true
 
+      # Do not pin the toolset here: vcpkg detects the newest installed MSVC on
+      # its own and builds the ports with it, so pinning the project to another
+      # version mixes two STLs and the static protobuf library then references
+      # __std_* helpers that the older libcpmt does not have. Let both sides use
+      # the image default.
       - name: Set MSVC ${{ matrix.arch }} environment
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: ${{ matrix.msvc_arch }}
-          toolset: 14.44
 
       # installer/windows/build.cmd needs the WiX 3 toolset (candle/light/torch)
       # and the 10.0.26100 Windows SDK. The image usually ships both; install WiX
