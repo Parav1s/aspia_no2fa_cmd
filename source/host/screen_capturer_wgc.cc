@@ -4,7 +4,6 @@
 #include <windows.graphics.capture.interop.h>
 #include <windows.graphics.directx.h>
 #include <windows.graphics.directx.direct3d11.interop.h>
-#include <wrl/wrappers/corewrappers.h>
 
 #include <algorithm>
 #include <cstring>
@@ -18,7 +17,6 @@
 #include "host/win/screen_capture_utils.h"
 
 using Microsoft::WRL::ComPtr;
-using Microsoft::WRL::Wrappers::HStringReference;
 
 namespace {
 
@@ -42,6 +40,111 @@ constexpr int kFirstFrameTimeoutMs = 250;
 // CreateForMonitor() on every capture tick while the session is unavailable.
 constexpr int kSessionRetryDelayMs = 500;
 
+// Windows 7 has neither the WinRT activation entry points nor the Direct3D interop helper, and a
+// static import of them would make the whole executable unloadable there - the host would lose GDI
+// capture as well. They are resolved by hand, and the capturer reports itself unsupported when they
+// are not there.
+struct WinrtFunctions
+{
+    HRESULT (WINAPI* ro_initialize)(DWORD);
+    void (WINAPI* ro_uninitialize)();
+    HRESULT (WINAPI* ro_get_activation_factory)(HSTRING, REFIID, void**);
+    HRESULT (WINAPI* windows_create_string)(LPCWSTR, UINT32, HSTRING*);
+    HRESULT (WINAPI* windows_delete_string)(HSTRING);
+    HRESULT (WINAPI* create_d3d11_device_from_dxgi_device)(IUnknown*, IInspectable**);
+};
+
+//--------------------------------------------------------------------------------------------------
+const WinrtFunctions& winrtFunctions()
+{
+    static const WinrtFunctions functions = []()
+    {
+        WinrtFunctions result = {};
+
+        HMODULE combase = LoadLibraryExW(L"combase.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+        if (combase)
+        {
+            result.ro_initialize = reinterpret_cast<decltype(result.ro_initialize)>(
+                GetProcAddress(combase, "RoInitialize"));
+            result.ro_uninitialize = reinterpret_cast<decltype(result.ro_uninitialize)>(
+                GetProcAddress(combase, "RoUninitialize"));
+            result.ro_get_activation_factory =
+                reinterpret_cast<decltype(result.ro_get_activation_factory)>(
+                    GetProcAddress(combase, "RoGetActivationFactory"));
+            result.windows_create_string = reinterpret_cast<decltype(result.windows_create_string)>(
+                GetProcAddress(combase, "WindowsCreateString"));
+            result.windows_delete_string = reinterpret_cast<decltype(result.windows_delete_string)>(
+                GetProcAddress(combase, "WindowsDeleteString"));
+        }
+
+        HMODULE d3d11 = LoadLibraryExW(L"d3d11.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
+        if (d3d11)
+        {
+            result.create_d3d11_device_from_dxgi_device =
+                reinterpret_cast<decltype(result.create_d3d11_device_from_dxgi_device)>(
+                    GetProcAddress(d3d11, "CreateDirect3D11DeviceFromDXGIDevice"));
+        }
+
+        return result;
+    }();
+
+    return functions;
+}
+
+//--------------------------------------------------------------------------------------------------
+bool isWinrtAvailable()
+{
+    const WinrtFunctions& functions = winrtFunctions();
+    return functions.ro_initialize && functions.ro_uninitialize &&
+           functions.ro_get_activation_factory && functions.windows_create_string &&
+           functions.windows_delete_string &&
+           functions.create_d3d11_device_from_dxgi_device;
+}
+
+//--------------------------------------------------------------------------------------------------
+class ScopedHString final
+{
+public:
+    explicit ScopedHString(const wchar_t* value)
+    {
+        const WinrtFunctions& functions = winrtFunctions();
+        if (functions.windows_create_string)
+        {
+            functions.windows_create_string(
+                value, static_cast<UINT32>(std::char_traits<wchar_t>::length(value)), &value_);
+        }
+    }
+
+    ~ScopedHString()
+    {
+        const WinrtFunctions& functions = winrtFunctions();
+        if (value_ && functions.windows_delete_string)
+            functions.windows_delete_string(value_);
+    }
+
+    HSTRING get() const { return value_; }
+
+private:
+    HSTRING value_ = nullptr;
+
+    Q_DISABLE_COPY_MOVE(ScopedHString)
+};
+
+//--------------------------------------------------------------------------------------------------
+// The activation factory of |runtime_class|, or an error when it cannot be obtained.
+HRESULT activationFactory(const wchar_t* runtime_class, REFIID iid, void** factory)
+{
+    const WinrtFunctions& functions = winrtFunctions();
+    if (!functions.ro_get_activation_factory)
+        return REGDB_E_CLASSNOTREG;
+
+    ScopedHString name(runtime_class);
+    if (!name.get())
+        return E_OUTOFMEMORY;
+
+    return functions.ro_get_activation_factory(name.get(), iid, factory);
+}
+
 // Closes a WinRT object that implements Windows.Foundation.IClosable.
 void closeWinrtObject(IInspectable* object)
 {
@@ -57,16 +160,15 @@ void closeWinrtObject(IInspectable* object)
 
 //--------------------------------------------------------------------------------------------------
 ScreenCapturerWgc::ScreenCapturerWgc(QObject* parent)
-    : ScreenCapturerWin(Type::WIN_WGC, parent),
-      ro_initialize_(RO_INIT_MULTITHREADED)
+    : ScreenCapturerWin(Type::WIN_WGC, parent)
 {
     LOG(INFO) << "Ctor";
 
-    if (FAILED(ro_initialize_) && static_cast<HRESULT>(ro_initialize_) != RPC_E_CHANGED_MODE)
-    {
-        LOG(ERROR) << "RoInitialize failed:"
-                   << _com_error(static_cast<HRESULT>(ro_initialize_));
-    }
+    const HRESULT hr = winrtFunctions().ro_initialize(RO_INIT_MULTITHREADED);
+    if (hr == S_OK || hr == S_FALSE)
+        ro_initialized_ = true;
+    else if (hr != RPC_E_CHANGED_MODE)
+        LOG(ERROR) << "RoInitialize failed:" << _com_error(hr);
 
     desktop_rect_ = ScreenCaptureUtils::fullScreenRect();
 }
@@ -81,6 +183,12 @@ ScreenCapturerWgc::~ScreenCapturerWgc()
     capture_device_.Reset();
     d3d_context_.Reset();
     d3d_device_.Reset();
+
+    if (ro_initialized_)
+    {
+        ro_initialized_ = false;
+        winrtFunctions().ro_uninitialize();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -90,10 +198,16 @@ bool ScreenCapturerWgc::isSupported()
     if (windowsVersion() < VERSION_WIN10)
         return false;
 
-    Microsoft::WRL::Wrappers::RoInitializeWrapper initialize(RO_INIT_MULTITHREADED);
-    if (FAILED(initialize) && static_cast<HRESULT>(initialize) != RPC_E_CHANGED_MODE)
+    if (!isWinrtAvailable())
     {
-        LOG(ERROR) << "RoInitialize failed:" << _com_error(static_cast<HRESULT>(initialize));
+        LOG(INFO) << "WGC is not supported: the WinRT entry points are not available";
+        return false;
+    }
+
+    const HRESULT initialized = winrtFunctions().ro_initialize(RO_INIT_MULTITHREADED);
+    if (FAILED(initialized) && initialized != RPC_E_CHANGED_MODE)
+    {
+        LOG(ERROR) << "RoInitialize failed:" << _com_error(initialized);
         return false;
     }
 
@@ -101,8 +215,8 @@ bool ScreenCapturerWgc::isSupported()
     // used from the worker thread. It is available since Windows 10 1809; without it the frame pool
     // can only be created on a thread with a DispatcherQueue.
     ComPtr<wgc::IDirect3D11CaptureFramePoolStatics2> pool_statics;
-    HRESULT hr = RoGetActivationFactory(
-        HStringReference(RuntimeClass_Windows_Graphics_Capture_Direct3D11CaptureFramePool).Get(),
+    HRESULT hr = activationFactory(
+        RuntimeClass_Windows_Graphics_Capture_Direct3D11CaptureFramePool,
         IID_PPV_ARGS(&pool_statics));
     if (FAILED(hr))
     {
@@ -112,9 +226,8 @@ bool ScreenCapturerWgc::isSupported()
     }
 
     ComPtr<IGraphicsCaptureItemInterop> item_interop;
-    hr = RoGetActivationFactory(
-        HStringReference(RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureItem).Get(),
-        IID_PPV_ARGS(&item_interop));
+    hr = activationFactory(RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureItem,
+                           IID_PPV_ARGS(&item_interop));
     if (FAILED(hr))
     {
         LOG(INFO) << "WGC is not supported:"
@@ -125,9 +238,8 @@ bool ScreenCapturerWgc::isSupported()
     // GraphicsCaptureSession.IsSupported() exists since Windows 11 24H2. When it is available it is
     // the authoritative answer: some systems have window/monitor capture disabled by policy.
     ComPtr<wgc::IGraphicsCaptureSessionStatics> session_statics;
-    hr = RoGetActivationFactory(
-        HStringReference(RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureSession).Get(),
-        IID_PPV_ARGS(&session_statics));
+    hr = activationFactory(RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureSession,
+                           IID_PPV_ARGS(&session_statics));
     if (SUCCEEDED(hr))
     {
         boolean supported = FALSE;
@@ -396,7 +508,8 @@ bool ScreenCapturerWgc::initializeDevice()
     }
 
     ComPtr<IInspectable> inspectable;
-    hr = CreateDirect3D11DeviceFromDXGIDevice(dxgi_device.Get(), &inspectable);
+    hr = winrtFunctions().create_d3d11_device_from_dxgi_device(
+        dxgi_device.Get(), inspectable.GetAddressOf());
     if (FAILED(hr))
     {
         LOG(ERROR) << "CreateDirect3D11DeviceFromDXGIDevice failed:" << _com_error(hr);
@@ -464,9 +577,8 @@ bool ScreenCapturerWgc::createSession()
         return false;
 
     ComPtr<IGraphicsCaptureItemInterop> item_interop;
-    HRESULT hr = RoGetActivationFactory(
-        HStringReference(RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureItem).Get(),
-        IID_PPV_ARGS(&item_interop));
+    HRESULT hr = activationFactory(RuntimeClass_Windows_Graphics_Capture_GraphicsCaptureItem,
+                                   IID_PPV_ARGS(&item_interop));
     if (FAILED(hr))
     {
         log_error("RoGetActivationFactory(GraphicsCaptureItem) failed: ", hr);
@@ -502,9 +614,8 @@ bool ScreenCapturerWgc::createSession()
     }
 
     ComPtr<wgc::IDirect3D11CaptureFramePoolStatics2> pool_statics;
-    hr = RoGetActivationFactory(
-        HStringReference(RuntimeClass_Windows_Graphics_Capture_Direct3D11CaptureFramePool).Get(),
-        IID_PPV_ARGS(&pool_statics));
+    hr = activationFactory(RuntimeClass_Windows_Graphics_Capture_Direct3D11CaptureFramePool,
+                           IID_PPV_ARGS(&pool_statics));
     if (FAILED(hr))
     {
         log_error("RoGetActivationFactory(Direct3D11CaptureFramePool) failed: ", hr);

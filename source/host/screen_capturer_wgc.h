@@ -11,12 +11,13 @@
 
 #include <d3d11.h>
 #include <wrl/client.h>
-#include <wrl/wrappers/corewrappers.h>
 
 #include <windows.graphics.capture.h>
 #include <windows.graphics.directx.direct3d11.h>
 
 #include "host/screen_capturer_win.h"
+
+#include <wrl/client.h>
 
 class Differ;
 
@@ -56,8 +57,9 @@ private:
                       int wait_ms);
     bool copyTexture(ID3D11Texture2D* texture, const QSize& size);
 
-    // Initializes COM as MTA for the capture thread. Declared first so that it is destroyed last.
-    Microsoft::WRL::Wrappers::RoInitializeWrapper ro_initialize_;
+    // Whether this object initialized COM as MTA for the capture thread, so that the destructor
+    // knows whether to uninitialize it.
+    bool ro_initialized_ = false;
 
     Microsoft::WRL::ComPtr<ID3D11Device> d3d_device_;
     Microsoft::WRL::ComPtr<ID3D11DeviceContext> d3d_context_;
