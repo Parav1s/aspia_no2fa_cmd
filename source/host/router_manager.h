@@ -73,7 +73,8 @@ public slots:
 
 signals:
     void sig_routerStateChanged(const proto::user::RouterState& state);
-    void sig_credentialsChanged(HostId host_id, const SecureString& one_time_password);
+    void sig_credentialsChanged(HostId host_id, const SecureString& one_time_password,
+                                bool one_time_password_enabled);
     void sig_clientConnected();
     void sig_removeHost();
     void sig_checkUpdates();

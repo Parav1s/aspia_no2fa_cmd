@@ -224,12 +224,14 @@ void UserSession::onRouterStateChanged(const proto::user::RouterState& state)
 }
 
 //--------------------------------------------------------------------------------------------------
-void UserSession::onUpdateCredentials(HostId host_id, const SecureString& password)
+void UserSession::onUpdateCredentials(HostId host_id, const SecureString& password,
+                                     bool one_time_password_enabled)
 {
     proto::user::Credentials* credentials =
         outgoing_message_.newMessage<proto::user::ServiceToUser>().mutable_credentials();
     credentials->set_host_id(host_id);
     credentials->set_password(password.toString().toStdString());
+    credentials->set_one_time_password(one_time_password_enabled);
 
     sendMessage();
 

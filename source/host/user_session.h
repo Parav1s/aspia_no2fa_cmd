@@ -69,7 +69,8 @@ public:
 public slots:
     bool start();
     void onRouterStateChanged(const proto::user::RouterState& state);
-    void onUpdateCredentials(HostId host_id, const SecureString& password);
+    void onUpdateCredentials(HostId host_id, const SecureString& password,
+                             bool one_time_password_enabled);
     void onClientSwitchSession(SessionId session_id);
     void onClientConfirmation(const proto::user::ConfirmationRequest& request);
     void onClientStarted();

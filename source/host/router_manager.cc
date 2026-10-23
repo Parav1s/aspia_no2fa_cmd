@@ -127,7 +127,8 @@ void RouterManager::onSettingsChanged()
             user_list_->setOneTimeUser(createOneTimeUser());
     }
 
-    emit sig_credentialsChanged(host_id_, one_time_password_);
+    emit sig_credentialsChanged(host_id_, one_time_password_,
+                                 database_.oneTimePassword());
     onTelemetryChanged();
 }
 
@@ -148,14 +149,16 @@ void RouterManager::onNewOneTimePassword()
     }
 
     renewOneTimePassword();
-    emit sig_credentialsChanged(host_id_, one_time_password_);
+    emit sig_credentialsChanged(host_id_, one_time_password_,
+                                 database_.oneTimePassword());
 }
 
 //--------------------------------------------------------------------------------------------------
 void RouterManager::onUserSessionAttached()
 {
     emit sig_routerStateChanged(router_state_);
-    emit sig_credentialsChanged(host_id_, one_time_password_);
+    emit sig_credentialsChanged(host_id_, one_time_password_,
+                                 database_.oneTimePassword());
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -195,7 +198,8 @@ void RouterManager::onTcpErrorOccurred(TcpChannel::ErrorCode error_code)
     // The host is not reachable by the assigned ID until the connection is restored and the router
     // re-assigns it, so report the credentials as unavailable.
     host_id_ = kInvalidHostId;
-    emit sig_credentialsChanged(host_id_, one_time_password_);
+    emit sig_credentialsChanged(host_id_, one_time_password_,
+                                 database_.oneTimePassword());
 
     routerStateChanged(proto::user::RouterState::FAILED);
     delayedConnectToRouter();
@@ -266,7 +270,8 @@ void RouterManager::onTcpMessageReceived(quint8 /* channel_id */, const QByteArr
         // a connection loss) it was created invalid.
         user_list_->setOneTimeUser(createOneTimeUser());
 
-        emit sig_credentialsChanged(host_id_, one_time_password_);
+        emit sig_credentialsChanged(host_id_, one_time_password_,
+                                 database_.oneTimePassword());
         sendTelemetry();
     }
     else if (in_message.has_connection_offer())

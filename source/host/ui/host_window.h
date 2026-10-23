@@ -124,6 +124,10 @@ private:
     ScopedQPointer<Clipboard> clipboard_;
     proto::user::RouterState::State last_state_ = proto::user::RouterState::DISABLED;
 
+    // From the service. The password row is shown while it is on; the window never reads the
+    // database itself, that would block on the service's connection.
+    bool one_time_password_enabled_ = true;
+
     Q_DISABLE_COPY_MOVE(HostWindow)
 };
 

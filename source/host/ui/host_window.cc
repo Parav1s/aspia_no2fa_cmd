@@ -506,6 +506,8 @@ void HostWindow::onCredentialsChanged(const proto::user::Credentials& credential
 {
     LOG(INFO) << "Credentials changed (host_id=" << credentials.host_id() << ")";
 
+    one_time_password_enabled_ = credentials.one_time_password();
+
     bool has_id = credentials.host_id() != kInvalidHostId;
 
     ui->edit_id->setText(has_id ? formatHostId(credentials.host_id()) : lastKnownHostId());
@@ -881,20 +883,15 @@ void HostWindow::onSettingsChanged()
 //--------------------------------------------------------------------------------------------------
 void HostWindow::updatePasswordSection()
 {
-    Database& db = Database::instance();
-
-    // A database that cannot be read says nothing about the setting, so the password keeps its place
-    // then, as it always had.
-    const bool enabled = !db.isValid() || db.oneTimePassword();
-
-    ui->label_password->setVisible(enabled);
-    ui->frame->setVisible(enabled);
+    ui->label_password->setVisible(one_time_password_enabled_);
+    ui->frame->setVisible(one_time_password_enabled_);
 
     // The window takes its height from the content on the first show; a row that went away has to
     // shrink it, or the window keeps an empty place where the password was.
     if (height_pinned_)
     {
         centralWidget()->layout()->activate();
+        updateGeometry();
         setFixedHeight(minimumSizeHint().height());
     }
 }

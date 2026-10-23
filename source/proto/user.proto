@@ -52,6 +52,10 @@ message Credentials
 {
     fixed64 host_id = 1;
     string password = 2;
+
+    // Whether the one-time password is enabled on the host. The window hides the password row when
+    // it is not, and an empty password alone cannot tell that from a host that is not connected.
+    bool one_time_password = 3;
 }
 
 message OneTimeSessions
