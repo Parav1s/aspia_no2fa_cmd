@@ -22,7 +22,13 @@
 #include <QVersionNumber>
 
 extern const QVersionNumber kCurrentVersion;
+
+// The oldest peer this build talks to through the legacy layer. Version 2.4 kept the layout of
+// every message a connection needs (ClientHello, SessionChallenge, Config, HostToClient,
+// ClientToHost, the host protocol of the router) and later versions only added optional fields,
+// so a host of 2.4 and later can register with the router and serve a desktop session.
 extern const QVersionNumber kMinimumSupportedVersion;
+
 extern const QVersionNumber kVersion_2_7_0;
 extern const QVersionNumber kVersion_3_0_0;
 extern const QVersionNumber kVersion_3_0_34;
