@@ -1,14 +1,11 @@
 name: macos
 
+# This workflow needs self-hosted runners (label "macos15") and is kept for
+# upstream-style infrastructure only. It must not run on push in this fork:
+# without the runners every push would leave jobs queued forever and the
+# repository badge would stay red. Use "Run workflow" when such a runner exists.
 on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - 'README.md'
-      - 'LICENSE.md'
-      - 'CONTRIBUTING.md'
-      - 'CODE_OF_CONDUCT.md'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -22,7 +19,6 @@ jobs:
   build-all-matrix:
     name: ${{ matrix.os }}-${{ matrix.arch }}-${{ matrix.build_type }}
     runs-on: ${{ matrix.os }}
-    if: github.event_name == 'push'
     strategy:
       fail-fast: true
       matrix:

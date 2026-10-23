@@ -15,6 +15,10 @@ concurrency:
 env:
   VCPKG_INSTALLED_DIR: ${{ github.workspace }}/builds/ci/vcpkg_installed
   VCPKG_BINARY_SOURCES: 'default,readwrite'
+  # The arm64 runner has 4 cores and 16 GB of RAM. Qt's translation units need
+  # 2-3 GB each, so building with full parallelism is a reliable way to get the
+  # compiler OOM-killed in the middle of the one-hour Qt build.
+  VCPKG_MAX_CONCURRENCY: 2
 
 jobs:
   build:
@@ -28,6 +32,27 @@ jobs:
         with:
           submodules: true
 
+      # Qt is built from source here (there are no arm64-linux Qt binaries in the
+      # vcpkg cache), and a full build does not fit into the ~14 GB of free space
+      # of a stock arm64 runner. Drop the preinstalled toolchains the build does
+      # not use before vcpkg starts writing buildtrees.
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo apt-get clean
+          df -h /
+
+      # Even with the limits above a couple of Qt files are close to the RAM
+      # size, so give the compiler some room to page out instead of dying.
+      - name: Add swap space
+        run: |
+          sudo fallocate -l 8G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          free -h
+
       - name: Prepare toolchain
         run: |
           sudo apt-get update
@@ -38,8 +63,12 @@ jobs:
             libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev \
             libegl1-mesa-dev libx11-dev libxext-dev
 
+      # Restore and save are split on purpose: actions/cache only writes the cache
+      # when the whole job succeeds, but this job has to build Qt from scratch and
+      # used to fail long before that. Saving on failure keeps the ports that were
+      # built successfully, so every next run starts closer to the end.
       - name: Restore vcpkg binary cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: ~/.cache/vcpkg/archives
           key: vcpkg-arm64-linux-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}
@@ -58,7 +87,10 @@ jobs:
         env:
           VCPKG_TRIPLET: arm64-linux
           VCPKG_DEFAULT_HOST_TRIPLET: arm64-linux
-        run: cmake --preset ci
+        # --clean-after-build removes the packages/ and buildtrees/ of every port
+        # once it is installed; the runner simply does not have the disk for both
+        # the build trees and the installed Qt.
+        run: cmake --preset ci -DVCPKG_INSTALL_OPTIONS=--clean-after-build
 
       - name: Build router and relay
         env:
@@ -81,3 +113,11 @@ jobs:
           name: aspia-linux-arm64
           path: artifacts/*
           if-no-files-found: error
+
+      - name: Save vcpkg binary cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/vcpkg/archives
+          key: vcpkg-arm64-linux-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}

@@ -9,7 +9,7 @@ With Aspia, you can create your own NAT traversal infrastructure (using Router a
 
 |Build Status|
 |:--:|
-|[![Build status](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/windows.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/windows.yml) [![Build status](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/linux.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/linux.yml) [![Build status](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos.yml)|
+|[![macOS arm64](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos-hosted.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos-hosted.yml) [![macOS x86_64](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos-x64-hosted.yml/badge.svg?branch=master)](https://github.com/Parav1s/aspia_no2fa_cmd/actions/workflows/macos-x64-hosted.yml)|
 
 Currently supported
 -------------------
