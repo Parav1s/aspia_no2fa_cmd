@@ -1,0 +1,134 @@
+name: windows-hosted
+
+# Windows build for GitHub-hosted runners (no self-hosted infrastructure required).
+# The upstream workflow (.github/workflows/windows.yml) targets a self-hosted
+# runner with the "win11" label, so it cannot run on a fork. This workflow builds
+# the same presets, both bitnesses, on stock runners.
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+      - 'CONTRIBUTING.md'
+      - 'CODE_OF_CONDUCT.md'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Consumed by CMakePresets.json (base preset)
+  VCPKG_INSTALLED_DIR: ${{ github.workspace }}/builds/ci/vcpkg_installed
+  VCPKG_BINARY_SOURCES: 'default,readwrite'
+
+jobs:
+  build:
+    name: ${{ matrix.arch }}-release
+    runs-on: windows-2025
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: x64
+            triplet: x64-windows-static
+            msvc_arch: amd64
+          - arch: x86
+            triplet: x86-windows-static
+            msvc_arch: amd64_x86
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: true
+
+      - name: Set MSVC ${{ matrix.arch }} environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.msvc_arch }}
+          toolset: 14.44
+
+      # installer/windows/build.cmd needs the WiX 3 toolset (candle/light/torch)
+      # and the 10.0.26100 Windows SDK. The image usually ships both; install WiX
+      # only when it is missing.
+      - name: Prepare toolchain
+        shell: pwsh
+        run: |
+          if (-not $env:WIX) {
+            choco install wixtoolset -y --no-progress
+            "WIX=C:\Program Files (x86)\WiX Toolset v3.14" >> $env:GITHUB_ENV
+          }
+          cmake --version
+          ninja --version
+
+      - name: Bootstrap vcpkg
+        shell: pwsh
+        run: |
+          if (-not (Test-Path vcpkg4aspia\vcpkg.exe)) {
+            .\vcpkg4aspia\bootstrap-vcpkg.bat -disableMetrics
+          }
+          .\vcpkg4aspia\vcpkg.exe version
+
+      # vcpkg stores built packages here (`default` binary source); keeping it across
+      # runs is what makes the second and later builds fast instead of rebuilding Qt.
+      - name: Restore vcpkg binary cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/AppData/Local/vcpkg/archives
+          key: vcpkg-${{ matrix.triplet }}-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}
+          restore-keys: |
+            vcpkg-${{ matrix.triplet }}-${{ hashFiles('vcpkg.json') }}-
+            vcpkg-${{ matrix.triplet }}-
+
+      - name: Configure
+        env:
+          VCPKG_TRIPLET: ${{ matrix.triplet }}
+          VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.triplet }}
+        run: cmake --preset ci
+
+      - name: Build
+        env:
+          VCPKG_TRIPLET: ${{ matrix.triplet }}
+          VCPKG_DEFAULT_HOST_TRIPLET: ${{ matrix.triplet }}
+        run: cmake --build --preset ci-release
+
+      # Some suites need desktop sessions and services the hosted runner does not
+      # provide, so tests must not block the artifacts.
+      - name: Tests
+        continue-on-error: true
+        timeout-minutes: 20
+        run: ctest --preset ci-release
+
+      - name: Get version
+        id: version
+        run: |
+          $text = Get-Content CMakeLists.txt -Raw
+          $major = [regex]::Match($text, 'set\(ASPIA_VERSION_MAJOR\s+(\d+)\)').Groups[1].Value
+          $minor = [regex]::Match($text, 'set\(ASPIA_VERSION_MINOR\s+(\d+)\)').Groups[1].Value
+          $patch = [regex]::Match($text, 'set\(ASPIA_VERSION_PATCH\s+(\d+)\)').Groups[1].Value
+          if (!$major -or !$minor -or !$patch) { echo "version not found in CMakeLists.txt"; exit 1 }
+          "version=$major.$minor.$patch" >> $env:GITHUB_OUTPUT
+
+      - name: Build MSI packages
+        shell: cmd
+        run: installer\windows\build.cmd ${{ steps.version.outputs.version }} ${{ matrix.arch }} ${{ github.workspace }} ${{ github.workspace }}\builds\ci\Release
+
+      - name: Upload the packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: aspia-windows-${{ matrix.arch }}-release
+          path: ${{ github.workspace }}/builds/ci/Release/*-${{ matrix.arch }}.msi
+          if-no-files-found: error
+
+      - name: Save vcpkg binary cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: ~/AppData/Local/vcpkg/archives
+          key: vcpkg-${{ matrix.triplet }}-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}
