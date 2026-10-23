@@ -80,7 +80,17 @@ void UpdateWorker::onCheckUpdates()
     storage.setUpdateCheckResult(QString());
     storage.setUpdateInstallVersion(QString());
 
-    update_checker_ = new UpdateChecker(SystemSettings().updateChannel(), kHostUpdatePackage, this);
+    SystemSettings settings;
+
+    update_checker_ = new UpdateChecker(settings.updateChannel(), kHostUpdatePackage, this);
+
+    const QString update_server = settings.updateServer();
+    if (!update_server.isEmpty())
+    {
+        LOG(INFO) << "Updates are read from:" << update_server;
+        update_checker_->setServer(update_server);
+        update_checker_->addPublicKey(settings.updatePublicKey());
+    }
 
     connect(update_checker_, &UpdateChecker::sig_checkFinished,
             this, &UpdateWorker::onUpdateCheckFinished);

@@ -35,6 +35,13 @@ public:
     UpdateChecker(const QString& channel, const QString& package, QObject* parent = nullptr);
     ~UpdateChecker();
 
+    // Replaces the address the files are read from. Set before the thread is started.
+    void setServer(const QString& server);
+
+    // Accepts the files of a server that signs them with |public_key| as well. Set before the
+    // thread is started.
+    void addPublicKey(const QByteArray& public_key);
+
     // Replaces the address the files are read from, so that tests can serve their own.
     void setServerForTesting(const QString& server);
 

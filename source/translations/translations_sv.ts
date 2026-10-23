@@ -810,6 +810,36 @@ Tillagda routrar: %4</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="134"/>
+        <source>Use custom update server</source>
+        <translation>Använd anpassad uppdateringsserver</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="143"/>
+        <source>Server:</source>
+        <translation>Server:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="164"/>
+        <source>Public key:</source>
+        <translation>Offentlig nyckel:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="634"/>
+        <source>Enter the address of the update server.</source>
+        <translation>Ange adressen till uppdateringsservern.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <source>The update server address must start with http:// or https://.</source>
+        <translation>Adressen till uppdateringsservern måste börja med http:// eller https://.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="652"/>
+        <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
+        <translation>Den offentliga nyckeln för uppdateringsservern måste bestå av 64 hexadecimala tecken.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="14"/>
         <location filename="../host/ui/config_dialog.ui" line="161"/>
         <source>Settings</source>

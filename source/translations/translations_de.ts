@@ -810,6 +810,36 @@ Hinzugefügte Router: %4</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="134"/>
+        <source>Use custom update server</source>
+        <translation>Benutzerdefinierten Update-Server verwenden</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="143"/>
+        <source>Server:</source>
+        <translation>Server:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="164"/>
+        <source>Public key:</source>
+        <translation>Öffentlicher Schlüssel:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="634"/>
+        <source>Enter the address of the update server.</source>
+        <translation>Geben Sie die Adresse des Update-Servers ein.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <source>The update server address must start with http:// or https://.</source>
+        <translation>Die Adresse des Update-Servers muss mit http:// oder https:// beginnen.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="652"/>
+        <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
+        <translation>Der öffentliche Schlüssel des Update-Servers muss aus 64 Hexadezimalzeichen bestehen.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="14"/>
         <location filename="../host/ui/config_dialog.ui" line="161"/>
         <source>Settings</source>

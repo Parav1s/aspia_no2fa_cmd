@@ -813,6 +813,36 @@ Routers added: %4</source>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="134"/>
+        <source>Use custom update server</source>
+        <translation>Использовать собственный сервер обновлений</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="143"/>
+        <source>Server:</source>
+        <translation>Сервер:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="164"/>
+        <source>Public key:</source>
+        <translation>Публичный ключ:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="634"/>
+        <source>Enter the address of the update server.</source>
+        <translation>Введите адрес сервера обновлений.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <source>The update server address must start with http:// or https://.</source>
+        <translation>Адрес сервера обновлений должен начинаться с http:// или https://.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="652"/>
+        <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
+        <translation>Публичный ключ сервера обновлений должен состоять из 64 шестнадцатеричных символов.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="14"/>
         <location filename="../host/ui/config_dialog.ui" line="161"/>
         <source>Settings</source>

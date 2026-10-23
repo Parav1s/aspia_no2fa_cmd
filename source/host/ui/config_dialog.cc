@@ -139,10 +139,24 @@ ConfigDialog::ConfigDialog(QWidget* parent)
     connect(ui->combobox_update_channel, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &ConfigDialog::onConfigChanged);
 
+    connect(ui->checkbox_use_custom_server, &QCheckBox::toggled, this, [this](bool checked)
+    {
+        setConfigChanged(FROM_HERE, true);
+
+        ui->label_update_server->setEnabled(checked);
+        ui->edit_update_server->setEnabled(checked);
+        ui->label_update_public_key->setEnabled(checked);
+        ui->edit_update_public_key->setEnabled(checked);
+    });
+
+    connect(ui->edit_update_server, &QLineEdit::textEdited, this, &ConfigDialog::onConfigChanged);
+    connect(ui->edit_update_public_key, &QLineEdit::textEdited, this, &ConfigDialog::onConfigChanged);
+
     connect(ui->button_check_updates, &QPushButton::clicked, this, [this]()
     {
-        AutoQPointer<UpdateDialog> dialog(
-            new UpdateDialog(SystemSettings().updateChannel(), "host", UpdateDialog::Action::ASK, this));
+        SystemSettings settings;
+        AutoQPointer<UpdateDialog> dialog(new UpdateDialog(settings.updateChannel(), "host",
+            UpdateDialog::Action::ASK, this, settings.updateServer(), settings.updatePublicKey()));
         dialog->exec();
     });
 
@@ -603,6 +617,49 @@ void ConfigDialog::onButtonBoxClicked(QAbstractButton* button)
         settings.setAutoUpdateEnabled(ui->checkbox_auto_update->isChecked());
         settings.setUpdateCheckFrequency(ui->combobox_update_check_freq->currentData().toInt());
         settings.setUpdateChannel(ui->combobox_update_channel->currentData().toString());
+
+        // A server of the user is taken along with the key its files are signed with. Without the
+        // key the files of the server would not verify, so both are required together.
+        QString update_server;
+        QByteArray update_public_key;
+
+        if (ui->checkbox_use_custom_server->isChecked())
+        {
+            update_server = ui->edit_update_server->text().trimmed();
+            while (update_server.endsWith('/'))
+                update_server.chop(1);
+
+            if (update_server.isEmpty())
+            {
+                MsgBox::warning(this, tr("Enter the address of the update server."));
+                ui->edit_update_server->setFocus();
+                return;
+            }
+
+            if (!update_server.startsWith("http://") && !update_server.startsWith("https://"))
+            {
+                MsgBox::warning(this, tr("The update server address must start with "
+                                         "http:// or https://."));
+                ui->edit_update_server->setFocus();
+                ui->edit_update_server->selectAll();
+                return;
+            }
+
+            update_public_key =
+                QByteArray::fromHex(ui->edit_update_public_key->text().trimmed().toUtf8());
+            if (update_public_key.size() != 32)
+            {
+                MsgBox::warning(this, tr("The public key of the update server must consist of "
+                                         "64 hexadecimal characters."));
+                ui->edit_update_public_key->setFocus();
+                ui->edit_update_public_key->selectAll();
+                return;
+            }
+        }
+
+        settings.setUpdateServer(update_server);
+        settings.setUpdatePublicKey(update_public_key);
+
         settings.setPreferredVideoCapturer(ui->combo_video_capturer->currentData().toUInt());
         settings.setHardwareVideoEncodingEnabled(ui->checkbox_hardware_encoding->isChecked());
 
@@ -736,6 +793,18 @@ void ConfigDialog::reloadAll()
 
     int channel_index = ui->combobox_update_channel->findData(settings.updateChannel());
     ui->combobox_update_channel->setCurrentIndex(channel_index >= 0 ? channel_index : 0);
+
+    const QString update_server = settings.updateServer();
+    const bool custom_update_server = !update_server.isEmpty();
+
+    ui->checkbox_use_custom_server->setChecked(custom_update_server);
+    ui->edit_update_server->setText(update_server);
+    ui->edit_update_public_key->setText(
+        QString::fromUtf8(settings.updatePublicKey().toHex()));
+    ui->label_update_server->setEnabled(custom_update_server);
+    ui->edit_update_server->setEnabled(custom_update_server);
+    ui->label_update_public_key->setEnabled(custom_update_server);
+    ui->edit_update_public_key->setEnabled(custom_update_server);
 
     switch (db.passwordProtectionState())
     {

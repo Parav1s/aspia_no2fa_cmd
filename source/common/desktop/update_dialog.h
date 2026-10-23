@@ -53,7 +53,8 @@ public:
     static constexpr int kClosedExitCode = 1;
 
     UpdateDialog(const QString& channel, const QString& package, Action action,
-                 QWidget* parent = nullptr);
+                 QWidget* parent = nullptr, const QString& server = QString(),
+                 const QByteArray& public_key = QByteArray());
     ~UpdateDialog() final;
 
     // QDialog implementation.

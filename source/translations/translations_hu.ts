@@ -807,6 +807,36 @@ Hozzáadott útválasztók: %4</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="134"/>
+        <source>Use custom update server</source>
+        <translation>Egyéni frissítési kiszolgáló használata</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="143"/>
+        <source>Server:</source>
+        <translation>Kiszolgáló:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="164"/>
+        <source>Public key:</source>
+        <translation>Nyilvános kulcs:</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="634"/>
+        <source>Enter the address of the update server.</source>
+        <translation>Adja meg a frissítési kiszolgáló címét.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <source>The update server address must start with http:// or https://.</source>
+        <translation>A frissítési kiszolgáló címének http:// vagy https:// előtaggal kell kezdődnie.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="652"/>
+        <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
+        <translation>A frissítési kiszolgáló nyilvános kulcsának 64 hexadecimális karakterből kell állnia.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="14"/>
         <location filename="../host/ui/config_dialog.ui" line="161"/>
         <source>Settings</source>

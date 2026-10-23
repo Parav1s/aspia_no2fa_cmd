@@ -41,6 +41,15 @@ public:
     QString updateChannel() const;
     void setUpdateChannel(const QString& channel);
 
+    // An update server deployed by the user. Empty means the one built into the application.
+    QString updateServer() const;
+    void setUpdateServer(const QString& server);
+
+    // The key the files of a custom update server are signed with, in hex. Empty means only the
+    // keys built into the application are accepted.
+    QByteArray updatePublicKey() const;
+    void setUpdatePublicKey(const QByteArray& public_key);
+
     quint32 preferredVideoCapturer() const;
     void setPreferredVideoCapturer(quint32 type);
 

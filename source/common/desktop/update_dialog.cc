@@ -44,7 +44,7 @@ QString makeUrl(const QUrl& url)
 
 //--------------------------------------------------------------------------------------------------
 UpdateDialog::UpdateDialog(const QString& channel, const QString& package, Action action,
-                           QWidget* parent)
+                           QWidget* parent, const QString& server, const QByteArray& public_key)
     : QDialog(parent),
       ui(std::make_unique<Ui::UpdateDialog>()),
       channel_(channel),
@@ -70,6 +70,8 @@ UpdateDialog::UpdateDialog(const QString& channel, const QString& package, Actio
     ui->label_available->setText(tr("Receiving information..."));
 
     checker_ = std::make_unique<UpdateChecker>(channel, package);
+    checker_->setServer(server);
+    checker_->addPublicKey(public_key);
 
     connect(checker_.get(), &UpdateChecker::sig_checkFinished,
             this, &UpdateDialog::onUpdateCheckFinished);

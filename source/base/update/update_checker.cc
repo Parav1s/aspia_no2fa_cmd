@@ -107,6 +107,20 @@ UpdateChecker::~UpdateChecker()
 }
 
 //--------------------------------------------------------------------------------------------------
+void UpdateChecker::setServer(const QString& server)
+{
+    if (!server.isEmpty())
+        server_ = server;
+}
+
+//--------------------------------------------------------------------------------------------------
+void UpdateChecker::addPublicKey(const QByteArray& public_key)
+{
+    if (!public_key.isEmpty() && !public_keys_.contains(public_key))
+        public_keys_.append(public_key);
+}
+
+//--------------------------------------------------------------------------------------------------
 void UpdateChecker::setServerForTesting(const QString& server)
 {
     server_ = server;

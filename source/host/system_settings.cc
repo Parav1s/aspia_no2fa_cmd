@@ -34,6 +34,8 @@ const QString kWaylandRestoreToken = "wayland_restore_token";
 const QString kUpdateChannel = "update/channel";
 const QString kUpdateAutoUpdate = "update/auto_update";
 const QString kUpdateCheckFrequency = "update/check_frequency";
+const QString kUpdateServerAddress = "update/address";
+const QString kUpdatePublicKey = "update/public_key";
 
 } // namespace
 
@@ -80,6 +82,30 @@ QString SystemSettings::updateChannel() const
 void SystemSettings::setUpdateChannel(const QString& channel)
 {
     settings_.setValue(kUpdateChannel, channel);
+}
+
+//--------------------------------------------------------------------------------------------------
+QString SystemSettings::updateServer() const
+{
+    return settings_.value(kUpdateServerAddress).toString();
+}
+
+//--------------------------------------------------------------------------------------------------
+void SystemSettings::setUpdateServer(const QString& server)
+{
+    settings_.setValue(kUpdateServerAddress, server);
+}
+
+//--------------------------------------------------------------------------------------------------
+QByteArray SystemSettings::updatePublicKey() const
+{
+    return QByteArray::fromHex(settings_.value(kUpdatePublicKey).toString().toUtf8());
+}
+
+//--------------------------------------------------------------------------------------------------
+void SystemSettings::setUpdatePublicKey(const QByteArray& public_key)
+{
+    settings_.setValue(kUpdatePublicKey, QString::fromUtf8(public_key.toHex()));
 }
 
 //--------------------------------------------------------------------------------------------------
