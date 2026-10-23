@@ -1,0 +1,143 @@
+name: linux-hosted
+
+# Linux x86_64 build for GitHub-hosted runners (no self-hosted infrastructure
+# required). The upstream workflow (.github/workflows/linux.yml) targets
+# self-hosted runners labelled ubuntu22.04/rpios12/alma8.10, so it cannot run on
+# a fork. This workflow builds all four components on a stock runner and
+# produces the .deb and .rpm packages.
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'README.md'
+      - 'LICENSE.md'
+      - 'CONTRIBUTING.md'
+      - 'CODE_OF_CONDUCT.md'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Consumed by CMakePresets.json (base preset)
+  VCPKG_INSTALLED_DIR: ${{ github.workspace }}/builds/ci/vcpkg_installed
+  VCPKG_BINARY_SOURCES: 'default,readwrite'
+
+jobs:
+  build:
+    name: x64-release
+    runs-on: ubuntu-24.04
+    timeout-minutes: 350
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          submodules: true
+
+      # Qt is built from source by vcpkg and the runner has ~14 GB of free disk.
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo apt-get clean
+          df -h /
+
+      # A couple of Qt translation units need 2-3 GB each, so make sure the
+      # compiler can page out instead of being OOM-killed. The hosted image may
+      # already have an active swap file; fallocate then fails with "Text file
+      # busy" and there is nothing left to do.
+      - name: Add swap space
+        run: |
+          if [ -n "$(swapon --show --noheadings)" ]; then
+            echo "Swap is already enabled:"
+            swapon --show
+            free -h
+            exit 0
+          fi
+          sudo fallocate -l 8G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          free -h
+
+      - name: Prepare toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake ninja-build build-essential pkg-config \
+            autoconf autoconf-archive automake libtool m4 gettext gperf \
+            libssl-dev zlib1g-dev
+          sudo apt-get install -y '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev \
+            libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev \
+            libegl1-mesa-dev libx11-dev libxext-dev
+          # host/CMakeLists.txt requires the PipeWire and libdrm pkg-config
+          # modules, and the sources include gbm.h, systemd, spa/* and
+          # security/pam_appl.h. The Package step needs rpmbuild for the RPMs.
+          sudo apt-get install -y libpipewire-0.3-dev libspa-0.2-dev libdrm-dev \
+            libgbm-dev libpam0g-dev libffi-dev libsystemd-dev rpm
+
+      - name: Bootstrap vcpkg
+        run: |
+          if [ ! -x vcpkg4aspia/vcpkg ]; then
+            ./vcpkg4aspia/bootstrap-vcpkg.sh -disableMetrics
+          fi
+          ./vcpkg4aspia/vcpkg version
+
+      # Restore and save are split on purpose: actions/cache only writes the cache
+      # when the whole job succeeds, and the first build has to compile Qt.
+      - name: Restore vcpkg binary cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ~/.cache/vcpkg/archives
+          key: vcpkg-x64-linux-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}
+          restore-keys: |
+            vcpkg-x64-linux-${{ hashFiles('vcpkg.json') }}-
+            vcpkg-x64-linux-
+
+      - name: Configure
+        env:
+          VCPKG_TRIPLET: x64-linux
+          VCPKG_DEFAULT_HOST_TRIPLET: x64-linux
+        # --clean-after-build removes the packages/ and buildtrees/ of every port
+        # once it is installed; the runner does not have the disk for both the
+        # build trees and the installed Qt.
+        run: cmake --preset ci -DVCPKG_INSTALL_OPTIONS=--clean-after-build
+
+      - name: Build
+        env:
+          VCPKG_TRIPLET: x64-linux
+          VCPKG_DEFAULT_HOST_TRIPLET: x64-linux
+        run: cmake --build --preset ci-release
+
+      - name: Tests
+        continue-on-error: true
+        timeout-minutes: 20
+        run: ctest --preset ci-release
+
+      - name: Package
+        run: |
+          mkdir -p artifacts
+          installer/linux/build_packages.sh \
+            --build-dir "${{ github.workspace }}/builds/ci/Release" \
+            --output-dir artifacts \
+            --component host --component client \
+            --component router --component relay \
+            --format deb --format rpm
+
+      - name: Upload the packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: aspia-linux-x64
+          path: artifacts/*
+          if-no-files-found: error
+
+      - name: Save vcpkg binary cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/vcpkg/archives
+          key: vcpkg-x64-linux-${{ hashFiles('vcpkg.json') }}-${{ github.sha }}
