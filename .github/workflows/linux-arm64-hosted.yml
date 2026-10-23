@@ -39,10 +39,18 @@ jobs:
           sudo apt-get clean
           df -h /
 
-      # Even with the limits above a couple of Qt files are close to the RAM
-      # size, so give the compiler some room to page out instead of dying.
+      # A couple of Qt translation units need 2-3 GB each, so give the compiler
+      # some room to page out instead of being OOM-killed mid-build. The hosted
+      # image may already have an active swap file: fallocate then fails with
+      # "Text file busy" and there is nothing left to do.
       - name: Add swap space
         run: |
+          if [ -n "$(swapon --show --noheadings)" ]; then
+            echo "Swap is already enabled:"
+            swapon --show
+            free -h
+            exit 0
+          fi
           sudo fallocate -l 8G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
           sudo chmod 600 /swapfile
           sudo mkswap /swapfile
@@ -62,8 +70,9 @@ jobs:
           # built, and its Linux screen capturers need these development files:
           # host/CMakeLists.txt requires the PipeWire and libdrm pkg-config
           # modules, and the sources include gbm.h and security/pam_appl.h.
+          # The Package step writes both .deb and .rpm, so rpmbuild is needed too.
           sudo apt-get install -y libpipewire-0.3-dev libspa-0.2-dev libdrm-dev \
-            libgbm-dev libpam0g-dev libffi-dev
+            libgbm-dev libpam0g-dev libffi-dev rpm
 
       # Restore and save are split on purpose: actions/cache only writes the cache
       # when the whole job succeeds, but this job has to build Qt from scratch and
