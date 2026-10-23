@@ -807,6 +807,36 @@ Routers added: %4</source>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="243"/>
+        <source>Export installer</source>
+        <translation>匯出安裝程式</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <source>MSI-files (*.msi)</source>
+        <translation>MSI 檔案 (*.msi)</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <source>The installer was successfully exported.</source>
+        <translation>安裝程式已成功匯出。</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <source>The installed host package was not found.</source>
+        <translation>找不到已安裝的主機套件。</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <source>The installed version of the host does not support exporting the installer.</source>
+        <translation>已安裝的主機版本不支援匯出安裝程式。</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <source>Unable to export the installer.</source>
+        <translation>無法匯出安裝程式。</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="134"/>
         <source>Use custom update server</source>
         <translation>使用自訂更新伺服器</translation>

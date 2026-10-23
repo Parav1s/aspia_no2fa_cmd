@@ -807,6 +807,36 @@ Hozzáadott útválasztók: %4</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="243"/>
+        <source>Export installer</source>
+        <translation>Telepítő exportálása</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <source>MSI-files (*.msi)</source>
+        <translation>MSI-fájlok (*.msi)</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <source>The installer was successfully exported.</source>
+        <translation>A telepítő sikeresen exportálva.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <source>The installed host package was not found.</source>
+        <translation>A telepített gazdagép-csomag nem található.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <source>The installed version of the host does not support exporting the installer.</source>
+        <translation>A gazdagép telepített verziója nem támogatja a telepítő exportálását.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <source>Unable to export the installer.</source>
+        <translation>A telepítő exportálása nem sikerült.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="134"/>
         <source>Use custom update server</source>
         <translation>Egyéni frissítési kiszolgáló használata</translation>

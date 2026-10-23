@@ -21,6 +21,7 @@
 #include <QCollator>
 #include <QFileDialog>
 #include <QMenu>
+#include <QStandardPaths>
 #include <QTimer>
 #include <QTranslator>
 
@@ -42,6 +43,11 @@
 #include "host/ui/check_password_dialog.h"
 #include "host/ui/ui_config_dialog.h"
 #include "host/ui/user_dialog.h"
+#include "version.h"
+
+#if defined(Q_OS_WINDOWS)
+#include "host/win/msi_package.h"
+#endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_MACOS)
 #include <QComboBox>
@@ -51,6 +57,17 @@
 #endif // defined(Q_OS_MACOS)
 
 namespace {
+
+#if defined(Q_OS_WINDOWS)
+// Where the save dialog starts: the desktop, with |file_name| filled in.
+QString desktopPath(const QString& file_name)
+{
+    const QString desktop = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    if (desktop.isEmpty())
+        return file_name;
+    return desktop + '/' + file_name;
+}
+#endif // defined(Q_OS_WINDOWS)
 
 class UserTreeItem final : public QTreeWidgetItem
 {
@@ -113,6 +130,12 @@ ConfigDialog::ConfigDialog(QWidget* parent)
 
     connect(ui->button_import, &QPushButton::clicked, this, &ConfigDialog::onImport);
     connect(ui->button_export, &QPushButton::clicked, this, &ConfigDialog::onExport);
+#if defined(Q_OS_WINDOWS)
+    connect(ui->button_export_installer, &QPushButton::clicked,
+            this, &ConfigDialog::onExportInstaller);
+#else
+    ui->button_export_installer->hide();
+#endif // defined(Q_OS_WINDOWS)
 
     ui->combobox_update_check_freq->addItem(tr("Once a day"), 1);
     ui->combobox_update_check_freq->addItem(tr("Once a week"), 7);
@@ -556,6 +579,51 @@ void ConfigDialog::onExport()
     }
 
     SettingsUtil::exportToFile(file_path, false, this);
+}
+
+//--------------------------------------------------------------------------------------------------
+void ConfigDialog::onExportInstaller()
+{
+#if defined(Q_OS_WINDOWS)
+    LOG(INFO) << "[ACTION] Export installer";
+
+    QString arch = "x86";
+#if defined(Q_PROCESSOR_ARM_64)
+    arch = "arm64";
+#elif defined(Q_PROCESSOR_X86_64)
+    arch = "x86_64";
+#endif
+
+    const QString default_name =
+        QString("aspia-host-%1-%2.msi").arg(ASPIA_VERSION_SHORT_STRING).arg(arch);
+    const QString file_path = QFileDialog::getSaveFileName(
+        this, tr("Export"), desktopPath(default_name), tr("MSI-files (*.msi)"));
+    if (file_path.isEmpty())
+    {
+        LOG(INFO) << "No selected file path";
+        return;
+    }
+
+    switch (MsiPackage::exportWithSettings(file_path))
+    {
+        case MsiPackage::Result::SUCCESS:
+            MsgBox::information(this, tr("The installer was successfully exported."));
+            break;
+
+        case MsiPackage::Result::NO_PACKAGE:
+            MsgBox::warning(this, tr("The installed host package was not found."));
+            break;
+
+        case MsiPackage::Result::UNSUPPORTED_PACKAGE:
+            MsgBox::warning(this, tr("The installed version of the host does not support "
+                                     "exporting the installer."));
+            break;
+
+        case MsiPackage::Result::FAILED:
+            MsgBox::warning(this, tr("Unable to export the installer."));
+            break;
+    }
+#endif // defined(Q_OS_WINDOWS)
 }
 
 //--------------------------------------------------------------------------------------------------

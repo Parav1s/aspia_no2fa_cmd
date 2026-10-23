@@ -810,6 +810,36 @@ Hinzugefügte Router: %4</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="243"/>
+        <source>Export installer</source>
+        <translation>Installationsprogramm exportieren</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <source>MSI-files (*.msi)</source>
+        <translation>MSI-Dateien (*.msi)</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <source>The installer was successfully exported.</source>
+        <translation>Das Installationsprogramm wurde erfolgreich exportiert.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <source>The installed host package was not found.</source>
+        <translation>Das installierte Host-Paket wurde nicht gefunden.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <source>The installed version of the host does not support exporting the installer.</source>
+        <translation>Die installierte Version des Hosts unterstützt den Export des Installationsprogramms nicht.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <source>Unable to export the installer.</source>
+        <translation>Das Installationsprogramm konnte nicht exportiert werden.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="134"/>
         <source>Use custom update server</source>
         <translation>Benutzerdefinierten Update-Server verwenden</translation>

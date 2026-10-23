@@ -813,6 +813,36 @@ Routers added: %4</source>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="243"/>
+        <source>Export installer</source>
+        <translation>Експорт інсталятора</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <source>MSI-files (*.msi)</source>
+        <translation>Файли MSI (*.msi)</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <source>The installer was successfully exported.</source>
+        <translation>Інсталятор успішно експортовано.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <source>The installed host package was not found.</source>
+        <translation>Встановлений пакет хоста не знайдено.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <source>The installed version of the host does not support exporting the installer.</source>
+        <translation>Встановлена версія хоста не підтримує експорт інсталятора.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <source>Unable to export the installer.</source>
+        <translation>Не вдалося експортувати інсталятор.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="134"/>
         <source>Use custom update server</source>
         <translation>Використовувати власний сервер оновлень</translation>

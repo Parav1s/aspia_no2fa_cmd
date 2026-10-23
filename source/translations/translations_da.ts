@@ -810,6 +810,36 @@ Routere tilføjet: %4</translation>
 <context>
     <name>ConfigDialog</name>
     <message>
+        <location filename="../host/ui/config_dialog.ui" line="243"/>
+        <source>Export installer</source>
+        <translation>Eksportér installationsprogram</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <source>MSI-files (*.msi)</source>
+        <translation>MSI-filer (*.msi)</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <source>The installer was successfully exported.</source>
+        <translation>Installationsprogrammet blev eksporteret.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <source>The installed host package was not found.</source>
+        <translation>Den installerede værtspakke blev ikke fundet.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <source>The installed version of the host does not support exporting the installer.</source>
+        <translation>Den installerede version af værten understøtter ikke eksport af installationsprogrammet.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <source>Unable to export the installer.</source>
+        <translation>Installationsprogrammet kunne ikke eksporteres.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/config_dialog.ui" line="134"/>
         <source>Use custom update server</source>
         <translation>Brug brugerdefineret opdateringsserver</translation>
