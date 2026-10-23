@@ -243,6 +243,18 @@ void UserSession::onClientSwitchSession(SessionId session_id)
     if (session_id == session_id_)
         return;
 
+#if defined(Q_OS_WINDOWS)
+    // The client may switch the remote desktop to a session where nobody is logged on (the console
+    // logon screen). That is fine for the desktop agent, but moving the host UI there would leave it
+    // without a user and tear down its IPC channel. Keep the UI where it is.
+    if (!hasLoggedOnUser(session_id))
+    {
+        LOG(INFO) << "Client switched to session" << session_id
+                  << "without a logged-on user; keeping the host UI in the current session";
+        return;
+    }
+#endif // defined(Q_OS_WINDOWS)
+
     LOG(INFO) << "Switch session:" << session_id;
     dettach(FROM_HERE);
     attach(FROM_HERE, AttachReason::SWITCH_SESSION, session_id);
