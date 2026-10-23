@@ -4822,44 +4822,6 @@ Tuotuja kirjautumistietoja: %5</translation>
     </message>
 </context>
 <context>
-    <name>RouterTempHostsWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="63"/>
-        <source>Previous</source>
-        <translation>Edellinen</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="64"/>
-        <source>Previous page</source>
-        <translation>Edellinen sivu</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="68"/>
-        <source>Next</source>
-        <translation>Seuraava</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="69"/>
-        <source>Next page</source>
-        <translation>Seuraava sivu</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="87"/>
-        <source>Items per page:</source>
-        <translation>Kohteita sivulla:</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="189"/>
-        <source>Approving a host will give it permanent access to the router. Are you sure you want to approve host &quot;%1&quot;?</source>
-        <translation>Isännän hyväksyminen antaa sille pysyvän käyttöoikeuden reitittimeen. Haluatko varmasti hyväksyä isännän &quot;%1&quot;?</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="240"/>
-        <source>Failed to approve the host.</source>
-        <translation>Isännän hyväksyminen epäonnistui.</translation>
-    </message>
-</context>
-<context>
     <name>RouterUserDialog</name>
     <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="14"/>
@@ -5981,8 +5943,8 @@ Tuotuja kirjautumistietoja: %5</translation>
     <name>SidebarRouterHosts</name>
     <message>
         <location filename="../client/desktop/management/sidebar_items.cc" line="189"/>
-        <source>Approved Hosts</source>
-        <translation>Hyväksytyt isännät</translation>
+        <source>Hosts</source>
+        <translation>Isännät</translation>
     </message>
 </context>
 <context>
@@ -5991,14 +5953,6 @@ Tuotuja kirjautumistietoja: %5</translation>
         <location filename="../client/desktop/management/sidebar_items.cc" line="216"/>
         <source>Relays</source>
         <translation>Välityspalvelimet</translation>
-    </message>
-</context>
-<context>
-    <name>SidebarRouterTempHosts</name>
-    <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="225"/>
-        <source>Unapproved Hosts</source>
-        <translation>Hyväksymättömät isännät</translation>
     </message>
 </context>
 <context>
@@ -10193,34 +10147,6 @@ Tuotuja kirjautumistietoja: %5</translation>
         <location filename="../client/telemetry_model.cc" line="454"/>
         <source>Never</source>
         <translation>Ei koskaan</translation>
-    </message>
-</context>
-<context>
-    <name>TempHostListModel</name>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="131"/>
-        <source>ID</source>
-        <translation>ID</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="134"/>
-        <source>Computer Name</source>
-        <translation>Tietokoneen nimi</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="137"/>
-        <source>Operating System</source>
-        <translation>Käyttöjärjestelmä</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="140"/>
-        <source>Version</source>
-        <translation>Versio</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="143"/>
-        <source>Address</source>
-        <translation>Osoite</translation>
     </message>
 </context>
 <context>

@@ -54,7 +54,6 @@
 #include "client/desktop/management/router_hosts_widget.h"
 #include "client/desktop/management/router_relays_widget.h"
 #include "client/desktop/management/router_status_widget.h"
-#include "client/desktop/management/router_temp_hosts_widget.h"
 #include "client/desktop/management/router_users_widget.h"
 #include "client/desktop/management/router_workspace_dialog.h"
 #include "client/desktop/management/search_widget.h"
@@ -142,7 +141,6 @@ ManagementTab::ManagementTab(QWidget* parent)
     local_group_widget_ = new LocalGroupWidget(this);
     router_group_widget_ = new RouterGroupWidget(this);
     router_hosts_widget_ = new RouterHostsWidget(this);
-    router_temp_hosts_widget_ = new RouterTempHostsWidget(this);
     router_users_widget_ = new RouterUsersWidget(this);
     router_clients_widget_ = new RouterClientsWidget(this);
     router_relays_widget_ = new RouterRelaysWidget(this);
@@ -152,7 +150,6 @@ ManagementTab::ManagementTab(QWidget* parent)
     ui->content_stack->addWidget(local_group_widget_);
     ui->content_stack->addWidget(router_group_widget_);
     ui->content_stack->addWidget(router_hosts_widget_);
-    ui->content_stack->addWidget(router_temp_hosts_widget_);
     ui->content_stack->addWidget(router_users_widget_);
     ui->content_stack->addWidget(router_clients_widget_);
     ui->content_stack->addWidget(router_relays_widget_);
@@ -169,11 +166,6 @@ ManagementTab::ManagementTab(QWidget* parent)
             this, &ManagementTab::updateActionsState);
     connect(router_hosts_widget_, &RouterHostsWidget::sig_contextMenu,
             this, &ManagementTab::onHostContextMenu);
-
-    connect(router_temp_hosts_widget_, &RouterTempHostsWidget::sig_currentChanged,
-            this, &ManagementTab::updateActionsState);
-    connect(router_temp_hosts_widget_, &RouterTempHostsWidget::sig_contextMenu,
-            this, &ManagementTab::onTempHostContextMenu);
 
     connect(router_users_widget_, &RouterUsersWidget::sig_currentChanged,
             this, &ManagementTab::updateActionsState);
@@ -254,7 +246,6 @@ ManagementTab::ManagementTab(QWidget* parent)
     connect(ui->action_disconnect, &QAction::triggered, this, &ManagementTab::onDisconnectAction);
     connect(ui->action_disconnect_all, &QAction::triggered, this, &ManagementTab::onDisconnectAllAction);
     connect(ui->action_host_remove, &QAction::triggered, this, &ManagementTab::onRemoveHostAction);
-    connect(ui->action_host_approve, &QAction::triggered, this, &ManagementTab::onApproveHostAction);
     connect(ui->action_host_check_updates, &QAction::triggered, this, &ManagementTab::onCheckHostUpdatesAction);
     connect(ui->action_host_telemetry, &QAction::triggered, this, &ManagementTab::onHostTelemetryAction);
     connect(ui->action_online_check, &QAction::toggled, this, &ManagementTab::onOnlineCheckToggled);
@@ -285,7 +276,7 @@ ManagementTab::ManagementTab(QWidget* parent)
     addActions(ActionRole::EDIT,
     {
         ui->action_add_host, ui->action_edit_host, ui->action_copy_host, ui->action_delete_host,
-        ui->action_host_check_updates, ui->action_host_telemetry, ui->action_host_approve,
+        ui->action_host_check_updates, ui->action_host_telemetry,
         ui->action_host_remove, ui->action_disconnect, ui->action_disconnect_all
     });
     addActions(ActionRole::ACTION,
@@ -327,7 +318,6 @@ QByteArray ManagementTab::saveState()
         stream << local_group_widget_->saveState();
         stream << router_group_widget_->saveState();
         stream << router_hosts_widget_->saveState();
-        stream << router_temp_hosts_widget_->saveState();
         stream << router_users_widget_->saveState();
         stream << router_clients_widget_->saveState();
         stream << router_relays_widget_->saveState();
@@ -349,7 +339,6 @@ void ManagementTab::restoreState(const QByteArray& state)
     QByteArray local_group_state;
     QByteArray router_group_state;
     QByteArray router_hosts_state;
-    QByteArray router_temp_hosts_state;
     QByteArray router_users_state;
     QByteArray router_clients_state;
     QByteArray router_relays_state;
@@ -361,7 +350,6 @@ void ManagementTab::restoreState(const QByteArray& state)
     stream >> local_group_state;
     stream >> router_group_state;
     stream >> router_hosts_state;
-    stream >> router_temp_hosts_state;
     stream >> router_users_state;
     stream >> router_clients_state;
     stream >> router_relays_state;
@@ -378,9 +366,6 @@ void ManagementTab::restoreState(const QByteArray& state)
 
     if (!router_hosts_state.isEmpty())
         router_hosts_widget_->restoreState(router_hosts_state);
-
-    if (!router_temp_hosts_state.isEmpty())
-        router_temp_hosts_widget_->restoreState(router_temp_hosts_state);
 
     if (!router_users_state.isEmpty())
         router_users_widget_->restoreState(router_users_state);
@@ -561,18 +546,6 @@ void ManagementTab::onSwitchContent(SidebarItem::Type type)
             auto* hosts_item = static_cast<SidebarRouterHosts*>(sidebar_item);
             switchContent(router_hosts_widget_);
             router_hosts_widget_->showRouter(hosts_item->routerId());
-        }
-        break;
-
-        case SidebarItem::ROUTER_TEMP_HOSTS:
-        {
-            SidebarItem* sidebar_item = ui->sidebar->currentItem();
-            if (!sidebar_item || sidebar_item->itemType() != SidebarItem::ROUTER_TEMP_HOSTS)
-                break;
-
-            auto* temp_hosts_item = static_cast<SidebarRouterTempHosts*>(sidebar_item);
-            switchContent(router_temp_hosts_widget_);
-            router_temp_hosts_widget_->showRouter(temp_hosts_item->routerId());
         }
         break;
 
@@ -761,14 +734,6 @@ void ManagementTab::onConnectAction(QAction* action)
         if (!router_hosts_widget_->hasSelectedHost())
             return;
         host = router_hosts_widget_->selectedHostConfig();
-        if (!validateHostForConnect(host))
-            return;
-    }
-    else if (current_content_ == router_temp_hosts_widget_)
-    {
-        if (!router_temp_hosts_widget_->hasSelectedHost())
-            return;
-        host = router_temp_hosts_widget_->selectedHostConfig();
         if (!validateHostForConnect(host))
             return;
     }
@@ -1144,24 +1109,6 @@ void ManagementTab::onHostContextMenu(const QPoint& pos, int column)
         router_hosts_widget_->copyCurrentHostRow();
     else if (action == copy_col)
         router_hosts_widget_->copyCurrentHostColumn(column);
-}
-
-//--------------------------------------------------------------------------------------------------
-void ManagementTab::onTempHostContextMenu(const QPoint& pos)
-{
-    if (!router_temp_hosts_widget_->hasSelectedHost())
-        return;
-
-    QMenu menu;
-    menu.addAction(ui->action_host_approve);
-    menu.addSeparator();
-    menu.addAction(ui->action_desktop_connect);
-    menu.addAction(ui->action_terminal_connect);
-    menu.addAction(ui->action_file_transfer_connect);
-    menu.addAction(ui->action_chat_connect);
-    menu.addAction(ui->action_system_info_connect);
-
-    menu.exec(pos);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -1714,13 +1661,6 @@ void ManagementTab::onRemoveHostAction()
 }
 
 //--------------------------------------------------------------------------------------------------
-void ManagementTab::onApproveHostAction()
-{
-    if (current_content_ == router_temp_hosts_widget_)
-        router_temp_hosts_widget_->onApproveHost();
-}
-
-//--------------------------------------------------------------------------------------------------
 void ManagementTab::onCheckHostUpdatesAction()
 {
     if (current_content_ == router_hosts_widget_)
@@ -1794,7 +1734,6 @@ void ManagementTab::updateActionsState()
     ui->action_disconnect->setVisible(false);
     ui->action_disconnect_all->setVisible(false);
     ui->action_host_remove->setVisible(false);
-    ui->action_host_approve->setVisible(false);
     ui->action_host_check_updates->setVisible(false);
     ui->action_host_telemetry->setVisible(false);
     ui->action_online_check->setVisible(false);
@@ -1895,23 +1834,6 @@ void ManagementTab::updateActionsState()
         ui->action_chat_connect->setVisible(can_connect);
         ui->action_system_info_connect->setVisible(can_connect);
         ui->action_terminal_connect->setVisible(can_connect);
-    }
-    else if (sidebar_item && sidebar_item->itemType() == SidebarItem::ROUTER_TEMP_HOSTS)
-    {
-        const bool has_host = router_temp_hosts_widget_->hasSelectedHost();
-
-        proto::router::SessionType session_type = proto::router::SESSION_TYPE_OPERATOR;
-        RouterSession* session = RouterController::session(router_temp_hosts_widget_->routerId());
-        if (session)
-            session_type = session->config().sessionType();
-
-        ui->action_host_approve->setVisible(
-            has_host && session_type == proto::router::SESSION_TYPE_ADMIN);
-        ui->action_desktop_connect->setVisible(has_host);
-        ui->action_file_transfer_connect->setVisible(has_host);
-        ui->action_chat_connect->setVisible(has_host);
-        ui->action_system_info_connect->setVisible(has_host);
-        ui->action_terminal_connect->setVisible(has_host);
     }
 
     // The address book is saved and restored as a whole, routers included, so its actions go with

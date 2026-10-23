@@ -4798,44 +4798,6 @@ Credentials imported: %5</source>
     </message>
 </context>
 <context>
-    <name>RouterTempHostsWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="63"/>
-        <source>Previous</source>
-        <translation>上一页</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="64"/>
-        <source>Previous page</source>
-        <translation>上一页</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="68"/>
-        <source>Next</source>
-        <translation>下一页</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="69"/>
-        <source>Next page</source>
-        <translation>下一页</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="87"/>
-        <source>Items per page:</source>
-        <translation>每页项目数：</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="189"/>
-        <source>Approving a host will give it permanent access to the router. Are you sure you want to approve host &quot;%1&quot;?</source>
-        <translation>批准主机将授予其对路由器的永久访问权限。确定要批准主机&quot;%1&quot;吗？</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="240"/>
-        <source>Failed to approve the host.</source>
-        <translation>无法批准主机。</translation>
-    </message>
-</context>
-<context>
     <name>RouterUserDialog</name>
     <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="14"/>
@@ -5947,8 +5909,8 @@ Credentials imported: %5</source>
     <name>SidebarRouterHosts</name>
     <message>
         <location filename="../client/desktop/management/sidebar_items.cc" line="189"/>
-        <source>Approved Hosts</source>
-        <translation>已批准的主机</translation>
+        <source>Hosts</source>
+        <translation>主机</translation>
     </message>
 </context>
 <context>
@@ -5957,14 +5919,6 @@ Credentials imported: %5</source>
         <location filename="../client/desktop/management/sidebar_items.cc" line="216"/>
         <source>Relays</source>
         <translation>中继服务器</translation>
-    </message>
-</context>
-<context>
-    <name>SidebarRouterTempHosts</name>
-    <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="225"/>
-        <source>Unapproved Hosts</source>
-        <translation>未批准的主机</translation>
     </message>
 </context>
 <context>
@@ -10158,34 +10112,6 @@ Credentials imported: %5</source>
         <location filename="../client/telemetry_model.cc" line="454"/>
         <source>Never</source>
         <translation>从不</translation>
-    </message>
-</context>
-<context>
-    <name>TempHostListModel</name>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="131"/>
-        <source>ID</source>
-        <translation>ID</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="134"/>
-        <source>Computer Name</source>
-        <translation>计算机名称</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="137"/>
-        <source>Operating System</source>
-        <translation>操作系统</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="140"/>
-        <source>Version</source>
-        <translation>版本</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="143"/>
-        <source>Address</source>
-        <translation>地址</translation>
     </message>
 </context>
 <context>

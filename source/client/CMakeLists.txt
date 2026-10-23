@@ -99,7 +99,6 @@ list(APPEND SOURCE_CLIENT_TESTS
     desktop/management/router_status_widget_unittest.cc
     desktop/management/router_user_dialog_unittest.cc
     desktop/management/search_result_model_unittest.cc
-    desktop/management/temp_host_list_model_unittest.cc
     desktop/management/user_list_model_unittest.cc
     router_cache_unittest.cc
     router_controller_unittest.cc

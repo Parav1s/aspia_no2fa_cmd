@@ -1130,10 +1130,6 @@ void Sidebar::buildRouterSections(qint64 router_id)
         move_to_top(new SidebarRouterHosts(router_id, router));
     }
 
-    // The unapproved (temporary) hosts section is shown to every session type; it sits just above
-    // the hosts section.
-    move_to_top(new SidebarRouterTempHosts(router_id, router));
-
     router->setExpanded(true);
     selectPendingItem();
 }
@@ -1150,8 +1146,7 @@ void Sidebar::removeRouterSections(qint64 router_id)
         SidebarItem* child = static_cast<SidebarItem*>(router->child(i));
         const SidebarItem::Type type = child->itemType();
         if (type == SidebarItem::ROUTER_HOSTS || type == SidebarItem::ROUTER_USERS ||
-            type == SidebarItem::ROUTER_CLIENTS || type == SidebarItem::ROUTER_RELAYS ||
-            type == SidebarItem::ROUTER_TEMP_HOSTS)
+            type == SidebarItem::ROUTER_CLIENTS || type == SidebarItem::ROUTER_RELAYS)
         {
             delete router->takeChild(i);
         }

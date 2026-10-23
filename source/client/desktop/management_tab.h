@@ -47,7 +47,6 @@ class RouterGroupWidget;
 class RouterHostsWidget;
 class RouterRelaysWidget;
 class RouterStatusWidget;
-class RouterTempHostsWidget;
 class RouterUsersWidget;
 class SearchWidget;
 
@@ -85,7 +84,6 @@ private slots:
     void onRemoveHost();
     void onUserContextMenu(const QPoint& pos);
     void onHostContextMenu(const QPoint& pos, int column);
-    void onTempHostContextMenu(const QPoint& pos);
     void onClientContextMenu(const QPoint& pos, int column);
     void onRelayContextMenu(const QPoint& pos, int column);
     void onRouterGroupContextMenu(const QPoint& pos);
@@ -108,7 +106,6 @@ private slots:
     void onDisconnectAction();
     void onDisconnectAllAction();
     void onRemoveHostAction();
-    void onApproveHostAction();
     void onCheckHostUpdatesAction();
     void onHostTelemetryAction();
     void onOnlineCheckToggled(bool checked);
@@ -137,7 +134,6 @@ private:
     LocalGroupWidget* local_group_widget_ = nullptr;
     RouterGroupWidget* router_group_widget_ = nullptr;
     RouterHostsWidget* router_hosts_widget_ = nullptr;
-    RouterTempHostsWidget* router_temp_hosts_widget_ = nullptr;
     RouterUsersWidget* router_users_widget_ = nullptr;
     RouterClientsWidget* router_clients_widget_ = nullptr;
     RouterRelaysWidget* router_relays_widget_ = nullptr;

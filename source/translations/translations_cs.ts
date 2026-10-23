@@ -4846,44 +4846,6 @@ Importované přihlašovací údaje: %5</translation>
     </message>
 </context>
 <context>
-    <name>RouterTempHostsWidget</name>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="63"/>
-        <source>Previous</source>
-        <translation>Předchozí</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="64"/>
-        <source>Previous page</source>
-        <translation>Předchozí stránka</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="68"/>
-        <source>Next</source>
-        <translation>Další</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="69"/>
-        <source>Next page</source>
-        <translation>Další stránka</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="87"/>
-        <source>Items per page:</source>
-        <translation>Položek na stránku:</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="189"/>
-        <source>Approving a host will give it permanent access to the router. Are you sure you want to approve host &quot;%1&quot;?</source>
-        <translation>Schválení hostitele mu udělí trvalý přístup k routeru. Opravdu chcete schválit hostitele &quot;%1&quot;?</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/router_temp_hosts_widget.cc" line="240"/>
-        <source>Failed to approve the host.</source>
-        <translation>Nepodařilo se schválit hostitele.</translation>
-    </message>
-</context>
-<context>
     <name>RouterUserDialog</name>
     <message>
         <location filename="../client/desktop/management/router_user_dialog.ui" line="14"/>
@@ -6015,8 +5977,8 @@ Importované přihlašovací údaje: %5</translation>
     <name>SidebarRouterHosts</name>
     <message>
         <location filename="../client/desktop/management/sidebar_items.cc" line="189"/>
-        <source>Approved Hosts</source>
-        <translation>Schválení hostitelé</translation>
+        <source>Hosts</source>
+        <translation>Hostitelé</translation>
     </message>
 </context>
 <context>
@@ -6025,14 +5987,6 @@ Importované přihlašovací údaje: %5</translation>
         <location filename="../client/desktop/management/sidebar_items.cc" line="216"/>
         <source>Relays</source>
         <translation>Relay servery</translation>
-    </message>
-</context>
-<context>
-    <name>SidebarRouterTempHosts</name>
-    <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="225"/>
-        <source>Unapproved Hosts</source>
-        <translation>Neschválení hostitelé</translation>
     </message>
 </context>
 <context>
@@ -10228,34 +10182,6 @@ Importované přihlašovací údaje: %5</translation>
         <location filename="../client/telemetry_model.cc" line="454"/>
         <source>Never</source>
         <translation>Nikdy</translation>
-    </message>
-</context>
-<context>
-    <name>TempHostListModel</name>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="131"/>
-        <source>ID</source>
-        <translation>ID</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="134"/>
-        <source>Computer Name</source>
-        <translation>Název počítače</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="137"/>
-        <source>Operating System</source>
-        <translation>Operační systém</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="140"/>
-        <source>Version</source>
-        <translation>Verze</translation>
-    </message>
-    <message>
-        <location filename="../client/desktop/management/temp_host_list_model.cc" line="143"/>
-        <source>Address</source>
-        <translation>Adresa</translation>
     </message>
 </context>
 <context>

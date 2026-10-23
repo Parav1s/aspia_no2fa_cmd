@@ -66,8 +66,6 @@ collect_sources(SOURCE_CLIENT_CORE_DESKTOP_MANAGEMENT_TAB
     router_status_widget.cc
     router_status_widget.h
     router_status_widget.ui
-    router_temp_hosts_widget.cc
-    router_temp_hosts_widget.h
     router_user_dialog.cc
     router_user_dialog.h
     router_user_dialog.ui
@@ -88,8 +86,6 @@ collect_sources(SOURCE_CLIENT_CORE_DESKTOP_MANAGEMENT_TAB
     sidebar.h
     sidebar_items.cc
     sidebar_items.h
-    temp_host_list_model.cc
-    temp_host_list_model.h
     user_edit_model.cc
     user_edit_model.h
     user_list_model.cc
