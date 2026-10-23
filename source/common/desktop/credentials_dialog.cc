@@ -40,6 +40,7 @@ CredentialsDialog::CredentialsDialog(Type type, QWidget* parent)
 
     ui->label_icon->setVisible(false);
     ui->label_description->setVisible(false);
+    ui->checkbox_remember->setVisible(false);
 
     switch (type_)
     {
@@ -118,6 +119,20 @@ void CredentialsDialog::setShowPasswordButtonVisible(bool visible)
     ui->edit_current->setShowPasswordButtonVisible(visible);
     ui->edit_password->setShowPasswordButtonVisible(visible);
     ui->edit_confirm->setShowPasswordButtonVisible(visible);
+}
+
+//--------------------------------------------------------------------------------------------------
+void CredentialsDialog::setRememberOptionVisible(bool visible)
+{
+    ui->checkbox_remember->setVisible(visible);
+
+    fitHeight();
+}
+
+//--------------------------------------------------------------------------------------------------
+bool CredentialsDialog::isRememberChecked() const
+{
+    return ui->checkbox_remember->isChecked();
 }
 
 //--------------------------------------------------------------------------------------------------

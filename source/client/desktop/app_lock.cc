@@ -56,6 +56,14 @@ AppLock::~AppLock() = default;
 // static
 AppLock::Result AppLock::unlock()
 {
+    // The key remembered for this computer opens the database without a dialog: this is the path a
+    // lock timeout takes once the user chose to remember the password.
+    if (MasterPassword::autoUnlock())
+    {
+        LOG(INFO) << "Unlocked with the remembered key";
+        return Result::UNLOCKED;
+    }
+
     while (true)
     {
         CredentialsDialog dialog(CredentialsDialog::Type::ENTER_PASSWORD, nullptr);
@@ -65,6 +73,7 @@ AppLock::Result AppLock::unlock()
         dialog.setHeaderText(QApplication::translate(
             "Client", "Enter the master password to unlock the application."));
         dialog.setShowPasswordButtonVisible(true);
+        dialog.setRememberOptionVisible(true);
 
         Settings settings;
         dialog.restoreGeometry(settings.dialogGeometry(dialog.objectName()));
@@ -90,6 +99,17 @@ AppLock::Result AppLock::unlock()
         if (unlocked == MasterPassword::Result::SUCCESS)
         {
             LOG(INFO) << "Master password accepted";
+
+            // The user may ask to keep the key of the database for this computer. The key is wrapped
+            // by the system keystore of the current user, the password itself is not stored anywhere.
+            if (dialog.isRememberChecked())
+            {
+                if (MasterPassword::setAutoUnlockEnabled(true))
+                    LOG(INFO) << "The master password is remembered for this computer";
+                else
+                    LOG(WARNING) << "Unable to remember the master password";
+            }
+
             return Result::UNLOCKED;
         }
 

@@ -55,6 +55,11 @@ public:
     // Embeds a trailing toggle action in every password edit of the dialog.
     void setShowPasswordButtonVisible(bool visible);
 
+    // Shows an option below the fields that the caller can use to keep the password for this
+    // computer. Hidden by default; the caller reads it after the dialog was accepted.
+    void setRememberOptionVisible(bool visible);
+    bool isRememberChecked() const;
+
     // Override the default label for each field.
     void setPasswordLabel(const QString& text);
     void setNewPasswordLabel(const QString& text);

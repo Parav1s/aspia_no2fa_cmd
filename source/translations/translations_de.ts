@@ -1524,6 +1524,11 @@ Ersetzte Anmeldedaten: %2</translation>
 <context>
     <name>CredentialsDialog</name>
     <message>
+        <location filename="../common/desktop/credentials_dialog.ui" line="111"/>
+        <source>Remember the password on this computer</source>
+        <translation>Passwort auf diesem Computer merken</translation>
+    </message>
+    <message>
         <location filename="../common/desktop/credentials_dialog.ui" line="79"/>
         <source>Current password:</source>
         <translation>Aktuelles Kennwort:</translation>
@@ -5406,6 +5411,11 @@ Importierte Anmeldedaten: %5</translation>
 </context>
 <context>
     <name>SettingsTab</name>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="275"/>
+        <source>Unlock automatically on startup</source>
+        <translation>Beim Start automatisch entsperren</translation>
+    </message>
     <message>
         <location filename="../client/desktop/settings_tab.ui" line="126"/>
         <source>Interface</source>

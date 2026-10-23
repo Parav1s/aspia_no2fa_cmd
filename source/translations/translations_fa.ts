@@ -1516,6 +1516,11 @@ Credentials replaced: %2</source>
 <context>
     <name>CredentialsDialog</name>
     <message>
+        <location filename="../common/desktop/credentials_dialog.ui" line="111"/>
+        <source>Remember the password on this computer</source>
+        <translation>به خاطر سپردن گذرواژه در این رایانه</translation>
+    </message>
+    <message>
         <location filename="../common/desktop/credentials_dialog.ui" line="79"/>
         <source>Current password:</source>
         <translation>گذرواژه فعلی:</translation>
@@ -5377,6 +5382,11 @@ Credentials imported: %5</source>
 </context>
 <context>
     <name>SettingsTab</name>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="275"/>
+        <source>Unlock automatically on startup</source>
+        <translation>بازکردن خودکار قفل هنگام اجرا</translation>
+    </message>
     <message>
         <location filename="../client/desktop/settings_tab.ui" line="126"/>
         <source>Interface</source>
