@@ -91,6 +91,7 @@ private:
     void createTrayIcon();
     void updateStatusBar();
     void updateTrayIconTooltip();
+    void updatePasswordSection();
     QString lastKnownHostId() const;
     quint32 calcOneTimeSessions();
 

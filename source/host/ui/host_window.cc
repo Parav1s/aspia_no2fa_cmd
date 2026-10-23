@@ -516,6 +516,10 @@ void HostWindow::onCredentialsChanged(const proto::user::Credentials& credential
     ui->edit_password->setText(has_password ?
         QString::fromStdString(credentials.password()) : QString(kUnknownValue));
 
+    // The service repeats the credentials when the settings change, so this is also where a
+    // remotely switched off one-time password reaches the window.
+    updatePasswordSection();
+
     updateTrayIconTooltip();
 }
 
@@ -533,6 +537,7 @@ void HostWindow::onRouterStateChanged(const proto::user::RouterState& state)
         ui->edit_password->setText(kUnknownValue);
     }
 
+    updatePasswordSection();
     updateStatusBar();
 }
 
@@ -869,6 +874,29 @@ void HostWindow::onSettingsChanged()
     LOG(INFO) << "Settings changed";
     SystemSettings settings;
     ui->action_exit->setEnabled(!settings.isApplicationShutdownDisabled());
+
+    updatePasswordSection();
+}
+
+//--------------------------------------------------------------------------------------------------
+void HostWindow::updatePasswordSection()
+{
+    Database& db = Database::instance();
+
+    // A database that cannot be read says nothing about the setting, so the password keeps its place
+    // then, as it always had.
+    const bool enabled = !db.isValid() || db.oneTimePassword();
+
+    ui->label_password->setVisible(enabled);
+    ui->frame->setVisible(enabled);
+
+    // The window takes its height from the content on the first show; a row that went away has to
+    // shrink it, or the window keeps an empty place where the password was.
+    if (height_pinned_)
+    {
+        centralWidget()->layout()->activate();
+        setFixedHeight(minimumSizeHint().height());
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
