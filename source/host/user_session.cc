@@ -401,7 +401,19 @@ void UserSession::onUserSessionEvent(quint32 status, quint32 session_id)
         case WTS_CONSOLE_CONNECT:
         {
             if (is_console_)
+            {
+                // A console that only reached the logon screen has no user to serve. Attaching to
+                // it would take the host away from the remote session a user is actually working
+                // in and leave its host window without a service.
+                SessionInfo console_info(session_id);
+                if (!console_info.isValid() || console_info.userName().isEmpty())
+                {
+                    LOG(INFO) << "Console session has no logged-on user; keeping the current session";
+                    break;
+                }
+
                 attach(FROM_HERE, AttachReason::OTHER, session_id);
+            }
         }
         break;
 
@@ -426,7 +438,11 @@ void UserSession::onUserSessionEvent(quint32 status, quint32 session_id)
         case WTS_SESSION_UNLOCK:
         {
             if (state_ == State::DETTACHED && is_console_ && session_id == activeConsoleSessionId())
-                attach(FROM_HERE, AttachReason::OTHER, session_id);
+            {
+                SessionInfo session_info(session_id);
+                if (session_info.isValid() && !session_info.userName().isEmpty())
+                    attach(FROM_HERE, AttachReason::OTHER, session_id);
+            }
         }
         break;
 

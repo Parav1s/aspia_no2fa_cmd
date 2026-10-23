@@ -68,6 +68,7 @@ private slots:
     void onChat(const proto::chat::Chat& chat);
 
     void realClose();
+    void onReconnectToService();
     void onLanguageChanged(QAction* action);
     void onThemeChanged(QAction* action);
     void onAfterThemeChanged();
@@ -105,6 +106,7 @@ private:
     // Created only when the shell's tray is available (see createTrayIcon()).
     ScopedQPointer<QSystemTrayIcon> tray_icon_;
     ScopedQPointer<QTimer> tray_wait_timer_;
+    ScopedQPointer<QTimer> service_reconnect_timer_;
     int tray_wait_attempts_ = 0;
 
     QMenu tray_menu_;

@@ -140,6 +140,12 @@ HostWindow::HostWindow(QWidget* parent)
     tray_tooltip_timer->setInterval(Seconds(30));
     tray_tooltip_timer->start();
 
+    // The service may attach to another user session (console login, session switch) and drop this
+    // window's IPC channel for a while. Try to come back instead of staying offline forever.
+    service_reconnect_timer_.reset(new QTimer(this));
+    connect(service_reconnect_timer_, &QTimer::timeout, this, &HostWindow::onReconnectToService);
+    service_reconnect_timer_->setInterval(Seconds(5));
+
     quint32 one_time_sessions = user_settings.oneTimeSessions();
 
     ui->action_desktop_manage->setChecked(one_time_sessions & proto::peer::SESSION_TYPE_DESKTOP);
@@ -367,6 +373,8 @@ void HostWindow::onStatusChanged(UserIpcWorker::Status status)
 
         LOG(INFO) << "The connection to the service was successfully established.";
         connected_to_service_ = true;
+        if (service_reconnect_timer_)
+            service_reconnect_timer_->stop();
         updateStatusBar();
 
         QMetaObject::invokeMethod(ipc_worker_, &UserIpcWorker::onOneTimeSessions,
@@ -397,6 +405,9 @@ void HostWindow::onStatusChanged(UserIpcWorker::Status status)
             clipboard_.reset();
 
             chat_widget_->setChatEnabled(false);
+
+            if (!should_be_quit_ && service_reconnect_timer_)
+                service_reconnect_timer_->start();
             return;
         }
 #endif // defined(Q_OS_WINDOWS)
@@ -410,6 +421,9 @@ void HostWindow::onStatusChanged(UserIpcWorker::Status status)
                      "The application works offline.";
         connected_to_service_ = false;
         updateStatusBar();
+
+        if (!should_be_quit_ && service_reconnect_timer_)
+            service_reconnect_timer_->start();
     }
     else
     {
@@ -579,7 +593,23 @@ void HostWindow::realClose()
     LOG(INFO) << "realClose called";
 
     should_be_quit_ = true;
+    if (service_reconnect_timer_)
+        service_reconnect_timer_->stop();
     close();
+}
+
+//--------------------------------------------------------------------------------------------------
+void HostWindow::onReconnectToService()
+{
+    if (should_be_quit_ || connected_to_service_ || !ipc_worker_)
+        return;
+
+    LOG(INFO) << "Reconnecting to service";
+    if (service_reconnect_timer_)
+        service_reconnect_timer_->stop();
+
+    QMetaObject::invokeMethod(ipc_worker_, &UserIpcWorker::onConnectToService,
+                              Qt::QueuedConnection);
 }
 
 //--------------------------------------------------------------------------------------------------
