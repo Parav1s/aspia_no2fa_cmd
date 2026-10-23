@@ -72,7 +72,7 @@ jobs:
           # modules, and the sources include gbm.h and security/pam_appl.h.
           # The Package step writes both .deb and .rpm, so rpmbuild is needed too.
           sudo apt-get install -y libpipewire-0.3-dev libspa-0.2-dev libdrm-dev \
-            libgbm-dev libpam0g-dev libffi-dev rpm
+            libgbm-dev libpam0g-dev libffi-dev libsystemd-dev rpm
 
       # Restore and save are split on purpose: actions/cache only writes the cache
       # when the whole job succeeds, but this job has to build Qt from scratch and
