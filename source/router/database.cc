@@ -314,6 +314,7 @@ bool ensureSchema(SqlDatabase& db)
         { "comment",       "TEXT NOT NULL DEFAULT ''"    },
         { "last_connect",  "INTEGER NOT NULL DEFAULT 0"  },
         { "last_modify",   "INTEGER NOT NULL DEFAULT 0"  },
+        { "created",       "INTEGER NOT NULL DEFAULT 0"  },
         { "telemetry",     "TEXT NOT NULL DEFAULT ''"    }
     };
 
@@ -329,6 +330,13 @@ bool ensureSchema(SqlDatabase& db)
             LOG(ERROR) << "Unable to add column" << column.name << ":" << db.lastError();
             return false;
         }
+    }
+
+    // A host that predates the column gets the best date there is: the last time it connected.
+    if (!run("UPDATE \"hosts\" SET \"created\" = \"last_connect\" "
+             "WHERE \"created\" = 0 AND \"last_connect\" > 0"))
+    {
+        return false;
     }
 
     // Composite index for the dominant host list/count query (hosts of a given workspace and
@@ -984,38 +992,47 @@ bool Database::addHost(std::string_view key_hash, std::string_view hwid)
     // sqlite_sequence itself appears with the first AUTOINCREMENT insert into the database, so a
     // missing table is a legitimately empty sequence - only a failed read of an existing one must
     // not pass for it (the range check below would be skipped).
-    HostId next_id = 1;
-    SqlQuery seq_exists(db_,
-        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='sqlite_sequence'");
-    const SqlQuery::StepResult exists_step = seq_exists.next();
-    if (exists_step == SqlQuery::StepResult::FAILED)
+    // A freed id is handed out again: the lowest number that belongs to no host and to no host whose
+    // removal is pending. An id that is in use is never given away - a host that comes back with its
+    // key is answered from its own row long before this search runs.
+    const char kFreeIdSql[] =
+        "SELECT MIN(candidate) FROM ("
+        "SELECT 1 AS candidate "
+        "UNION ALL SELECT id + 1 FROM hosts WHERE id + 1 < ?) "
+        "WHERE candidate NOT IN (SELECT id FROM hosts) "
+        "AND candidate NOT IN (SELECT host_id FROM hosts_remove)";
+
+    SqlQuery free_id(db_, kFreeIdSql);
+    if (!free_id.isValid())
     {
-        LOG(ERROR) << "Unable to check host id sequence table:" << db_.lastError();
+        LOG(ERROR) << "Unable to prepare the host id query:" << db_.lastError();
         return false;
     }
 
-    if (exists_step == SqlQuery::StepResult::ROW)
+    free_id.addInt64(kMinTempHostId);
+
+    const SqlQuery::StepResult id_step = free_id.next();
+    if (id_step == SqlQuery::StepResult::FAILED)
     {
-        SqlQuery seq_query(db_, "SELECT seq FROM sqlite_sequence WHERE name='hosts'");
-        const SqlQuery::StepResult seq_step = seq_query.next();
-        if (seq_step == SqlQuery::StepResult::FAILED)
-        {
-            LOG(ERROR) << "Unable to read host id sequence:" << db_.lastError();
-            return false;
-        }
-        if (seq_step == SqlQuery::StepResult::ROW)
-            next_id = static_cast<HostId>(seq_query.columnInt64(0)) + 1;
+        LOG(ERROR) << "Unable to read a free host id:" << db_.lastError();
+        return false;
     }
 
-    if (next_id >= kMinTempHostId)
+    HostId next_id = kInvalidHostId;
+    if (id_step == SqlQuery::StepResult::ROW)
+        next_id = static_cast<HostId>(free_id.columnInt64(0));
+
+    if (next_id == kInvalidHostId || next_id >= kMinTempHostId)
     {
         LOG(ERROR) << "Permanent host id space is exhausted";
         return false;
     }
 
-    SqlQuery query(db_, "INSERT INTO hosts (id, key, hwid) VALUES (NULL, ?, ?)");
+    SqlQuery query(db_, "INSERT INTO hosts (id, key, hwid, created) VALUES (?, ?, ?, ?)");
+    query.addInt64(next_id);
     query.addBlob(key_hash);
     query.addBlob(hwid);
+    query.addInt64(secondsSinceEpoch());
 
     if (!query.exec())
     {
@@ -1310,7 +1327,8 @@ void Database::hosts(qint64 offset, qint64 count, proto::router::HostList* out) 
 
     const char kSql[] =
         "SELECT id, revision, workspace_id, group_id, display_name, computer_name, cpu_arch, "
-        "version, os_name, address, comment, last_connect, last_modify FROM hosts "
+        "version, os_name, address, comment, last_connect, last_modify, created "
+        "FROM hosts "
         "ORDER BY id LIMIT ? OFFSET ?";
 
     SqlQuery query(db_, kSql);
@@ -1353,6 +1371,7 @@ void Database::hosts(qint64 offset, qint64 count, proto::router::HostList* out) 
         host->set_comment(query.columnTextView(10));
         host->set_last_connect(query.columnInt64(11));
         host->set_last_modify(query.columnInt64(12));
+        host->set_created(query.columnInt64(13));
     }
 
     out->set_error_code(proto::router::kErrorOk);
@@ -1379,7 +1398,7 @@ void Database::hosts(qint64 workspace_id, qint64 group_id, qint64 offset,
     const bool any_group = group_id < 0;
     const std::string sql = strCat({
         "SELECT id, revision, workspace_id, group_id, display_name, computer_name, cpu_arch, "
-        "version, os_name, address, comment, last_connect, last_modify "
+        "version, os_name, address, comment, last_connect, last_modify, created "
         "FROM hosts WHERE workspace_id=?",
         any_group ? "" : " AND group_id=?",
         " ORDER BY id LIMIT ? OFFSET ?"});
@@ -1427,6 +1446,7 @@ void Database::hosts(qint64 workspace_id, qint64 group_id, qint64 offset,
         host->set_comment(query.columnTextView(10));
         host->set_last_connect(query.columnInt64(11));
         host->set_last_modify(query.columnInt64(12));
+        host->set_created(query.columnInt64(13));
     }
 
     out->set_error_code(proto::router::kErrorOk);
@@ -1579,7 +1599,7 @@ void Database::searchHosts(std::string_view query_text, const std::set<qint64>& 
 
     const std::string sql =
         "SELECT id, revision, workspace_id, group_id, display_name, computer_name, cpu_arch, "
-        "version, os_name, address, comment, last_connect, last_modify" +
+        "version, os_name, address, comment, last_connect, last_modify, created" +
         where + " ORDER BY display_name LIMIT ? OFFSET ?";
 
     SqlQuery query(db_, sql);
@@ -1629,6 +1649,7 @@ void Database::searchHosts(std::string_view query_text, const std::set<qint64>& 
         host->set_comment(query.columnTextView(10));
         host->set_last_connect(query.columnInt64(11));
         host->set_last_modify(query.columnInt64(12));
+        host->set_created(query.columnInt64(13));
     }
 
     out->set_error_code(proto::router::kErrorOk);

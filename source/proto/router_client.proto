@@ -125,6 +125,7 @@ message Host
     int64 last_connect   = 12; // Unix timestamp of the last connection.
     int64 last_modify    = 13; // Unix timestamp of the last operator edit.
     bool online          = 14; // Live host session currently exists for this host_id.
+    int64 created        = 15; // Unix timestamp of the day the host was added to the router.
 }
 
 // A page of hosts. The page is mandatory in both modes: a reply carrying every host of the scope
