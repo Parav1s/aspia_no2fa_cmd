@@ -18,5 +18,34 @@
 
 #include "host/host_constants.h"
 
+#if defined(Q_OS_WINDOWS)
+#include "host/win/portable_host.h"
+#endif // defined(Q_OS_WINDOWS)
+
+namespace {
+
 const char kDesktopAgentChannelId[] = "org.aspia.host.desktop-agent";
 const char kHostUiChannelId[] = "org.aspia.host.ui";
+
+QString portableSuffix()
+{
+#if defined(Q_OS_WINDOWS)
+    return PortableHost::channelSuffix();
+#else
+    return QString();
+#endif // defined(Q_OS_WINDOWS)
+}
+
+} // namespace
+
+//--------------------------------------------------------------------------------------------------
+QString desktopAgentChannelId()
+{
+    return QString::fromLatin1(kDesktopAgentChannelId) + portableSuffix();
+}
+
+//--------------------------------------------------------------------------------------------------
+QString hostUiChannelId()
+{
+    return QString::fromLatin1(kHostUiChannelId) + portableSuffix();
+}

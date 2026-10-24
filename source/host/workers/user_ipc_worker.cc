@@ -55,7 +55,9 @@ UserIpcWorker::~UserIpcWorker()
 //--------------------------------------------------------------------------------------------------
 void UserIpcWorker::onConnectToService()
 {
-    LOG(INFO) << "Starting user session agent (channel:" << kHostUiChannelId << ")";
+    const QString channel_id = hostUiChannelId();
+
+    LOG(INFO) << "Starting user session agent (channel:" << channel_id << ")";
 
     ipc_channel_ = new IpcChannel(this);
 
@@ -64,7 +66,7 @@ void UserIpcWorker::onConnectToService()
     connect(ipc_channel_, &IpcChannel::sig_errorOccurred, this, &UserIpcWorker::onIpcErrorOccurred);
     connect(ipc_channel_, &IpcChannel::sig_messageReceived, this, &UserIpcWorker::onIpcMessageReceived);
 
-    ipc_channel_->connectTo(kHostUiChannelId);
+    ipc_channel_->connectTo(channel_id);
 }
 
 //--------------------------------------------------------------------------------------------------

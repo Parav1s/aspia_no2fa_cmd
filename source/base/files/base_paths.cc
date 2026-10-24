@@ -101,6 +101,14 @@ QString BasePaths::genericUserConfigDir()
 // static
 QString BasePaths::appConfigDir()
 {
+#if defined(Q_OS_WINDOWS)
+    // A Quick Support run keeps its database and settings in its own directory instead of the
+    // machine-wide one of the installed host.
+    const QString portable_dir = qEnvironmentVariable("ASPIA_QS_DATA_DIR");
+    if (!portable_dir.isEmpty())
+        return portable_dir;
+#endif // defined(Q_OS_WINDOWS)
+
     return genericConfigDir() + "/aspia";
 }
 

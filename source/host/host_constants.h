@@ -19,18 +19,23 @@
 #ifndef HOST_HOST_CONSTANTS_H
 #define HOST_HOST_CONSTANTS_H
 
+#include <QString>
+
 // Well-known IPC channel the desktop agent and the service rendezvous on. Fixed (not a per-attach
 // random name) because on macOS the desktop agent is launched by launchd - the service is not its
 // parent and cannot hand it a unique name - so both ends must agree on a constant, compiled into
 // both. Used uniformly on all platforms; a stale agent from a previous session cannot cause trouble
 // because the newest connection wins (see DesktopManager::onIpcNewConnection). The connecting peer
 // is still authenticated by executable path.
-extern const char kDesktopAgentChannelId[];
+//
+// A Quick Support run shares the machine with the installed host, so its channels carry a suffix
+// derived from the executable path (see PortableHost::channelSuffix()).
+QString desktopAgentChannelId();
 
 // Well-known IPC channel the host UI (aspia_host --hidden) and the service's UserSession rendezvous
-// on. Fixed for the same reason as kDesktopAgentChannelId: both ends are the same aspia_host binary,
-// so the name is compiled into both rather than generated and handed over. The connecting peer is
-// authenticated by executable path and session id in UserSession::onIpcNewConnection().
-extern const char kHostUiChannelId[];
+// on. Fixed for the same reason as the desktop agent channel: both ends are the same aspia_host
+// binary, so the name is compiled into both rather than generated and handed over. The connecting
+// peer is authenticated by executable path and session id in UserSession::onIpcNewConnection().
+QString hostUiChannelId();
 
 #endif // HOST_HOST_CONSTANTS_H

@@ -946,27 +946,27 @@ Routers added: %4</source>
         <translation>Експорт інсталятора</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <location filename="../host/ui/config_dialog.cc" line="604"/>
         <source>MSI-files (*.msi)</source>
         <translation>Файли MSI (*.msi)</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
         <source>The installer was successfully exported.</source>
         <translation>Інсталятор успішно експортовано.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
         <source>The installed host package was not found.</source>
         <translation>Встановлений пакет хоста не знайдено.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <location filename="../host/ui/config_dialog.cc" line="622"/>
         <source>The installed version of the host does not support exporting the installer.</source>
         <translation>Встановлена версія хоста не підтримує експорт інсталятора.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <location filename="../host/ui/config_dialog.cc" line="627"/>
         <source>Unable to export the installer.</source>
         <translation>Не вдалося експортувати інсталятор.</translation>
     </message>
@@ -986,17 +986,17 @@ Routers added: %4</source>
         <translation>Публічний ключ:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="702"/>
+        <location filename="../host/ui/config_dialog.cc" line="744"/>
         <source>Enter the address of the update server.</source>
         <translation>Введіть адресу сервера оновлень.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="709"/>
+        <location filename="../host/ui/config_dialog.cc" line="751"/>
         <source>The update server address must start with http:// or https://.</source>
         <translation>Адреса сервера оновлень має починатися з http:// або https://.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="720"/>
+        <location filename="../host/ui/config_dialog.cc" line="762"/>
         <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
         <translation>Публічний ключ сервера оновлень має складатися з 64 шістнадцяткових символів.</translation>
     </message>
@@ -1012,215 +1012,241 @@ Routers added: %4</source>
         <translation>Основні</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="292"/>
+        <location filename="../host/ui/config_dialog.ui" line="299"/>
         <source>Change password</source>
         <translation>Змінити пароль</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="140"/>
+        <location filename="../host/ui/config_dialog.cc" line="144"/>
         <source>Once a day</source>
         <translation>Раз на день</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="141"/>
+        <location filename="../host/ui/config_dialog.cc" line="145"/>
         <source>Once a week</source>
         <translation>Раз на тиждень</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="142"/>
+        <location filename="../host/ui/config_dialog.cc" line="146"/>
         <source>Once a month</source>
         <translation>Раз на місяць</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="144"/>
+        <location filename="../host/ui/config_dialog.cc" line="148"/>
         <source>Stable</source>
         <translation>Стабільний</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="145"/>
+        <location filename="../host/ui/config_dialog.cc" line="149"/>
         <source>Beta</source>
         <translation>Бета</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="146"/>
+        <location filename="../host/ui/config_dialog.cc" line="150"/>
         <source>Alpha</source>
         <translation>Альфа</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="187"/>
+        <location filename="../host/ui/config_dialog.cc" line="191"/>
         <source>Default</source>
         <translation>За замовчуванням</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="234"/>
+        <location filename="../host/ui/config_dialog.cc" line="238"/>
         <source>On reboot</source>
         <translation>При перезавантаженні</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="235"/>
+        <location filename="../host/ui/config_dialog.cc" line="239"/>
         <source>Every 5 minutes</source>
         <translation>Кожні 5 хвилин</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="236"/>
+        <location filename="../host/ui/config_dialog.cc" line="240"/>
         <source>Every 30 minutes</source>
         <translation>Кожні 30 хвилин</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="237"/>
+        <location filename="../host/ui/config_dialog.cc" line="241"/>
         <source>Every 1 hour</source>
         <translation>Кожну годину</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="238"/>
+        <location filename="../host/ui/config_dialog.cc" line="242"/>
         <source>Every 6 hours</source>
         <translation>Кожні 6 годин</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="239"/>
+        <location filename="../host/ui/config_dialog.cc" line="243"/>
         <source>Every 12 hours</source>
         <translation>Кожні 12 годин</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="247"/>
+        <location filename="../host/ui/config_dialog.cc" line="251"/>
         <source>Letters and digits</source>
         <translation>Літери і цифри</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="250"/>
+        <location filename="../host/ui/config_dialog.cc" line="254"/>
         <source>Letters</source>
         <translation>Літери</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="252"/>
+        <location filename="../host/ui/config_dialog.cc" line="256"/>
         <source>Digits</source>
         <translation>Цифри</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="269"/>
+        <location filename="../host/ui/config_dialog.cc" line="273"/>
         <source>Never</source>
         <translation>Ніколи</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="270"/>
+        <location filename="../host/ui/config_dialog.cc" line="274"/>
         <source>15 seconds</source>
         <translation>15 секунд</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="271"/>
+        <location filename="../host/ui/config_dialog.cc" line="275"/>
         <source>30 seconds</source>
         <translation>30 секунд</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="272"/>
+        <location filename="../host/ui/config_dialog.cc" line="276"/>
         <source>45 seconds</source>
         <translation>45 секунд</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="273"/>
+        <location filename="../host/ui/config_dialog.cc" line="277"/>
         <source>60 seconds</source>
         <translation>60 секунд</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="281"/>
+        <location filename="../host/ui/config_dialog.cc" line="285"/>
         <source>Accept connection</source>
         <translation>Приймати підключення</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="282"/>
+        <location filename="../host/ui/config_dialog.cc" line="286"/>
         <source>Reject connection</source>
         <translation>Відхиляти підключення</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="481"/>
+        <location filename="../host/ui/config_dialog.cc" line="485"/>
         <source>Are you sure you want to delete user &quot;%1&quot;?</source>
         <translation>Ви дійсно хочете видалити користувача &quot;%1&quot;?</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="509"/>
-        <location filename="../host/ui/config_dialog.cc" line="543"/>
+        <location filename="../host/ui/config_dialog.cc" line="513"/>
+        <location filename="../host/ui/config_dialog.cc" line="547"/>
         <source>An error occurred while processing the password.</source>
         <translation>Сталася помилка при обробці пароля.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="526"/>
+        <location filename="../host/ui/config_dialog.cc" line="530"/>
         <source>Settings storage is unavailable.</source>
         <translation>Сховище налаштувань недоступне.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="557"/>
+        <location filename="../host/ui/config_dialog.cc" line="561"/>
         <source>Import</source>
         <translation>Імпорт</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="557"/>
-        <location filename="../host/ui/config_dialog.cc" line="574"/>
+        <location filename="../host/ui/config_dialog.cc" line="561"/>
+        <location filename="../host/ui/config_dialog.cc" line="578"/>
         <source>JSON-files (*.json)</source>
         <translation>JSON-файли (*.json)</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="574"/>
-        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <location filename="../host/ui/config_dialog.cc" line="578"/>
+        <location filename="../host/ui/config_dialog.cc" line="604"/>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
         <source>Export</source>
         <translation>Експорт</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="644"/>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <source>EXE-files (*.exe)</source>
+        <translation>Файли EXE (*.exe)</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="651"/>
+        <source>The Quick Support package was successfully exported. It connects with the users and the password of this host and does not use a one-time password.</source>
+        <translation>Пакет Quick Support успішно експортовано. Він підключається з користувачами та паролем цього хоста і не використовує одноразовий пароль.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="657"/>
+        <source>The router connection is not configured.</source>
+        <translation>Підключення до маршрутизатора не налаштовано.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="661"/>
+        <source>The host has no users. Add at least one user first.</source>
+        <translation>На хості немає користувачів. Спочатку додайте хоча б одного користувача.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="665"/>
+        <source>Unable to export the Quick Support package.</source>
+        <translation>Не вдалося експортувати пакет Quick Support.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="686"/>
         <source>The configuration can not be written. Make sure that you have sufficient rights to write.</source>
         <translation>Конфігурація не може бути записана. Переконайтеся, що у вас достатньо прав для запису.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="657"/>
+        <location filename="../host/ui/config_dialog.cc" line="699"/>
         <source>Incorrect router address entered.</source>
         <translation>Введено некоректну адресу маршрутизатора.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="667"/>
+        <location filename="../host/ui/config_dialog.cc" line="709"/>
         <source>Incorrect router public key entered.</source>
         <translation>Введено некоректний публічний ключ маршрутизатора.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="880"/>
+        <location filename="../host/ui/config_dialog.cc" line="922"/>
         <source>Install</source>
         <translation>Встановити</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="885"/>
+        <location filename="../host/ui/config_dialog.cc" line="927"/>
         <source>Remove</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="267"/>
+        <location filename="../host/ui/config_dialog.ui" line="274"/>
         <source>Security</source>
         <translation>Безпека</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="273"/>
+        <location filename="../host/ui/config_dialog.ui" line="280"/>
         <source>Password Protection of Settings</source>
         <translation>Захист налаштувань за допомогою пароля</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="309"/>
+        <location filename="../host/ui/config_dialog.ui" line="316"/>
         <source>One-time Password</source>
         <translation>Одноразовий пароль</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="315"/>
+        <location filename="../host/ui/config_dialog.ui" line="322"/>
         <source>Enable one-time password</source>
         <translation>Увімкнути одноразовий пароль</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="324"/>
+        <location filename="../host/ui/config_dialog.ui" line="331"/>
         <source>Change password:</source>
         <translation>Змінювати пароль:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="344"/>
+        <location filename="../host/ui/config_dialog.ui" line="351"/>
         <source>Characters count:</source>
         <translation>Кількість символів:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="334"/>
+        <location filename="../host/ui/config_dialog.ui" line="341"/>
         <source>Characters:</source>
         <translation>Символи:</translation>
     </message>
@@ -1235,12 +1261,12 @@ Routers added: %4</source>
         <translation>Вхідний порт:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="406"/>
+        <location filename="../host/ui/config_dialog.ui" line="413"/>
         <source>Other</source>
         <translation>Інше</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="412"/>
+        <location filename="../host/ui/config_dialog.ui" line="419"/>
         <source>Disable Aspia shutdown</source>
         <translation>Не закривати Aspia</translation>
     </message>
@@ -1280,68 +1306,73 @@ Routers added: %4</source>
         <translation>Експорт налаштувань</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="366"/>
+        <location filename="../host/ui/config_dialog.ui" line="250"/>
+        <source>Export Quick Support</source>
+        <translation>Експорт Quick Support</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="373"/>
         <source>Connection Confirmation</source>
         <translation>Підтвердження підключення</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="372"/>
+        <location filename="../host/ui/config_dialog.ui" line="379"/>
         <source>Require confirmation when connected to a computer</source>
         <translation>Вимагати підтвердження при підключенні до комп&apos;ютера</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="381"/>
+        <location filename="../host/ui/config_dialog.ui" line="388"/>
         <source>Automatic confirmation of connection via:</source>
         <translation>Автоматичне підтвердження підключення через:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="391"/>
+        <location filename="../host/ui/config_dialog.ui" line="398"/>
         <source>If there is no active user:</source>
         <translation>Якщо немає активного користувача:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="436"/>
+        <location filename="../host/ui/config_dialog.ui" line="443"/>
         <source>Router</source>
         <translation>Маршрутизатор</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="442"/>
+        <location filename="../host/ui/config_dialog.ui" line="449"/>
         <source>Enable the use of a router</source>
         <translation>Використовувати маршрутизатор</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="454"/>
+        <location filename="../host/ui/config_dialog.ui" line="461"/>
         <source>Address:</source>
         <translation>Адреса:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="473"/>
+        <location filename="../host/ui/config_dialog.ui" line="480"/>
         <source>Public Key:</source>
         <translation>Публічний ключ:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="487"/>
+        <location filename="../host/ui/config_dialog.ui" line="494"/>
         <source>A router is required to connect to a computer if there is no direct connection (bypass NAT). Aspia does not provide a public router, but you can install your own. You can download the router on the &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;official website&lt;/a&gt;.</source>
         <translation>Потрібен маршрутизатор для підключення до комп&apos;ютера при відсутності прямого підключення (обхід NAT). Aspia не надає публічних маршрутизаторів, але ви можете налаштувати власний. Завантажити маршрутизатор можна на &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;офіційному веб-сайті&lt;/a&gt;.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="504"/>
-        <location filename="../host/ui/config_dialog.ui" line="615"/>
+        <location filename="../host/ui/config_dialog.ui" line="511"/>
+        <location filename="../host/ui/config_dialog.ui" line="622"/>
         <source>Users</source>
         <translation>Користувачі</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="518"/>
+        <location filename="../host/ui/config_dialog.ui" line="525"/>
         <source>Add new user</source>
         <translation>Додати нового користувача</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="544"/>
+        <location filename="../host/ui/config_dialog.ui" line="551"/>
         <source>Edit user</source>
         <translation>Редагувати користувача</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="570"/>
+        <location filename="../host/ui/config_dialog.ui" line="577"/>
         <source>Delete user</source>
         <translation>Видалити користувача</translation>
     </message>
@@ -1356,17 +1387,17 @@ Routers added: %4</source>
         <translation>Захоплювати відео за допомогою:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="638"/>
+        <location filename="../host/ui/config_dialog.ui" line="645"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="647"/>
+        <location filename="../host/ui/config_dialog.ui" line="654"/>
         <source>Modify</source>
         <translation>Змінити</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="656"/>
+        <location filename="../host/ui/config_dialog.ui" line="663"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
@@ -2766,8 +2797,8 @@ Credentials replaced: %2</source>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="689"/>
-        <location filename="../host/main.cc" line="724"/>
+        <location filename="../host/main.cc" line="751"/>
+        <location filename="../host/main.cc" line="786"/>
         <source>Settings storage is unavailable.</source>
         <translation>Сховище налаштувань недоступне.</translation>
     </message>
@@ -2848,32 +2879,37 @@ Credentials replaced: %2</source>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="621"/>
+        <location filename="../host/main.cc" line="680"/>
         <source>Launch the application hidden.</source>
         <translation>Запустити застосунок прихованим.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="623"/>
+        <location filename="../host/main.cc" line="682"/>
+        <source>Launch the window of a Quick Support package.</source>
+        <translation>Запуск вікна пакета Quick Support.</translation>
+    </message>
+    <message>
+        <location filename="../host/main.cc" line="684"/>
         <source>Export parameters to file.</source>
         <translation>Експорт параметрів у файл.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="625"/>
+        <location filename="../host/main.cc" line="686"/>
         <source>Import parameters from file.</source>
         <translation>Імпорт параметрів із файлу.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="627"/>
+        <location filename="../host/main.cc" line="688"/>
         <source>Do not display any messages during import and export.</source>
         <translation>Не показувати жодних повідомлень під час імпорту та експорту.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="629"/>
+        <location filename="../host/main.cc" line="690"/>
         <source>Calling the settings dialog.</source>
         <translation>Виклик діалогу налаштувань.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="631"/>
+        <location filename="../host/main.cc" line="692"/>
         <source>Calling the security log dialog.</source>
         <translation>Виклик діалогу журналу безпеки.</translation>
     </message>

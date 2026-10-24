@@ -394,7 +394,7 @@ void DesktopIpcWorker::connectToService()
     connect(ipc_channel_, &IpcChannel::sig_errorOccurred, this, &DesktopIpcWorker::onIpcErrorOccurred);
     connect(ipc_channel_, &IpcChannel::sig_messageReceived, this, &DesktopIpcWorker::onIpcMessageReceived);
 
-    ipc_channel_->connectTo(kDesktopAgentChannelId);
+    ipc_channel_->connectTo(desktopAgentChannelId());
 }
 
 //--------------------------------------------------------------------------------------------------

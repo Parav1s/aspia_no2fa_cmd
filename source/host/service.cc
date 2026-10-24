@@ -35,6 +35,7 @@
 #include "base/win/security_helpers.h"
 #include "host/host_storage.h"
 #include "host/host_utils.h"
+#include "host/win/portable_host.h"
 #include "host/win/safe_mode_util.h"
 #endif // defined(Q_OS_WINDOWS)
 
@@ -47,6 +48,26 @@ namespace {
 
 constexpr char kFirewallTcpRuleName[] = "Aspia Host Service (TCP)";
 constexpr char kFirewallUdpRuleName[] = "Aspia Host Service (UDP)";
+
+// The rule names of a Quick Support run must not match the installed host's: the rules are deleted
+// by name, so sharing them would let the run remove the rules of the installed service.
+QString firewallTcpRuleName()
+{
+#if defined(Q_OS_WINDOWS)
+    if (PortableHost::isPortable())
+        return QString::fromLatin1(kFirewallTcpRuleName) + PortableHost::channelSuffix();
+#endif // defined(Q_OS_WINDOWS)
+    return QString::fromLatin1(kFirewallTcpRuleName);
+}
+
+QString firewallUdpRuleName()
+{
+#if defined(Q_OS_WINDOWS)
+    if (PortableHost::isPortable())
+        return QString::fromLatin1(kFirewallUdpRuleName) + PortableHost::channelSuffix();
+#endif // defined(Q_OS_WINDOWS)
+    return QString::fromLatin1(kFirewallUdpRuleName);
+}
 constexpr char kFirewallRuleDecription[] = "Allow incoming TCP connections";
 
 // Owner: SYSTEM. Protected DACL: SYSTEM and BUILTIN\Administrators have Full Control. Inherited
@@ -174,7 +195,14 @@ const char Service::kDescription[] = "Accepts incoming remote desktop connection
 
 //--------------------------------------------------------------------------------------------------
 Service::Service(QObject* parent)
+#if defined(Q_OS_WINDOWS)
+    // A Quick Support package registers a temporary service of its own so it can coexist with the
+    // installed host (and so several packages work side by side).
+    : CoreService(PortableHost::isPortable() ? PortableHost::serviceName() : QString::fromLatin1(kName),
+                  parent)
+#else
     : CoreService(kName, parent)
+#endif // defined(Q_OS_WINDOWS)
 {
     LOG(INFO) << "Ctor";
 }
@@ -240,13 +268,13 @@ void Service::addFirewallRules()
         return;
     }
 
-    if (!firewall.addTcpRule(kFirewallTcpRuleName, kFirewallRuleDecription))
+    if (!firewall.addTcpRule(firewallTcpRuleName(), kFirewallRuleDecription))
     {
         LOG(ERROR) << "Unable to add firewall rule for TCP";
         return;
     }
 
-    if (!firewall.addUdpRule(kFirewallUdpRuleName, kFirewallRuleDecription))
+    if (!firewall.addUdpRule(firewallUdpRuleName(), kFirewallRuleDecription))
     {
         LOG(ERROR) << "Unable to add firewall rule for UDP";
         return;
@@ -268,7 +296,7 @@ void Service::deleteFirewallRules()
     }
 
     LOG(INFO) << "Delete firewall rules";
-    firewall.deleteRuleByName(kFirewallTcpRuleName);
-    firewall.deleteRuleByName(kFirewallUdpRuleName);
+    firewall.deleteRuleByName(firewallTcpRuleName());
+    firewall.deleteRuleByName(firewallUdpRuleName());
 #endif // defined(Q_OS_WINDOWS)
 }

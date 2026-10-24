@@ -63,6 +63,8 @@
 #include "base/session_id.h"
 #include "base/win/desktop.h"
 #include "base/win/session_info.h"
+#include "host/win/portable_host.h"
+#include "host/win/portable_package.h"
 #endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_LINUX)
@@ -398,6 +400,13 @@ int runService(int& argc, char* argv[])
 
     HostUtils::printDebugInfo();
 
+#if defined(Q_OS_WINDOWS)
+    // The launcher prepared the database, but the service may be started again by the SCM after a
+    // crash: keep the package usable in that case too.
+    if (PortableHost::isPortable())
+        PortableHost::prepareDatabase();
+#endif // defined(Q_OS_WINDOWS)
+
     application.addWorker(std::make_unique<ServiceWorker>());
     application.addWorker(std::make_unique<SysInfoWorker>());
     application.addWorker(std::make_unique<TaskMgrWorker>());
@@ -547,6 +556,25 @@ int main(int argc, char* argv[])
 
     ScopedLogging scoped_logging(logging_settings);
 
+#if defined(Q_OS_WINDOWS)
+    // The database and the settings of a Quick Support run live in its own directory instead of the
+    // machine-wide ones of the installed host.
+    const char kQsDirOption[] = "--qs-dir=";
+    for (int i = 1; i < argc; ++i)
+    {
+        if (qstrncmp(argv[i], kQsDirOption, qstrlen(kQsDirOption)) == 0)
+        {
+            PortableHost::applyDataDirectory(
+                QString::fromLocal8Bit(argv[i] + qstrlen(kQsDirOption)));
+            break;
+        }
+    }
+
+    // A Quick Support package started by the user is a launcher, not a host role.
+    if (PortableHost::isLauncherInvocation(argc, argv))
+        return PortableHost::runLauncher();
+#endif // defined(Q_OS_WINDOWS)
+
     for (int i = 1; i < argc; ++i)
     {
         if (qstrcmp(argv[i], "--service") == 0)
@@ -571,6 +599,37 @@ int main(int argc, char* argv[])
             out << ASPIA_VERSION_STRING << Qt::endl;
             return 0;
         }
+#if defined(Q_OS_WINDOWS)
+        // Exports a Quick Support package without the settings dialog. The database (and therefore
+        // the router and the users) is the one the process is pointed at.
+        if (qstrncmp(argv[i], "--export-quick-support=", 23) == 0)
+        {
+            const QString file_path = QString::fromLocal8Bit(argv[i] + 23);
+            return PortablePackage::exportWithSettings(file_path) ==
+                PortablePackage::Result::SUCCESS ? 0 : 1;
+        }
+
+        // Prints what is built into a Quick Support package (used to check an exported file).
+        if (qstrcmp(argv[i], "--qs-info") == 0)
+        {
+            QTextStream out(stdout, QIODevice::WriteOnly);
+
+            std::optional<PortablePackage::Settings> settings =
+                PortablePackage::builtInSettings();
+            if (!settings.has_value())
+            {
+                out << "No built-in Quick Support settings" << Qt::endl;
+                return 1;
+            }
+
+            out << "Router: " << settings->router_address.toString() << Qt::endl;
+            out << "Users: " << settings->users.size() << Qt::endl;
+            for (const User& user : std::as_const(settings->users))
+                out << "  " << user.name << Qt::endl;
+
+            return 0;
+        }
+#endif // defined(Q_OS_WINDOWS)
     }
 
     for (int i = 0; i < argc; ++i)
@@ -619,6 +678,8 @@ int main(int argc, char* argv[])
 
     QCommandLineOption hidden_option("hidden",
         GuiApplication::translate("HostMain", "Launch the application hidden."));
+    QCommandLineOption qs_ui_option("qs-ui",
+        GuiApplication::translate("HostMain", "Launch the window of a Quick Support package."));
     QCommandLineOption export_option("export",
         GuiApplication::translate("HostMain", "Export parameters to file."), "export");
     QCommandLineOption import_option("import",
@@ -632,6 +693,7 @@ int main(int argc, char* argv[])
 
     QCommandLineParser parser;
     parser.addOption(hidden_option);
+    parser.addOption(qs_ui_option);
     parser.addOption(export_option);
     parser.addOption(import_option);
     parser.addOption(silent_option);

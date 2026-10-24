@@ -270,7 +270,7 @@ void DesktopManager::start()
     const IpcServer::AccessMode access_mode = IpcServer::AccessMode::SYSTEM_ONLY;
 #endif // defined(Q_OS_MACOS)
 
-    if (!ipc_server_->start(kDesktopAgentChannelId, access_mode))
+    if (!ipc_server_->start(desktopAgentChannelId(), access_mode))
     {
         LOG(ERROR) << "Failed to start the desktop agent IPC server";
         return;

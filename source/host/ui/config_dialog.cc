@@ -47,6 +47,7 @@
 
 #if defined(Q_OS_WINDOWS)
 #include "host/win/msi_package.h"
+#include "host/win/portable_package.h"
 #endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_MACOS)
@@ -133,8 +134,11 @@ ConfigDialog::ConfigDialog(QWidget* parent)
 #if defined(Q_OS_WINDOWS)
     connect(ui->button_export_installer, &QPushButton::clicked,
             this, &ConfigDialog::onExportInstaller);
+    connect(ui->button_export_quick_support, &QPushButton::clicked,
+            this, &ConfigDialog::onExportQuickSupport);
 #else
     ui->button_export_installer->hide();
+    ui->button_export_quick_support->hide();
 #endif // defined(Q_OS_WINDOWS)
 
     ui->combobox_update_check_freq->addItem(tr("Once a day"), 1);
@@ -621,6 +625,44 @@ void ConfigDialog::onExportInstaller()
 
         case MsiPackage::Result::FAILED:
             MsgBox::warning(this, tr("Unable to export the installer."));
+            break;
+    }
+#endif // defined(Q_OS_WINDOWS)
+}
+
+//--------------------------------------------------------------------------------------------------
+void ConfigDialog::onExportQuickSupport()
+{
+#if defined(Q_OS_WINDOWS)
+    LOG(INFO) << "[ACTION] Export Quick Support";
+
+    const QString default_name = QString("aspia-qs-%1.exe").arg(ASPIA_VERSION_SHORT_STRING);
+    const QString file_path = QFileDialog::getSaveFileName(
+        this, tr("Export"), desktopPath(default_name), tr("EXE-files (*.exe)"));
+    if (file_path.isEmpty())
+    {
+        LOG(INFO) << "No selected file path";
+        return;
+    }
+
+    switch (PortablePackage::exportWithSettings(file_path))
+    {
+        case PortablePackage::Result::SUCCESS:
+            MsgBox::information(this, tr("The Quick Support package was successfully exported. "
+                                         "It connects with the users and the password of this host "
+                                         "and does not use a one-time password."));
+            break;
+
+        case PortablePackage::Result::NO_ROUTER:
+            MsgBox::warning(this, tr("The router connection is not configured."));
+            break;
+
+        case PortablePackage::Result::NO_USERS:
+            MsgBox::warning(this, tr("The host has no users. Add at least one user first."));
+            break;
+
+        case PortablePackage::Result::FAILED:
+            MsgBox::warning(this, tr("Unable to export the Quick Support package."));
             break;
     }
 #endif // defined(Q_OS_WINDOWS)

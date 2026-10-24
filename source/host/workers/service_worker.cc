@@ -46,6 +46,9 @@
 #include "host/terminal_client.h"
 #include "host/user_session.h"
 #include "host/workers/update_worker.h"
+#if defined(Q_OS_WINDOWS)
+#include "host/win/portable_host.h"
+#endif // defined(Q_OS_WINDOWS)
 #include "proto/chat.h"
 
 #if defined(Q_OS_WINDOWS)
@@ -370,6 +373,17 @@ void ServiceWorker::onUserSessionDettached()
         if (chat_client)
             chat_client->onSendStatus(proto::chat::Status::CODE_USER_DISCONNECTED);
     }
+
+#if defined(Q_OS_WINDOWS)
+    // A Quick Support run lives as long as its window: no window means nobody can read the host ID,
+    // so the service (and the launcher waiting for it) stop here.
+    if (PortableHost::isPortable())
+    {
+        LOG(INFO) << "Quick Support window is closed, stopping the service";
+        QMetaObject::invokeMethod(QCoreApplication::instance(), &QCoreApplication::quit,
+                                  Qt::QueuedConnection);
+    }
+#endif // defined(Q_OS_WINDOWS)
 }
 
 //--------------------------------------------------------------------------------------------------

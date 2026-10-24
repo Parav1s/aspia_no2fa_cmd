@@ -940,27 +940,27 @@ Routers added: %4</source>
         <translation>خروجی گرفتن از نصب‌کننده</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <location filename="../host/ui/config_dialog.cc" line="604"/>
         <source>MSI-files (*.msi)</source>
         <translation>فایل‌های MSI (*.msi)</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="610"/>
+        <location filename="../host/ui/config_dialog.cc" line="614"/>
         <source>The installer was successfully exported.</source>
         <translation>نصب‌کننده با موفقیت خروجی گرفته شد.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="614"/>
+        <location filename="../host/ui/config_dialog.cc" line="618"/>
         <source>The installed host package was not found.</source>
         <translation>بسته نصب‌شده میزبان پیدا نشد.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="618"/>
+        <location filename="../host/ui/config_dialog.cc" line="622"/>
         <source>The installed version of the host does not support exporting the installer.</source>
         <translation>نسخه نصب‌شده میزبان از خروجی گرفتن نصب‌کننده پشتیبانی نمی‌کند.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="623"/>
+        <location filename="../host/ui/config_dialog.cc" line="627"/>
         <source>Unable to export the installer.</source>
         <translation>خروجی گرفتن از نصب‌کننده ممکن نشد.</translation>
     </message>
@@ -980,17 +980,17 @@ Routers added: %4</source>
         <translation>کلید عمومی:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="702"/>
+        <location filename="../host/ui/config_dialog.cc" line="744"/>
         <source>Enter the address of the update server.</source>
         <translation>نشانی سرور به‌روزرسانی را وارد کنید.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="709"/>
+        <location filename="../host/ui/config_dialog.cc" line="751"/>
         <source>The update server address must start with http:// or https://.</source>
         <translation>نشانی سرور به‌روزرسانی باید با http:// یا https:// شروع شود.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="720"/>
+        <location filename="../host/ui/config_dialog.cc" line="762"/>
         <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
         <translation>کلید عمومی سرور به‌روزرسانی باید شامل 64 کاراکتر هگزادسیمال باشد.</translation>
     </message>
@@ -1021,23 +1021,28 @@ Routers added: %4</source>
         <translation>کانال به‌روزرسانی:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="504"/>
-        <location filename="../host/ui/config_dialog.ui" line="615"/>
+        <location filename="../host/ui/config_dialog.ui" line="250"/>
+        <source>Export Quick Support</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.ui" line="511"/>
+        <location filename="../host/ui/config_dialog.ui" line="622"/>
         <source>Users</source>
         <translation>کاربران</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="518"/>
+        <location filename="../host/ui/config_dialog.ui" line="525"/>
         <source>Add new user</source>
         <translation>افزودن کاربر جدید</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="544"/>
+        <location filename="../host/ui/config_dialog.ui" line="551"/>
         <source>Edit user</source>
         <translation>ویرایش کاربر</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="570"/>
+        <location filename="../host/ui/config_dialog.ui" line="577"/>
         <source>Delete user</source>
         <translation>حذف کاربر</translation>
     </message>
@@ -1047,37 +1052,37 @@ Routers added: %4</source>
         <translation>بررسی به‌روزرسانی‌ها</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="638"/>
+        <location filename="../host/ui/config_dialog.ui" line="645"/>
         <source>Add</source>
         <translation>افزودن</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="647"/>
+        <location filename="../host/ui/config_dialog.ui" line="654"/>
         <source>Modify</source>
         <translation>تغییر</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="656"/>
+        <location filename="../host/ui/config_dialog.ui" line="663"/>
         <source>Delete</source>
         <translation>حذف</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="436"/>
+        <location filename="../host/ui/config_dialog.ui" line="443"/>
         <source>Router</source>
         <translation>روتر</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="442"/>
+        <location filename="../host/ui/config_dialog.ui" line="449"/>
         <source>Enable the use of a router</source>
         <translation>فعال‌سازی استفاده از روتر</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="454"/>
+        <location filename="../host/ui/config_dialog.ui" line="461"/>
         <source>Address:</source>
         <translation>آدرس:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="473"/>
+        <location filename="../host/ui/config_dialog.ui" line="480"/>
         <source>Public Key:</source>
         <translation>کلید عمومی:</translation>
     </message>
@@ -1087,67 +1092,67 @@ Routers added: %4</source>
         <translation>ضبط‌کننده ویدئوی ترجیحی:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="292"/>
+        <location filename="../host/ui/config_dialog.ui" line="299"/>
         <source>Change password</source>
         <translation>تغییر گذرواژه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="267"/>
+        <location filename="../host/ui/config_dialog.ui" line="274"/>
         <source>Security</source>
         <translation>امنیت</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="273"/>
+        <location filename="../host/ui/config_dialog.ui" line="280"/>
         <source>Password Protection of Settings</source>
         <translation>محافظت از تنظیمات با گذرواژه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="309"/>
+        <location filename="../host/ui/config_dialog.ui" line="316"/>
         <source>One-time Password</source>
         <translation>گذرواژه یک‌بارمصرف</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="315"/>
+        <location filename="../host/ui/config_dialog.ui" line="322"/>
         <source>Enable one-time password</source>
         <translation>فعال‌سازی گذرواژه یک‌بارمصرف</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="344"/>
+        <location filename="../host/ui/config_dialog.ui" line="351"/>
         <source>Characters count:</source>
         <translation>تعداد نویسه‌ها:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="334"/>
+        <location filename="../host/ui/config_dialog.ui" line="341"/>
         <source>Characters:</source>
         <translation>نویسه‌ها:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="366"/>
+        <location filename="../host/ui/config_dialog.ui" line="373"/>
         <source>Connection Confirmation</source>
         <translation>تأیید اتصال</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="372"/>
+        <location filename="../host/ui/config_dialog.ui" line="379"/>
         <source>Require confirmation when connected to a computer</source>
         <translation>نیاز به تأیید هنگام اتصال به رایانه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="381"/>
+        <location filename="../host/ui/config_dialog.ui" line="388"/>
         <source>Automatic confirmation of connection via:</source>
         <translation>تأیید خودکار اتصال از طریق:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="324"/>
+        <location filename="../host/ui/config_dialog.ui" line="331"/>
         <source>Change password:</source>
         <translation>تغییر گذرواژه:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="391"/>
+        <location filename="../host/ui/config_dialog.ui" line="398"/>
         <source>If there is no active user:</source>
         <translation>اگر کاربر فعالی وجود نداشته باشد:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="487"/>
+        <location filename="../host/ui/config_dialog.ui" line="494"/>
         <source>A router is required to connect to a computer if there is no direct connection (bypass NAT). Aspia does not provide a public router, but you can install your own. You can download the router on the &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;official website&lt;/a&gt;.</source>
         <translation>در صورت نبود اتصال مستقیم (دور زدن NAT)، برای اتصال به رایانه به روتر نیاز است. Aspia روتر عمومی ارائه نمی‌دهد، اما می‌توانید روتر خود را نصب کنید. می‌توانید روتر را از &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;وب‌سایت رسمی&lt;/a&gt; دانلود کنید.</translation>
     </message>
@@ -1162,12 +1167,12 @@ Routers added: %4</source>
         <translation>پورت ورودی:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="412"/>
+        <location filename="../host/ui/config_dialog.ui" line="419"/>
         <source>Disable Aspia shutdown</source>
         <translation>غیرفعال کردن بستن Aspia</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="406"/>
+        <location filename="../host/ui/config_dialog.ui" line="413"/>
         <source>Other</source>
         <translation>سایر</translation>
     </message>
@@ -1192,175 +1197,201 @@ Routers added: %4</source>
         <translation>بررسی به‌روزرسانی‌ها:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="140"/>
+        <location filename="../host/ui/config_dialog.cc" line="144"/>
         <source>Once a day</source>
         <translation>روزی یک بار</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="141"/>
+        <location filename="../host/ui/config_dialog.cc" line="145"/>
         <source>Once a week</source>
         <translation>هفته‌ای یک بار</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="142"/>
+        <location filename="../host/ui/config_dialog.cc" line="146"/>
         <source>Once a month</source>
         <translation>ماهی یک بار</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="144"/>
+        <location filename="../host/ui/config_dialog.cc" line="148"/>
         <source>Stable</source>
         <translation>پایدار</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="145"/>
+        <location filename="../host/ui/config_dialog.cc" line="149"/>
         <source>Beta</source>
         <translation>بتا</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="146"/>
+        <location filename="../host/ui/config_dialog.cc" line="150"/>
         <source>Alpha</source>
         <translation>آلفا</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="187"/>
+        <location filename="../host/ui/config_dialog.cc" line="191"/>
         <source>Default</source>
         <translation>پیش‌فرض</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="234"/>
+        <location filename="../host/ui/config_dialog.cc" line="238"/>
         <source>On reboot</source>
         <translation>هنگام راه‌اندازی مجدد</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="235"/>
+        <location filename="../host/ui/config_dialog.cc" line="239"/>
         <source>Every 5 minutes</source>
         <translation>هر 5 دقیقه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="236"/>
+        <location filename="../host/ui/config_dialog.cc" line="240"/>
         <source>Every 30 minutes</source>
         <translation>هر 30 دقیقه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="237"/>
+        <location filename="../host/ui/config_dialog.cc" line="241"/>
         <source>Every 1 hour</source>
         <translation>هر 1 ساعت</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="238"/>
+        <location filename="../host/ui/config_dialog.cc" line="242"/>
         <source>Every 6 hours</source>
         <translation>هر 6 ساعت</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="239"/>
+        <location filename="../host/ui/config_dialog.cc" line="243"/>
         <source>Every 12 hours</source>
         <translation>هر 12 ساعت</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="247"/>
+        <location filename="../host/ui/config_dialog.cc" line="251"/>
         <source>Letters and digits</source>
         <translation>حروف و ارقام</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="250"/>
+        <location filename="../host/ui/config_dialog.cc" line="254"/>
         <source>Letters</source>
         <translation>حروف</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="252"/>
+        <location filename="../host/ui/config_dialog.cc" line="256"/>
         <source>Digits</source>
         <translation>ارقام</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="269"/>
+        <location filename="../host/ui/config_dialog.cc" line="273"/>
         <source>Never</source>
         <translation>هرگز</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="270"/>
+        <location filename="../host/ui/config_dialog.cc" line="274"/>
         <source>15 seconds</source>
         <translation>15 ثانیه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="271"/>
+        <location filename="../host/ui/config_dialog.cc" line="275"/>
         <source>30 seconds</source>
         <translation>30 ثانیه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="272"/>
+        <location filename="../host/ui/config_dialog.cc" line="276"/>
         <source>45 seconds</source>
         <translation>45 ثانیه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="273"/>
+        <location filename="../host/ui/config_dialog.cc" line="277"/>
         <source>60 seconds</source>
         <translation>60 ثانیه</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="281"/>
+        <location filename="../host/ui/config_dialog.cc" line="285"/>
         <source>Accept connection</source>
         <translation>پذیرش اتصال</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="282"/>
+        <location filename="../host/ui/config_dialog.cc" line="286"/>
         <source>Reject connection</source>
         <translation>رد اتصال</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="481"/>
+        <location filename="../host/ui/config_dialog.cc" line="485"/>
         <source>Are you sure you want to delete user &quot;%1&quot;?</source>
         <translation>آیا مطمئن هستید که می‌خواهید کاربر &quot;%1&quot; را حذف کنید؟</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="509"/>
-        <location filename="../host/ui/config_dialog.cc" line="543"/>
+        <location filename="../host/ui/config_dialog.cc" line="513"/>
+        <location filename="../host/ui/config_dialog.cc" line="547"/>
         <source>An error occurred while processing the password.</source>
         <translation>هنگام پردازش گذرواژه خطایی رخ داد.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="526"/>
+        <location filename="../host/ui/config_dialog.cc" line="530"/>
         <source>Settings storage is unavailable.</source>
         <translation>محل ذخیره تنظیمات در دسترس نیست.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="557"/>
+        <location filename="../host/ui/config_dialog.cc" line="561"/>
         <source>Import</source>
         <translation>وارد کردن</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="557"/>
-        <location filename="../host/ui/config_dialog.cc" line="574"/>
+        <location filename="../host/ui/config_dialog.cc" line="561"/>
+        <location filename="../host/ui/config_dialog.cc" line="578"/>
         <source>JSON-files (*.json)</source>
         <translation>فایل‌های JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="574"/>
-        <location filename="../host/ui/config_dialog.cc" line="600"/>
+        <location filename="../host/ui/config_dialog.cc" line="578"/>
+        <location filename="../host/ui/config_dialog.cc" line="604"/>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
         <source>Export</source>
         <translation>صادر کردن</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="644"/>
+        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <source>EXE-files (*.exe)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="651"/>
+        <source>The Quick Support package was successfully exported. It connects with the users and the password of this host and does not use a one-time password.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="657"/>
+        <source>The router connection is not configured.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="661"/>
+        <source>The host has no users. Add at least one user first.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="665"/>
+        <source>Unable to export the Quick Support package.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/ui/config_dialog.cc" line="686"/>
         <source>The configuration can not be written. Make sure that you have sufficient rights to write.</source>
         <translation>پیکربندی قابل نوشتن نیست. مطمئن شوید که مجوز کافی برای نوشتن دارید.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="657"/>
+        <location filename="../host/ui/config_dialog.cc" line="699"/>
         <source>Incorrect router address entered.</source>
         <translation>آدرس روتر به‌درستی وارد نشده است.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="667"/>
+        <location filename="../host/ui/config_dialog.cc" line="709"/>
         <source>Incorrect router public key entered.</source>
         <translation>کلید عمومی روتر به‌درستی وارد نشده است.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="880"/>
+        <location filename="../host/ui/config_dialog.cc" line="922"/>
         <source>Install</source>
         <translation>نصب</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="885"/>
+        <location filename="../host/ui/config_dialog.cc" line="927"/>
         <source>Remove</source>
         <translation>حذف</translation>
     </message>
@@ -2742,8 +2773,8 @@ Credentials replaced: %2</source>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="689"/>
-        <location filename="../host/main.cc" line="724"/>
+        <location filename="../host/main.cc" line="751"/>
+        <location filename="../host/main.cc" line="786"/>
         <source>Settings storage is unavailable.</source>
         <translation>محل ذخیره تنظیمات در دسترس نیست.</translation>
     </message>
@@ -2824,32 +2855,37 @@ Credentials replaced: %2</source>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="621"/>
+        <location filename="../host/main.cc" line="680"/>
         <source>Launch the application hidden.</source>
         <translation>اجرای برنامه به‌صورت پنهان.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="623"/>
+        <location filename="../host/main.cc" line="682"/>
+        <source>Launch the window of a Quick Support package.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../host/main.cc" line="684"/>
         <source>Export parameters to file.</source>
         <translation>صادر کردن پارامترها به فایل.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="625"/>
+        <location filename="../host/main.cc" line="686"/>
         <source>Import parameters from file.</source>
         <translation>وارد کردن پارامترها از فایل.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="627"/>
+        <location filename="../host/main.cc" line="688"/>
         <source>Do not display any messages during import and export.</source>
         <translation>در طول وارد کردن و صادر کردن هیچ پیامی نمایش داده نشود.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="629"/>
+        <location filename="../host/main.cc" line="690"/>
         <source>Calling the settings dialog.</source>
         <translation>فراخوانی پنجره تنظیمات.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="631"/>
+        <location filename="../host/main.cc" line="692"/>
         <source>Calling the security log dialog.</source>
         <translation>فراخوانی پنجره گزارش امنیتی.</translation>
     </message>

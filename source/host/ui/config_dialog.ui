@@ -244,6 +244,13 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QPushButton" name="button_export_quick_support">
+            <property name="text">
+             <string>Export Quick Support</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>

@@ -35,6 +35,9 @@
 #include "host/client.h"
 #include "host/database.h"
 #include "host/host_constants.h"
+#if defined(Q_OS_WINDOWS)
+#include "host/win/portable_host.h"
+#endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_WINDOWS)
 #include "base/win/scoped_object.h"
@@ -196,9 +199,11 @@ bool UserSession::start()
     ipc_server_ = new IpcServer(this);
     connect(ipc_server_, &IpcServer::sig_newConnection, this, &UserSession::onIpcNewConnection);
 
-    LOG(INFO) << "Start IPC server for UI (channel:" << kHostUiChannelId << ")";
+    const QString channel_id = hostUiChannelId();
 
-    if (!ipc_server_->start(kHostUiChannelId, IpcServer::AccessMode::INTERACTIVE_USER))
+    LOG(INFO) << "Start IPC server for UI (channel:" << channel_id << ")";
+
+    if (!ipc_server_->start(channel_id, IpcServer::AccessMode::INTERACTIVE_USER))
     {
         LOG(ERROR) << "Failed to start IPC server for UI";
         return false;
@@ -891,7 +896,17 @@ void UserSession::attach(const Location& location, AttachReason reason, SessionI
     QString file_path = QDir::toNativeSeparators(
         QCoreApplication::applicationDirPath() + '\\' + kExecutableNameForUi);
 
-    QString command_line = file_path + " --hidden";
+    QString command_line = file_path;
+    if (PortableHost::isPortable())
+    {
+        // A Quick Support window must be visible: the whole point of the package is the host ID the
+        // user reads to the operator.
+        command_line += " --qs-ui";
+    }
+    else
+    {
+        command_line += " --hidden";
+    }
 
     if (!createProcessWithToken(user_token, command_line))
     {
