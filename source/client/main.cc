@@ -605,6 +605,16 @@ int main(int argc, char* argv[])
                 }
 
                 window->show();
+
+                // A command-line desktop session is usually fullscreen, so a window opened from
+                // its toolbar stays behind it unless it is brought to the foreground explicitly.
+                // Without this, pressing "Terminal" looks like nothing happened even though the
+                // session is created and connected.
+                LOG(INFO) << "Command line session: new session window" << window->windowTitle()
+                          << "visible:" << window->isVisible()
+                          << "pos:" << window->pos() << "size:" << window->size();
+                window->raise();
+                window->activateWindow();
             });
         }
 

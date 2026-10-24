@@ -615,6 +615,10 @@ void MainWindow::onConnect(const HostConfig& host, proto::peer::SessionType sess
 
             window->raise();
             window->activateWindow();
+
+            LOG(INFO) << "Session window" << window->windowTitle()
+                      << "visible:" << window->isVisible()
+                      << "pos:" << window->pos() << "size:" << window->size();
         }
     }
 }
