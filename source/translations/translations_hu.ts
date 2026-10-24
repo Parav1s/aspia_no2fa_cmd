@@ -4,38 +4,38 @@
 <context>
     <name>AabImporter</name>
     <message>
-        <location filename="../client/aab_importer.cc" line="143"/>
+        <location filename="../client/aab_importer.cc" line="144"/>
         <source>%1 (Imported)</source>
         <translation>%1 (importált)</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="313"/>
+        <location filename="../client/aab_importer.cc" line="314"/>
         <source>Unable to open file &quot;%1&quot;: %2</source>
         <translation>Nem lehet megnyitni a(z) &quot;%1&quot; fájlt: %2</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="322"/>
+        <location filename="../client/aab_importer.cc" line="323"/>
         <source>Selected file is empty.</source>
         <translation>A kiválasztott fájl üres.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="329"/>
-        <location filename="../client/aab_importer.cc" line="377"/>
+        <location filename="../client/aab_importer.cc" line="330"/>
+        <location filename="../client/aab_importer.cc" line="379"/>
         <source>The address book file is corrupted or has an unknown format.</source>
         <translation>A címjegyzékfájl sérült vagy ismeretlen formátumú.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="369"/>
+        <location filename="../client/aab_importer.cc" line="371"/>
         <source>The address book file is encrypted with an unsupported encryption type.</source>
         <translation>A címjegyzékfájl nem támogatott titkosítási típussal van titkosítva.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="388"/>
+        <location filename="../client/aab_importer.cc" line="390"/>
         <source>Failed to read data from the local database.</source>
         <translation>Nem sikerült olvasni az adatokat a helyi adatbázisból.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="407"/>
+        <location filename="../client/aab_importer.cc" line="409"/>
         <source>Import completed successfully.
 Groups added: %1
 Hosts added: %2
@@ -48,22 +48,22 @@ Kihagyott gazdagépek: %3
 Hozzáadott útválasztók: %4</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="361"/>
+        <location filename="../client/aab_importer.cc" line="363"/>
         <source>Unable to decrypt the address book with the specified password.</source>
         <translation>A címjegyzék nem fejthető vissza a megadott jelszóval.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="344"/>
+        <location filename="../client/aab_importer.cc" line="346"/>
         <source>Unlock</source>
         <translation>Feloldás</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="346"/>
+        <location filename="../client/aab_importer.cc" line="348"/>
         <source>Address book is encrypted. To open, you must enter a password.</source>
         <translation>A címjegyzék titkosított. A megnyitáshoz meg kell adnia a jelszót.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="402"/>
+        <location filename="../client/aab_importer.cc" line="404"/>
         <source>Nothing was imported.</source>
         <translation>Semmi sem lett importálva.</translation>
     </message>
@@ -86,127 +86,125 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Szervizinformációk</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.ui" line="112"/>
         <source>Donate!</source>
-        <translation>Támogatás!</translation>
+        <translation type="vanished">Támogatás!</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.ui" line="136"/>
+        <location filename="../common/desktop/about_dialog.ui" line="125"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="104"/>
+        <location filename="../common/desktop/about_dialog.cc" line="107"/>
         <source>Version: %1 (%2)</source>
         <translation>Verzió: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="109"/>
+        <location filename="../common/desktop/about_dialog.cc" line="112"/>
         <source>Aspia is free software released under GNU General Public License 3.</source>
         <translation>Az Aspia szabad szoftver, amely a GNU General Public License 3 feltételei szerint jelent meg.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="110"/>
+        <location filename="../common/desktop/about_dialog.cc" line="113"/>
         <source>You can get a copy of license here:</source>
         <translation>A licenc másolata itt érhető el:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="115"/>
+        <location filename="../common/desktop/about_dialog.cc" line="118"/>
         <source>You can also get a translation of GNU GPL license here:</source>
         <translation>A GNU GPL licenc fordítása itt is elérhető:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="119"/>
+        <location filename="../common/desktop/about_dialog.cc" line="122"/>
         <source>Links</source>
         <translation>Hivatkozások</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="120"/>
         <source>Home page:</source>
-        <translation>Honlap:</translation>
+        <translation type="vanished">Honlap:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="121"/>
+        <location filename="../common/desktop/about_dialog.cc" line="123"/>
         <source>GitHub page:</source>
         <translation>GitHub-oldal:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="124"/>
+        <location filename="../common/desktop/about_dialog.cc" line="126"/>
         <source>Developers</source>
         <translation>Fejlesztők</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="126"/>
+        <location filename="../common/desktop/about_dialog.cc" line="128"/>
         <source>Translators</source>
         <translation>Fordítók</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="128"/>
+        <location filename="../common/desktop/about_dialog.cc" line="130"/>
         <source>Third-party components</source>
         <translation>Külső összetevők</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="130"/>
+        <location filename="../common/desktop/about_dialog.cc" line="132"/>
         <source>Graphics and images</source>
         <translation>Grafika és képek</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="131"/>
+        <location filename="../common/desktop/about_dialog.cc" line="133"/>
         <source>Icons by %1</source>
         <translation>Ikonok: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="158"/>
+        <location filename="../common/desktop/about_dialog.cc" line="160"/>
         <source>Application</source>
         <translation>Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="159"/>
+        <location filename="../common/desktop/about_dialog.cc" line="161"/>
         <source>Path: %1</source>
         <translation>Útvonal: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="160"/>
+        <location filename="../common/desktop/about_dialog.cc" line="162"/>
         <source>Logging directory: %1</source>
         <translation>Naplózási könyvtár: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="162"/>
+        <location filename="../common/desktop/about_dialog.cc" line="164"/>
         <source>Logging file: %1</source>
         <translation>Naplófájl: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="167"/>
+        <location filename="../common/desktop/about_dialog.cc" line="169"/>
         <source>Build Information</source>
         <translation>Build-információk</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="168"/>
+        <location filename="../common/desktop/about_dialog.cc" line="170"/>
         <source>Git branch: %1</source>
         <translation>Git-ág: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="170"/>
+        <location filename="../common/desktop/about_dialog.cc" line="172"/>
         <source>Git commit: %1</source>
         <translation>Git-commit: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="175"/>
+        <location filename="../common/desktop/about_dialog.cc" line="177"/>
         <source>Compilation</source>
         <translation>Fordítás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="176"/>
+        <location filename="../common/desktop/about_dialog.cc" line="178"/>
         <source>Compilation date: %1</source>
         <translation>Fordítás dátuma: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="177"/>
+        <location filename="../common/desktop/about_dialog.cc" line="179"/>
         <source>Compilation time: %1</source>
         <translation>Fordítás ideje: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="206"/>
+        <location filename="../common/desktop/about_dialog.cc" line="208"/>
         <source>Version Information</source>
         <translation>Verzióinformációk</translation>
     </message>
@@ -461,71 +459,71 @@ Hozzáadott útválasztók: %4</translation>
         <translation>···</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="134"/>
-        <location filename="../common/desktop/chat_widget.cc" line="309"/>
+        <location filename="../common/desktop/chat_widget.cc" line="135"/>
+        <location filename="../common/desktop/chat_widget.cc" line="310"/>
         <source>Save chat...</source>
         <translation>Csevegés mentése...</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="135"/>
-        <location filename="../common/desktop/chat_widget.cc" line="310"/>
+        <location filename="../common/desktop/chat_widget.cc" line="136"/>
+        <location filename="../common/desktop/chat_widget.cc" line="311"/>
         <source>Clear chat</source>
         <translation>Csevegés törlése</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="206"/>
+        <location filename="../common/desktop/chat_widget.cc" line="207"/>
         <source>%1 is typing...</source>
         <translation>%1 éppen ír...</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="209"/>
+        <location filename="../common/desktop/chat_widget.cc" line="210"/>
         <source>User %1 has joined the chat (%2)</source>
         <translation>%1 felhasználó csatlakozott a csevegéshez (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="212"/>
+        <location filename="../common/desktop/chat_widget.cc" line="213"/>
         <source>User %1 has left the chat (%2)</source>
         <translation>%1 felhasználó elhagyta a csevegést (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="215"/>
+        <location filename="../common/desktop/chat_widget.cc" line="216"/>
         <source>User %1 is logged in (%2)</source>
         <translation>%1 felhasználó bejelentkezett (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="218"/>
+        <location filename="../common/desktop/chat_widget.cc" line="219"/>
         <source>User %1 is not logged in (%2)</source>
         <translation>%1 felhasználó nincs bejelentkezve (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="221"/>
+        <location filename="../common/desktop/chat_widget.cc" line="222"/>
         <source>There are no connected users (%1)</source>
         <translation>Nincsenek csatlakozott felhasználók (%1)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="431"/>
+        <location filename="../common/desktop/chat_widget.cc" line="432"/>
         <source>Unable to write file.</source>
         <translation>Nem lehet írni a fájlt.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../common/desktop/chat_widget.cc" line="447"/>
+        <location filename="../common/desktop/chat_widget.cc" line="448"/>
         <source>The message is too long. The maximum message length is %n characters.</source>
         <translation>
             <numerusform>Az üzenet túl hosszú. Az üzenet maximális hossza %n karakter.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="370"/>
+        <location filename="../common/desktop/chat_widget.cc" line="371"/>
         <source>Save File</source>
         <translation>Fájl mentése</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="370"/>
+        <location filename="../common/desktop/chat_widget.cc" line="371"/>
         <source>TXT files (*.txt)</source>
         <translation>TXT-fájlok (*.txt)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="383"/>
+        <location filename="../common/desktop/chat_widget.cc" line="384"/>
         <source>Could not open file for writing.</source>
         <translation>Nem sikerült megnyitni a fájlt írásra.</translation>
     </message>
@@ -611,7 +609,7 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Jelszó:</translation>
     </message>
     <message>
-        <location filename="../host/ui/check_password_dialog.cc" line="69"/>
+        <location filename="../host/ui/check_password_dialog.cc" line="71"/>
         <source>You entered an incorrect password.</source>
         <translation>Hibás jelszót adott meg.</translation>
     </message>
@@ -619,86 +617,206 @@ Hozzáadott útválasztók: %4</translation>
 <context>
     <name>Client</name>
     <message>
-        <location filename="../client/main.cc" line="78"/>
+        <location filename="../client/main.cc" line="122"/>
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést. Az adatbázis néhány rekordja sérült. Javítsa vagy törölje őket.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="257"/>
+        <location filename="../client/main.cc" line="209"/>
+        <source>Remote computer address or host ID.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="211"/>
+        <source>Remote computer port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="214"/>
+        <source>Name of the host.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="216"/>
+        <source>User name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="218"/>
+        <source>Password of the user.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="220"/>
+        <source>Display name when connected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="222"/>
+        <source>Session type. Possible values: desktop-manage, desktop-view, file-transfer, system-info, text-chat, terminal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="226"/>
+        <source>Type of codec. Possible values: vp8, vp9, zstd. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="229"/>
+        <source>Color depth. Possible values: 3, 6, 8, 16, 32. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="232"/>
+        <source>Compression ratio. Possible values: 1-22. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="235"/>
+        <source>Enable or disable audio. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="238"/>
+        <source>Enable or disable cursor shape. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="241"/>
+        <source>Enable or disable cursor position. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="244"/>
+        <source>Enable or disable clipboard. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="247"/>
+        <source>Enable or disable desktop effects. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="250"/>
+        <source>Enable or disable desktop wallpaper. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="253"/>
+        <source>Enable or disable font smoothing. Possible values: 0 or 1. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="256"/>
+        <source>Clear clipboard at disconnect. Possible values: 0 or 1. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="259"/>
+        <source>Lock computer at disconnect. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="262"/>
+        <source>Block remote input. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="265"/>
+        <source>Router address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="267"/>
+        <source>Router port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="270"/>
+        <source>Router user name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="272"/>
+        <source>Router password of the user.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="683"/>
         <source>Set Master Password</source>
         <translation>Mesterjelszó beállítása</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="259"/>
+        <location filename="../client/main.cc" line="685"/>
         <source>Set a master password required to unlock the application.</source>
         <translation>Állítson be egy mesterjelszót, amely az alkalmazás feloldásához szükséges.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/main.cc" line="267"/>
+        <location filename="../client/main.cc" line="693"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="275"/>
+        <location filename="../client/main.cc" line="701"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>A megadott jelszó nem felel meg a biztonsági követelményeknek!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/main.cc" line="277"/>
+        <location filename="../client/main.cc" line="703"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszónak tartalmaznia kell kisbetűket és nagybetűket, számokat, és nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="281"/>
+        <location filename="../client/main.cc" line="707"/>
         <source>Do you want to enter a different password?</source>
         <translation>Szeretne másik jelszót megadni?</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="291"/>
+        <location filename="../client/main.cc" line="717"/>
         <source>Unable to set master password.</source>
         <translation>Nem lehet beállítani a mesterjelszót.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="63"/>
+        <location filename="../client/desktop/app_lock.cc" line="71"/>
         <source>Unlock</source>
         <translation>Feloldás</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="72"/>
+        <location filename="../client/main.cc" line="116"/>
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést a(z) &quot;%1&quot; könyvtárban.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="84"/>
+        <location filename="../client/main.cc" line="128"/>
         <source>Unable to create a backup.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="206"/>
+        <location filename="../client/main.cc" line="202"/>
         <source>An aspia:// link to connect to a host.</source>
         <translation>Egy aspia:// hivatkozás a gazdagéphez való csatlakozáshoz.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="65"/>
+        <location filename="../client/desktop/app_lock.cc" line="73"/>
         <source>Enter the master password to unlock the application.</source>
         <translation>Adja meg a mesterjelszót az alkalmazás feloldásához.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="99"/>
+        <location filename="../client/desktop/app_lock.cc" line="119"/>
         <source>Unable to unlock the database.</source>
         <translation>Nem lehet feloldani az adatbázist.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="104"/>
+        <location filename="../client/desktop/app_lock.cc" line="124"/>
         <source>Invalid master password.</source>
         <translation>Érvénytelen mesterjelszó.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="202"/>
+        <location filename="../client/main.cc" line="198"/>
         <source>Aspia Client</source>
         <translation>Aspia kliens</translation>
     </message>
@@ -739,67 +857,77 @@ Hozzáadott útválasztók: %4</translation>
 <context>
     <name>ClientWindow</name>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="268"/>
+        <location filename="../client/desktop/client_window.cc" line="244"/>
         <source>Session started.</source>
         <translation>A munkamenet elindult.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="515"/>
+        <location filename="../client/desktop/client_window.cc" line="574"/>
         <source>The specified router is unavailable.</source>
         <translation>A megadott útválasztó nem érhető el.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="517"/>
+        <location filename="../client/desktop/client_window.cc" line="576"/>
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="519"/>
+        <location filename="../client/desktop/client_window.cc" line="592"/>
         <source>The specified router is offline.</source>
         <translation>A megadott útválasztó offline.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="280"/>
+        <location filename="../client/desktop/client_window.cc" line="256"/>
         <source>Connecting to host %1...</source>
         <translation>Csatlakozás a(z) %1 gazdagéphez...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="284"/>
+        <location filename="../client/desktop/client_window.cc" line="260"/>
         <source>Connecting to host %1:%2...</source>
         <translation>Csatlakozás a(z) %1:%2 gazdagéphez...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="314"/>
+        <location filename="../client/desktop/client_window.cc" line="299"/>
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>A gazdagép még nem érhető el. Várakozás az újracsatlakozásra...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="75"/>
+        <location filename="../client/desktop/client_window.cc" line="102"/>
         <source>Timeout waiting for reconnection to host.</source>
         <translation>Időtúllépés a gazdagéphez való újracsatlakozásra várakozás közben.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="334"/>
+        <location filename="../client/desktop/client_window.cc" line="319"/>
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>A gazdagép verziója újabb, mint a kliens verziója (%1 &gt; %2). Kérjük, frissítse az alkalmazást.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="340"/>
+        <location filename="../client/desktop/client_window.cc" line="325"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>Csatlakozási kísérlet kompatibilitási módban...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="526"/>
+        <location filename="../client/desktop/client_window.cc" line="584"/>
+        <source>Unable to connect to the router.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/client_window.cc" line="588"/>
+        <source>Connecting to the router...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/client_window.cc" line="599"/>
         <source>Requesting connection to the host...</source>
         <translation>Kapcsolat kérése a gazdagéphez...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="534"/>
+        <location filename="../client/desktop/client_window.cc" line="607"/>
         <source>Connection offer received.</source>
         <translation>Kapcsolati ajánlat érkezett.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="551"/>
+        <location filename="../client/desktop/client_window.cc" line="624"/>
         <source>Error requesting connection via router.</source>
         <translation>Hiba az útválasztón keresztüli kapcsolat kérésekor.</translation>
     </message>
@@ -852,23 +980,23 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Nyilvános kulcs:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="634"/>
+        <location filename="../host/ui/config_dialog.cc" line="702"/>
         <source>Enter the address of the update server.</source>
         <translation>Adja meg a frissítési kiszolgáló címét.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <location filename="../host/ui/config_dialog.cc" line="709"/>
         <source>The update server address must start with http:// or https://.</source>
         <translation>A frissítési kiszolgáló címének http:// vagy https:// előtaggal kell kezdődnie.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="652"/>
+        <location filename="../host/ui/config_dialog.cc" line="720"/>
         <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
         <translation>A frissítési kiszolgáló nyilvános kulcsának 64 hexadecimális karakterből kell állnia.</translation>
     </message>
     <message>
         <location filename="../host/ui/config_dialog.ui" line="14"/>
-        <location filename="../host/ui/config_dialog.ui" line="161"/>
+        <location filename="../host/ui/config_dialog.ui" line="210"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
@@ -893,63 +1021,63 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Frissítési csatorna:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="448"/>
-        <location filename="../host/ui/config_dialog.ui" line="559"/>
+        <location filename="../host/ui/config_dialog.ui" line="504"/>
+        <location filename="../host/ui/config_dialog.ui" line="615"/>
         <source>Users</source>
         <translation>Felhasználók</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="462"/>
+        <location filename="../host/ui/config_dialog.ui" line="518"/>
         <source>Add new user</source>
         <translation>Új felhasználó hozzáadása</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="488"/>
+        <location filename="../host/ui/config_dialog.ui" line="544"/>
         <source>Edit user</source>
         <translation>Felhasználó szerkesztése</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="514"/>
+        <location filename="../host/ui/config_dialog.ui" line="570"/>
         <source>Delete user</source>
         <translation>Felhasználó törlése</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="149"/>
+        <location filename="../host/ui/config_dialog.ui" line="198"/>
         <source>Check for updates</source>
         <translation>Frissítések keresése</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="582"/>
+        <location filename="../host/ui/config_dialog.ui" line="638"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="591"/>
+        <location filename="../host/ui/config_dialog.ui" line="647"/>
         <source>Modify</source>
         <translation>Módosítás</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="600"/>
+        <location filename="../host/ui/config_dialog.ui" line="656"/>
         <source>Delete</source>
         <translation>Törlés</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="380"/>
+        <location filename="../host/ui/config_dialog.ui" line="436"/>
         <source>Router</source>
         <translation>Útválasztó</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="386"/>
+        <location filename="../host/ui/config_dialog.ui" line="442"/>
         <source>Enable the use of a router</source>
         <translation>Útválasztó használatának engedélyezése</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="398"/>
+        <location filename="../host/ui/config_dialog.ui" line="454"/>
         <source>Address:</source>
         <translation>Cím:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="417"/>
+        <location filename="../host/ui/config_dialog.ui" line="473"/>
         <source>Public Key:</source>
         <translation>Nyilvános kulcs:</translation>
     </message>
@@ -959,67 +1087,67 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Előnyben részesített videorögzítő:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="236"/>
+        <location filename="../host/ui/config_dialog.ui" line="292"/>
         <source>Change password</source>
         <translation>Jelszó módosítása</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="211"/>
+        <location filename="../host/ui/config_dialog.ui" line="267"/>
         <source>Security</source>
         <translation>Biztonság</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="217"/>
+        <location filename="../host/ui/config_dialog.ui" line="273"/>
         <source>Password Protection of Settings</source>
         <translation>Beállítások jelszavas védelme</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="253"/>
+        <location filename="../host/ui/config_dialog.ui" line="309"/>
         <source>One-time Password</source>
         <translation>Egyszer használatos jelszó</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="259"/>
+        <location filename="../host/ui/config_dialog.ui" line="315"/>
         <source>Enable one-time password</source>
         <translation>Egyszer használatos jelszó engedélyezése</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="288"/>
+        <location filename="../host/ui/config_dialog.ui" line="344"/>
         <source>Characters count:</source>
         <translation>Karakterek száma:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="278"/>
+        <location filename="../host/ui/config_dialog.ui" line="334"/>
         <source>Characters:</source>
         <translation>Karakterek:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="310"/>
+        <location filename="../host/ui/config_dialog.ui" line="366"/>
         <source>Connection Confirmation</source>
         <translation>Kapcsolat megerősítése</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="316"/>
+        <location filename="../host/ui/config_dialog.ui" line="372"/>
         <source>Require confirmation when connected to a computer</source>
         <translation>Megerősítés kérése a számítógéphez való csatlakozáskor</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="325"/>
+        <location filename="../host/ui/config_dialog.ui" line="381"/>
         <source>Automatic confirmation of connection via:</source>
         <translation>Kapcsolat automatikus megerősítése:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="268"/>
+        <location filename="../host/ui/config_dialog.ui" line="324"/>
         <source>Change password:</source>
         <translation>Jelszó cseréje:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="335"/>
+        <location filename="../host/ui/config_dialog.ui" line="391"/>
         <source>If there is no active user:</source>
         <translation>Ha nincs aktív felhasználó:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="431"/>
+        <location filename="../host/ui/config_dialog.ui" line="487"/>
         <source>A router is required to connect to a computer if there is no direct connection (bypass NAT). Aspia does not provide a public router, but you can install your own. You can download the router on the &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;official website&lt;/a&gt;.</source>
         <translation>Útválasztó szükséges a számítógéphez való csatlakozáshoz, ha nincs közvetlen kapcsolat (NAT megkerülése). Az Aspia nem biztosít nyilvános útválasztót, de telepíthet sajátot. Az útválasztó letölthető a &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;hivatalos webhelyről&lt;/a&gt;.</translation>
     </message>
@@ -1034,22 +1162,22 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Bejövő port:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="356"/>
+        <location filename="../host/ui/config_dialog.ui" line="412"/>
         <source>Disable Aspia shutdown</source>
         <translation>Aspia leállításának letiltása</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="350"/>
+        <location filename="../host/ui/config_dialog.ui" line="406"/>
         <source>Other</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="180"/>
+        <location filename="../host/ui/config_dialog.ui" line="229"/>
         <source>Import settings</source>
         <translation>Beállítások importálása</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="187"/>
+        <location filename="../host/ui/config_dialog.ui" line="236"/>
         <source>Export settings</source>
         <translation>Beállítások exportálása</translation>
     </message>
@@ -1064,174 +1192,175 @@ Hozzáadott útválasztók: %4</translation>
         <translation>Frissítések keresése:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="116"/>
+        <location filename="../host/ui/config_dialog.cc" line="140"/>
         <source>Once a day</source>
         <translation>Naponta egyszer</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="117"/>
+        <location filename="../host/ui/config_dialog.cc" line="141"/>
         <source>Once a week</source>
         <translation>Hetente egyszer</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="118"/>
+        <location filename="../host/ui/config_dialog.cc" line="142"/>
         <source>Once a month</source>
         <translation>Havonta egyszer</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="120"/>
+        <location filename="../host/ui/config_dialog.cc" line="144"/>
         <source>Stable</source>
         <translation>Stabil</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="121"/>
+        <location filename="../host/ui/config_dialog.cc" line="145"/>
         <source>Beta</source>
         <translation>Béta</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="122"/>
+        <location filename="../host/ui/config_dialog.cc" line="146"/>
         <source>Alpha</source>
         <translation>Alfa</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="147"/>
+        <location filename="../host/ui/config_dialog.cc" line="187"/>
         <source>Default</source>
         <translation>Alapértelmezett</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="194"/>
+        <location filename="../host/ui/config_dialog.cc" line="234"/>
         <source>On reboot</source>
         <translation>Újraindításkor</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="195"/>
+        <location filename="../host/ui/config_dialog.cc" line="235"/>
         <source>Every 5 minutes</source>
         <translation>5 percenként</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="196"/>
+        <location filename="../host/ui/config_dialog.cc" line="236"/>
         <source>Every 30 minutes</source>
         <translation>30 percenként</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="197"/>
+        <location filename="../host/ui/config_dialog.cc" line="237"/>
         <source>Every 1 hour</source>
         <translation>Óránként</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="198"/>
+        <location filename="../host/ui/config_dialog.cc" line="238"/>
         <source>Every 6 hours</source>
         <translation>6 óránként</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="199"/>
+        <location filename="../host/ui/config_dialog.cc" line="239"/>
         <source>Every 12 hours</source>
         <translation>12 óránként</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="207"/>
+        <location filename="../host/ui/config_dialog.cc" line="247"/>
         <source>Letters and digits</source>
         <translation>Betűk és számjegyek</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="210"/>
+        <location filename="../host/ui/config_dialog.cc" line="250"/>
         <source>Letters</source>
         <translation>Betűk</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="212"/>
+        <location filename="../host/ui/config_dialog.cc" line="252"/>
         <source>Digits</source>
         <translation>Számjegyek</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="229"/>
+        <location filename="../host/ui/config_dialog.cc" line="269"/>
         <source>Never</source>
         <translation>Soha</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="230"/>
+        <location filename="../host/ui/config_dialog.cc" line="270"/>
         <source>15 seconds</source>
         <translation>15 másodperc</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="231"/>
+        <location filename="../host/ui/config_dialog.cc" line="271"/>
         <source>30 seconds</source>
         <translation>30 másodperc</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="232"/>
+        <location filename="../host/ui/config_dialog.cc" line="272"/>
         <source>45 seconds</source>
         <translation>45 másodperc</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="233"/>
+        <location filename="../host/ui/config_dialog.cc" line="273"/>
         <source>60 seconds</source>
         <translation>60 másodperc</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="241"/>
+        <location filename="../host/ui/config_dialog.cc" line="281"/>
         <source>Accept connection</source>
         <translation>Kapcsolat elfogadása</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="242"/>
+        <location filename="../host/ui/config_dialog.cc" line="282"/>
         <source>Reject connection</source>
         <translation>Kapcsolat elutasítása</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="441"/>
+        <location filename="../host/ui/config_dialog.cc" line="481"/>
         <source>Are you sure you want to delete user &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; felhasználót?</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="468"/>
-        <location filename="../host/ui/config_dialog.cc" line="501"/>
+        <location filename="../host/ui/config_dialog.cc" line="509"/>
+        <location filename="../host/ui/config_dialog.cc" line="543"/>
         <source>An error occurred while processing the password.</source>
         <translation>Hiba történt a jelszó feldolgozása közben.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="485"/>
+        <location filename="../host/ui/config_dialog.cc" line="526"/>
         <source>Settings storage is unavailable.</source>
         <translation>A beállítástároló nem érhető el.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="515"/>
+        <location filename="../host/ui/config_dialog.cc" line="557"/>
         <source>Import</source>
         <translation>Importálás</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="515"/>
-        <location filename="../host/ui/config_dialog.cc" line="532"/>
+        <location filename="../host/ui/config_dialog.cc" line="557"/>
+        <location filename="../host/ui/config_dialog.cc" line="574"/>
         <source>JSON-files (*.json)</source>
         <translation>JSON-fájlok (*.json)</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="532"/>
+        <location filename="../host/ui/config_dialog.cc" line="574"/>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
         <source>Export</source>
         <translation>Exportálás</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="557"/>
+        <location filename="../host/ui/config_dialog.cc" line="644"/>
         <source>The configuration can not be written. Make sure that you have sufficient rights to write.</source>
         <translation>A konfiguráció nem írható. Győződjön meg arról, hogy rendelkezik megfelelő írási jogokkal.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="570"/>
+        <location filename="../host/ui/config_dialog.cc" line="657"/>
         <source>Incorrect router address entered.</source>
         <translation>Hibás útválasztócím lett megadva.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="580"/>
+        <location filename="../host/ui/config_dialog.cc" line="667"/>
         <source>Incorrect router public key entered.</source>
         <translation>Hibás nyilvános kulcs lett megadva az útválasztóhoz.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="738"/>
+        <location filename="../host/ui/config_dialog.cc" line="880"/>
         <source>Install</source>
         <translation>Telepítés</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="743"/>
+        <location filename="../host/ui/config_dialog.cc" line="885"/>
         <source>Remove</source>
         <translation>Eltávolítás</translation>
     </message>
@@ -1587,7 +1716,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../common/desktop/credentials_dialog.ui" line="89"/>
-        <location filename="../common/desktop/credentials_dialog.cc" line="51"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="52"/>
         <source>Password:</source>
         <translation>Jelszó:</translation>
     </message>
@@ -1597,23 +1726,23 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Jelszó megerősítése:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="57"/>
-        <location filename="../common/desktop/credentials_dialog.cc" line="61"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="58"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="62"/>
         <source>New password:</source>
         <translation>Új jelszó:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="195"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="210"/>
         <source>Enter the current password.</source>
         <translation>Adja meg a jelenlegi jelszót.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="202"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="217"/>
         <source>Password cannot be empty.</source>
         <translation>A jelszó nem lehet üres.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="209"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="224"/>
         <source>Passwords do not match.</source>
         <translation>A jelszavak nem egyeznek.</translation>
     </message>
@@ -1646,17 +1775,17 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Hitelesítő adatok törlése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/credentials_tab.cc" line="175"/>
+        <location filename="../client/desktop/credentials_tab.cc" line="178"/>
         <source>Are you sure you want to delete credentials &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; hitelesítő adatokat?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/credentials_tab.cc" line="183"/>
+        <location filename="../client/desktop/credentials_tab.cc" line="186"/>
         <source>Unable to delete credentials.</source>
         <translation>Nem lehet törölni a hitelesítő adatokat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/credentials_tab.cc" line="228"/>
+        <location filename="../client/desktop/credentials_tab.cc" line="231"/>
         <source>Failed to read data. The list may be out of date.</source>
         <translation>Nem sikerült olvasni az adatokat. Lehet, hogy a lista elavult.</translation>
     </message>
@@ -1731,7 +1860,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../client/desktop/desktop/desktop_toolbar.ui" line="233"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="971"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="983"/>
         <source>Scale</source>
         <translation>Méretezés</translation>
     </message>
@@ -1821,7 +1950,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     <message>
         <location filename="../client/desktop/desktop/desktop_toolbar.ui" line="435"/>
         <location filename="../client/desktop/desktop/desktop_toolbar.ui" line="438"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="573"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="585"/>
         <source>Start recording</source>
         <translation>Felvétel indítása</translation>
     </message>
@@ -1843,69 +1972,69 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Munkamenet váltása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="368"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="372"/>
         <source>Resolution selection</source>
         <translation>Felbontás kiválasztása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1146"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1158"/>
         <source>Session %1</source>
         <translation>Munkamenet %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1146"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1158"/>
         <source>Session %1 (%2)</source>
         <translation>Munkamenet %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="568"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="580"/>
         <source>Stop recording</source>
         <translation>Felvétel leállítása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="481"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="485"/>
         <source>Scripts</source>
         <translation>Parancsfájlok</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="540"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="548"/>
         <source>Are you sure you want to run &quot;%1&quot; on the remote computer?</source>
         <translation>Biztosan futtatja a(z) &quot;%1&quot; parancsfájlt a távoli számítógépen?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="800"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="812"/>
         <source>Are you sure you want to shutdown the remote computer?</source>
         <translation>Biztosan leállítja a távoli számítógépet?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="815"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="841"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="827"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="853"/>
         <source>Confirmation</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="816"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="828"/>
         <source>Are you sure you want to reboot the remote computer?</source>
         <translation>Biztosan újraindítja a távoli számítógépet?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="821"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="847"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="833"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="859"/>
         <source>Wait for host</source>
         <translation>Várakozás a gazdagépre</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="842"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="854"/>
         <source>Are you sure you want to reboot the remote computer in Safe Mode?</source>
         <translation>Biztosan újraindítja a távoli számítógépet csökkentett módban?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="867"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="879"/>
         <source>Are you sure you want to end the user session on the remote computer?</source>
         <translation>Biztosan befejezi a felhasználói munkamenetet a távoli számítógépen?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="882"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="894"/>
         <source>Are you sure you want to lock the user session on the remote computer?</source>
         <translation>Biztosan zárolja a felhasználói munkamenetet a távoli számítógépen?</translation>
     </message>
@@ -1936,17 +2065,17 @@ Lecserélt hitelesítő adatok: %2</translation>
 <context>
     <name>DesktopWindow</name>
     <message>
-        <location filename="../client/desktop/desktop/desktop_window.cc" line="973"/>
+        <location filename="../client/desktop/desktop/desktop_window.cc" line="977"/>
         <source>Save File</source>
         <translation>Fájl mentése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_window.cc" line="974"/>
+        <location filename="../client/desktop/desktop/desktop_window.cc" line="978"/>
         <source>PNG Image (*.png);;BMP Image (*.bmp)</source>
         <translation>PNG-kép (*.png);;BMP-kép (*.bmp)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_window.cc" line="1005"/>
+        <location filename="../client/desktop/desktop/desktop_window.cc" line="1009"/>
         <source>Could not save image</source>
         <translation>Nem sikerült menteni a képet</translation>
     </message>
@@ -2084,7 +2213,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     <message>
         <location filename="../client/file_error_code.cc" line="61"/>
         <source>Access denied</source>
-        <translation>Hozzáférés megtagadva</translation>
+        <translation>hozzáférés megtagadva</translation>
     </message>
     <message>
         <location filename="../client/file_error_code.cc" line="65"/>
@@ -2211,59 +2340,59 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Kijelölt objektumok küldése (F11)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="117"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="118"/>
         <source>Failed to get list of drives: %1</source>
         <translation>Nem sikerült lekérni a meghajtók listáját: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="134"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="135"/>
         <source>Failed to get list of files: %1</source>
         <translation>Nem sikerült lekérni a fájlok listáját: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="159"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="160"/>
         <source>Failed to create directory: %1</source>
         <translation>Nem sikerült létrehozni a könyvtárat: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="171"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="172"/>
         <source>Failed to rename item: %1</source>
         <translation>Nem sikerült átnevezni az elemet: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="316"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="317"/>
         <source>%1 object(s) selected</source>
         <translation>%1 objektum kijelölve</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="376"/>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="395"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="378"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="397"/>
         <source>Folder name can not be empty.</source>
         <translation>A mappa neve nem lehet üres.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="382"/>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="401"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="384"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="403"/>
         <source>Name contains invalid characters.</source>
         <translation>A név érvénytelen karaktereket tartalmaz.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="344"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="345"/>
         <source>&amp;Send	F11</source>
         <translation>&amp;Küldés	F11</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="345"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="346"/>
         <source>&amp;Delete	Delete</source>
         <translation>&amp;Törlés	Delete</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="355"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="356"/>
         <source>&amp;Create Folder</source>
         <translation>&amp;Mappa létrehozása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="456"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="458"/>
         <source>Are you sure you want to delete the selected items?</source>
         <translation>Biztosan törli a kijelölt elemeket?</translation>
     </message>
@@ -2595,17 +2724,17 @@ Lecserélt hitelesítő adatok: %2</translation>
 <context>
     <name>GuiApplication</name>
     <message>
-        <location filename="../base/gui_application.cc" line="541"/>
+        <location filename="../base/gui_application.cc" line="534"/>
         <source>Dark</source>
         <translation>Sötét</translation>
     </message>
     <message>
-        <location filename="../base/gui_application.cc" line="543"/>
+        <location filename="../base/gui_application.cc" line="536"/>
         <source>Light</source>
         <translation>Világos</translation>
     </message>
     <message>
-        <location filename="../base/gui_application.cc" line="544"/>
+        <location filename="../base/gui_application.cc" line="537"/>
         <source>Auto</source>
         <translation>Automatikus</translation>
     </message>
@@ -2613,8 +2742,8 @@ Lecserélt hitelesítő adatok: %2</translation>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="611"/>
-        <location filename="../host/main.cc" line="646"/>
+        <location filename="../host/main.cc" line="689"/>
+        <location filename="../host/main.cc" line="724"/>
         <source>Settings storage is unavailable.</source>
         <translation>A beállítástároló nem érhető el.</translation>
     </message>
@@ -2695,32 +2824,32 @@ Lecserélt hitelesítő adatok: %2</translation>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="548"/>
+        <location filename="../host/main.cc" line="621"/>
         <source>Launch the application hidden.</source>
         <translation>Az alkalmazás rejtett indítása.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="550"/>
+        <location filename="../host/main.cc" line="623"/>
         <source>Export parameters to file.</source>
         <translation>Paraméterek exportálása fájlba.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="552"/>
+        <location filename="../host/main.cc" line="625"/>
         <source>Import parameters from file.</source>
         <translation>Paraméterek importálása fájlból.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="554"/>
+        <location filename="../host/main.cc" line="627"/>
         <source>Do not display any messages during import and export.</source>
         <translation>Ne jelenjen meg üzenet az importálás és exportálás során.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="556"/>
+        <location filename="../host/main.cc" line="629"/>
         <source>Calling the settings dialog.</source>
         <translation>A beállítások párbeszédablak megnyitása.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="558"/>
+        <location filename="../host/main.cc" line="631"/>
         <source>Calling the security log dialog.</source>
         <translation>A biztonsági napló párbeszédablak megnyitása.</translation>
     </message>
@@ -2757,9 +2886,9 @@ Lecserélt hitelesítő adatok: %2</translation>
     <name>HostWindow</name>
     <message>
         <location filename="../host/ui/host_window.ui" line="26"/>
-        <location filename="../host/ui/host_window.cc" line="552"/>
-        <location filename="../host/ui/host_window.cc" line="790"/>
-        <location filename="../host/ui/host_window.cc" line="1062"/>
+        <location filename="../host/ui/host_window.cc" line="575"/>
+        <location filename="../host/ui/host_window.cc" line="832"/>
+        <location filename="../host/ui/host_window.cc" line="1123"/>
         <source>Aspia Host</source>
         <translation>Aspia Host</translation>
     </message>
@@ -2775,7 +2904,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="198"/>
-        <location filename="../host/ui/host_window.cc" line="976"/>
+        <location filename="../host/ui/host_window.cc" line="1037"/>
         <source>Router is disabled</source>
         <translation>Az útválasztó le van tiltva</translation>
     </message>
@@ -2841,7 +2970,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="329"/>
-        <location filename="../host/ui/host_window.cc" line="753"/>
+        <location filename="../host/ui/host_window.cc" line="795"/>
         <source>Hide</source>
         <translation>Elrejtés</translation>
     </message>
@@ -2881,60 +3010,123 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Csevegés megjelenítése</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="287"/>
-        <location filename="../host/ui/host_window.cc" line="748"/>
+        <location filename="../host/ui/host_window.cc" line="295"/>
+        <location filename="../host/ui/host_window.cc" line="790"/>
         <source>Show</source>
         <translation>Megjelenítés</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="547"/>
+        <location filename="../host/ui/host_window.cc" line="570"/>
         <source>Screen recording has started.</source>
         <translation>A képernyőfelvétel elindult.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="549"/>
+        <location filename="../host/ui/host_window.cc" line="572"/>
         <source>Screen recording stopped.</source>
         <translation>A képernyőfelvétel leállt.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="737"/>
+        <location filename="../host/ui/host_window.cc" line="779"/>
         <source>Settings storage is unavailable.</source>
         <translation>A beállítástároló nem érhető el.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="807"/>
+        <location filename="../host/ui/host_window.cc" line="850"/>
         <source>If you exit from Aspia, it will not be possible to connect to this computer until you turn on the computer or Aspia again manually. Do you really want to exit the application?</source>
         <translation>Ha kilép az Aspiából, nem lehet csatlakozni ehhez a számítógéphez, amíg kézzel újra be nem kapcsolja a számítógépet vagy az Aspiát. Valóban kilép az alkalmazásból?</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="968"/>
+        <location filename="../host/ui/host_window.cc" line="1029"/>
         <source>Not connected to service</source>
         <translation>Nincs kapcsolat a szolgáltatással</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="981"/>
+        <location filename="../host/ui/host_window.cc" line="1042"/>
         <source>Connecting to router...</source>
         <translation>Csatlakozás az útválasztóhoz...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="986"/>
+        <location filename="../host/ui/host_window.cc" line="1047"/>
         <source>Connected to router</source>
         <translation>Csatlakoztatva az útválasztóhoz</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="991"/>
+        <location filename="../host/ui/host_window.cc" line="1052"/>
         <source>Connection error</source>
         <translation>Kapcsolati hiba</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1059"/>
+        <location filename="../host/ui/host_window.cc" line="1120"/>
         <source>IP addresses:</source>
         <translation>IP-címek:</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1063"/>
+        <location filename="../host/ui/host_window.cc" line="1124"/>
         <source>ID: %1</source>
         <translation>ID: %1</translation>
+    </message>
+</context>
+<context>
+    <name>InactiveHostsCleaner</name>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="67"/>
+        <source>%1 (not connected)</source>
+        <translation>%1 (nincs csatlakozva)</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="112"/>
+        <source>not connected</source>
+        <translation>nincs csatlakozva</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="140"/>
+        <source>access denied</source>
+        <translation>hozzáférés megtagadva</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="141"/>
+        <source>error: %1</source>
+        <translation>hiba: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="200"/>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="269"/>
+        <source>Inactive hosts found: %1</source>
+        <translation>Inaktív gazdagépek: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="270"/>
+        <source>Inactive period: %1 month(s)</source>
+        <translation>Inaktivitási időszak: %1 hónap</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="271"/>
+        <source>These hosts have not been connected to for longer than the inactive period. They will be deleted from the router and from the address book. This operation is irreversible.</source>
+        <translation>Ezek a gazdagépek az inaktivitási időszaknál régebben nem csatlakoztak. Törlődnek az útválasztóból és a címjegyzékből. A művelet nem visszafordítható.</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="277"/>
+        <source>Skipped routers: %1</source>
+        <translation>Kihagyott útválasztók: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="281"/>
+        <source>Continue?</source>
+        <translation>Folytatja?</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="298"/>
+        <source>Removed hosts: %1</source>
+        <translation>Eltávolított gazdagépek: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="299"/>
+        <source>Failed: %1</source>
+        <translation>Sikertelen: %1</translation>
     </message>
 </context>
 <context>
@@ -3028,24 +3220,24 @@ Lecserélt hitelesítő adatok: %2</translation>
 <context>
     <name>LocalGroupWidget</name>
     <message>
-        <location filename="../client/desktop/management/local_group_widget.cc" line="48"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="49"/>
         <source>Status update...</source>
         <translation>Állapotfrissítés...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/local_group_widget.cc" line="160"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="161"/>
         <source>Failed to read data. The list may be out of date.</source>
         <translation>Nem sikerült olvasni az adatokat. Lehet, hogy a lista elavult.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/local_group_widget.cc" line="417"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="418"/>
         <source>%n child group(s)</source>
         <translation>
             <numerusform>%n alcsoport</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/local_group_widget.cc" line="418"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="419"/>
         <source>%n child host(s)</source>
         <translation>
             <numerusform>%n gazdagép</numerusform>
@@ -3297,17 +3489,16 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="119"/>
-        <location filename="../client/desktop/main_window.ui" line="201"/>
+        <location filename="../client/desktop/main_window.ui" line="198"/>
         <source>Tool Bar</source>
         <translation>Eszköztár</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="148"/>
         <source>F1</source>
-        <translation>F1</translation>
+        <translation type="vanished">F1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="209"/>
+        <location filename="../client/desktop/main_window.ui" line="206"/>
         <source>Status Bar</source>
         <translation>Állapotsor</translation>
     </message>
@@ -3317,7 +3508,7 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Súgó</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="193"/>
+        <location filename="../client/desktop/main_window.ui" line="190"/>
         <source>Exit</source>
         <translation>Kilépés</translation>
     </message>
@@ -3328,7 +3519,7 @@ Lecserélt hitelesítő adatok: %2</translation>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
-        <location filename="../client/desktop/main_window.cc" line="404"/>
+        <location filename="../client/desktop/main_window.cc" line="407"/>
         <source>Aspia Client</source>
         <translation>Aspia kliens</translation>
     </message>
@@ -3353,108 +3544,108 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Műveletek</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="157"/>
+        <location filename="../client/desktop/main_window.ui" line="154"/>
         <source>About</source>
         <translation>Névjegy</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="166"/>
+        <location filename="../client/desktop/main_window.ui" line="163"/>
         <source>Credentials...</source>
         <translation>Hitelesítő adatok...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="175"/>
+        <location filename="../client/desktop/main_window.ui" line="172"/>
         <source>Settings...</source>
         <translation>Beállítások...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="184"/>
+        <location filename="../client/desktop/main_window.ui" line="181"/>
         <source>Lock</source>
         <translation>Zárolás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="217"/>
+        <location filename="../client/desktop/main_window.ui" line="214"/>
         <source>Search Field</source>
         <translation>Keresőmező</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="225"/>
+        <location filename="../client/desktop/main_window.ui" line="222"/>
         <source>Large icons</source>
         <translation>Nagy ikonok</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="233"/>
+        <location filename="../client/desktop/main_window.ui" line="230"/>
         <source>Open Sessions in Tabs</source>
         <translation>Munkamenetek megnyitása lapokon</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="241"/>
+        <location filename="../client/desktop/main_window.ui" line="238"/>
         <source>Always on Top</source>
         <translation>Mindig felül</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="99"/>
+        <location filename="../client/desktop/main_window.cc" line="100"/>
         <source>Search...</source>
         <translation>Keresés...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="179"/>
+        <location filename="../client/desktop/main_window.cc" line="182"/>
         <source>Management</source>
         <translation>Kezelés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="225"/>
+        <location filename="../client/desktop/main_window.cc" line="228"/>
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>Érvénytelen hivatkozás: &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="248"/>
+        <location filename="../client/desktop/main_window.cc" line="251"/>
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>A hivatkozásban szereplő útválasztó nincs a mentett útválasztók között.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="297"/>
+        <location filename="../client/desktop/main_window.cc" line="300"/>
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>A hivatkozásban szereplő gazdagép nincs a mentett gazdagépek között.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="380"/>
+        <location filename="../client/desktop/main_window.cc" line="383"/>
         <source>Close all sessions to lock the application.</source>
         <translation>Zárja be az összes munkamenetet az alkalmazás zárolásához.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="386"/>
+        <location filename="../client/desktop/main_window.cc" line="389"/>
         <source>Close all dialogs to lock the application.</source>
         <translation>Zárja be az összes párbeszédablakot az alkalmazás zárolásához.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="502"/>
+        <location filename="../client/desktop/main_window.cc" line="509"/>
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>A gazdagép tulajdonságaiban ID szerinti kapcsolat van megadva, de az útválasztó nincs konfigurálva. Ellenőrizze az útválasztó paramétereit a gazdagép tulajdonságaiban.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="309"/>
+        <location filename="../client/desktop/main_window.cc" line="312"/>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>A gazdagéphez tartozó útválasztó törölve lett. Szerkessze a gazdagépet másik útválasztó kiválasztásához, vagy váltson közvetlen kapcsolatra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="256"/>
-        <location filename="../client/desktop/main_window.cc" line="308"/>
+        <location filename="../client/desktop/main_window.cc" line="259"/>
+        <location filename="../client/desktop/main_window.cc" line="311"/>
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="296"/>
+        <location filename="../client/desktop/main_window.cc" line="299"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>A gazdagép adatai sérültek. Szerkessze a gazdagépet, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="339"/>
+        <location filename="../client/desktop/main_window.cc" line="342"/>
         <source>Credentials</source>
         <translation>Hitelesítő adatok</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="370"/>
+        <location filename="../client/desktop/main_window.cc" line="373"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
@@ -3609,201 +3800,200 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>Telemetria</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="374"/>
         <source>Approve</source>
-        <translation>Jóváhagyás</translation>
+        <translation type="vanished">Jóváhagyás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="383"/>
+        <location filename="../client/desktop/management_tab.ui" line="374"/>
         <source>Save...</source>
         <translation>Mentés...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="386"/>
+        <location filename="../client/desktop/management_tab.ui" line="377"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="395"/>
+        <location filename="../client/desktop/management_tab.ui" line="386"/>
         <source>Reload</source>
         <translation>Újratöltés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="398"/>
+        <location filename="../client/desktop/management_tab.ui" line="389"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="407"/>
+        <location filename="../client/desktop/management_tab.ui" line="398"/>
         <source>Import Old Address Book...</source>
         <translation>Régi címjegyzék importálása...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="416"/>
+        <location filename="../client/desktop/management_tab.ui" line="407"/>
         <source>Create Backup...</source>
         <translation>Biztonsági mentés készítése...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="425"/>
+        <location filename="../client/desktop/management_tab.ui" line="416"/>
         <source>Restore from Backup...</source>
         <translation>Visszaállítás biztonsági mentésből...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="433"/>
+        <location filename="../client/desktop/management_tab.ui" line="424"/>
         <source>Auto-refresh Status</source>
         <translation>Állapot automatikus frissítése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1034"/>
+        <location filename="../client/desktop/management_tab.cc" line="1007"/>
         <source>(copy)</source>
         <translation>(másolat)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1002"/>
-        <location filename="../client/desktop/management_tab.cc" line="1075"/>
-        <location filename="../client/desktop/management_tab.cc" line="2162"/>
+        <location filename="../client/desktop/management_tab.cc" line="975"/>
+        <location filename="../client/desktop/management_tab.cc" line="1049"/>
+        <location filename="../client/desktop/management_tab.cc" line="2008"/>
         <source>Failed to retrieve host information from the local database.</source>
         <translation>Nem sikerült lekérni a gazdagép adatait a helyi adatbázisból.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1039"/>
+        <location filename="../client/desktop/management_tab.cc" line="1012"/>
         <source>Failed to add the host to the local database.</source>
         <translation>Nem sikerült hozzáadni a gazdagépet a helyi adatbázishoz.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1079"/>
+        <location filename="../client/desktop/management_tab.cc" line="1053"/>
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; gazdagépet?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1089"/>
+        <location filename="../client/desktop/management_tab.cc" line="1063"/>
         <source>Unable to remove host</source>
         <translation>Nem lehet eltávolítani a gazdagépet</translation>
     </message>
     <message>
+        <location filename="../client/desktop/management_tab.cc" line="1121"/>
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
-        <location filename="../client/desktop/management_tab.cc" line="1190"/>
-        <location filename="../client/desktop/management_tab.cc" line="1215"/>
+        <location filename="../client/desktop/management_tab.cc" line="1173"/>
         <source>Copy Row</source>
         <translation>Sor másolása</translation>
     </message>
     <message>
+        <location filename="../client/desktop/management_tab.cc" line="1122"/>
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
-        <location filename="../client/desktop/management_tab.cc" line="1191"/>
-        <location filename="../client/desktop/management_tab.cc" line="1216"/>
+        <location filename="../client/desktop/management_tab.cc" line="1174"/>
         <source>Copy Value</source>
         <translation>Érték másolása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1315"/>
+        <location filename="../client/desktop/management_tab.cc" line="1275"/>
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; munkaterületet?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1335"/>
+        <location filename="../client/desktop/management_tab.cc" line="1295"/>
         <source>Failed to delete the workspace.</source>
         <translation>Nem sikerült törölni a munkaterületet.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1430"/>
+        <location filename="../client/desktop/management_tab.cc" line="1397"/>
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; csoportot? A csoporthoz vagy alcsoportjaihoz rendelt gazdagépek a munkaterület gyökerébe kerülnek.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1449"/>
+        <location filename="../client/desktop/management_tab.cc" line="1415"/>
         <source>Failed to delete the group.</source>
         <translation>Nem sikerült törölni a csoportot.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1488"/>
+        <location filename="../client/desktop/management_tab.cc" line="1454"/>
         <source>Import Old Address Book</source>
         <translation>Régi címjegyzék importálása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1489"/>
+        <location filename="../client/desktop/management_tab.cc" line="1455"/>
         <source>Address Book (*.aab);;All files (*)</source>
         <translation>Címjegyzék (*.aab);;Minden fájl (*)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1512"/>
-        <location filename="../client/desktop/management_tab.cc" line="1569"/>
+        <location filename="../client/desktop/management_tab.cc" line="1478"/>
+        <location filename="../client/desktop/management_tab.cc" line="1535"/>
         <source>The database is not available.</source>
         <translation>Az adatbázis nem érhető el.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1518"/>
+        <location filename="../client/desktop/management_tab.cc" line="1484"/>
         <source>Create Backup</source>
         <translation>Biztonsági mentés készítése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1535"/>
+        <location filename="../client/desktop/management_tab.cc" line="1501"/>
         <source>There is nothing to save.</source>
         <translation>Nincs mit menteni.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2157"/>
+        <location filename="../client/desktop/management_tab.cc" line="2003"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>A gazdagép adatai sérültek. Szerkessze a gazdagépet, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2178"/>
+        <location filename="../client/desktop/management_tab.cc" line="2024"/>
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Szerkessze az útválasztót, és adja meg újra az adatokat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1547"/>
+        <location filename="../client/desktop/management_tab.cc" line="1513"/>
         <source>Failed to create the backup.</source>
         <translation>Nem sikerült létrehozni a biztonsági mentést.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1575"/>
-        <location filename="../client/desktop/management_tab.cc" line="1601"/>
+        <location filename="../client/desktop/management_tab.cc" line="1541"/>
+        <location filename="../client/desktop/management_tab.cc" line="1567"/>
         <source>Restore from Backup</source>
         <translation>Visszaállítás biztonsági mentésből</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1584"/>
+        <location filename="../client/desktop/management_tab.cc" line="1550"/>
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>Minden jelenleg tárolt adat törlődik, és a biztonsági mentés tartalmára cserélődik. Folytatja?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1603"/>
+        <location filename="../client/desktop/management_tab.cc" line="1569"/>
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>A biztonsági mentés egy másik telepítésen készült. Adja meg az ott használt mesterjelszót.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1628"/>
+        <location filename="../client/desktop/management_tab.cc" line="1594"/>
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>A biztonsági mentés nem tartalmaz adatokat, ezért semmi sem változott.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1636"/>
+        <location filename="../client/desktop/management_tab.cc" line="1602"/>
         <source>The file is not a valid backup.</source>
         <translation>A fájl nem érvényes biztonsági mentés.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1640"/>
+        <location filename="../client/desktop/management_tab.cc" line="1606"/>
         <source>Failed to restore from the backup.</source>
         <translation>Nem sikerült visszaállítani a biztonsági mentésből.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1519"/>
-        <location filename="../client/desktop/management_tab.cc" line="1576"/>
+        <location filename="../client/desktop/management_tab.cc" line="1485"/>
+        <location filename="../client/desktop/management_tab.cc" line="1542"/>
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Aspia biztonsági mentés (*.aspia-backup);;Minden fájl (*)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1539"/>
+        <location filename="../client/desktop/management_tab.cc" line="1505"/>
         <source>Unable to write the file.</source>
         <translation>Nem lehet írni a fájlt.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1632"/>
+        <location filename="../client/desktop/management_tab.cc" line="1598"/>
         <source>Unable to read the file.</source>
         <translation>Nem lehet olvasni a fájlt.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1552"/>
+        <location filename="../client/desktop/management_tab.cc" line="1518"/>
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -3818,22 +4008,22 @@ Exportált mentett jelszavak: %4
 Exportált hitelesítő adatok: %5</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1543"/>
+        <location filename="../client/desktop/management_tab.cc" line="1509"/>
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Az adatbázis néhány rekordja sérült. Javítsa vagy törölje őket, majd próbálja újra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1620"/>
+        <location filename="../client/desktop/management_tab.cc" line="1586"/>
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>A fájl nem fejthető vissza a megadott jelszóval.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1624"/>
+        <location filename="../client/desktop/management_tab.cc" line="1590"/>
         <source>Unsupported file format version.</source>
         <translation>Nem támogatott fájlformátum-verzió.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1645"/>
+        <location filename="../client/desktop/management_tab.cc" line="1611"/>
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -3848,29 +4038,29 @@ Importált mentett jelszavak: %4
 Importált hitelesítő adatok: %5</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2085"/>
-        <location filename="../client/desktop/management_tab.cc" line="2116"/>
+        <location filename="../client/desktop/management_tab.cc" line="1931"/>
+        <location filename="../client/desktop/management_tab.cc" line="1962"/>
         <source>Copy Link</source>
         <translation>Hivatkozás másolása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2104"/>
-        <location filename="../client/desktop/management_tab.cc" line="2138"/>
+        <location filename="../client/desktop/management_tab.cc" line="1950"/>
+        <location filename="../client/desktop/management_tab.cc" line="1984"/>
         <source>Unable to create a link for this host.</source>
         <translation>Nem lehet hivatkozást létrehozni ehhez a gazdagéphez.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2179"/>
+        <location filename="../client/desktop/management_tab.cc" line="2025"/>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>A gazdagéphez tartozó útválasztó törölve lett. Szerkessze a gazdagépet másik útválasztó kiválasztásához, vagy váltson közvetlen kapcsolatra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2186"/>
+        <location filename="../client/desktop/management_tab.cc" line="2032"/>
         <source>The host has an invalid host ID.</source>
         <translation>A gazdagép ID-ja érvénytelen.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2195"/>
+        <location filename="../client/desktop/management_tab.cc" line="2041"/>
         <source>The host has an incorrect address.</source>
         <translation>A gazdagép címe hibás.</translation>
     </message>
@@ -3878,108 +4068,108 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>MsgBox</name>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="51"/>
+        <location filename="../common/desktop/msg_box.cc" line="73"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="52"/>
+        <location filename="../common/desktop/msg_box.cc" line="74"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="53"/>
+        <location filename="../common/desktop/msg_box.cc" line="75"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="54"/>
+        <location filename="../common/desktop/msg_box.cc" line="76"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="55"/>
+        <location filename="../common/desktop/msg_box.cc" line="77"/>
         <source>Apply</source>
         <translation>Alkalmaz</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="56"/>
+        <location filename="../common/desktop/msg_box.cc" line="78"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="57"/>
+        <location filename="../common/desktop/msg_box.cc" line="79"/>
         <source>Save</source>
         <translation>Mentés</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="58"/>
+        <location filename="../common/desktop/msg_box.cc" line="80"/>
         <source>Discard</source>
         <translation>Elvetés</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="59"/>
+        <location filename="../common/desktop/msg_box.cc" line="81"/>
         <source>Reset</source>
         <translation>Alaphelyzet</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="60"/>
+        <location filename="../common/desktop/msg_box.cc" line="82"/>
         <source>Help</source>
         <translation>Súgó</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="61"/>
+        <location filename="../common/desktop/msg_box.cc" line="83"/>
         <source>Abort</source>
         <translation>Megszakítás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="62"/>
+        <location filename="../common/desktop/msg_box.cc" line="84"/>
         <source>Retry</source>
         <translation>Újra</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="63"/>
+        <location filename="../common/desktop/msg_box.cc" line="85"/>
         <source>Ignore</source>
         <translation>Mellőzés</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="64"/>
+        <location filename="../common/desktop/msg_box.cc" line="86"/>
         <source>Restore Defaults</source>
         <translation>Alapértelmezések visszaállítása</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="65"/>
+        <location filename="../common/desktop/msg_box.cc" line="87"/>
         <source>Save All</source>
         <translation>Összes mentése</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="66"/>
+        <location filename="../common/desktop/msg_box.cc" line="88"/>
         <source>Open</source>
         <translation>Megnyitás</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="67"/>
+        <location filename="../common/desktop/msg_box.cc" line="89"/>
         <source>Yes to All</source>
         <translation>Igen mindre</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="68"/>
+        <location filename="../common/desktop/msg_box.cc" line="90"/>
         <source>No to All</source>
         <translation>Nem mindre</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="85"/>
+        <location filename="../common/desktop/msg_box.cc" line="107"/>
         <source>Warning</source>
         <translation>Figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="93"/>
+        <location filename="../common/desktop/msg_box.cc" line="115"/>
         <source>Information</source>
         <translation>Információ</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="101"/>
-        <location filename="../common/desktop/msg_box.cc" line="111"/>
+        <location filename="../common/desktop/msg_box.cc" line="123"/>
+        <location filename="../common/desktop/msg_box.cc" line="133"/>
         <source>Confirmation</source>
         <translation>Megerősítés</translation>
     </message>
@@ -3987,7 +4177,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>NetworkWorker</name>
     <message>
-        <location filename="../client/workers/network_worker.cc" line="371"/>
+        <location filename="../client/workers/network_worker.cc" line="382"/>
         <source>Failed to connect to the relay server</source>
         <translation>Nem sikerült csatlakozni a közvetítő kiszolgálóhoz</translation>
     </message>
@@ -4158,12 +4348,12 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>ProcessItem</name>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="89"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="90"/>
         <source>System Idle Process</source>
         <translation>Rendszer tétlen folyamata</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="91"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="92"/>
         <source>Unknown Process</source>
         <translation>Ismeretlen folyamat</translation>
     </message>
@@ -4217,37 +4407,37 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>RouterClientsWidget</name>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="230"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="231"/>
         <source>Save File</source>
         <translation>Fájl mentése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="230"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="231"/>
         <source>JSON files (*.json)</source>
         <translation>JSON-fájlok (*.json)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="241"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="242"/>
         <source>Could not open file for writing.</source>
         <translation>Nem sikerült megnyitni a fájlt írásra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="276"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="277"/>
         <source>Unable to write file.</source>
         <translation>Nem lehet írni a fájlt.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="313"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="316"/>
         <source>Are you sure you want to disconnect client &quot;%1&quot;?</source>
         <translation>Biztosan leválasztja a(z) &quot;%1&quot; klienst?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="338"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="341"/>
         <source>Are you sure you want to disconnect all clients?</source>
         <translation>Biztosan leválasztja az összes klienst?</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="499"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="502"/>
         <source>%n client(s)</source>
         <translation>
             <numerusform>%n kliens</numerusform>
@@ -4290,39 +4480,38 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>RouterController</name>
     <message>
-        <location filename="../client/router_controller.cc" line="216"/>
-        <location filename="../client/router_controller.cc" line="242"/>
-        <location filename="../client/router_controller.cc" line="442"/>
+        <location filename="../client/router_controller.cc" line="213"/>
+        <location filename="../client/router_controller.cc" line="239"/>
+        <location filename="../client/router_controller.cc" line="283"/>
+        <location filename="../client/router_controller.cc" line="420"/>
         <source>Connecting to router %1...</source>
         <translation>Csatlakozás a(z) %1 útválasztóhoz...</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="265"/>
+        <location filename="../client/router_controller.cc" line="307"/>
         <source>Event history cleared.</source>
         <translation>Az eseményelőzmények törölve.</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="310"/>
         <source>Too many failed attempts. Router %1 accepts codes again in about %2 min.</source>
-        <translation>Túl sok sikertelen kísérlet. A(z) %1 útválasztó kb. %2 perc múlva fogad újra kódokat.</translation>
+        <translation type="vanished">Túl sok sikertelen kísérlet. A(z) %1 útválasztó kb. %2 perc múlva fogad újra kódokat.</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="318"/>
         <source>The code was not accepted by router %1.</source>
-        <translation>A(z) %1 útválasztó nem fogadta el a kódot.</translation>
+        <translation type="vanished">A(z) %1 útválasztó nem fogadta el a kódot.</translation>
     </message>
-        <message>
-        <location filename="../client/router_controller.cc" line="350"/>
+    <message>
+        <location filename="../client/router_controller.cc" line="562"/>
         <source>Connection to router %1 established.</source>
         <translation>A kapcsolat létrejött a(z) %1 útválasztóval.</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="395"/>
+        <location filename="../client/router_controller.cc" line="367"/>
         <source>Network error: %1</source>
         <translation>Hálózati hiba: %1</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="409"/>
+        <location filename="../client/router_controller.cc" line="381"/>
         <source>Disconnected from router %1.</source>
         <translation>Leválasztva a(z) %1 útválasztóról.</translation>
     </message>
@@ -4370,56 +4559,65 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Jelszó:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="46"/>
+        <location filename="../client/desktop/router_dialog.ui" line="99"/>
+        <source>Remember the password for command-line connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/router_dialog.ui" line="105"/>
+        <source>The router account is stored for the whole computer and is used when the client is started with a host ID and without router options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/router_dialog.cc" line="47"/>
         <source>Administrator</source>
         <translation>Rendszergazda</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="47"/>
+        <location filename="../client/desktop/router_dialog.cc" line="48"/>
         <source>Manager</source>
         <translation>Kezelő</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="48"/>
+        <location filename="../client/desktop/router_dialog.cc" line="49"/>
         <source>Operator</source>
         <translation>Operátor</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/router_dialog.cc" line="76"/>
+        <location filename="../client/desktop/router_dialog.cc" line="77"/>
         <source>Too long name. The maximum length of the name is %n characters.</source>
         <translation>
             <numerusform>Túl hosszú név. A név maximális hossza %n karakter.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="88"/>
+        <location filename="../client/desktop/router_dialog.cc" line="89"/>
         <source>An invalid router address was entered.</source>
         <translation>Érvénytelen útválasztócím lett megadva.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="98"/>
+        <location filename="../client/desktop/router_dialog.cc" line="99"/>
         <source>The user name can not be empty and can contain only alphabet characters, numbers and _, -, . characters.</source>
         <translation>A felhasználónév nem lehet üres, és csak betűket, számokat, valamint _, -, . karaktereket tartalmazhat.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="109"/>
+        <location filename="../client/desktop/router_dialog.cc" line="110"/>
         <source>Password cannot be empty.</source>
         <translation>A jelszó nem lehet üres.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="131"/>
-        <location filename="../client/desktop/router_dialog.cc" line="148"/>
-        <location filename="../client/desktop/router_dialog.cc" line="157"/>
+        <location filename="../client/desktop/router_dialog.cc" line="132"/>
+        <location filename="../client/desktop/router_dialog.cc" line="141"/>
         <source>Failed to save the router.</source>
         <translation>Nem sikerült menteni az útválasztót.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="177"/>
+        <location filename="../client/desktop/router_dialog.cc" line="174"/>
         <source>Failed to read the router.</source>
         <translation>Nem sikerült olvasni az útválasztót.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="195"/>
+        <location filename="../client/desktop/router_dialog.cc" line="196"/>
         <source>The data of the router is damaged. Enter it again.</source>
         <translation>Az útválasztó adatai sérültek. Adja meg őket újra.</translation>
     </message>
@@ -4548,7 +4746,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>RouterGroupWidget</name>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_group_widget.cc" line="441"/>
+        <location filename="../client/desktop/management/router_group_widget.cc" line="442"/>
         <source>%n host(s)</source>
         <translation>
             <numerusform>%n gazdagép</numerusform>
@@ -4686,44 +4884,44 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Elemek oldalanként:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="356"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="359"/>
         <source>Are you sure you want to disconnect host &quot;%1&quot;?</source>
         <translation>Biztosan leválasztja a(z) &quot;%1&quot; gazdagépet?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="381"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="384"/>
         <source>Are you sure you want to disconnect all hosts?</source>
         <translation>Biztosan leválasztja az összes gazdagépet?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="405"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="410"/>
         <source>Deleting a host will result in all its configuration for connecting to the router being deleted, and the application will be uninstalled on the host. This operation is irreversible. Are you sure you want to do this?</source>
         <translation>A gazdagép törlésével az útválasztóhoz való csatlakozás összes beállítása törlődik, és az alkalmazás el lesz távolítva a gazdagépről. Ez a művelet visszafordíthatatlan. Biztosan folytatja?</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="688"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="693"/>
         <source>%n host(s)</source>
         <translation>
             <numerusform>%n gazdagép</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="730"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="735"/>
         <source>Save File</source>
         <translation>Fájl mentése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="730"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="735"/>
         <source>JSON files (*.json)</source>
         <translation>JSON-fájlok (*.json)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="741"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="746"/>
         <source>Could not open file for writing.</source>
         <translation>Nem sikerült megnyitni a fájlt írásra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="788"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="793"/>
         <source>Unable to write file.</source>
         <translation>Nem lehet írni a fájlt.</translation>
     </message>
@@ -4731,57 +4929,57 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>RouterRelaysWidget</name>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="246"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="247"/>
         <source>Save File</source>
         <translation>Fájl mentése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="246"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="247"/>
         <source>JSON files (*.json)</source>
         <translation>JSON-fájlok (*.json)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="257"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="258"/>
         <source>Could not open file for writing.</source>
         <translation>Nem sikerült megnyitni a fájlt írásra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="319"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="320"/>
         <source>Unable to write file.</source>
         <translation>Nem lehet írni a fájlt.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="356"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="359"/>
         <source>Are you sure you want to disconnect relay &quot;%1&quot;?</source>
         <translation>Biztosan leválasztja a(z) &quot;%1&quot; közvetítőt?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="381"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="384"/>
         <source>Are you sure you want to disconnect all relays?</source>
         <translation>Biztosan leválasztja az összes közvetítőt?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="434"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="450"/>
         <source>Disconnect</source>
         <translation>Leválasztás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="436"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="452"/>
         <source>Copy Row</source>
         <translation>Sor másolása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="437"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="453"/>
         <source>Copy Value</source>
         <translation>Érték másolása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="446"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="462"/>
         <source>Are you sure you want to disconnect peer &quot;%1&quot;?</source>
         <translation>Biztosan leválasztja a(z) &quot;%1&quot; partnert?</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="598"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="602"/>
         <source>%n relay(s)</source>
         <translation>
             <numerusform>%n közvetítő</numerusform>
@@ -4791,40 +4989,37 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>RouterSession</name>
     <message>
-        <location filename="../client/router_session.cc" line="163"/>
+        <location filename="../client/router_session.cc" line="161"/>
         <source>The router accepted the new password, but the record was not updated.</source>
         <translation>Az útválasztó elfogadta az új jelszót, de a rekord nem frissült.</translation>
     </message>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-        <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
+    <message>
         <source>Enter Code</source>
-        <translation>Kód megadása</translation>
+        <translation type="vanished">Kód megadása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="94"/>
+        <location filename="../client/desktop/management/router_status_widget.ui" line="48"/>
         <source>Date and time</source>
         <translation>Dátum és idő</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="99"/>
+        <location filename="../client/desktop/management/router_status_widget.ui" line="53"/>
         <source>Event</source>
         <translation>Esemény</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_status_widget.cc" line="200"/>
+        <location filename="../client/desktop/management/router_status_widget.cc" line="175"/>
         <source>%n event(s)</source>
         <translation>
             <numerusform>%n esemény</numerusform>
         </translation>
     </message>
-            <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
+    <message>
         <source>Set Up</source>
-        <translation>Beállítás</translation>
+        <translation type="vanished">Beállítás</translation>
     </message>
 </context>
 <context>
@@ -4864,167 +5059,156 @@ Importált hitelesítő adatok: %5</translation>
         <source>Disable User Account</source>
         <translation>Felhasználói fiók letiltása</translation>
     </message>
-        <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
+    <message>
         <source>Sessions</source>
-        <translation>Munkamenetek</translation>
+        <translation type="vanished">Munkamenetek</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="119"/>
         <source>Signed in</source>
-        <translation>Bejelentkezve</translation>
+        <translation type="vanished">Bejelentkezve</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="124"/>
         <source>Last activity</source>
-        <translation>Utolsó aktivitás</translation>
+        <translation type="vanished">Utolsó aktivitás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="129"/>
         <source>Address</source>
-        <translation>Cím</translation>
+        <translation type="vanished">Cím</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="152"/>
         <source>Sign out</source>
-        <translation>Kijelentkeztetés</translation>
+        <translation type="vanished">Kijelentkeztetés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="159"/>
         <source>Sign out all</source>
-        <translation>Összes kijelentkeztetése</translation>
+        <translation type="vanished">Összes kijelentkeztetése</translation>
     </message>
-        <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
+    <message>
         <source>Are you sure you want to sign this user out of this session?</source>
-        <translation>Biztosan kijelentkezteti ezt a felhasználót ebből a munkamenetből?</translation>
+        <translation type="vanished">Biztosan kijelentkezteti ezt a felhasználót ebből a munkamenetből?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="419"/>
         <source>Are you sure you want to sign this user out of all sessions?</source>
-        <translation>Biztosan kijelentkezteti ezt a felhasználót az összes munkamenetből?</translation>
+        <translation type="vanished">Biztosan kijelentkezteti ezt a felhasználót az összes munkamenetből?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="533"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="300"/>
         <source>The passwords you entered do not match.</source>
         <translation>A megadott jelszavak nem egyeznek.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="205"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="176"/>
         <source>Failed to get list of users.</source>
         <translation>Nem sikerült lekérni a felhasználók listáját.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="235"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="206"/>
         <source>The user was deleted from another console.</source>
         <translation>A felhasználót egy másik konzolból törölték.</translation>
     </message>
-        <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
+    <message>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
-        <translation>Ez az Ön jelenlegi munkamenetének tokenje. A visszavonása leválasztja Önt. Folytatja?</translation>
+        <translation type="vanished">Ez az Ön jelenlegi munkamenetének tokenje. A visszavonása leválasztja Önt. Folytatja?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="520"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="287"/>
         <source>The user name can not be empty and can contain only alphabet characters, numbers and _, -, ., @ characters. It can not consist of digits only.</source>
         <translation>A felhasználónév nem lehet üres, és csak betűket, számokat, valamint _, -, ., @ karaktereket tartalmazhat. Nem állhat csak számjegyekből.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="544"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="311"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="545"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="312"/>
         <source>The password can not be longer than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem haladhatja meg a %n karaktert.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="556"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="323"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>A megadott jelszó nem felel meg a biztonsági követelményeknek!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="557"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="324"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszónak tartalmaznia kell kisbetűket és nagybetűket, számokat, és nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="561"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="328"/>
         <source>Do you want to enter a different password?</source>
         <translation>Szeretne másik jelszót megadni?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="564"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="331"/>
         <source>Warning</source>
         <translation>Figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="584"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="351"/>
         <source>Unknown internal error when creating or modifying a user.</source>
         <translation>Ismeretlen belső hiba a felhasználó létrehozása vagy módosítása közben.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="648"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="414"/>
         <source>The user name you entered already exists.</source>
         <translation>A megadott felhasználónév már létezik.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="734"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="500"/>
         <source>Double-click to change</source>
         <translation>Módosításhoz kattintson duplán</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="790"/>
         <source>The token of your current session.</source>
-        <translation>Az Ön jelenlegi munkamenetének tokenje.</translation>
+        <translation type="vanished">Az Ön jelenlegi munkamenetének tokenje.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="823"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="545"/>
         <source>Administrator</source>
         <translation>Rendszergazda</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="827"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="549"/>
         <source>Manager</source>
         <translation>Kezelő</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="831"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="553"/>
         <source>Operator</source>
         <translation>Operátor</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="849"/>
         <source>Never</source>
-        <translation>Soha</translation>
+        <translation type="vanished">Soha</translation>
     </message>
 </context>
 <context>
     <name>RouterUsersWidget</name>
     <message>
-        <location filename="../client/desktop/management/router_users_widget.cc" line="228"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="229"/>
         <source>You cannot delete a built-in user.</source>
         <translation>Beépített felhasználó nem törölhető.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_users_widget.cc" line="233"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="234"/>
         <source>Are you sure you want to delete user &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; felhasználót?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_users_widget.cc" line="291"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="292"/>
         <source>Failed to get list of users.</source>
         <translation>Nem sikerült lekérni a felhasználók listáját.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_users_widget.cc" line="434"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="435"/>
         <source>%n user(s)</source>
         <translation>
             <numerusform>%n felhasználó</numerusform>
@@ -5163,19 +5347,27 @@ Importált hitelesítő adatok: %5</translation>
         <translation>A munkaterületet egy másik konzolból módosították. A listák frissítés alatt állnak - ellenőrizze a változásokat, és mentse újra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="530"/>
+        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="534"/>
         <source>Are you sure you want to remove the host from the workspace?</source>
         <translation>Biztosan eltávolítja a gazdagépet a munkaterületről?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="913"/>
+        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="917"/>
         <source>Workspace name cannot be empty.</source>
         <translation>A munkaterület neve nem lehet üres.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="924"/>
+        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="928"/>
         <source>A workspace with the specified name already exists.</source>
         <translation>A megadott névvel már létezik munkaterület.</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenWorker</name>
+    <message>
+        <location filename="../host/workers/screen_worker.cc" line="1325"/>
+        <source>All monitors</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5217,27 +5409,27 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SearchWidget</name>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="295"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="296"/>
         <source>Previous</source>
         <translation>Előző</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="296"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="297"/>
         <source>Previous page</source>
         <translation>Előző oldal</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="302"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="303"/>
         <source>Next</source>
         <translation>Következő</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="303"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="304"/>
         <source>Next page</source>
         <translation>Következő oldal</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/search_widget.cc" line="806"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="807"/>
         <source>%n result(s)</source>
         <translation>
             <numerusform>%n találat</numerusform>
@@ -5295,12 +5487,17 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SelectScreenAction</name>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="38"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="42"/>
+        <source>All monitors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="48"/>
         <source>Monitor %1 (primary)</source>
         <translation>Monitor %1 (elsődleges)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="40"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="50"/>
         <source>Monitor %1</source>
         <translation>Monitor %1</translation>
     </message>
@@ -5308,68 +5505,68 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>ServiceItem</name>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="191"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="192"/>
         <source>Continue Pending</source>
         <translation>Folytatás folyamatban</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="193"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="194"/>
         <source>Pause Pending</source>
         <translation>Felfüggesztés folyamatban</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="195"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="196"/>
         <source>Paused</source>
         <translation>Felfüggesztve</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="197"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="198"/>
         <source>Running</source>
         <translation>Fut</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="199"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="200"/>
         <source>Start Pending</source>
         <translation>Indítás folyamatban</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="201"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="202"/>
         <source>Stop Pending</source>
         <translation>Leállítás folyamatban</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="203"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="204"/>
         <source>Stopped</source>
         <translation>Leállítva</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="205"/>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="225"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="206"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="226"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="215"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="216"/>
         <source>Auto Start</source>
         <translation>Automatikus indítás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="217"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="218"/>
         <source>Demand Start</source>
         <translation>Kézi indítás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="219"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="220"/>
         <source>Disabled</source>
         <translation>Letiltva</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="221"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="222"/>
         <source>Boot Start</source>
         <translation>Indítás rendszertöltéskor</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="223"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="224"/>
         <source>System Start</source>
         <translation>Indítás rendszerindításkor</translation>
     </message>
@@ -5405,7 +5602,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SettingsTab</name>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="275"/>
+        <location filename="../client/desktop/settings_tab.ui" line="301"/>
         <source>Unlock automatically on startup</source>
         <translation>Automatikus feloldás indításkor</translation>
     </message>
@@ -5461,372 +5658,423 @@ Importált hitelesítő adatok: %5</translation>
     </message>
     <message>
         <location filename="../client/desktop/settings_tab.ui" line="215"/>
+        <source>Hosts</source>
+        <translation>Gazdagépek</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="221"/>
+        <source>Remove inactive hosts</source>
+        <translation>Inaktív gazdagépek eltávolítása</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="228"/>
+        <source>Inactive for more than:</source>
+        <translation>Inaktív ennél régebben:</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="241"/>
         <source>UDP Connections</source>
         <translation>UDP-kapcsolatok</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="221"/>
+        <location filename="../client/desktop/settings_tab.ui" line="247"/>
         <source>Allow direct connections</source>
         <translation>Közvetlen kapcsolatok engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="228"/>
+        <location filename="../client/desktop/settings_tab.ui" line="254"/>
         <source>Allow UDP Hole Punching</source>
         <translation>UDP Hole Punching engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="235"/>
+        <location filename="../client/desktop/settings_tab.ui" line="261"/>
         <source>Allow PCP protocol</source>
         <translation>PCP protokoll engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="242"/>
+        <location filename="../client/desktop/settings_tab.ui" line="268"/>
         <source>Allow NAT-PMP protocol</source>
         <translation>NAT-PMP protokoll engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="249"/>
+        <location filename="../client/desktop/settings_tab.ui" line="275"/>
         <source>Allow UPnP protocol</source>
         <translation>UPnP protokoll engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="259"/>
+        <location filename="../client/desktop/settings_tab.ui" line="285"/>
         <source>Security</source>
         <translation>Biztonság</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="265"/>
+        <location filename="../client/desktop/settings_tab.ui" line="291"/>
         <source>Lock after inactivity:</source>
         <translation>Zárolás tétlenség után:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="275"/>
+        <location filename="../client/desktop/settings_tab.ui" line="308"/>
         <source>Change Master Password...</source>
         <translation>Mesterjelszó módosítása...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="346"/>
+        <location filename="../client/desktop/settings_tab.ui" line="379"/>
         <source>Features</source>
         <translation>Funkciók</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="352"/>
+        <location filename="../client/desktop/settings_tab.ui" line="385"/>
         <source>Enable audio</source>
         <translation>Hang engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="359"/>
+        <location filename="../client/desktop/settings_tab.ui" line="392"/>
         <source>Enable clipboard</source>
         <translation>Vágólap engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="366"/>
+        <location filename="../client/desktop/settings_tab.ui" line="399"/>
         <source>Show shape of remote cursor</source>
         <translation>Távoli kurzor alakjának megjelenítése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="373"/>
+        <location filename="../client/desktop/settings_tab.ui" line="406"/>
         <source>Show position of remote cursor</source>
         <translation>Távoli kurzor pozíciójának megjelenítése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="380"/>
+        <location filename="../client/desktop/settings_tab.ui" line="413"/>
         <source>Disable desktop effects</source>
         <translation>Asztali effektusok letiltása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="387"/>
+        <location filename="../client/desktop/settings_tab.ui" line="420"/>
         <source>Disable desktop wallpaper</source>
         <translation>Asztal hátterének letiltása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="394"/>
+        <location filename="../client/desktop/settings_tab.ui" line="427"/>
         <source>Lock computer at disconnect</source>
         <translation>Számítógép zárolása leválasztáskor</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="401"/>
+        <location filename="../client/desktop/settings_tab.ui" line="434"/>
         <source>Block remote input</source>
         <translation>Távoli bevitel letiltása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="408"/>
+        <location filename="../client/desktop/settings_tab.ui" line="441"/>
         <source>Send key combinations</source>
         <translation>Billentyűkombinációk küldése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="415"/>
+        <location filename="../client/desktop/settings_tab.ui" line="448"/>
         <source>Allow hardware video encoding</source>
         <translation>Hardveres videókódolás engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="422"/>
+        <location filename="../client/desktop/settings_tab.ui" line="455"/>
         <source>Allow hardware video decoding</source>
         <translation>Hardveres videódekódolás engedélyezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="438"/>
+        <location filename="../client/desktop/settings_tab.ui" line="471"/>
         <source>Screen</source>
         <translation>Képernyő</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="446"/>
+        <location filename="../client/desktop/settings_tab.ui" line="479"/>
         <source>Preferred resolution:</source>
         <translation>Előnyben részesített felbontás:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="474"/>
+        <location filename="../client/desktop/settings_tab.ui" line="507"/>
         <source>Recording</source>
         <translation>Felvétel</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="480"/>
+        <location filename="../client/desktop/settings_tab.ui" line="513"/>
         <source>Automatically start recording sessions on connection</source>
         <translation>Munkamenetek rögzítésének automatikus indítása csatlakozáskor</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="489"/>
+        <location filename="../client/desktop/settings_tab.ui" line="522"/>
         <source>Write path:</source>
         <translation>Írási útvonal:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="585"/>
-        <location filename="../client/desktop/settings_tab.cc" line="129"/>
+        <location filename="../client/desktop/settings_tab.ui" line="618"/>
+        <location filename="../client/desktop/settings_tab.cc" line="131"/>
         <source>Update</source>
         <translation>Frissítés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="591"/>
+        <location filename="../client/desktop/settings_tab.ui" line="624"/>
         <source>Check for updates on startup</source>
         <translation>Frissítések keresése indításkor</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="600"/>
+        <location filename="../client/desktop/settings_tab.ui" line="633"/>
         <source>Update channel:</source>
         <translation>Frissítési csatorna:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="627"/>
+        <location filename="../client/desktop/settings_tab.ui" line="660"/>
         <source>Check for updates</source>
         <translation>Frissítések keresése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="127"/>
+        <location filename="../client/desktop/settings_tab.cc" line="129"/>
         <source>General</source>
         <translation>Általános</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="128"/>
+        <location filename="../client/desktop/settings_tab.cc" line="130"/>
         <source>Desktop</source>
         <translation>Asztal</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="181"/>
+        <location filename="../client/desktop/settings_tab.cc" line="191"/>
         <source>1 week</source>
         <translation>1 hét</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="182"/>
+        <location filename="../client/desktop/settings_tab.cc" line="192"/>
         <source>2 weeks</source>
         <translation>2 hét</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="183"/>
+        <location filename="../client/desktop/settings_tab.cc" line="184"/>
+        <location filename="../client/desktop/settings_tab.cc" line="193"/>
         <source>1 month</source>
         <translation>1 hónap</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="184"/>
+        <location filename="../client/desktop/settings_tab.cc" line="185"/>
+        <source>3 months</source>
+        <translation>3 hónap</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="186"/>
+        <location filename="../client/desktop/settings_tab.cc" line="194"/>
         <source>6 months</source>
         <translation>6 hónap</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="185"/>
+        <location filename="../client/desktop/settings_tab.cc" line="195"/>
         <source>1 year</source>
         <translation>1 év</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="189"/>
+        <location filename="../client/desktop/settings_tab.cc" line="199"/>
         <source>Do not lock</source>
         <translation>Soha</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="190"/>
+        <location filename="../client/desktop/settings_tab.cc" line="200"/>
         <source>1 minute</source>
         <translation>1 perc</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="191"/>
+        <location filename="../client/desktop/settings_tab.cc" line="201"/>
         <source>5 minutes</source>
         <translation>5 perc</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="192"/>
+        <location filename="../client/desktop/settings_tab.cc" line="202"/>
         <source>10 minutes</source>
         <translation>10 perc</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="193"/>
+        <location filename="../client/desktop/settings_tab.cc" line="203"/>
         <source>30 minutes</source>
         <translation>30 perc</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="194"/>
+        <location filename="../client/desktop/settings_tab.cc" line="204"/>
         <source>1 hour</source>
         <translation>1 óra</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="220"/>
+        <location filename="../client/desktop/settings_tab.cc" line="240"/>
         <source>None</source>
         <translation>Nincs</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="245"/>
+        <location filename="../client/desktop/settings_tab.cc" line="265"/>
         <source>Stable</source>
         <translation>Stabil</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="246"/>
+        <location filename="../client/desktop/settings_tab.cc" line="266"/>
         <source>Beta</source>
         <translation>Béta</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="247"/>
+        <location filename="../client/desktop/settings_tab.cc" line="267"/>
         <source>Alpha</source>
         <translation>Alfa</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="369"/>
+        <location filename="../client/desktop/settings_tab.cc" line="395"/>
         <source>The new language will be applied after the application is restarted.</source>
         <translation>Az új nyelv az alkalmazás újraindítása után lép érvénybe.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="418"/>
-        <location filename="../client/desktop/settings_tab.cc" line="496"/>
+        <location filename="../client/desktop/settings_tab.cc" line="444"/>
+        <location filename="../client/desktop/settings_tab.cc" line="572"/>
         <source>Choose path</source>
         <translation>Útvonal kiválasztása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="516"/>
+        <location filename="../client/desktop/settings_tab.cc" line="592"/>
         <source>Change Master Password</source>
         <translation>Mesterjelszó módosítása</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="518"/>
+        <location filename="../client/desktop/settings_tab.cc" line="594"/>
         <source>Enter your current password and choose a new one.</source>
         <translation>Adja meg jelenlegi jelszavát, és válasszon egy újat.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/settings_tab.cc" line="526"/>
+        <location filename="../client/desktop/settings_tab.cc" line="602"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="533"/>
+        <location filename="../client/desktop/settings_tab.cc" line="609"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>A megadott jelszó nem felel meg a biztonsági követelményeknek!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/settings_tab.cc" line="534"/>
+        <location filename="../client/desktop/settings_tab.cc" line="610"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszónak tartalmaznia kell kisbetűket és nagybetűket, számokat, és nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="537"/>
+        <location filename="../client/desktop/settings_tab.cc" line="613"/>
         <source>Do you want to enter a different password?</source>
         <translation>Szeretne másik jelszót megadni?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="550"/>
+        <location filename="../client/desktop/settings_tab.cc" line="626"/>
         <source>Invalid current password.</source>
         <translation>Érvénytelen a jelenlegi jelszó.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="554"/>
+        <location filename="../client/desktop/settings_tab.cc" line="630"/>
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Az adatbázis néhány rekordja sérült. Javítsa vagy törölje őket, majd próbálja újra.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="558"/>
+        <location filename="../client/desktop/settings_tab.cc" line="634"/>
         <source>Unable to change the password.</source>
         <translation>Nem lehet módosítani a jelszót.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="696"/>
+        <source>The key of the database will be stored on this computer. Any program running under your account will be able to read it, even when the application is not running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="699"/>
+        <source>Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="710"/>
+        <source>Unlock Automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="712"/>
+        <source>Enter the master password to unlock the application automatically on startup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="722"/>
+        <source>Invalid master password.</source>
+        <translation type="unfinished">Érvénytelen mesterjelszó.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="726"/>
+        <source>Unable to unlock the database.</source>
+        <translation type="unfinished">Nem lehet feloldani az adatbázist.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="740"/>
+        <source>Unable to turn on the automatic unlock.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsUtil</name>
     <message>
-        <location filename="../host/settings_util.cc" line="284"/>
+        <location filename="../host/settings_util.cc" line="280"/>
         <source>The configuration was successfully imported.</source>
         <translation>A konfiguráció sikeresen importálva.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="333"/>
+        <location filename="../host/settings_util.cc" line="329"/>
         <source>The configuration was successfully exported.</source>
         <translation>A konfiguráció sikeresen exportálva.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="343"/>
-        <location filename="../host/settings_util.cc" line="347"/>
         <source>Warning</source>
-        <translation>Figyelmeztetés</translation>
+        <translation type="vanished">Figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="250"/>
+        <location filename="../host/settings_util.cc" line="246"/>
         <source>Unable to open the source file.</source>
         <translation>Nem lehet megnyitni a forrásfájlt.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="262"/>
+        <location filename="../host/settings_util.cc" line="258"/>
         <source>Unable to read the source file: the file is damaged or has an unknown format.</source>
         <translation>Nem lehet olvasni a forrásfájlt: a fájl sérült vagy ismeretlen formátumú.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="279"/>
+        <location filename="../host/settings_util.cc" line="275"/>
         <source>Unable to write the secure database.</source>
         <translation>Nem lehet írni a biztonságos adatbázist.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="299"/>
+        <location filename="../host/settings_util.cc" line="295"/>
         <source>Unable to read the secure database.</source>
         <translation>Nem lehet olvasni a biztonságos adatbázist.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="320"/>
+        <location filename="../host/settings_util.cc" line="316"/>
         <source>Unable to open the target file.</source>
         <translation>Nem lehet megnyitni a célfájlt.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="328"/>
+        <location filename="../host/settings_util.cc" line="324"/>
         <source>Unable to write the target file.</source>
         <translation>Nem lehet írni a célfájlt.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="344"/>
         <source>Continue</source>
-        <translation>Folytatás</translation>
+        <translation type="vanished">Folytatás</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="360"/>
         <source>Error</source>
-        <translation>Hiba</translation>
+        <translation type="vanished">Hiba</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="371"/>
         <source>Aspia</source>
-        <translation>Aspia</translation>
+        <translation type="vanished">Aspia</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="241"/>
+        <location filename="../host/settings_util.cc" line="237"/>
         <source>Source settings file does not exist.</source>
         <translation>A forrás beállításfájl nem létezik.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="344"/>
-        <location filename="../host/settings_util.cc" line="348"/>
+        <location filename="../host/settings_util.cc" line="338"/>
         <source>The existing settings will be overwritten. Continue?</source>
         <translation>A meglévő beállítások felül lesznek írva. Folytatja?</translation>
     </message>
@@ -5834,15 +6082,15 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>Sidebar</name>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="115"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="126"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="116"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="127"/>
         <source>Local</source>
         <translation>Helyi</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="151"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="212"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="264"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="152"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="213"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="265"/>
         <source>Failed to read data. The list may be out of date.</source>
         <translation>Nem sikerült olvasni az adatokat. Lehet, hogy a lista elavult.</translation>
     </message>
@@ -5883,46 +6131,46 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Szeretne másik jelszót megadni?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="631"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="635"/>
         <source>Changing the password. Waiting for the session to sign in again...</source>
         <translation>Jelszó módosítása. Várakozás a munkamenet újbóli bejelentkezésére...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="829"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="833"/>
         <source>Are you sure you want to delete group &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; csoportot?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="842"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="846"/>
         <source>Unable to remove group</source>
         <translation>Nem lehet eltávolítani a csoportot</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="907"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="911"/>
         <source>Are you sure you want to delete router &quot;%1&quot;?</source>
         <translation>Biztosan törli a(z) &quot;%1&quot; útválasztót?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1484"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1482"/>
         <source>A group with this name already exists in the selected parent group.</source>
         <translation>A kiválasztott szülőcsoportban már létezik ilyen nevű csoport.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1474"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1493"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1649"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1472"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1491"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1647"/>
         <source>Failed to move the group.</source>
         <translation>Nem sikerült áthelyezni a csoportot.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1549"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1547"/>
         <source>A host with this name already exists in the selected group.</source>
         <translation>A kiválasztott csoportban már létezik ilyen nevű gazdagép.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1540"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1558"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1727"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1538"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1556"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1725"/>
         <source>Failed to move the host to the selected group.</source>
         <translation>Nem sikerült áthelyezni a gazdagépet a kiválasztott csoportba.</translation>
     </message>
@@ -5930,7 +6178,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SidebarRouterClients</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="207"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="206"/>
         <source>Clients</source>
         <translation>Kliensek</translation>
     </message>
@@ -5938,7 +6186,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SidebarRouterHosts</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="189"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="188"/>
         <source>Hosts</source>
         <translation>Gazdagépek</translation>
     </message>
@@ -5946,7 +6194,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SidebarRouterRelays</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="216"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="215"/>
         <source>Relays</source>
         <translation>Közvetítők</translation>
     </message>
@@ -5954,7 +6202,7 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SidebarRouterUsers</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="198"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="197"/>
         <source>Users</source>
         <translation>Felhasználók</translation>
     </message>
@@ -6836,157 +7084,157 @@ Importált hitelesítő adatok: %5</translation>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="341"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="342"/>
         <source>HTML File</source>
         <translation>HTML-fájl</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="341"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="342"/>
         <source>HTML File (*.html)</source>
         <translation>HTML-fájl (*.html)</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="351"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="352"/>
         <source>Failed to save file: %1</source>
         <translation>Nem sikerült menteni a fájlt: %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="376"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="377"/>
         <source>Summary</source>
         <translation>Összegzés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="383"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="384"/>
         <source>Hardware</source>
         <translation>Hardver</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="386"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="387"/>
         <source>DMI</source>
         <translation>DMI</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="389"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="390"/>
         <source>Processor</source>
         <translation>Processzor</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="392"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="393"/>
         <source>Devices</source>
         <translation>Eszközök</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="395"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="396"/>
         <source>Drives</source>
         <translation>Meghajtók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="398"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="399"/>
         <source>S.M.A.R.T.</source>
         <translation>S.M.A.R.T.</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="401"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="402"/>
         <source>Video Adapters</source>
         <translation>Videokártyák</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="404"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="405"/>
         <source>Monitors</source>
         <translation>Monitorok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="407"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="408"/>
         <source>Printers</source>
         <translation>Nyomtatók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="410"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="411"/>
         <source>Power Options</source>
         <translation>Energiagazdálkodás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="427"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="428"/>
         <source>Software</source>
         <translation>Szoftver</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="430"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="431"/>
         <source>Applications</source>
         <translation>Alkalmazások</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="433"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="434"/>
         <source>Drivers</source>
         <translation>Illesztőprogramok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="436"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="437"/>
         <source>Services</source>
         <translation>Szolgáltatások</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="439"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="440"/>
         <source>Processes</source>
         <translation>Folyamatok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="442"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="443"/>
         <source>Licenses</source>
         <translation>Licencek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="455"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="456"/>
         <source>Network</source>
         <translation>Hálózat</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="458"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="459"/>
         <source>Network Adapters</source>
         <translation>Hálózati adapterek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="461"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="462"/>
         <source>Routes</source>
         <translation>Útvonalak</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="464"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="465"/>
         <source>Connections</source>
         <translation>Kapcsolatok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="467"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="468"/>
         <source>Network Shares</source>
         <translation>Hálózati megosztások</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="470"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="471"/>
         <source>Open Files</source>
         <translation>Megnyitott fájlok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="483"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="484"/>
         <source>Operating System</source>
         <translation>Operációs rendszer</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="486"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="487"/>
         <source>Environment Variables</source>
         <translation>Környezeti változók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="489"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="490"/>
         <source>Event Logs</source>
         <translation>Eseménynaplók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="492"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="493"/>
         <source>Users</source>
         <translation>Felhasználók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="495"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="496"/>
         <source>User Groups</source>
         <translation>Felhasználói csoportok</translation>
     </message>
@@ -6994,133 +7242,133 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetCpu</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="163"/>
         <source>Processor Properties</source>
         <translation>Processzor tulajdonságai</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="166"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="167"/>
         <source>Caches</source>
         <translation>Gyorsítótárak</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="170"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="171"/>
         <source>Instruction Set</source>
         <translation>Utasításkészlet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="171"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="172"/>
         <source>Security Features</source>
         <translation>Biztonsági funkciók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="172"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="173"/>
         <source>Power Management Features</source>
         <translation>Energiagazdálkodási funkciók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="173"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="174"/>
         <source>Virtualization Features</source>
         <translation>Virtualizációs funkciók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="175"/>
         <source>Other Features</source>
         <translation>Egyéb funkciók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="245"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="246"/>
         <source>Packages</source>
         <translation>Foglalatok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="248"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="249"/>
         <source>Physical Cores</source>
         <translation>Fizikai magok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="251"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="252"/>
         <source>Logical Cores</source>
         <translation>Logikai magok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="255"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="256"/>
         <source>Temperature</source>
         <translation>Hőmérséklet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="256"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="257"/>
         <source>%1 C</source>
         <translation>%1 C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="278"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="279"/>
         <source>L%1 Data Cache</source>
         <translation>L%1 adat-gyorsítótár</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="282"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="283"/>
         <source>L%1 Instruction Cache</source>
         <translation>L%1 utasítás-gyorsítótár</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="286"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="287"/>
         <source>L%1 Cache</source>
         <translation>L%1 gyorsítótár</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="293"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="294"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="297"/>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="299"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="298"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="300"/>
         <source>Associativity</source>
         <translation>Asszociativitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="297"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="298"/>
         <source>Fully associative</source>
         <translation>Teljesen asszociatív</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="299"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="300"/>
         <source>%1-way</source>
         <translation>%1 utas</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="302"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="303"/>
         <source>Line Size</source>
         <translation>Sorméret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="302"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="303"/>
         <source>%1 bytes</source>
         <translation>%1 bájt</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="305"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="306"/>
         <source>Sets</source>
         <translation>Készletek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="308"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="309"/>
         <source>Shared By</source>
         <translation>Megosztva ezek között</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="308"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="309"/>
         <source>%1 threads</source>
         <translation>%1 szál</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="332"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="333"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="332"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="333"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
@@ -7128,1138 +7376,1138 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetDmi</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="218"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="831"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="219"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="832"/>
         <source>BIOS</source>
         <translation>BIOS</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="225"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="226"/>
         <source>Motherboard</source>
         <translation>Alaplap</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="232"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="233"/>
         <source>Chassis</source>
         <translation>Ház</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="239"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="240"/>
         <source>Processors</source>
         <translation>Processzorok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="246"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="247"/>
         <source>Caches</source>
         <translation>Gyorsítótárak</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="254"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="255"/>
         <source>Port Connectors</source>
         <translation>Portcsatlakozók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="263"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="264"/>
         <source>System Slots</source>
         <translation>Rendszer-bővítőhelyek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="271"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="272"/>
         <source>On-board Devices</source>
         <translation>Alaplapi eszközök</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="276"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="276"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="630"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="277"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="277"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="631"/>
         <source>OEM Strings</source>
         <translation>OEM-karakterláncok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="281"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="281"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="635"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="282"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="282"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="636"/>
         <source>Configuration Options</source>
         <translation>Konfigurációs beállítások</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="289"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="290"/>
         <source>Memory Arrays</source>
         <translation>Memóriatömbök</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="297"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="298"/>
         <source>Memory Devices</source>
         <translation>Memóriaeszközök</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="306"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="307"/>
         <source>Memory Errors</source>
         <translation>Memóriahibák</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="315"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="316"/>
         <source>Memory Array Addresses</source>
         <translation>Memóriatömb-címek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="325"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="326"/>
         <source>Memory Device Addresses</source>
         <translation>Memóriaeszköz-címek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="333"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="334"/>
         <source>Voltage Probes</source>
         <translation>Feszültségérzékelők</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="341"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="342"/>
         <source>Cooling Devices</source>
         <translation>Hűtőeszközök</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="351"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="352"/>
         <source>Temperature Probes</source>
         <translation>Hőmérséklet-érzékelők</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="360"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="361"/>
         <source>Current Probes</source>
         <translation>Áramerősség-érzékelők</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="363"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="363"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="729"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="364"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="364"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="730"/>
         <source>System Boot</source>
         <translation>Rendszerindítás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="371"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="372"/>
         <source>Additional Information</source>
         <translation>További információk</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="380"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="381"/>
         <source>TPM Device</source>
         <translation>TPM-eszköz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="389"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="390"/>
         <source>Processor Additional Information</source>
         <translation>További processzorinformációk</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="398"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="399"/>
         <source>Firmware Inventory</source>
         <translation>Firmware-leltár</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="403"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="404"/>
         <source>Misc</source>
         <translation>Egyéb</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="403"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="746"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="404"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="747"/>
         <source>DMI Properties</source>
         <translation>DMI-tulajdonságok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="841"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="842"/>
         <source>Vendor</source>
         <translation>Gyártó</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="844"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="905"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="962"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1028"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1903"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="845"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="906"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="963"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1029"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1904"/>
         <source>Version</source>
         <translation>Verzió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="847"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1915"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="848"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1916"/>
         <source>Release Date</source>
         <translation>Kiadás dátuma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="851"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="852"/>
         <source>Address</source>
         <translation>Cím</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="856"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="857"/>
         <source>ROM Size</source>
         <translation>ROM mérete</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="859"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="860"/>
         <source>Revision</source>
         <translation>Revízió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="863"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="864"/>
         <source>Firmware Revision</source>
         <translation>Firmware-revízió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="873"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1275"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1874"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="874"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1276"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1875"/>
         <source>Characteristics</source>
         <translation>Jellemzők</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="889"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="890"/>
         <source>Board %1</source>
         <translation>Alaplap %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="899"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="954"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1025"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1552"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1900"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="900"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="955"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1026"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1553"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1901"/>
         <source>Manufacturer</source>
         <translation>Gyártó</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="902"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="903"/>
         <source>Product</source>
         <translation>Termék</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="908"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="965"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1085"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1603"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="909"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="966"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1086"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1604"/>
         <source>Serial Number</source>
         <translation>Sorozatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="911"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="968"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1088"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1606"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="912"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="969"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1089"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1607"/>
         <source>Asset Tag</source>
         <translation>Leltári azonosító</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="914"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="915"/>
         <source>Location in Chassis</source>
         <translation>Hely a házban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="917"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="957"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1034"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1130"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1249"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1304"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1450"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1558"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1650"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="918"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="958"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1035"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1131"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1250"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1305"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1451"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1559"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1651"/>
         <source>Type</source>
         <translation>Típus</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="921"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
         <source>Hosting Board</source>
         <translation>Fő alaplap</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="921"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="923"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="924"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="959"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1093"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="927"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="960"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1098"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1100"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1102"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1166"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1096"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1099"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1101"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1103"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1267"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1168"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1313"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1868"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1870"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1872"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1929"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1274"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1314"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1869"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1871"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1873"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1931"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="921"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="923"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="924"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="959"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1020"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1093"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="927"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="960"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1021"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1098"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1100"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1102"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1166"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1096"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1099"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1101"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1103"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1267"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1168"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1313"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1547"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1868"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1870"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1872"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1929"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1274"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1314"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1548"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1869"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1871"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1873"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1931"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="923"/>
         <source>Requires Daughter Board</source>
         <translation>Bővítőkártyát igényel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="924"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
         <source>Removable</source>
         <translation>Eltávolítható</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
         <source>Replaceable</source>
         <translation>Cserélhető</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="927"/>
         <source>Hot Swappable</source>
         <translation>Üzem közben cserélhető</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="928"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="929"/>
         <source>Features</source>
         <translation>Funkciók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="944"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="945"/>
         <source>Chassis %1</source>
         <translation>Ház %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="959"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="960"/>
         <source>Lock Present</source>
         <translation>Zár jelenléte</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="971"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="972"/>
         <source>SKU Number</source>
         <translation>SKU-szám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="974"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="975"/>
         <source>Boot-up State</source>
         <translation>Indításkori állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="978"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="979"/>
         <source>Power Supply State</source>
         <translation>Tápegység állapota</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="983"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="984"/>
         <source>Thermal State</source>
         <translation>Hőmérsékleti állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="986"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="987"/>
         <source>Security Status</source>
         <translation>Biztonsági állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="990"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="991"/>
         <source>Height</source>
         <translation>Magasság</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="990"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="991"/>
         <source>%1 U</source>
         <translation>%1 U</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="993"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="994"/>
         <source>Power Cords</source>
         <translation>Tápkábelek</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1009"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1010"/>
         <source>Processor %1</source>
         <translation>Processzor %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1020"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1547"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1021"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1548"/>
         <source>Installed</source>
         <translation>Telepítve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1031"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1032"/>
         <source>Family</source>
         <translation>Család</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1037"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1401"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1453"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1038"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1402"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1454"/>
         <source>Status</source>
         <translation>Állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1041"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1125"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1042"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1126"/>
         <source>Socket Designation</source>
         <translation>Foglalat megnevezése</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1046"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1047"/>
         <source>Socket</source>
         <translation>Foglalat</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1049"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1050"/>
         <source>Socket Type</source>
         <translation>Foglalat típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1052"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1263"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1918"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1053"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1264"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1919"/>
         <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1055"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1056"/>
         <source>Voltage</source>
         <translation>Feszültség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1055"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1056"/>
         <source>%1 V</source>
         <translation>%1 V</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1059"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1060"/>
         <source>External Clock</source>
         <translation>Külső órajel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1059"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1064"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1068"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1060"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1065"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1069"/>
         <source>%1 MHz</source>
         <translation>%1 MHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1064"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1065"/>
         <source>Max Speed</source>
         <translation>Maximális órajel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1068"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1069"/>
         <source>Current Speed</source>
         <translation>Jelenlegi órajel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1073"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1074"/>
         <source>Core Count</source>
         <translation>Magok száma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1076"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1077"/>
         <source>Cores Enabled</source>
         <translation>Engedélyezett magok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1079"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1080"/>
         <source>Thread Count</source>
         <translation>Szálak száma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1082"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1083"/>
         <source>Threads Enabled</source>
         <translation>Engedélyezett szálak</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1091"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1600"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1092"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1601"/>
         <source>Part Number</source>
         <translation>Cikkszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1093"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
         <source>64-bit Capable</source>
         <translation>64 bitre képes</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
         <source>Multi-Core</source>
         <translation>Többmagos</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1096"/>
         <source>Hardware Thread</source>
         <translation>Hardveres szál</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1097"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1098"/>
         <source>Execute Protection</source>
         <translation>Végrehajtási védelem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1099"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1100"/>
         <source>Enhanced Virtualization</source>
         <translation>Továbbfejlesztett virtualizáció</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1101"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1102"/>
         <source>Power/Performance Control</source>
         <translation>Energia-/teljesítményvezérlés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1115"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1116"/>
         <source>L%1 Cache</source>
         <translation>L%1 gyorsítótár</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1127"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1128"/>
         <source>Level</source>
         <translation>Szint</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1133"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1134"/>
         <source>Installed Size</source>
         <translation>Telepített méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1136"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1137"/>
         <source>Maximum Size</source>
         <translation>Maximális méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1139"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1398"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1496"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1539"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1140"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1399"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1497"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1540"/>
         <source>Location</source>
         <translation>Hely</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1142"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1143"/>
         <source>Operational Mode</source>
         <translation>Működési mód</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1145"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1146"/>
         <source>SRAM Type</source>
         <translation>SRAM típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1149"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1150"/>
         <source>Supported SRAM Types</source>
         <translation>Támogatott SRAM-típusok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1155"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1156"/>
         <source>Error Correction Type</source>
         <translation>Hibajavítás típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1160"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1161"/>
         <source>Associativity</source>
         <translation>Asszociativitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1164"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1570"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1165"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1571"/>
         <source>Speed</source>
         <translation>Sebesség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1164"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1165"/>
         <source>%1 ns</source>
         <translation>%1 ns</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1166"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1313"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1314"/>
         <source>Enabled</source>
         <translation>Engedélyezve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1168"/>
         <source>Socketed</source>
         <translation>Foglalatba helyezett</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1186"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1187"/>
         <source>Port %1</source>
         <translation>Port %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1196"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1197"/>
         <source>Port Type</source>
         <translation>Port típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1200"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1201"/>
         <source>Internal Designator</source>
         <translation>Belső megnevezés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1206"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1207"/>
         <source>Internal Connector Type</source>
         <translation>Belső csatlakozó típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1212"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1213"/>
         <source>External Designator</source>
         <translation>Külső megnevezés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1218"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1219"/>
         <source>External Connector Type</source>
         <translation>Külső csatlakozó típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1236"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1237"/>
         <source>Slot %1</source>
         <translation>Bővítőhely %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1246"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1247"/>
         <source>Designation</source>
         <translation>Megnevezés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1252"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1253"/>
         <source>Data Bus Width</source>
         <translation>Adatbusz szélessége</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1255"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1256"/>
         <source>Current Usage</source>
         <translation>Jelenlegi használat</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1258"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1259"/>
         <source>Length</source>
         <translation>Hossz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1261"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1311"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1262"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1312"/>
         <source>Bus Address</source>
         <translation>Buszcím</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1267"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
         <source>5 V Provided</source>
         <translation>5 V biztosított</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
         <source>3.3 V Provided</source>
         <translation>3,3 V biztosított</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
         <source>Shared</source>
         <translation>Megosztott</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
         <source>PME Signal</source>
         <translation>PME-jel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
         <source>Hot Plug</source>
         <translation>Üzem közbeni csatlakoztatás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
         <source>SMBus Signal</source>
         <translation>SMBus-jel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1274"/>
         <source>Bifurcation</source>
         <translation>Bifurkáció</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1291"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1437"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1529"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1844"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1292"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1438"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1530"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1845"/>
         <source>Device %1</source>
         <translation>Eszköz %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1301"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1395"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1447"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1854"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1302"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1396"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1448"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1855"/>
         <source>Description</source>
         <translation>Leírás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1308"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1309"/>
         <source>Type Instance</source>
         <translation>Típuspéldány</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1325"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1326"/>
         <source>String %1</source>
         <translation>Karakterlánc %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1339"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1340"/>
         <source>Option %1</source>
         <translation>Beállítás %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1357"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1358"/>
         <source>Probe %1</source>
         <translation>Érzékelő %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1368"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1369"/>
         <source>mV</source>
         <translation>mV</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1370"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1371"/>
         <source>C</source>
         <translation>C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1372"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1373"/>
         <source>mA</source>
         <translation>mA</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1404"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1405"/>
         <source>Nominal Value</source>
         <translation>Névleges érték</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1407"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1408"/>
         <source>Maximum Value</source>
         <translation>Maximális érték</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1410"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1411"/>
         <source>Minimum Value</source>
         <translation>Minimális érték</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1413"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1414"/>
         <source>Tolerance</source>
         <translation>Tűrés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1416"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1678"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1417"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1679"/>
         <source>Resolution</source>
         <translation>Felbontás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1420"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1421"/>
         <source>Accuracy</source>
         <translation>Pontosság</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1457"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1458"/>
         <source>Cooling Unit Group</source>
         <translation>Hűtőegység-csoport</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1460"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1461"/>
         <source>Nominal Speed</source>
         <translation>Névleges fordulatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1460"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1461"/>
         <source>%1 rpm</source>
         <translation>%1 rpm</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1470"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1471"/>
         <source>Boot Status</source>
         <translation>Rendszerindítás állapota</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1486"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1487"/>
         <source>Array %1</source>
         <translation>Tömb %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1499"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1500"/>
         <source>Use</source>
         <translation>Felhasználás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1503"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1504"/>
         <source>Error Correction</source>
         <translation>Hibajavítás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1509"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1510"/>
         <source>Maximum Capacity</source>
         <translation>Maximális kapacitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1513"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1514"/>
         <source>Number of Devices</source>
         <translation>Eszközök száma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1542"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1543"/>
         <source>Bank</source>
         <translation>Bank</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1555"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1710"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1749"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1556"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1711"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1750"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1561"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1562"/>
         <source>Type Detail</source>
         <translation>Típus részletei</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1564"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1565"/>
         <source>Form Factor</source>
         <translation>Kivitel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1567"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1568"/>
         <source>Technology</source>
         <translation>Technológia</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1570"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1575"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1571"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1576"/>
         <source>%1 MT/s</source>
         <translation>%1 MT/s</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1574"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1575"/>
         <source>Configured Speed</source>
         <translation>Beállított sebesség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1579"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1580"/>
         <source>Total Width</source>
         <translation>Teljes szélesség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1579"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1582"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1580"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1583"/>
         <source>%1 bit</source>
         <translation>%1 bit</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1582"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1583"/>
         <source>Data Width</source>
         <translation>Adatszélesség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1585"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1586"/>
         <source>Rank</source>
         <translation>Rank</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1588"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1589"/>
         <source>Minimum Voltage</source>
         <translation>Minimális feszültség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1588"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1591"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1596"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1589"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1592"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1597"/>
         <source>%1 mV</source>
         <translation>%1 mV</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1591"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1592"/>
         <source>Maximum Voltage</source>
         <translation>Maximális feszültség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1595"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1596"/>
         <source>Configured Voltage</source>
         <translation>Beállított feszültség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1610"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1863"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1611"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1864"/>
         <source>Firmware Version</source>
         <translation>Firmware-verzió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1616"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1617"/>
         <source>Non-volatile Size</source>
         <translation>Nem felejtő méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1622"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1623"/>
         <source>Volatile Size</source>
         <translation>Felejtő méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1627"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1628"/>
         <source>Cache Size</source>
         <translation>Gyorsítótár mérete</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1630"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1631"/>
         <source>Logical Size</source>
         <translation>Logikai méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1640"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1641"/>
         <source>Record %1</source>
         <translation>Rekord %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1653"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1654"/>
         <source>Granularity</source>
         <translation>Granularitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1656"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1657"/>
         <source>Operation</source>
         <translation>Művelet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1661"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1662"/>
         <source>Vendor Syndrome</source>
         <translation>Gyártói szindróma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1667"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1668"/>
         <source>Memory Array Address</source>
         <translation>Memóriatömb címe</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1673"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1674"/>
         <source>Device Address</source>
         <translation>Eszköz címe</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1678"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1959"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1679"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1960"/>
         <source>%1 bytes</source>
         <translation>%1 bájt</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1691"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1729"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1692"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1730"/>
         <source>Range %1</source>
         <translation>Tartomány %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1701"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1702"/>
         <source>Array</source>
         <translation>Tömb</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1706"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1745"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1707"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1746"/>
         <source>Starting Address</source>
         <translation>Kezdőcím</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1708"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1747"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1709"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1748"/>
         <source>Ending Address</source>
         <translation>Záró cím</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1715"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1716"/>
         <source>Partition Width</source>
         <translation>Partíciószélesség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1740"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1741"/>
         <source>Device</source>
         <translation>Eszköz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1753"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1754"/>
         <source>Partition Row Position</source>
         <translation>Partíciósor-pozíció</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1757"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1758"/>
         <source>Interleave Position</source>
         <translation>Átlapolási pozíció</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1763"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1764"/>
         <source>Interleaved Data Depth</source>
         <translation>Átlapolt adatmélység</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1778"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1813"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1779"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1814"/>
         <source>Entry %1</source>
         <translation>Bejegyzés %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1788"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1789"/>
         <source>String</source>
         <translation>Karakterlánc</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1791"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1792"/>
         <source>Value</source>
         <translation>Érték</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1794"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1795"/>
         <source>Referenced Handle</source>
         <translation>Hivatkozott leíró</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1796"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1797"/>
         <source>Referenced Offset</source>
         <translation>Hivatkozott eltolás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1825"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1826"/>
         <source>Processor</source>
         <translation>Processzor</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1828"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1829"/>
         <source>Architecture</source>
         <translation>Architektúra</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1857"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1858"/>
         <source>Vendor ID</source>
         <translation>Gyártó ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1860"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1861"/>
         <source>Specification Version</source>
         <translation>Specifikáció verziója</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1867"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1868"/>
         <source>Configurable by Firmware</source>
         <translation>Firmware által konfigurálható</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1869"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1870"/>
         <source>Configurable by Software</source>
         <translation>Szoftver által konfigurálható</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1871"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1872"/>
         <source>Configurable by OEM</source>
         <translation>OEM által konfigurálható</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1887"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1888"/>
         <source>Firmware %1</source>
         <translation>Firmware %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1897"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1898"/>
         <source>Name</source>
         <translation>Név</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1906"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1907"/>
         <source>Version Format</source>
         <translation>Verzióformátum</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1910"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1911"/>
         <source>Lowest Supported Version</source>
         <translation>Legalacsonyabb támogatott verzió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1921"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1922"/>
         <source>ID Format</source>
         <translation>ID formátuma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1924"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1925"/>
         <source>State</source>
         <translation>Állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1927"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1928"/>
         <source>Image Size</source>
         <translation>Képfájl mérete</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1929"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
         <source>Updatable</source>
         <translation>Frissíthető</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1931"/>
         <source>Write-protected</source>
         <translation>Írásvédett</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1936"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1937"/>
         <source>Component %1</source>
         <translation>Összetevő %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1941"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1942"/>
         <source>Associated Components</source>
         <translation>Kapcsolódó összetevők</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1953"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1954"/>
         <source>SMBIOS Version</source>
         <translation>SMBIOS-verzió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1956"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1957"/>
         <source>Structures</source>
         <translation>Struktúrák</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1959"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1960"/>
         <source>Structures Size</source>
         <translation>Struktúrák mérete</translation>
     </message>
@@ -8267,68 +8515,68 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetDrivers</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="132"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="133"/>
         <source>Continue Pending</source>
         <translation>Folytatás folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="134"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="135"/>
         <source>Pause Pending</source>
         <translation>Felfüggesztés folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="136"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="137"/>
         <source>Paused</source>
         <translation>Felfüggesztve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="139"/>
         <source>Running</source>
         <translation>Fut</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="140"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="141"/>
         <source>Start Pending</source>
         <translation>Indítás folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="142"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="143"/>
         <source>Stop Pending</source>
         <translation>Leállítás folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="145"/>
         <source>Stopped</source>
         <translation>Leállítva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="146"/>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="147"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="169"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="158"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="159"/>
         <source>Auto Start</source>
         <translation>Automatikus indítás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="160"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="161"/>
         <source>Demand Start</source>
         <translation>Kézi indítás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="163"/>
         <source>Disabled</source>
         <translation>Letiltva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="164"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="165"/>
         <source>Boot Start</source>
         <translation>Indítás rendszertöltéskor</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="166"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="167"/>
         <source>System Start</source>
         <translation>Indítás rendszerindításkor</translation>
     </message>
@@ -8336,77 +8584,77 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetDrives</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="159"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="160"/>
         <source>Path</source>
         <translation>Útvonal</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="163"/>
         <source>Model</source>
         <translation>Modell</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="165"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="166"/>
         <source>Serial Number</source>
         <translation>Sorozatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="169"/>
         <source>Firmware Revision</source>
         <translation>Firmware-revízió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="172"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="173"/>
         <source>Bus Type</source>
         <translation>Busz típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="175"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="176"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="180"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="181"/>
         <source>Media Type</source>
         <translation>Adathordozó típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="182"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="183"/>
         <source>Solid State</source>
         <translation>Félvezetős</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="182"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="183"/>
         <source>Rotating</source>
         <translation>Forgólemezes</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="186"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="187"/>
         <source>Rotation Rate</source>
         <translation>Fordulatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="186"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="187"/>
         <source>%1 RPM</source>
         <translation>%1 RPM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="190"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="191"/>
         <source>Cache Size</source>
         <translation>Gyorsítótár mérete</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="194"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="195"/>
         <source>Removable</source>
         <translation>Cserélhető</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="194"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="195"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="194"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="195"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
@@ -8414,47 +8662,47 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetEventLogs</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="68"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="69"/>
         <source>Application</source>
         <translation>Alkalmazás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="70"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="71"/>
         <source>Security</source>
         <translation>Biztonság</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="72"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="73"/>
         <source>System</source>
         <translation>Rendszer</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="308"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="309"/>
         <source>Information</source>
         <translation>Információ</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="310"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="311"/>
         <source>Warning</source>
         <translation>Figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="312"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="313"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="314"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="315"/>
         <source>Audit Success</source>
         <translation>Sikeres naplózás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="316"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="317"/>
         <source>Audit Failure</source>
         <translation>Sikertelen naplózás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="318"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="319"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
@@ -8462,37 +8710,37 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetLicenses</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="139"/>
         <source>License Type</source>
         <translation>Licenc típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="141"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="142"/>
         <source>License Version</source>
         <translation>Licenc verziója</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="145"/>
         <source>Organization</source>
         <translation>Szervezet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="147"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="148"/>
         <source>Owner</source>
         <translation>Tulajdonos</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="151"/>
         <source>Product ID</source>
         <translation>Termék ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="154"/>
         <source>Product Key</source>
         <translation>Termékkulcs</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="157"/>
         <source>Unknown Field</source>
         <translation>Ismeretlen mező</translation>
     </message>
@@ -8500,56 +8748,56 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetLocalUsers</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="147"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="148"/>
         <source>Full Name</source>
         <translation>Teljes név</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="151"/>
         <source>Home Directory</source>
         <translation>Kezdőkönyvtár</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="152"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
         <source>Disabled</source>
         <translation>Letiltva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="152"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="155"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="152"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="155"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
         <source>Password Expired</source>
         <translation>A jelszó lejárt</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="155"/>
         <source>Don&apos;t Expire Password</source>
         <translation>A jelszó nem jár le</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="158"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="159"/>
         <source>Never</source>
         <translation>Soha</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="163"/>
         <source>Last Logon</source>
         <translation>Utolsó bejelentkezés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="175"/>
         <source>Groups</source>
         <translation>Csoportok</translation>
     </message>
@@ -8557,153 +8805,153 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetMonitors</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="155"/>
         <source>Monitor Name</source>
         <translation>Monitor neve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="157"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="158"/>
         <source>Manufacturer Name</source>
         <translation>Gyártó neve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="160"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="161"/>
         <source>Monitor ID</source>
         <translation>Monitor ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="163"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="164"/>
         <source>Serial Number</source>
         <translation>Sorozatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="167"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="168"/>
         <source>EDID Version</source>
         <translation>EDID-verzió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="173"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="174"/>
         <source>Date Of Manufacture</source>
         <translation>Gyártás dátuma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="175"/>
         <source>Week %1 / %2</source>
         <translation>%1. hét / %2</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="179"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="180"/>
         <source>Gamma</source>
         <translation>Gamma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="183"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="184"/>
         <source>Image Size</source>
         <translation>Képméret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="184"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="185"/>
         <source>%1x%2 cm</source>
         <translation>%1x%2 cm</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="193"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="194"/>
         <source>Diagonal Size</source>
         <translation>Képátló</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="198"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="199"/>
         <source>Resolution</source>
         <translation>Felbontás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="205"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="206"/>
         <source>Horizontal Frequency</source>
         <translation>Vízszintes frekvencia</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="206"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="207"/>
         <source>%1 - %2 kHz</source>
         <translation>%1 - %2 kHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="212"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="213"/>
         <source>Vertical Frequency</source>
         <translation>Függőleges frekvencia</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="213"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="214"/>
         <source>%1 - %2 Hz</source>
         <translation>%1 - %2 Hz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="218"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="219"/>
         <source>Pixel Clock</source>
         <translation>Pixelórajel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="218"/>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="221"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="219"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="222"/>
         <source>%1 MHz</source>
         <translation>%1 MHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="221"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="222"/>
         <source>Maximum Pixel Clock</source>
         <translation>Maximális pixelórajel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="223"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="224"/>
         <source>Input Signal Type</source>
         <translation>Bemeneti jel típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="226"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="227"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="228"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="229"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="230"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="231"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="232"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="226"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="227"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="228"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="229"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="230"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="231"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="232"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="234"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="235"/>
         <source>Supported Features</source>
         <translation>Támogatott funkciók</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="243"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="244"/>
         <source>%1 Hz</source>
         <translation>%1 Hz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="247"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="248"/>
         <source>Supported Video Modes</source>
         <translation>Támogatott videomódok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="293"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="294"/>
         <source>Digital</source>
         <translation>Digitális</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="295"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="296"/>
         <source>Analog</source>
         <translation>Analóg</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="297"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="298"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
@@ -8711,67 +8959,67 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetNetAdapters</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="140"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="141"/>
         <source>Adapter Name</source>
         <translation>Adapter neve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="143"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="144"/>
         <source>Interface Type</source>
         <translation>Interfész típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="147"/>
         <source>Connection Speed</source>
         <translation>Kapcsolat sebessége</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="149"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="150"/>
         <source>MAC Address</source>
         <translation>MAC-cím</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="152"/>
         <source>DHCP Enabled</source>
         <translation>DHCP engedélyezve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="152"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="152"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="157"/>
         <source>DHCP Server #%1</source>
         <translation>DHCP-kiszolgáló #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="157"/>
         <source>DHCP Server</source>
         <translation>DHCP-kiszolgáló</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="169"/>
         <source>Address #%1</source>
         <translation>Cím #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="169"/>
         <source>Address</source>
         <translation>Cím</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="176"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="177"/>
         <source>Gateway #%1</source>
         <translation>Átjáró #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="176"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="177"/>
         <source>Gateway</source>
         <translation>Átjáró</translation>
     </message>
@@ -8779,32 +9027,32 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetNetShares</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="133"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="134"/>
         <source>Description</source>
         <translation>Leírás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="136"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="137"/>
         <source>Type</source>
         <translation>Típus</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="139"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="140"/>
         <source>Local Path</source>
         <translation>Helyi útvonal</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="141"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="142"/>
         <source>Current Uses</source>
         <translation>Jelenlegi kapcsolatok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="145"/>
         <source>Not limited</source>
         <translation>Nincs korlátozva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="145"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="146"/>
         <source>Maximum Uses</source>
         <translation>Maximális kapcsolatok</translation>
     </message>
@@ -8812,170 +9060,170 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetPowerOptions</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="157"/>
         <source>Power Source</source>
         <translation>Áramforrás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="158"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="159"/>
         <source>Battery Status</source>
         <translation>Akkumulátor állapota</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="164"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="165"/>
         <source>Battery Life Percent</source>
         <translation>Akkumulátor töltöttségi szintje</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="170"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="171"/>
         <source>Full Battery Life Time</source>
         <translation>Teljes akkumulátor-üzemidő</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="177"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="178"/>
         <source>Remaining Battery Life Time</source>
         <translation>Hátralévő akkumulátor-üzemidő</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="193"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="194"/>
         <source>Device Name</source>
         <translation>Eszköz neve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="196"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="197"/>
         <source>Manufacturer</source>
         <translation>Gyártó</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="199"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="200"/>
         <source>Manufacture Date</source>
         <translation>Gyártás dátuma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="202"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="203"/>
         <source>Unique Id</source>
         <translation>Egyedi ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="205"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="206"/>
         <source>Serial Number</source>
         <translation>Sorozatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="208"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="209"/>
         <source>Temperature</source>
         <translation>Hőmérséklet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="211"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="212"/>
         <source>Design Capacity</source>
         <translation>Tervezett kapacitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="211"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="217"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="223"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="212"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="218"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="224"/>
         <source>%1 mWh</source>
         <translation>%1 mWh</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="214"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="215"/>
         <source>Type</source>
         <translation>Típus</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="217"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="218"/>
         <source>Full Charged Capacity</source>
         <translation>Teljesen feltöltött kapacitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="220"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="221"/>
         <source>Depreciation</source>
         <translation>Kopás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="223"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="224"/>
         <source>Current Capacity</source>
         <translation>Jelenlegi kapacitás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="226"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="227"/>
         <source>Voltage</source>
         <translation>Feszültség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="226"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="227"/>
         <source>%1 mV</source>
         <translation>%1 mV</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="232"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="315"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="233"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="316"/>
         <source>Charging</source>
         <translation>Töltés folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="232"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="235"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="238"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="241"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="233"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="239"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="242"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="235"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="313"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="314"/>
         <source>Critical</source>
         <translation>Kritikus</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="238"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="239"/>
         <source>Discharging</source>
         <translation>Merülés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="241"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="242"/>
         <source>Power OnLine</source>
         <translation>Hálózati tápellátás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="245"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="246"/>
         <source>State</source>
         <translation>Állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="250"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="251"/>
         <source>Battery #%1</source>
         <translation>Akkumulátor #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="291"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="292"/>
         <source>DC Battery</source>
         <translation>Akkumulátor</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="294"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="295"/>
         <source>AC Line</source>
         <translation>Hálózati áramforrás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="297"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="319"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="298"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="320"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="309"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="310"/>
         <source>High</source>
         <translation>Magas</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="311"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="312"/>
         <source>Low</source>
         <translation>Alacsony</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="317"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="318"/>
         <source>No Battery</source>
         <translation>Nincs akkumulátor</translation>
     </message>
@@ -8983,44 +9231,44 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetPrinters</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="139"/>
         <source>Default</source>
         <translation>Alapértelmezett</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="138"/>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="139"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="147"/>
         <source>Yes</source>
         <translation>Igen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="138"/>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="139"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="147"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="141"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="142"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="145"/>
         <source>Driver</source>
         <translation>Illesztőprogram</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="147"/>
         <source>Shared</source>
         <translation>Megosztva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="149"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="150"/>
         <source>Share Name</source>
         <translation>Megosztás neve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="152"/>
         <source>Jobs Count</source>
         <translation>Feladatok száma</translation>
     </message>
@@ -9028,12 +9276,12 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetProcesses</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="145"/>
         <source>System Idle Process</source>
         <translation>Rendszer tétlen folyamata</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="147"/>
         <source>Unknown Process</source>
         <translation>Ismeretlen folyamat</translation>
     </message>
@@ -9041,68 +9289,68 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetServices</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="139"/>
         <source>Continue Pending</source>
         <translation>Folytatás folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="140"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="141"/>
         <source>Pause Pending</source>
         <translation>Felfüggesztés folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="142"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="143"/>
         <source>Paused</source>
         <translation>Felfüggesztve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="145"/>
         <source>Running</source>
         <translation>Fut</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="147"/>
         <source>Start Pending</source>
         <translation>Indítás folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="148"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="149"/>
         <source>Stop Pending</source>
         <translation>Leállítás folyamatban</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="151"/>
         <source>Stopped</source>
         <translation>Leállítva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="152"/>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="175"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="164"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="165"/>
         <source>Auto Start</source>
         <translation>Automatikus indítás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="166"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="167"/>
         <source>Demand Start</source>
         <translation>Kézi indítás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="169"/>
         <source>Disabled</source>
         <translation>Letiltva</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="170"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="171"/>
         <source>Boot Start</source>
         <translation>Indítás rendszertöltéskor</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="172"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="173"/>
         <source>System Start</source>
         <translation>Indítás rendszerindításkor</translation>
     </message>
@@ -9110,214 +9358,214 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetSmart</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
         <source>Attribute</source>
         <translation>Attribútum</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="392"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="394"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="393"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="395"/>
         <source>Value</source>
         <translation>Érték</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
         <source>Worst</source>
         <translation>Legrosszabb</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
         <source>Threshold</source>
         <translation>Küszöbérték</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="392"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="393"/>
         <source>Raw</source>
         <translation>Nyers</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="389"/>
         <source>Status</source>
         <translation>Állapot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="392"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="394"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="393"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="395"/>
         <source>Parameter</source>
         <translation>Paraméter</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="408"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="409"/>
         <source>Health Data</source>
         <translation>Állapotadatok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="408"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="409"/>
         <source>Not available</source>
         <translation>Nem érhető el</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="425"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="426"/>
         <source>OK. Always passed</source>
         <translation>OK. Mindig megfelelt</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="427"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="428"/>
         <source>OK. Value is normal</source>
         <translation>OK. Az érték normális</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="429"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="430"/>
         <source>Warning. Value is pre-failure</source>
         <translation>Figyelmeztetés. Az érték meghibásodást jelezhet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="431"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="432"/>
         <source>Warning. Value is not normal</source>
         <translation>Figyelmeztetés. Az érték nem normális</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="438"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="439"/>
         <source>Unknown Attribute</source>
         <translation>Ismeretlen attribútum</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="461"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="462"/>
         <source>Spare capacity is below the threshold</source>
         <translation>A tartalék kapacitás a küszöbérték alatt van</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="463"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="464"/>
         <source>Temperature is outside of the operating range</source>
         <translation>A hőmérséklet a működési tartományon kívül van</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="465"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="466"/>
         <source>Reliability is degraded</source>
         <translation>A megbízhatóság csökkent</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="467"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="468"/>
         <source>Media is in read-only mode</source>
         <translation>Az adathordozó írásvédett módban van</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="469"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="470"/>
         <source>Volatile memory backup device failed</source>
         <translation>A felejtő memória tartalékeszköze meghibásodott</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="471"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="472"/>
         <source>Persistent memory region is unreliable</source>
         <translation>A tartós memóriaterület megbízhatatlan</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="475"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="476"/>
         <source>Critical Warning</source>
         <translation>Kritikus figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="476"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="477"/>
         <source>None</source>
         <translation>Nincs</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="481"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="482"/>
         <source>Temperature</source>
         <translation>Hőmérséklet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="482"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="498"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="483"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="499"/>
         <source>%1 C</source>
         <translation>%1 C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="497"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="498"/>
         <source>Temperature Sensor %1</source>
         <translation>Hőmérséklet-érzékelő %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="502"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="503"/>
         <source>Available Spare</source>
         <translation>Elérhető tartalék</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="502"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="505"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="507"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="503"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="506"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="508"/>
         <source>%1%</source>
         <translation>%1%</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="504"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="505"/>
         <source>Available Spare Threshold</source>
         <translation>Elérhető tartalék küszöbértéke</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="507"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="508"/>
         <source>Percentage Used</source>
         <translation>Felhasznált százalék</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="510"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="511"/>
         <source>Data Read</source>
         <translation>Olvasott adat</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="513"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="514"/>
         <source>Data Written</source>
         <translation>Írt adat</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="517"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="518"/>
         <source>Host Read Commands</source>
         <translation>Gazdagép olvasási parancsai</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="519"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="520"/>
         <source>Host Write Commands</source>
         <translation>Gazdagép írási parancsai</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="521"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="522"/>
         <source>Controller Busy Time</source>
         <translation>Vezérlő foglaltsági ideje</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="524"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="525"/>
         <source>Power Cycles</source>
         <translation>Bekapcsolási ciklusok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="526"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="527"/>
         <source>Power-On Time</source>
         <translation>Bekapcsolva töltött idő</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="529"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="530"/>
         <source>Unsafe Shutdowns</source>
         <translation>Nem biztonságos leállítások</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="531"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="532"/>
         <source>Media Errors</source>
         <translation>Adathordozó-hibák</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="533"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="534"/>
         <source>Error Log Entries</source>
         <translation>Hibanapló-bejegyzések</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="536"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="537"/>
         <source>Warning Temperature Time</source>
         <translation>Figyelmeztető hőmérséklet ideje</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="539"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="540"/>
         <source>Critical Temperature Time</source>
         <translation>Kritikus hőmérséklet ideje</translation>
     </message>
@@ -9325,169 +9573,169 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetSummary</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="200"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="241"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="201"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="242"/>
         <source>Name</source>
         <translation>Név</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="203"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="204"/>
         <source>Domain</source>
         <translation>Tartomány</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="206"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="207"/>
         <source>Workgroup</source>
         <translation>Munkacsoport</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="209"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="210"/>
         <source>Uptime</source>
         <translation>Üzemidő</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="212"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="213"/>
         <source>Computer</source>
         <translation>Számítógép</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="219"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="220"/>
         <source>Host Version</source>
         <translation>Gazdagép verziója</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="222"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="223"/>
         <source>Client Version</source>
         <translation>Kliens verziója</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="227"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="229"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="228"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="230"/>
         <source>Router Version</source>
         <translation>Útválasztó verziója</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="232"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="233"/>
         <source>Aspia Information</source>
         <translation>Aspia-információk</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="244"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="316"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="245"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="317"/>
         <source>Version</source>
         <translation>Verzió</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="247"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="248"/>
         <source>Architecture</source>
         <translation>Architektúra</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="250"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="251"/>
         <source>License Key</source>
         <translation>Licenckulcs</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="253"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="254"/>
         <source>Install Date</source>
         <translation>Telepítés dátuma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="258"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="259"/>
         <source>Operating System</source>
         <translation>Operációs rendszer</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="268"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="340"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="269"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="341"/>
         <source>Manufacturer</source>
         <translation>Gyártó</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="271"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="286"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="272"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="287"/>
         <source>Model</source>
         <translation>Modell</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="276"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="277"/>
         <source>Motherboard</source>
         <translation>Alaplap</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="289"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="313"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="290"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="314"/>
         <source>Vendor</source>
         <translation>Gyártó</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="292"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="293"/>
         <source>Packages</source>
         <translation>Foglalatok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="295"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="296"/>
         <source>Cores</source>
         <translation>Magok</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="298"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="299"/>
         <source>Threads</source>
         <translation>Szálak</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="303"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="304"/>
         <source>Processor</source>
         <translation>Processzor</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="319"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="320"/>
         <source>Date</source>
         <translation>Dátum</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="343"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="344"/>
         <source>Size</source>
         <translation>Méret</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="349"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="350"/>
         <source>Speed</source>
         <translation>Sebesség</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="346"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="347"/>
         <source>Type</source>
         <translation>Típus</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="353"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="354"/>
         <source>Installed</source>
         <translation>Telepítve</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="229"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="353"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="230"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="354"/>
         <source>No</source>
         <translation>Nem</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="349"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="350"/>
         <source>%1 MT/s</source>
         <translation>%1 MT/s</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="363"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="364"/>
         <source>Memory</source>
         <translation>Memória</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="392"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="393"/>
         <source>%1 (%2 free)</source>
         <translation>%1 (%2 szabad)</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="402"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="403"/>
         <source>Logical Drives</source>
         <translation>Logikai meghajtók</translation>
     </message>
@@ -9495,133 +9743,133 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>SysInfoWidgetVideoAdapters</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="84"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="85"/>
         <source>%1 C</source>
         <translation>%1 C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="151"/>
         <source>Description</source>
         <translation>Leírás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="154"/>
         <source>Adapter String</source>
         <translation>Adapter-karakterlánc</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="157"/>
         <source>BIOS String</source>
         <translation>BIOS-karakterlánc</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="159"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="160"/>
         <source>Chip Type</source>
         <translation>Chip típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="163"/>
         <source>DAC Type</source>
         <translation>DAC típusa</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="167"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="168"/>
         <source>Location</source>
         <translation>Hely</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="167"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="168"/>
         <source>Bus %1, device %2, function %3</source>
         <translation>Busz: %1, eszköz: %2, funkció: %3</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="175"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="176"/>
         <source>Memory Size</source>
         <translation>Memória mérete</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="181"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="182"/>
         <source>Memory Used</source>
         <translation>Felhasznált memória</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="187"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="188"/>
         <source>Shared Memory Size</source>
         <translation>Megosztott memória mérete</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="193"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="194"/>
         <source>Shared Memory Used</source>
         <translation>Felhasznált megosztott memória</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="199"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="200"/>
         <source>Memory Frequency</source>
         <translation>Memória-órajel</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="200"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="201"/>
         <source>%1 MHz</source>
         <translation>%1 MHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="214"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="215"/>
         <source>Driver Model</source>
         <translation>Illesztőprogram-modell</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="214"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="215"/>
         <source>WDDM %1.%2</source>
         <translation>WDDM %1.%2</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="221"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="222"/>
         <source>Temperature</source>
         <translation>Hőmérséklet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="227"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="228"/>
         <source>Maximum Temperature</source>
         <translation>Maximális hőmérséklet</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="232"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="233"/>
         <source>Fan Speed</source>
         <translation>Ventilátor fordulatszáma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="232"/>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="233"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="237"/>
         <source>%1 RPM</source>
         <translation>%1 RPM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="237"/>
         <source>Maximum Fan Speed</source>
         <translation>Maximális ventilátor-fordulatszám</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="242"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="243"/>
         <source>Power Usage</source>
         <translation>Energiafelhasználás</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="243"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="244"/>
         <source>%1%</source>
         <translation>%1%</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="204"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="205"/>
         <source>Driver Date</source>
         <translation>Illesztőprogram dátuma</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="207"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="208"/>
         <source>Driver Version</source>
         <translation>Illesztőprogram verziója</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="210"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="211"/>
         <source>Driver Provider</source>
         <translation>Illesztőprogram szolgáltatója</translation>
     </message>
@@ -9804,37 +10052,37 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Leválasztás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="652"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="657"/>
         <source>Do you really want to end &quot;%1&quot; process?</source>
         <translation>Valóban befejezi a(z) &quot;%1&quot; folyamatot?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="702"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="711"/>
         <source>Do you really want to disconnect user &quot;%1&quot; session?</source>
         <translation>Valóban leválasztja &quot;%1&quot; felhasználó munkamenetét?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="725"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="737"/>
         <source>Do you really want to end user &quot;%1&quot; session?</source>
         <translation>Valóban befejezi &quot;%1&quot; felhasználó munkamenetét?</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="944"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="955"/>
         <source>Processes: %1</source>
         <translation>Folyamatok: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="950"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="961"/>
         <source>CPU loading: %1%</source>
         <translation>CPU-terhelés: %1%</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="956"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="967"/>
         <source>Physical memory: %1%</source>
         <translation>Fizikai memória: %1%</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="962"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="973"/>
         <source>Update Speed</source>
         <translation>Frissítési sebesség</translation>
     </message>
@@ -10147,38 +10395,48 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>TerminalWidget</name>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="243"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="264"/>
         <source>Authentication failed.</source>
         <translation>A hitelesítés sikertelen.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="244"/>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1138"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="265"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1166"/>
         <source>User name</source>
         <translation>Felhasználónév</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1082"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="271"/>
+        <source>Unable to start the command shell on the remote computer.</source>
+        <translation>Nem sikerült elindítani a parancsértelmezőt a távoli számítógépen.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="272"/>
+        <source>Check the host log for details.</source>
+        <translation>A részleteket a gazdagép naplója tartalmazza.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1110"/>
         <source>Copy</source>
         <translation>Másolás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1085"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1113"/>
         <source>Paste</source>
         <translation>Beillesztés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1088"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1116"/>
         <source>Select All</source>
         <translation>Összes kijelölése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1136"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1164"/>
         <source>Enter your user name and password to authenticate on the remote computer.</source>
         <translation>Adja meg felhasználónevét és jelszavát a távoli számítógépen történő hitelesítéshez.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1178"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
@@ -10191,7 +10449,7 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Frissítés</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="364"/>
+        <location filename="../common/desktop/update_dialog.cc" line="366"/>
         <source>Checking for updates</source>
         <translation>Frissítések keresése</translation>
     </message>
@@ -10226,7 +10484,7 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Frissítés most!</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="369"/>
+        <location filename="../common/desktop/update_dialog.cc" line="371"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
@@ -10236,75 +10494,75 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Információk fogadása...</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="152"/>
+        <location filename="../common/desktop/update_dialog.cc" line="154"/>
         <source>Install the update yourself: %1</source>
         <translation>Telepítse a frissítést kézzel: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="158"/>
+        <location filename="../common/desktop/update_dialog.cc" line="160"/>
         <source>An update will be downloaded. After the download is complete, the application will automatically close.</source>
         <translation>A frissítés letöltésre kerül. A letöltés befejezése után az alkalmazás automatikusan bezárul.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="160"/>
+        <location filename="../common/desktop/update_dialog.cc" line="162"/>
         <source>All connected sessions will be terminated. You cannot establish a connection until the update is complete.</source>
         <translation>Minden csatlakoztatott munkamenet megszakad. A frissítés befejezéséig nem létesíthet kapcsolatot.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="162"/>
+        <location filename="../common/desktop/update_dialog.cc" line="164"/>
         <source>All unsaved data will be lost.</source>
         <translation>Minden nem mentett adat elvész.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="163"/>
+        <location filename="../common/desktop/update_dialog.cc" line="165"/>
         <source>Continue?</source>
         <translation>Folytatja?</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="193"/>
-        <location filename="../common/desktop/update_dialog.cc" line="213"/>
-        <location filename="../common/desktop/update_dialog.cc" line="235"/>
-        <location filename="../common/desktop/update_dialog.cc" line="331"/>
+        <location filename="../common/desktop/update_dialog.cc" line="195"/>
+        <location filename="../common/desktop/update_dialog.cc" line="215"/>
+        <location filename="../common/desktop/update_dialog.cc" line="237"/>
+        <location filename="../common/desktop/update_dialog.cc" line="333"/>
         <source>An error occurred while installing the update.</source>
         <translation>Hiba történt a frissítés telepítése közben.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="304"/>
+        <location filename="../common/desktop/update_dialog.cc" line="306"/>
         <source>An error occurred while downloading the update: %1</source>
         <translation>Hiba történt a frissítés letöltése közben: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="329"/>
+        <location filename="../common/desktop/update_dialog.cc" line="331"/>
         <source>The downloaded file is damaged.</source>
         <translation>A letöltött fájl sérült.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="364"/>
+        <location filename="../common/desktop/update_dialog.cc" line="366"/>
         <source>Downloading the update</source>
         <translation>Frissítés letöltése</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="369"/>
+        <location filename="../common/desktop/update_dialog.cc" line="371"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="281"/>
+        <location filename="../common/desktop/update_dialog.cc" line="283"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="282"/>
+        <location filename="../common/desktop/update_dialog.cc" line="284"/>
         <source>Error retrieving update information.</source>
         <translation>Hiba a frissítési információk lekérésekor.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="339"/>
+        <location filename="../common/desktop/update_dialog.cc" line="341"/>
         <source>Installing the update. Please wait.</source>
         <translation>Frissítés telepítése. Kérjük, várjon.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="257"/>
+        <location filename="../common/desktop/update_dialog.cc" line="259"/>
         <source>No updates available.</source>
         <translation>Nincs elérhető frissítés.</translation>
     </message>
@@ -10352,65 +10610,65 @@ Importált hitelesítő adatok: %5</translation>
         <translation>Összes jelölés törlése</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="181"/>
+        <location filename="../host/ui/user_dialog.cc" line="182"/>
         <source>The user name can not be empty and can contain only alphabet characters, numbers and _, -, ., @ characters. It can not consist of digits only.</source>
         <translation>A felhasználónév nem lehet üres, és csak betűket, számokat, valamint _, -, ., @ karaktereket tartalmazhat. Nem állhat csak számjegyekből.</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="199"/>
+        <location filename="../host/ui/user_dialog.cc" line="200"/>
         <source>The username you entered already exists.</source>
         <translation>A megadott felhasználónév már létezik.</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="208"/>
+        <location filename="../host/ui/user_dialog.cc" line="209"/>
         <source>The passwords you entered do not match.</source>
         <translation>A megadott jelszavak nem egyeznek.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../host/ui/user_dialog.cc" line="219"/>
+        <location filename="../host/ui/user_dialog.cc" line="220"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../host/ui/user_dialog.cc" line="221"/>
+        <location filename="../host/ui/user_dialog.cc" line="222"/>
         <source>The password can not be longer than %n characters.</source>
         <translation>
             <numerusform>A jelszó nem haladhatja meg a %n karaktert.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="233"/>
+        <location filename="../host/ui/user_dialog.cc" line="234"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>A megadott jelszó nem felel meg a biztonsági követelményeknek!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../host/ui/user_dialog.cc" line="236"/>
+        <location filename="../host/ui/user_dialog.cc" line="237"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>A jelszónak tartalmaznia kell kisbetűket és nagybetűket, számokat, és nem lehet rövidebb %n karakternél.</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="240"/>
+        <location filename="../host/ui/user_dialog.cc" line="241"/>
         <source>Do you want to enter a different password?</source>
         <translation>Szeretne másik jelszót megadni?</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="243"/>
+        <location filename="../host/ui/user_dialog.cc" line="244"/>
         <source>Warning</source>
         <translation>Figyelmeztetés</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="261"/>
-        <location filename="../host/ui/user_dialog.cc" line="291"/>
-        <location filename="../host/ui/user_dialog.cc" line="301"/>
+        <location filename="../host/ui/user_dialog.cc" line="262"/>
+        <location filename="../host/ui/user_dialog.cc" line="292"/>
+        <location filename="../host/ui/user_dialog.cc" line="302"/>
         <source>Unknown internal error when creating or modifying a user.</source>
         <translation>Ismeretlen belső hiba a felhasználó létrehozása vagy módosítása közben.</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="339"/>
+        <location filename="../host/ui/user_dialog.cc" line="340"/>
         <source>Double-click to change</source>
         <translation>Módosításhoz kattintson duplán</translation>
     </message>
@@ -10418,62 +10676,62 @@ Importált hitelesítő adatok: %5</translation>
 <context>
     <name>UserItem</name>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="253"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="254"/>
         <source>&lt;no user&gt;</source>
         <translation>&lt;nincs felhasználó&gt;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="288"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="289"/>
         <source>Active</source>
         <translation>Aktív</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="290"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="291"/>
         <source>Connected</source>
         <translation>Csatlakoztatva</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="292"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="293"/>
         <source>Connect Query</source>
         <translation>Csatlakozás lekérdezése</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="294"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="295"/>
         <source>Shadow</source>
         <translation>Árnyék</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="296"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="297"/>
         <source>Disconnected</source>
         <translation>Leválasztva</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="298"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="299"/>
         <source>Idle</source>
         <translation>Tétlen</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="300"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="301"/>
         <source>Listen</source>
         <translation>Figyelés</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="302"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="303"/>
         <source>Reset</source>
         <translation>Alaphelyzet</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="304"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="305"/>
         <source>Down</source>
         <translation>Nem működik</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="306"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="307"/>
         <source>Init</source>
         <translation>Inicializálás</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="308"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="309"/>
         <source>Unknown</source>
         <translation>Ismeretlen</translation>
     </message>

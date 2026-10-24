@@ -4,38 +4,38 @@
 <context>
     <name>AabImporter</name>
     <message>
-        <location filename="../client/aab_importer.cc" line="143"/>
+        <location filename="../client/aab_importer.cc" line="144"/>
         <source>%1 (Imported)</source>
         <translation>%1 (Εισηγμένο)</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="313"/>
+        <location filename="../client/aab_importer.cc" line="314"/>
         <source>Unable to open file &quot;%1&quot;: %2</source>
         <translation>Δεν είναι δυνατό το άνοιγμα του αρχείου &quot;%1&quot;: %2</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="322"/>
+        <location filename="../client/aab_importer.cc" line="323"/>
         <source>Selected file is empty.</source>
         <translation>Το επιλεγμένο αρχείο είναι κενό.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="329"/>
-        <location filename="../client/aab_importer.cc" line="377"/>
+        <location filename="../client/aab_importer.cc" line="330"/>
+        <location filename="../client/aab_importer.cc" line="379"/>
         <source>The address book file is corrupted or has an unknown format.</source>
         <translation>Το αρχείο του βιβλίου διευθύνσεων είναι κατεστραμμένο ή έχει άγνωστη μορφή.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="369"/>
+        <location filename="../client/aab_importer.cc" line="371"/>
         <source>The address book file is encrypted with an unsupported encryption type.</source>
         <translation>Το αρχείο του βιβλίου διευθύνσεων είναι κρυπτογραφημένο με μη υποστηριζόμενο τύπο κρυπτογράφησης.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="388"/>
+        <location filename="../client/aab_importer.cc" line="390"/>
         <source>Failed to read data from the local database.</source>
         <translation>Δεν ήταν δυνατή η ανάγνωση των δεδομένων από την τοπική βάση δεδομένων.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="407"/>
+        <location filename="../client/aab_importer.cc" line="409"/>
         <source>Import completed successfully.
 Groups added: %1
 Hosts added: %2
@@ -48,22 +48,22 @@ Routers added: %4</source>
 Δρομολογητές που προστέθηκαν: %4</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="361"/>
+        <location filename="../client/aab_importer.cc" line="363"/>
         <source>Unable to decrypt the address book with the specified password.</source>
         <translation>Δεν είναι δυνατή η αποκρυπτογράφηση του βιβλίου διευθύνσεων με τον καθορισμένο κωδικό πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="344"/>
+        <location filename="../client/aab_importer.cc" line="346"/>
         <source>Unlock</source>
         <translation>Ξεκλείδωμα</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="346"/>
+        <location filename="../client/aab_importer.cc" line="348"/>
         <source>Address book is encrypted. To open, you must enter a password.</source>
         <translation>Το βιβλίο διευθύνσεων είναι κρυπτογραφημένο. Για να το ανοίξετε, πρέπει να εισαγάγετε κωδικό πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../client/aab_importer.cc" line="402"/>
+        <location filename="../client/aab_importer.cc" line="404"/>
         <source>Nothing was imported.</source>
         <translation>Δεν έγινε εισαγωγή κανενός στοιχείου.</translation>
     </message>
@@ -86,127 +86,125 @@ Routers added: %4</source>
         <translation>Πληροφορίες υπηρεσίας</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.ui" line="112"/>
         <source>Donate!</source>
-        <translation>Κάντε δωρεά!</translation>
+        <translation type="vanished">Κάντε δωρεά!</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.ui" line="136"/>
+        <location filename="../common/desktop/about_dialog.ui" line="125"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="104"/>
+        <location filename="../common/desktop/about_dialog.cc" line="107"/>
         <source>Version: %1 (%2)</source>
         <translation>Έκδοση: %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="109"/>
+        <location filename="../common/desktop/about_dialog.cc" line="112"/>
         <source>Aspia is free software released under GNU General Public License 3.</source>
         <translation>Το Aspia είναι ελεύθερο λογισμικό που διατίθεται υπό την άδεια GNU General Public License 3.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="110"/>
+        <location filename="../common/desktop/about_dialog.cc" line="113"/>
         <source>You can get a copy of license here:</source>
         <translation>Μπορείτε να βρείτε αντίγραφο της άδειας εδώ:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="115"/>
+        <location filename="../common/desktop/about_dialog.cc" line="118"/>
         <source>You can also get a translation of GNU GPL license here:</source>
         <translation>Μπορείτε επίσης να βρείτε μετάφραση της άδειας GNU GPL εδώ:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="119"/>
+        <location filename="../common/desktop/about_dialog.cc" line="122"/>
         <source>Links</source>
         <translation>Σύνδεσμοι</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="120"/>
         <source>Home page:</source>
-        <translation>Αρχική σελίδα:</translation>
+        <translation type="vanished">Αρχική σελίδα:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="121"/>
+        <location filename="../common/desktop/about_dialog.cc" line="123"/>
         <source>GitHub page:</source>
         <translation>Σελίδα GitHub:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="124"/>
+        <location filename="../common/desktop/about_dialog.cc" line="126"/>
         <source>Developers</source>
         <translation>Προγραμματιστές</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="126"/>
+        <location filename="../common/desktop/about_dialog.cc" line="128"/>
         <source>Translators</source>
         <translation>Μεταφραστές</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="128"/>
+        <location filename="../common/desktop/about_dialog.cc" line="130"/>
         <source>Third-party components</source>
         <translation>Στοιχεία τρίτων</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="130"/>
+        <location filename="../common/desktop/about_dialog.cc" line="132"/>
         <source>Graphics and images</source>
         <translation>Γραφικά και εικόνες</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="131"/>
+        <location filename="../common/desktop/about_dialog.cc" line="133"/>
         <source>Icons by %1</source>
         <translation>Εικονίδια από %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="158"/>
+        <location filename="../common/desktop/about_dialog.cc" line="160"/>
         <source>Application</source>
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="159"/>
+        <location filename="../common/desktop/about_dialog.cc" line="161"/>
         <source>Path: %1</source>
         <translation>Διαδρομή: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="160"/>
+        <location filename="../common/desktop/about_dialog.cc" line="162"/>
         <source>Logging directory: %1</source>
         <translation>Κατάλογος καταγραφής: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="162"/>
+        <location filename="../common/desktop/about_dialog.cc" line="164"/>
         <source>Logging file: %1</source>
         <translation>Αρχείο καταγραφής: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="167"/>
+        <location filename="../common/desktop/about_dialog.cc" line="169"/>
         <source>Build Information</source>
         <translation>Πληροφορίες δόμησης</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="168"/>
+        <location filename="../common/desktop/about_dialog.cc" line="170"/>
         <source>Git branch: %1</source>
         <translation>Κλάδος Git: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="170"/>
+        <location filename="../common/desktop/about_dialog.cc" line="172"/>
         <source>Git commit: %1</source>
         <translation>Commit Git: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="175"/>
+        <location filename="../common/desktop/about_dialog.cc" line="177"/>
         <source>Compilation</source>
         <translation>Μεταγλώττιση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="176"/>
+        <location filename="../common/desktop/about_dialog.cc" line="178"/>
         <source>Compilation date: %1</source>
         <translation>Ημερομηνία μεταγλώττισης: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="177"/>
+        <location filename="../common/desktop/about_dialog.cc" line="179"/>
         <source>Compilation time: %1</source>
         <translation>Ώρα μεταγλώττισης: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/about_dialog.cc" line="206"/>
+        <location filename="../common/desktop/about_dialog.cc" line="208"/>
         <source>Version Information</source>
         <translation>Πληροφορίες έκδοσης</translation>
     </message>
@@ -461,54 +459,54 @@ Routers added: %4</source>
         <translation>···</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="134"/>
-        <location filename="../common/desktop/chat_widget.cc" line="309"/>
+        <location filename="../common/desktop/chat_widget.cc" line="135"/>
+        <location filename="../common/desktop/chat_widget.cc" line="310"/>
         <source>Save chat...</source>
         <translation>Αποθήκευση συνομιλίας...</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="135"/>
-        <location filename="../common/desktop/chat_widget.cc" line="310"/>
+        <location filename="../common/desktop/chat_widget.cc" line="136"/>
+        <location filename="../common/desktop/chat_widget.cc" line="311"/>
         <source>Clear chat</source>
         <translation>Απαλοιφή συνομιλίας</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="206"/>
+        <location filename="../common/desktop/chat_widget.cc" line="207"/>
         <source>%1 is typing...</source>
         <translation>%1 πληκτρολογεί...</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="209"/>
+        <location filename="../common/desktop/chat_widget.cc" line="210"/>
         <source>User %1 has joined the chat (%2)</source>
         <translation>Ο χρήστης %1 συμμετέχει στη συνομιλία (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="212"/>
+        <location filename="../common/desktop/chat_widget.cc" line="213"/>
         <source>User %1 has left the chat (%2)</source>
         <translation>Ο χρήστης %1 αποχώρησε από τη συνομιλία (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="215"/>
+        <location filename="../common/desktop/chat_widget.cc" line="216"/>
         <source>User %1 is logged in (%2)</source>
         <translation>Ο χρήστης %1 είναι συνδεδεμένος (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="218"/>
+        <location filename="../common/desktop/chat_widget.cc" line="219"/>
         <source>User %1 is not logged in (%2)</source>
         <translation>Ο χρήστης %1 δεν είναι συνδεδεμένος (%2)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="221"/>
+        <location filename="../common/desktop/chat_widget.cc" line="222"/>
         <source>There are no connected users (%1)</source>
         <translation>Δεν υπάρχουν συνδεδεμένοι χρήστες (%1)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="431"/>
+        <location filename="../common/desktop/chat_widget.cc" line="432"/>
         <source>Unable to write file.</source>
         <translation>Δεν είναι δυνατή η εγγραφή του αρχείου.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../common/desktop/chat_widget.cc" line="447"/>
+        <location filename="../common/desktop/chat_widget.cc" line="448"/>
         <source>The message is too long. The maximum message length is %n characters.</source>
         <translation>
             <numerusform>Το μήνυμα είναι πολύ μεγάλο. Το μέγιστο μήκος μηνύματος είναι %n χαρακτήρας.</numerusform>
@@ -516,17 +514,17 @@ Routers added: %4</source>
         </translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="370"/>
+        <location filename="../common/desktop/chat_widget.cc" line="371"/>
         <source>Save File</source>
         <translation>Αποθήκευση αρχείου</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="370"/>
+        <location filename="../common/desktop/chat_widget.cc" line="371"/>
         <source>TXT files (*.txt)</source>
         <translation>Αρχεία TXT (*.txt)</translation>
     </message>
     <message>
-        <location filename="../common/desktop/chat_widget.cc" line="383"/>
+        <location filename="../common/desktop/chat_widget.cc" line="384"/>
         <source>Could not open file for writing.</source>
         <translation>Δεν ήταν δυνατό το άνοιγμα του αρχείου για εγγραφή.</translation>
     </message>
@@ -612,7 +610,7 @@ Routers added: %4</source>
         <translation>Κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="../host/ui/check_password_dialog.cc" line="69"/>
+        <location filename="../host/ui/check_password_dialog.cc" line="71"/>
         <source>You entered an incorrect password.</source>
         <translation>Εισαγάγατε εσφαλμένο κωδικό πρόσβασης.</translation>
     </message>
@@ -620,22 +618,142 @@ Routers added: %4</source>
 <context>
     <name>Client</name>
     <message>
-        <location filename="../client/main.cc" line="78"/>
+        <location filename="../client/main.cc" line="122"/>
         <source>Unable to create a backup. Some records of the database are damaged. Fix or delete them.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αντιγράφου ασφαλείας. Ορισμένες εγγραφές της βάσης δεδομένων είναι κατεστραμμένες. Διορθώστε τις ή διαγράψτε τις.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="257"/>
+        <location filename="../client/main.cc" line="209"/>
+        <source>Remote computer address or host ID.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="211"/>
+        <source>Remote computer port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="214"/>
+        <source>Name of the host.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="216"/>
+        <source>User name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="218"/>
+        <source>Password of the user.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="220"/>
+        <source>Display name when connected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="222"/>
+        <source>Session type. Possible values: desktop-manage, desktop-view, file-transfer, system-info, text-chat, terminal.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="226"/>
+        <source>Type of codec. Possible values: vp8, vp9, zstd. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="229"/>
+        <source>Color depth. Possible values: 3, 6, 8, 16, 32. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="232"/>
+        <source>Compression ratio. Possible values: 1-22. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="235"/>
+        <source>Enable or disable audio. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="238"/>
+        <source>Enable or disable cursor shape. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="241"/>
+        <source>Enable or disable cursor position. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="244"/>
+        <source>Enable or disable clipboard. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="247"/>
+        <source>Enable or disable desktop effects. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="250"/>
+        <source>Enable or disable desktop wallpaper. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="253"/>
+        <source>Enable or disable font smoothing. Possible values: 0 or 1. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="256"/>
+        <source>Clear clipboard at disconnect. Possible values: 0 or 1. Not supported by the current protocol.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="259"/>
+        <source>Lock computer at disconnect. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="262"/>
+        <source>Block remote input. Possible values: 0 or 1.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="265"/>
+        <source>Router address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="267"/>
+        <source>Router port.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="270"/>
+        <source>Router user name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="272"/>
+        <source>Router password of the user.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/main.cc" line="683"/>
         <source>Set Master Password</source>
         <translation>Ορισμός κύριου κωδικού πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="259"/>
+        <location filename="../client/main.cc" line="685"/>
         <source>Set a master password required to unlock the application.</source>
         <translation>Ορίστε έναν κύριο κωδικό πρόσβασης που απαιτείται για το ξεκλείδωμα της εφαρμογής.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/main.cc" line="267"/>
+        <location filename="../client/main.cc" line="693"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης δεν πρέπει να είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -643,12 +761,12 @@ Routers added: %4</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="275"/>
+        <location filename="../client/main.cc" line="701"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>Ο κωδικός πρόσβασης που εισαγάγατε δεν πληροί τις απαιτήσεις ασφαλείας!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/main.cc" line="277"/>
+        <location filename="../client/main.cc" line="703"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης πρέπει να περιέχει πεζούς και κεφαλαίους χαρακτήρες, αριθμούς και να μην είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -656,52 +774,52 @@ Routers added: %4</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="281"/>
+        <location filename="../client/main.cc" line="707"/>
         <source>Do you want to enter a different password?</source>
         <translation>Θέλετε να εισαγάγετε διαφορετικό κωδικό πρόσβασης;</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="291"/>
+        <location filename="../client/main.cc" line="717"/>
         <source>Unable to set master password.</source>
         <translation>Δεν είναι δυνατός ο ορισμός του κύριου κωδικού πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="63"/>
+        <location filename="../client/desktop/app_lock.cc" line="71"/>
         <source>Unlock</source>
         <translation>Ξεκλείδωμα</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="72"/>
+        <location filename="../client/main.cc" line="116"/>
         <source>Unable to create a backup in the directory &quot;%1&quot;.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αντιγράφου ασφαλείας στον κατάλογο &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="84"/>
+        <location filename="../client/main.cc" line="128"/>
         <source>Unable to create a backup.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αντιγράφου ασφαλείας.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="206"/>
+        <location filename="../client/main.cc" line="202"/>
         <source>An aspia:// link to connect to a host.</source>
         <translation>Σύνδεσμος aspia:// για σύνδεση με κεντρικό υπολογιστή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="65"/>
+        <location filename="../client/desktop/app_lock.cc" line="73"/>
         <source>Enter the master password to unlock the application.</source>
         <translation>Εισαγάγετε τον κύριο κωδικό πρόσβασης για να ξεκλειδώσετε την εφαρμογή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="99"/>
+        <location filename="../client/desktop/app_lock.cc" line="119"/>
         <source>Unable to unlock the database.</source>
         <translation>Δεν είναι δυνατό το ξεκλείδωμα της βάσης δεδομένων.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/app_lock.cc" line="104"/>
+        <location filename="../client/desktop/app_lock.cc" line="124"/>
         <source>Invalid master password.</source>
         <translation>Μη έγκυρος κύριος κωδικός πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../client/main.cc" line="202"/>
+        <location filename="../client/main.cc" line="198"/>
         <source>Aspia Client</source>
         <translation>Aspia Client</translation>
     </message>
@@ -742,67 +860,77 @@ Routers added: %4</source>
 <context>
     <name>ClientWindow</name>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="268"/>
+        <location filename="../client/desktop/client_window.cc" line="244"/>
         <source>Session started.</source>
         <translation>Η περίοδος λειτουργίας ξεκίνησε.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="515"/>
+        <location filename="../client/desktop/client_window.cc" line="574"/>
         <source>The specified router is unavailable.</source>
         <translation>Ο καθορισμένος δρομολογητής δεν είναι διαθέσιμος.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="517"/>
+        <location filename="../client/desktop/client_window.cc" line="576"/>
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Τα δεδομένα του δρομολογητή είναι κατεστραμμένα. Επεξεργαστείτε τον δρομολογητή και εισαγάγετέ τα ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="519"/>
+        <location filename="../client/desktop/client_window.cc" line="592"/>
         <source>The specified router is offline.</source>
         <translation>Ο καθορισμένος δρομολογητής είναι εκτός σύνδεσης.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="280"/>
+        <location filename="../client/desktop/client_window.cc" line="256"/>
         <source>Connecting to host %1...</source>
         <translation>Σύνδεση με τον κεντρικό υπολογιστή %1...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="284"/>
+        <location filename="../client/desktop/client_window.cc" line="260"/>
         <source>Connecting to host %1:%2...</source>
         <translation>Σύνδεση με τον κεντρικό υπολογιστή %1:%2...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="314"/>
+        <location filename="../client/desktop/client_window.cc" line="299"/>
         <source>Host is unavailable yet. Waiting to reconnect...</source>
         <translation>Ο κεντρικός υπολογιστής δεν είναι ακόμα διαθέσιμος. Αναμονή για επανασύνδεση...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="75"/>
+        <location filename="../client/desktop/client_window.cc" line="102"/>
         <source>Timeout waiting for reconnection to host.</source>
         <translation>Έληξε το χρονικό όριο αναμονής για επανασύνδεση με τον κεντρικό υπολογιστή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="334"/>
+        <location filename="../client/desktop/client_window.cc" line="319"/>
         <source>The Host version is newer than the Client version (%1 &gt; %2). Please update the application.</source>
         <translation>Η έκδοση του Host είναι νεότερη από την έκδοση του Client (%1 &gt; %2). Ενημερώστε την εφαρμογή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="340"/>
+        <location filename="../client/desktop/client_window.cc" line="325"/>
         <source>Attempting to connect in compatibility mode...</source>
         <translation>Προσπάθεια σύνδεσης σε λειτουργία συμβατότητας...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="526"/>
+        <location filename="../client/desktop/client_window.cc" line="584"/>
+        <source>Unable to connect to the router.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/client_window.cc" line="588"/>
+        <source>Connecting to the router...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/client_window.cc" line="599"/>
         <source>Requesting connection to the host...</source>
         <translation>Αίτηση σύνδεσης με τον κεντρικό υπολογιστή...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="534"/>
+        <location filename="../client/desktop/client_window.cc" line="607"/>
         <source>Connection offer received.</source>
         <translation>Ελήφθη προσφορά σύνδεσης.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/client_window.cc" line="551"/>
+        <location filename="../client/desktop/client_window.cc" line="624"/>
         <source>Error requesting connection via router.</source>
         <translation>Σφάλμα κατά την αίτηση σύνδεσης μέσω δρομολογητή.</translation>
     </message>
@@ -855,23 +983,23 @@ Routers added: %4</source>
         <translation>Δημόσιο κλειδί:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="634"/>
+        <location filename="../host/ui/config_dialog.cc" line="702"/>
         <source>Enter the address of the update server.</source>
         <translation>Εισαγάγετε τη διεύθυνση του διακομιστή ενημερώσεων.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="641"/>
+        <location filename="../host/ui/config_dialog.cc" line="709"/>
         <source>The update server address must start with http:// or https://.</source>
         <translation>Η διεύθυνση του διακομιστή ενημερώσεων πρέπει να ξεκινά με http:// ή https://.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="652"/>
+        <location filename="../host/ui/config_dialog.cc" line="720"/>
         <source>The public key of the update server must consist of 64 hexadecimal characters.</source>
         <translation>Το δημόσιο κλειδί του διακομιστή ενημερώσεων πρέπει να αποτελείται από 64 δεκαεξαδικούς χαρακτήρες.</translation>
     </message>
     <message>
         <location filename="../host/ui/config_dialog.ui" line="14"/>
-        <location filename="../host/ui/config_dialog.ui" line="161"/>
+        <location filename="../host/ui/config_dialog.ui" line="210"/>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
@@ -896,63 +1024,63 @@ Routers added: %4</source>
         <translation>Κανάλι ενημερώσεων:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="448"/>
-        <location filename="../host/ui/config_dialog.ui" line="559"/>
+        <location filename="../host/ui/config_dialog.ui" line="504"/>
+        <location filename="../host/ui/config_dialog.ui" line="615"/>
         <source>Users</source>
         <translation>Χρήστες</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="462"/>
+        <location filename="../host/ui/config_dialog.ui" line="518"/>
         <source>Add new user</source>
         <translation>Προσθήκη νέου χρήστη</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="488"/>
+        <location filename="../host/ui/config_dialog.ui" line="544"/>
         <source>Edit user</source>
         <translation>Επεξεργασία χρήστη</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="514"/>
+        <location filename="../host/ui/config_dialog.ui" line="570"/>
         <source>Delete user</source>
         <translation>Διαγραφή χρήστη</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="149"/>
+        <location filename="../host/ui/config_dialog.ui" line="198"/>
         <source>Check for updates</source>
         <translation>Έλεγχος για ενημερώσεις</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="582"/>
+        <location filename="../host/ui/config_dialog.ui" line="638"/>
         <source>Add</source>
         <translation>Προσθήκη</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="591"/>
+        <location filename="../host/ui/config_dialog.ui" line="647"/>
         <source>Modify</source>
         <translation>Τροποποίηση</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="600"/>
+        <location filename="../host/ui/config_dialog.ui" line="656"/>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="380"/>
+        <location filename="../host/ui/config_dialog.ui" line="436"/>
         <source>Router</source>
         <translation>Δρομολογητής</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="386"/>
+        <location filename="../host/ui/config_dialog.ui" line="442"/>
         <source>Enable the use of a router</source>
         <translation>Ενεργοποίηση χρήσης δρομολογητή</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="398"/>
+        <location filename="../host/ui/config_dialog.ui" line="454"/>
         <source>Address:</source>
         <translation>Διεύθυνση:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="417"/>
+        <location filename="../host/ui/config_dialog.ui" line="473"/>
         <source>Public Key:</source>
         <translation>Δημόσιο κλειδί:</translation>
     </message>
@@ -962,67 +1090,67 @@ Routers added: %4</source>
         <translation>Προτιμώμενο πρόγραμμα καταγραφής βίντεο:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="236"/>
+        <location filename="../host/ui/config_dialog.ui" line="292"/>
         <source>Change password</source>
         <translation>Αλλαγή κωδικού πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="211"/>
+        <location filename="../host/ui/config_dialog.ui" line="267"/>
         <source>Security</source>
         <translation>Ασφάλεια</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="217"/>
+        <location filename="../host/ui/config_dialog.ui" line="273"/>
         <source>Password Protection of Settings</source>
         <translation>Προστασία ρυθμίσεων με κωδικό πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="253"/>
+        <location filename="../host/ui/config_dialog.ui" line="309"/>
         <source>One-time Password</source>
         <translation>Κωδικός μίας χρήσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="259"/>
+        <location filename="../host/ui/config_dialog.ui" line="315"/>
         <source>Enable one-time password</source>
         <translation>Ενεργοποίηση κωδικού μίας χρήσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="288"/>
+        <location filename="../host/ui/config_dialog.ui" line="344"/>
         <source>Characters count:</source>
         <translation>Πλήθος χαρακτήρων:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="278"/>
+        <location filename="../host/ui/config_dialog.ui" line="334"/>
         <source>Characters:</source>
         <translation>Χαρακτήρες:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="310"/>
+        <location filename="../host/ui/config_dialog.ui" line="366"/>
         <source>Connection Confirmation</source>
         <translation>Επιβεβαίωση σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="316"/>
+        <location filename="../host/ui/config_dialog.ui" line="372"/>
         <source>Require confirmation when connected to a computer</source>
         <translation>Απαίτηση επιβεβαίωσης κατά τη σύνδεση σε υπολογιστή</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="325"/>
+        <location filename="../host/ui/config_dialog.ui" line="381"/>
         <source>Automatic confirmation of connection via:</source>
         <translation>Αυτόματη επιβεβαίωση σύνδεσης μέσω:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="268"/>
+        <location filename="../host/ui/config_dialog.ui" line="324"/>
         <source>Change password:</source>
         <translation>Αλλαγή κωδικού πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="335"/>
+        <location filename="../host/ui/config_dialog.ui" line="391"/>
         <source>If there is no active user:</source>
         <translation>Εάν δεν υπάρχει ενεργός χρήστης:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="431"/>
+        <location filename="../host/ui/config_dialog.ui" line="487"/>
         <source>A router is required to connect to a computer if there is no direct connection (bypass NAT). Aspia does not provide a public router, but you can install your own. You can download the router on the &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;official website&lt;/a&gt;.</source>
         <translation>Απαιτείται δρομολογητής για τη σύνδεση με έναν υπολογιστή όταν δεν υπάρχει απευθείας σύνδεση (παράκαμψη NAT). Η Aspia δεν παρέχει δημόσιο δρομολογητή, αλλά μπορείτε να εγκαταστήσετε τον δικό σας. Μπορείτε να κάνετε λήψη του δρομολογητή από τον &lt;a href=&quot;https://github.com/Parav1s/aspia_no2fa_cmd&quot;&gt;επίσημο ιστότοπο&lt;/a&gt;.</translation>
     </message>
@@ -1037,22 +1165,22 @@ Routers added: %4</source>
         <translation>Θύρα εισερχομένων:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="356"/>
+        <location filename="../host/ui/config_dialog.ui" line="412"/>
         <source>Disable Aspia shutdown</source>
         <translation>Απενεργοποίηση τερματισμού του Aspia</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="350"/>
+        <location filename="../host/ui/config_dialog.ui" line="406"/>
         <source>Other</source>
         <translation>Άλλο</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="180"/>
+        <location filename="../host/ui/config_dialog.ui" line="229"/>
         <source>Import settings</source>
         <translation>Εισαγωγή ρυθμίσεων</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.ui" line="187"/>
+        <location filename="../host/ui/config_dialog.ui" line="236"/>
         <source>Export settings</source>
         <translation>Εξαγωγή ρυθμίσεων</translation>
     </message>
@@ -1067,174 +1195,175 @@ Routers added: %4</source>
         <translation>Έλεγχος για ενημερώσεις:</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="116"/>
+        <location filename="../host/ui/config_dialog.cc" line="140"/>
         <source>Once a day</source>
         <translation>Μία φορά την ημέρα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="117"/>
+        <location filename="../host/ui/config_dialog.cc" line="141"/>
         <source>Once a week</source>
         <translation>Μία φορά την εβδομάδα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="118"/>
+        <location filename="../host/ui/config_dialog.cc" line="142"/>
         <source>Once a month</source>
         <translation>Μία φορά τον μήνα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="120"/>
+        <location filename="../host/ui/config_dialog.cc" line="144"/>
         <source>Stable</source>
         <translation>Σταθερό</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="121"/>
+        <location filename="../host/ui/config_dialog.cc" line="145"/>
         <source>Beta</source>
         <translation>Βήτα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="122"/>
+        <location filename="../host/ui/config_dialog.cc" line="146"/>
         <source>Alpha</source>
         <translation>Άλφα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="147"/>
+        <location filename="../host/ui/config_dialog.cc" line="187"/>
         <source>Default</source>
         <translation>Προεπιλογή</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="194"/>
+        <location filename="../host/ui/config_dialog.cc" line="234"/>
         <source>On reboot</source>
         <translation>Κατά την επανεκκίνηση</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="195"/>
+        <location filename="../host/ui/config_dialog.cc" line="235"/>
         <source>Every 5 minutes</source>
         <translation>Κάθε 5 λεπτά</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="196"/>
+        <location filename="../host/ui/config_dialog.cc" line="236"/>
         <source>Every 30 minutes</source>
         <translation>Κάθε 30 λεπτά</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="197"/>
+        <location filename="../host/ui/config_dialog.cc" line="237"/>
         <source>Every 1 hour</source>
         <translation>Κάθε 1 ώρα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="198"/>
+        <location filename="../host/ui/config_dialog.cc" line="238"/>
         <source>Every 6 hours</source>
         <translation>Κάθε 6 ώρες</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="199"/>
+        <location filename="../host/ui/config_dialog.cc" line="239"/>
         <source>Every 12 hours</source>
         <translation>Κάθε 12 ώρες</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="207"/>
+        <location filename="../host/ui/config_dialog.cc" line="247"/>
         <source>Letters and digits</source>
         <translation>Γράμματα και ψηφία</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="210"/>
+        <location filename="../host/ui/config_dialog.cc" line="250"/>
         <source>Letters</source>
         <translation>Γράμματα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="212"/>
+        <location filename="../host/ui/config_dialog.cc" line="252"/>
         <source>Digits</source>
         <translation>Ψηφία</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="229"/>
+        <location filename="../host/ui/config_dialog.cc" line="269"/>
         <source>Never</source>
         <translation>Ποτέ</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="230"/>
+        <location filename="../host/ui/config_dialog.cc" line="270"/>
         <source>15 seconds</source>
         <translation>15 δευτερόλεπτα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="231"/>
+        <location filename="../host/ui/config_dialog.cc" line="271"/>
         <source>30 seconds</source>
         <translation>30 δευτερόλεπτα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="232"/>
+        <location filename="../host/ui/config_dialog.cc" line="272"/>
         <source>45 seconds</source>
         <translation>45 δευτερόλεπτα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="233"/>
+        <location filename="../host/ui/config_dialog.cc" line="273"/>
         <source>60 seconds</source>
         <translation>60 δευτερόλεπτα</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="241"/>
+        <location filename="../host/ui/config_dialog.cc" line="281"/>
         <source>Accept connection</source>
         <translation>Αποδοχή σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="242"/>
+        <location filename="../host/ui/config_dialog.cc" line="282"/>
         <source>Reject connection</source>
         <translation>Απόρριψη σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="441"/>
+        <location filename="../host/ui/config_dialog.cc" line="481"/>
         <source>Are you sure you want to delete user &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τον χρήστη &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="468"/>
-        <location filename="../host/ui/config_dialog.cc" line="501"/>
+        <location filename="../host/ui/config_dialog.cc" line="509"/>
+        <location filename="../host/ui/config_dialog.cc" line="543"/>
         <source>An error occurred while processing the password.</source>
         <translation>Παρουσιάστηκε σφάλμα κατά την επεξεργασία του κωδικού πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="485"/>
+        <location filename="../host/ui/config_dialog.cc" line="526"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ο χώρος αποθήκευσης ρυθμίσεων δεν είναι διαθέσιμος.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="515"/>
+        <location filename="../host/ui/config_dialog.cc" line="557"/>
         <source>Import</source>
         <translation>Εισαγωγή</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="515"/>
-        <location filename="../host/ui/config_dialog.cc" line="532"/>
+        <location filename="../host/ui/config_dialog.cc" line="557"/>
+        <location filename="../host/ui/config_dialog.cc" line="574"/>
         <source>JSON-files (*.json)</source>
         <translation>Αρχεία JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="532"/>
+        <location filename="../host/ui/config_dialog.cc" line="574"/>
+        <location filename="../host/ui/config_dialog.cc" line="600"/>
         <source>Export</source>
         <translation>Εξαγωγή</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="557"/>
+        <location filename="../host/ui/config_dialog.cc" line="644"/>
         <source>The configuration can not be written. Make sure that you have sufficient rights to write.</source>
         <translation>Δεν είναι δυνατή η εγγραφή των ρυθμίσεων. Βεβαιωθείτε ότι έχετε επαρκή δικαιώματα εγγραφής.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="570"/>
+        <location filename="../host/ui/config_dialog.cc" line="657"/>
         <source>Incorrect router address entered.</source>
         <translation>Εισαγάγατε εσφαλμένη διεύθυνση δρομολογητή.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="580"/>
+        <location filename="../host/ui/config_dialog.cc" line="667"/>
         <source>Incorrect router public key entered.</source>
         <translation>Εισαγάγατε εσφαλμένο δημόσιο κλειδί δρομολογητή.</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="738"/>
+        <location filename="../host/ui/config_dialog.cc" line="880"/>
         <source>Install</source>
         <translation>Εγκατάσταση</translation>
     </message>
     <message>
-        <location filename="../host/ui/config_dialog.cc" line="743"/>
+        <location filename="../host/ui/config_dialog.cc" line="885"/>
         <source>Remove</source>
         <translation>Κατάργηση</translation>
     </message>
@@ -1595,7 +1724,7 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../common/desktop/credentials_dialog.ui" line="89"/>
-        <location filename="../common/desktop/credentials_dialog.cc" line="51"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="52"/>
         <source>Password:</source>
         <translation>Κωδικός πρόσβασης:</translation>
     </message>
@@ -1605,23 +1734,23 @@ Credentials replaced: %2</source>
         <translation>Επιβεβαίωση κωδικού πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="57"/>
-        <location filename="../common/desktop/credentials_dialog.cc" line="61"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="58"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="62"/>
         <source>New password:</source>
         <translation>Νέος κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="195"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="210"/>
         <source>Enter the current password.</source>
         <translation>Εισαγάγετε τον τρέχοντα κωδικό πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="202"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="217"/>
         <source>Password cannot be empty.</source>
         <translation>Ο κωδικός πρόσβασης δεν μπορεί να είναι κενός.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/credentials_dialog.cc" line="209"/>
+        <location filename="../common/desktop/credentials_dialog.cc" line="224"/>
         <source>Passwords do not match.</source>
         <translation>Οι κωδικοί πρόσβασης δεν ταιριάζουν.</translation>
     </message>
@@ -1654,17 +1783,17 @@ Credentials replaced: %2</source>
         <translation>Διαγραφή διαπιστευτηρίων</translation>
     </message>
     <message>
-        <location filename="../client/desktop/credentials_tab.cc" line="175"/>
+        <location filename="../client/desktop/credentials_tab.cc" line="178"/>
         <source>Are you sure you want to delete credentials &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τα διαπιστευτήρια &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/credentials_tab.cc" line="183"/>
+        <location filename="../client/desktop/credentials_tab.cc" line="186"/>
         <source>Unable to delete credentials.</source>
         <translation>Δεν είναι δυνατή η διαγραφή των διαπιστευτηρίων.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/credentials_tab.cc" line="228"/>
+        <location filename="../client/desktop/credentials_tab.cc" line="231"/>
         <source>Failed to read data. The list may be out of date.</source>
         <translation>Δεν ήταν δυνατή η ανάγνωση των δεδομένων. Η λίστα ενδέχεται να μην είναι ενημερωμένη.</translation>
     </message>
@@ -1739,7 +1868,7 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../client/desktop/desktop/desktop_toolbar.ui" line="233"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="971"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="983"/>
         <source>Scale</source>
         <translation>Κλίμακα</translation>
     </message>
@@ -1829,7 +1958,7 @@ Credentials replaced: %2</source>
     <message>
         <location filename="../client/desktop/desktop/desktop_toolbar.ui" line="435"/>
         <location filename="../client/desktop/desktop/desktop_toolbar.ui" line="438"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="573"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="585"/>
         <source>Start recording</source>
         <translation>Έναρξη εγγραφής</translation>
     </message>
@@ -1851,69 +1980,69 @@ Credentials replaced: %2</source>
         <translation>Εναλλαγή περιόδου λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="368"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="372"/>
         <source>Resolution selection</source>
         <translation>Επιλογή ανάλυσης</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1146"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1158"/>
         <source>Session %1</source>
         <translation>Περίοδος λειτουργίας %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1146"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="1158"/>
         <source>Session %1 (%2)</source>
         <translation>Περίοδος λειτουργίας %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="568"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="580"/>
         <source>Stop recording</source>
         <translation>Διακοπή εγγραφής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="481"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="485"/>
         <source>Scripts</source>
         <translation>Δέσμες ενεργειών</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="540"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="548"/>
         <source>Are you sure you want to run &quot;%1&quot; on the remote computer?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να εκτελέσετε τη δέσμη ενεργειών &quot;%1&quot; στον απομακρυσμένο υπολογιστή;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="800"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="812"/>
         <source>Are you sure you want to shutdown the remote computer?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να τερματίσετε τη λειτουργία του απομακρυσμένου υπολογιστή;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="815"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="841"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="827"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="853"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="816"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="828"/>
         <source>Are you sure you want to reboot the remote computer?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να επανεκκινήσετε τον απομακρυσμένο υπολογιστή;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="821"/>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="847"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="833"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="859"/>
         <source>Wait for host</source>
         <translation>Αναμονή για τον κεντρικό υπολογιστή</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="842"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="854"/>
         <source>Are you sure you want to reboot the remote computer in Safe Mode?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να επανεκκινήσετε τον απομακρυσμένο υπολογιστή σε ασφαλή λειτουργία;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="867"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="879"/>
         <source>Are you sure you want to end the user session on the remote computer?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να τερματίσετε την περίοδο λειτουργίας χρήστη στον απομακρυσμένο υπολογιστή;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="882"/>
+        <location filename="../client/desktop/desktop/desktop_toolbar.cc" line="894"/>
         <source>Are you sure you want to lock the user session on the remote computer?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να κλειδώσετε την περίοδο λειτουργίας χρήστη στον απομακρυσμένο υπολογιστή;</translation>
     </message>
@@ -1944,17 +2073,17 @@ Credentials replaced: %2</source>
 <context>
     <name>DesktopWindow</name>
     <message>
-        <location filename="../client/desktop/desktop/desktop_window.cc" line="973"/>
+        <location filename="../client/desktop/desktop/desktop_window.cc" line="977"/>
         <source>Save File</source>
         <translation>Αποθήκευση αρχείου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_window.cc" line="974"/>
+        <location filename="../client/desktop/desktop/desktop_window.cc" line="978"/>
         <source>PNG Image (*.png);;BMP Image (*.bmp)</source>
         <translation>Εικόνα PNG (*.png);;Εικόνα BMP (*.bmp)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/desktop_window.cc" line="1005"/>
+        <location filename="../client/desktop/desktop/desktop_window.cc" line="1009"/>
         <source>Could not save image</source>
         <translation>Δεν ήταν δυνατή η αποθήκευση της εικόνας</translation>
     </message>
@@ -2092,7 +2221,7 @@ Credentials replaced: %2</source>
     <message>
         <location filename="../client/file_error_code.cc" line="61"/>
         <source>Access denied</source>
-        <translation>Δεν επιτρέπεται η πρόσβαση</translation>
+        <translation>άρνηση πρόσβασης</translation>
     </message>
     <message>
         <location filename="../client/file_error_code.cc" line="65"/>
@@ -2219,59 +2348,59 @@ Credentials replaced: %2</source>
         <translation>Αποστολή επιλεγμένων αντικειμένων (F11)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="117"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="118"/>
         <source>Failed to get list of drives: %1</source>
         <translation>Δεν ήταν δυνατή η λήψη της λίστας μονάδων δίσκου: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="134"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="135"/>
         <source>Failed to get list of files: %1</source>
         <translation>Δεν ήταν δυνατή η λήψη της λίστας αρχείων: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="159"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="160"/>
         <source>Failed to create directory: %1</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του καταλόγου: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="171"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="172"/>
         <source>Failed to rename item: %1</source>
         <translation>Δεν ήταν δυνατή η μετονομασία του στοιχείου: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="316"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="317"/>
         <source>%1 object(s) selected</source>
         <translation>Επιλέχθηκαν %1 αντικείμενα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="376"/>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="395"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="378"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="397"/>
         <source>Folder name can not be empty.</source>
         <translation>Το όνομα του φακέλου δεν μπορεί να είναι κενό.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="382"/>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="401"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="384"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="403"/>
         <source>Name contains invalid characters.</source>
         <translation>Το όνομα περιέχει μη έγκυρους χαρακτήρες.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="344"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="345"/>
         <source>&amp;Send	F11</source>
         <translation>&amp;Αποστολή	F11</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="345"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="346"/>
         <source>&amp;Delete	Delete</source>
         <translation>&amp;Διαγραφή	Delete</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="355"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="356"/>
         <source>&amp;Create Folder</source>
         <translation>&amp;Δημιουργία φακέλου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/file_transfer/file_panel.cc" line="456"/>
+        <location filename="../client/desktop/file_transfer/file_panel.cc" line="458"/>
         <source>Are you sure you want to delete the selected items?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα στοιχεία;</translation>
     </message>
@@ -2607,17 +2736,17 @@ Credentials replaced: %2</source>
 <context>
     <name>GuiApplication</name>
     <message>
-        <location filename="../base/gui_application.cc" line="541"/>
+        <location filename="../base/gui_application.cc" line="534"/>
         <source>Dark</source>
         <translation>Σκούρο</translation>
     </message>
     <message>
-        <location filename="../base/gui_application.cc" line="543"/>
+        <location filename="../base/gui_application.cc" line="536"/>
         <source>Light</source>
         <translation>Ανοιχτό</translation>
     </message>
     <message>
-        <location filename="../base/gui_application.cc" line="544"/>
+        <location filename="../base/gui_application.cc" line="537"/>
         <source>Auto</source>
         <translation>Αυτόματο</translation>
     </message>
@@ -2625,8 +2754,8 @@ Credentials replaced: %2</source>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="611"/>
-        <location filename="../host/main.cc" line="646"/>
+        <location filename="../host/main.cc" line="689"/>
+        <location filename="../host/main.cc" line="724"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ο χώρος αποθήκευσης ρυθμίσεων δεν είναι διαθέσιμος.</translation>
     </message>
@@ -2707,32 +2836,32 @@ Credentials replaced: %2</source>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="548"/>
+        <location filename="../host/main.cc" line="621"/>
         <source>Launch the application hidden.</source>
         <translation>Εκκίνηση της εφαρμογής σε κρυφή λειτουργία.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="550"/>
+        <location filename="../host/main.cc" line="623"/>
         <source>Export parameters to file.</source>
         <translation>Εξαγωγή παραμέτρων σε αρχείο.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="552"/>
+        <location filename="../host/main.cc" line="625"/>
         <source>Import parameters from file.</source>
         <translation>Εισαγωγή παραμέτρων από αρχείο.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="554"/>
+        <location filename="../host/main.cc" line="627"/>
         <source>Do not display any messages during import and export.</source>
         <translation>Να μην εμφανίζονται μηνύματα κατά την εισαγωγή και την εξαγωγή.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="556"/>
+        <location filename="../host/main.cc" line="629"/>
         <source>Calling the settings dialog.</source>
         <translation>Κλήση του παραθύρου διαλόγου ρυθμίσεων.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="558"/>
+        <location filename="../host/main.cc" line="631"/>
         <source>Calling the security log dialog.</source>
         <translation>Κλήση του παραθύρου διαλόγου αρχείου καταγραφής ασφαλείας.</translation>
     </message>
@@ -2769,9 +2898,9 @@ Credentials replaced: %2</source>
     <name>HostWindow</name>
     <message>
         <location filename="../host/ui/host_window.ui" line="26"/>
-        <location filename="../host/ui/host_window.cc" line="552"/>
-        <location filename="../host/ui/host_window.cc" line="790"/>
-        <location filename="../host/ui/host_window.cc" line="1062"/>
+        <location filename="../host/ui/host_window.cc" line="575"/>
+        <location filename="../host/ui/host_window.cc" line="832"/>
+        <location filename="../host/ui/host_window.cc" line="1123"/>
         <source>Aspia Host</source>
         <translation>Aspia Host</translation>
     </message>
@@ -2787,7 +2916,7 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="198"/>
-        <location filename="../host/ui/host_window.cc" line="976"/>
+        <location filename="../host/ui/host_window.cc" line="1037"/>
         <source>Router is disabled</source>
         <translation>Ο δρομολογητής είναι απενεργοποιημένος</translation>
     </message>
@@ -2853,7 +2982,7 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="329"/>
-        <location filename="../host/ui/host_window.cc" line="753"/>
+        <location filename="../host/ui/host_window.cc" line="795"/>
         <source>Hide</source>
         <translation>Απόκρυψη</translation>
     </message>
@@ -2893,60 +3022,123 @@ Credentials replaced: %2</source>
         <translation>Εμφάνιση συνομιλίας</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="287"/>
-        <location filename="../host/ui/host_window.cc" line="748"/>
+        <location filename="../host/ui/host_window.cc" line="295"/>
+        <location filename="../host/ui/host_window.cc" line="790"/>
         <source>Show</source>
         <translation>Εμφάνιση</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="547"/>
+        <location filename="../host/ui/host_window.cc" line="570"/>
         <source>Screen recording has started.</source>
         <translation>Η εγγραφή οθόνης ξεκίνησε.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="549"/>
+        <location filename="../host/ui/host_window.cc" line="572"/>
         <source>Screen recording stopped.</source>
         <translation>Η εγγραφή οθόνης σταμάτησε.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="737"/>
+        <location filename="../host/ui/host_window.cc" line="779"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ο χώρος αποθήκευσης ρυθμίσεων δεν είναι διαθέσιμος.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="807"/>
+        <location filename="../host/ui/host_window.cc" line="850"/>
         <source>If you exit from Aspia, it will not be possible to connect to this computer until you turn on the computer or Aspia again manually. Do you really want to exit the application?</source>
         <translation>Εάν εξέλθετε από το Aspia, δεν θα είναι δυνατή η σύνδεση με αυτόν τον υπολογιστή μέχρι να ενεργοποιήσετε ξανά τον υπολογιστή ή το Aspia χειροκίνητα. Θέλετε πραγματικά να εξέλθετε από την εφαρμογή;</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="968"/>
+        <location filename="../host/ui/host_window.cc" line="1029"/>
         <source>Not connected to service</source>
         <translation>Δεν υπάρχει σύνδεση με την υπηρεσία</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="981"/>
+        <location filename="../host/ui/host_window.cc" line="1042"/>
         <source>Connecting to router...</source>
         <translation>Σύνδεση με τον δρομολογητή...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="986"/>
+        <location filename="../host/ui/host_window.cc" line="1047"/>
         <source>Connected to router</source>
         <translation>Συνδέθηκε με τον δρομολογητή</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="991"/>
+        <location filename="../host/ui/host_window.cc" line="1052"/>
         <source>Connection error</source>
         <translation>Σφάλμα σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1059"/>
+        <location filename="../host/ui/host_window.cc" line="1120"/>
         <source>IP addresses:</source>
         <translation>Διευθύνσεις IP:</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1063"/>
+        <location filename="../host/ui/host_window.cc" line="1124"/>
         <source>ID: %1</source>
         <translation>ID: %1</translation>
+    </message>
+</context>
+<context>
+    <name>InactiveHostsCleaner</name>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="67"/>
+        <source>%1 (not connected)</source>
+        <translation>%1 (δεν είναι συνδεδεμένος)</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="112"/>
+        <source>not connected</source>
+        <translation>δεν είναι συνδεδεμένος</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="140"/>
+        <source>access denied</source>
+        <translation>άρνηση πρόσβασης</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="141"/>
+        <source>error: %1</source>
+        <translation>σφάλμα: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="200"/>
+        <source>%1 (%2)</source>
+        <translation>%1 (%2)</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="269"/>
+        <source>Inactive hosts found: %1</source>
+        <translation>Βρέθηκαν ανενεργοί κεντρικοί υπολογιστές: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="270"/>
+        <source>Inactive period: %1 month(s)</source>
+        <translation>Περίοδος αδράνειας: %1 μήνας/μήνες</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="271"/>
+        <source>These hosts have not been connected to for longer than the inactive period. They will be deleted from the router and from the address book. This operation is irreversible.</source>
+        <translation>Αυτοί οι κεντρικοί υπολογιστές δεν έχουν συνδεθεί για περισσότερο από την περίοδο αδράνειας. Θα διαγραφούν από τον δρομολογητή και από το βιβλίο διευθύνσεων. Η ενέργεια δεν αναιρείται.</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="277"/>
+        <source>Skipped routers: %1</source>
+        <translation>Παραλείφθηκαν δρομολογητές: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="281"/>
+        <source>Continue?</source>
+        <translation>Συνέχεια;</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="298"/>
+        <source>Removed hosts: %1</source>
+        <translation>Καταργήθηκαν κεντρικοί υπολογιστές: %1</translation>
+    </message>
+    <message>
+        <location filename="../client/inactive_hosts_cleaner.cc" line="299"/>
+        <source>Failed: %1</source>
+        <translation>Αποτυχίες: %1</translation>
     </message>
 </context>
 <context>
@@ -3042,17 +3234,17 @@ Credentials replaced: %2</source>
 <context>
     <name>LocalGroupWidget</name>
     <message>
-        <location filename="../client/desktop/management/local_group_widget.cc" line="48"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="49"/>
         <source>Status update...</source>
         <translation>Ενημέρωση κατάστασης...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/local_group_widget.cc" line="160"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="161"/>
         <source>Failed to read data. The list may be out of date.</source>
         <translation>Δεν ήταν δυνατή η ανάγνωση των δεδομένων. Η λίστα ενδέχεται να μην είναι ενημερωμένη.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/local_group_widget.cc" line="417"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="418"/>
         <source>%n child group(s)</source>
         <translation>
             <numerusform>%n θυγατρική ομάδα</numerusform>
@@ -3060,7 +3252,7 @@ Credentials replaced: %2</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/local_group_widget.cc" line="418"/>
+        <location filename="../client/desktop/management/local_group_widget.cc" line="419"/>
         <source>%n child host(s)</source>
         <translation>
             <numerusform>%n θυγατρικός κεντρικός υπολογιστής</numerusform>
@@ -3315,17 +3507,16 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="119"/>
-        <location filename="../client/desktop/main_window.ui" line="201"/>
+        <location filename="../client/desktop/main_window.ui" line="198"/>
         <source>Tool Bar</source>
         <translation>Γραμμή εργαλείων</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="148"/>
         <source>F1</source>
-        <translation>F1</translation>
+        <translation type="vanished">F1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="209"/>
+        <location filename="../client/desktop/main_window.ui" line="206"/>
         <source>Status Bar</source>
         <translation>Γραμμή κατάστασης</translation>
     </message>
@@ -3335,7 +3526,7 @@ Credentials replaced: %2</source>
         <translation>Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="193"/>
+        <location filename="../client/desktop/main_window.ui" line="190"/>
         <source>Exit</source>
         <translation>Έξοδος</translation>
     </message>
@@ -3346,7 +3537,7 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../client/desktop/main_window.ui" line="20"/>
-        <location filename="../client/desktop/main_window.cc" line="404"/>
+        <location filename="../client/desktop/main_window.cc" line="407"/>
         <source>Aspia Client</source>
         <translation>Aspia Client</translation>
     </message>
@@ -3371,108 +3562,108 @@ Credentials replaced: %2</source>
         <translation>Ενέργειες</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="157"/>
+        <location filename="../client/desktop/main_window.ui" line="154"/>
         <source>About</source>
         <translation>Πληροφορίες</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="166"/>
+        <location filename="../client/desktop/main_window.ui" line="163"/>
         <source>Credentials...</source>
         <translation>Διαπιστευτήρια...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="175"/>
+        <location filename="../client/desktop/main_window.ui" line="172"/>
         <source>Settings...</source>
         <translation>Ρυθμίσεις...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="184"/>
+        <location filename="../client/desktop/main_window.ui" line="181"/>
         <source>Lock</source>
         <translation>Κλείδωμα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="217"/>
+        <location filename="../client/desktop/main_window.ui" line="214"/>
         <source>Search Field</source>
         <translation>Πεδίο αναζήτησης</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="225"/>
+        <location filename="../client/desktop/main_window.ui" line="222"/>
         <source>Large icons</source>
         <translation>Μεγάλα εικονίδια</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="233"/>
+        <location filename="../client/desktop/main_window.ui" line="230"/>
         <source>Open Sessions in Tabs</source>
         <translation>Άνοιγμα περιόδων λειτουργίας σε καρτέλες</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.ui" line="241"/>
+        <location filename="../client/desktop/main_window.ui" line="238"/>
         <source>Always on Top</source>
         <translation>Πάντα σε πρώτο πλάνο</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="99"/>
+        <location filename="../client/desktop/main_window.cc" line="100"/>
         <source>Search...</source>
         <translation>Αναζήτηση...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="179"/>
+        <location filename="../client/desktop/main_window.cc" line="182"/>
         <source>Management</source>
         <translation>Διαχείριση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="225"/>
+        <location filename="../client/desktop/main_window.cc" line="228"/>
         <source>Invalid link &quot;%1&quot;.</source>
         <translation>Μη έγκυρος σύνδεσμος &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="248"/>
+        <location filename="../client/desktop/main_window.cc" line="251"/>
         <source>The router referenced by the link is not among the saved routers.</source>
         <translation>Ο δρομολογητής στον οποίο αναφέρεται ο σύνδεσμος δεν βρίσκεται μεταξύ των αποθηκευμένων δρομολογητών.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="297"/>
+        <location filename="../client/desktop/main_window.cc" line="300"/>
         <source>The host referenced by the link is not among the saved hosts.</source>
         <translation>Ο κεντρικός υπολογιστής στον οποίο αναφέρεται ο σύνδεσμος δεν βρίσκεται μεταξύ των αποθηκευμένων κεντρικών υπολογιστών.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="380"/>
+        <location filename="../client/desktop/main_window.cc" line="383"/>
         <source>Close all sessions to lock the application.</source>
         <translation>Κλείστε όλες τις περιόδους λειτουργίας για να κλειδώσετε την εφαρμογή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="386"/>
+        <location filename="../client/desktop/main_window.cc" line="389"/>
         <source>Close all dialogs to lock the application.</source>
         <translation>Κλείστε όλα τα παράθυρα διαλόγου για να κλειδώσετε την εφαρμογή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="502"/>
+        <location filename="../client/desktop/main_window.cc" line="509"/>
         <source>Connection by ID is specified in the properties of the host, but the router is not configured. Check the parameters of the router in the properties of the host.</source>
         <translation>Στις ιδιότητες του κεντρικού υπολογιστή έχει καθοριστεί σύνδεση μέσω ID, αλλά ο δρομολογητής δεν έχει ρυθμιστεί. Ελέγξτε τις παραμέτρους του δρομολογητή στις ιδιότητες του κεντρικού υπολογιστή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="309"/>
+        <location filename="../client/desktop/main_window.cc" line="312"/>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Ο δρομολογητής που είναι συσχετισμένος με αυτόν τον κεντρικό υπολογιστή έχει διαγραφεί. Επεξεργαστείτε τον κεντρικό υπολογιστή για να επιλέξετε άλλον δρομολογητή ή μεταβείτε σε απευθείας σύνδεση.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="256"/>
-        <location filename="../client/desktop/main_window.cc" line="308"/>
+        <location filename="../client/desktop/main_window.cc" line="259"/>
+        <location filename="../client/desktop/main_window.cc" line="311"/>
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Τα δεδομένα του δρομολογητή είναι κατεστραμμένα. Επεξεργαστείτε τον δρομολογητή και εισαγάγετέ τα ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="296"/>
+        <location filename="../client/desktop/main_window.cc" line="299"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>Τα δεδομένα του κεντρικού υπολογιστή είναι κατεστραμμένα. Επεξεργαστείτε τον κεντρικό υπολογιστή και εισαγάγετέ τα ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="339"/>
+        <location filename="../client/desktop/main_window.cc" line="342"/>
         <source>Credentials</source>
         <translation>Διαπιστευτήρια</translation>
     </message>
     <message>
-        <location filename="../client/desktop/main_window.cc" line="370"/>
+        <location filename="../client/desktop/main_window.cc" line="373"/>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
@@ -3627,201 +3818,200 @@ Credentials replaced: %2</source>
         <translation>Τηλεμετρία</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="374"/>
         <source>Approve</source>
-        <translation>Έγκριση</translation>
+        <translation type="vanished">Έγκριση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="383"/>
+        <location filename="../client/desktop/management_tab.ui" line="374"/>
         <source>Save...</source>
         <translation>Αποθήκευση...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="386"/>
+        <location filename="../client/desktop/management_tab.ui" line="377"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="395"/>
+        <location filename="../client/desktop/management_tab.ui" line="386"/>
         <source>Reload</source>
         <translation>Επαναφόρτωση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="398"/>
+        <location filename="../client/desktop/management_tab.ui" line="389"/>
         <source>F5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="407"/>
+        <location filename="../client/desktop/management_tab.ui" line="398"/>
         <source>Import Old Address Book...</source>
         <translation>Εισαγωγή παλιού βιβλίου διευθύνσεων...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="416"/>
+        <location filename="../client/desktop/management_tab.ui" line="407"/>
         <source>Create Backup...</source>
         <translation>Δημιουργία αντιγράφου ασφαλείας...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="425"/>
+        <location filename="../client/desktop/management_tab.ui" line="416"/>
         <source>Restore from Backup...</source>
         <translation>Επαναφορά από αντίγραφο ασφαλείας...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.ui" line="433"/>
+        <location filename="../client/desktop/management_tab.ui" line="424"/>
         <source>Auto-refresh Status</source>
         <translation>Αυτόματη ανανέωση κατάστασης</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1034"/>
+        <location filename="../client/desktop/management_tab.cc" line="1007"/>
         <source>(copy)</source>
         <translation>(αντίγραφο)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1002"/>
-        <location filename="../client/desktop/management_tab.cc" line="1075"/>
-        <location filename="../client/desktop/management_tab.cc" line="2162"/>
+        <location filename="../client/desktop/management_tab.cc" line="975"/>
+        <location filename="../client/desktop/management_tab.cc" line="1049"/>
+        <location filename="../client/desktop/management_tab.cc" line="2008"/>
         <source>Failed to retrieve host information from the local database.</source>
         <translation>Δεν ήταν δυνατή η ανάκτηση των πληροφοριών του κεντρικού υπολογιστή από την τοπική βάση δεδομένων.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1039"/>
+        <location filename="../client/desktop/management_tab.cc" line="1012"/>
         <source>Failed to add the host to the local database.</source>
         <translation>Δεν ήταν δυνατή η προσθήκη του κεντρικού υπολογιστή στην τοπική βάση δεδομένων.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1079"/>
+        <location filename="../client/desktop/management_tab.cc" line="1053"/>
         <source>Are you sure you want to delete host &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τον κεντρικό υπολογιστή &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1089"/>
+        <location filename="../client/desktop/management_tab.cc" line="1063"/>
         <source>Unable to remove host</source>
         <translation>Δεν είναι δυνατή η κατάργηση του κεντρικού υπολογιστή</translation>
     </message>
     <message>
+        <location filename="../client/desktop/management_tab.cc" line="1121"/>
         <location filename="../client/desktop/management_tab.cc" line="1147"/>
-        <location filename="../client/desktop/management_tab.cc" line="1190"/>
-        <location filename="../client/desktop/management_tab.cc" line="1215"/>
+        <location filename="../client/desktop/management_tab.cc" line="1173"/>
         <source>Copy Row</source>
         <translation>Αντιγραφή γραμμής</translation>
     </message>
     <message>
+        <location filename="../client/desktop/management_tab.cc" line="1122"/>
         <location filename="../client/desktop/management_tab.cc" line="1148"/>
-        <location filename="../client/desktop/management_tab.cc" line="1191"/>
-        <location filename="../client/desktop/management_tab.cc" line="1216"/>
+        <location filename="../client/desktop/management_tab.cc" line="1174"/>
         <source>Copy Value</source>
         <translation>Αντιγραφή τιμής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1315"/>
+        <location filename="../client/desktop/management_tab.cc" line="1275"/>
         <source>Are you sure you want to delete workspace &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τον χώρο εργασίας &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1335"/>
+        <location filename="../client/desktop/management_tab.cc" line="1295"/>
         <source>Failed to delete the workspace.</source>
         <translation>Δεν ήταν δυνατή η διαγραφή του χώρου εργασίας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1430"/>
+        <location filename="../client/desktop/management_tab.cc" line="1397"/>
         <source>Are you sure you want to delete the group &quot;%1&quot;? Hosts assigned to this group or its subgroups will be moved to the workspace root.</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε την ομάδα &quot;%1&quot;; Οι κεντρικοί υπολογιστές που έχουν αντιστοιχιστεί σε αυτήν την ομάδα ή στις υποομάδες της θα μετακινηθούν στη ρίζα του χώρου εργασίας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1449"/>
+        <location filename="../client/desktop/management_tab.cc" line="1415"/>
         <source>Failed to delete the group.</source>
         <translation>Δεν ήταν δυνατή η διαγραφή της ομάδας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1488"/>
+        <location filename="../client/desktop/management_tab.cc" line="1454"/>
         <source>Import Old Address Book</source>
         <translation>Εισαγωγή παλιού βιβλίου διευθύνσεων</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1489"/>
+        <location filename="../client/desktop/management_tab.cc" line="1455"/>
         <source>Address Book (*.aab);;All files (*)</source>
         <translation>Βιβλίο διευθύνσεων (*.aab);;Όλα τα αρχεία (*)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1512"/>
-        <location filename="../client/desktop/management_tab.cc" line="1569"/>
+        <location filename="../client/desktop/management_tab.cc" line="1478"/>
+        <location filename="../client/desktop/management_tab.cc" line="1535"/>
         <source>The database is not available.</source>
         <translation>Η βάση δεδομένων δεν είναι διαθέσιμη.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1518"/>
+        <location filename="../client/desktop/management_tab.cc" line="1484"/>
         <source>Create Backup</source>
         <translation>Δημιουργία αντιγράφου ασφαλείας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1535"/>
+        <location filename="../client/desktop/management_tab.cc" line="1501"/>
         <source>There is nothing to save.</source>
         <translation>Δεν υπάρχει τίποτα για αποθήκευση.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2157"/>
+        <location filename="../client/desktop/management_tab.cc" line="2003"/>
         <source>The data of the host is damaged. Edit the host and enter it again.</source>
         <translation>Τα δεδομένα του κεντρικού υπολογιστή είναι κατεστραμμένα. Επεξεργαστείτε τον κεντρικό υπολογιστή και εισαγάγετέ τα ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2178"/>
+        <location filename="../client/desktop/management_tab.cc" line="2024"/>
         <source>The data of the router is damaged. Edit the router and enter it again.</source>
         <translation>Τα δεδομένα του δρομολογητή είναι κατεστραμμένα. Επεξεργαστείτε τον δρομολογητή και εισαγάγετέ τα ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1547"/>
+        <location filename="../client/desktop/management_tab.cc" line="1513"/>
         <source>Failed to create the backup.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αντιγράφου ασφαλείας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1575"/>
-        <location filename="../client/desktop/management_tab.cc" line="1601"/>
+        <location filename="../client/desktop/management_tab.cc" line="1541"/>
+        <location filename="../client/desktop/management_tab.cc" line="1567"/>
         <source>Restore from Backup</source>
         <translation>Επαναφορά από αντίγραφο ασφαλείας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1584"/>
+        <location filename="../client/desktop/management_tab.cc" line="1550"/>
         <source>Everything stored now is deleted and replaced with what the backup holds. Continue?</source>
         <translation>Ό,τι είναι αποθηκευμένο τώρα θα διαγραφεί και θα αντικατασταθεί με το περιεχόμενο του αντιγράφου ασφαλείας. Συνέχεια;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1603"/>
+        <location filename="../client/desktop/management_tab.cc" line="1569"/>
         <source>The backup was made on another installation. Enter the master password used there.</source>
         <translation>Το αντίγραφο ασφαλείας δημιουργήθηκε σε άλλη εγκατάσταση. Εισαγάγετε τον κύριο κωδικό πρόσβασης που χρησιμοποιείται εκεί.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1628"/>
+        <location filename="../client/desktop/management_tab.cc" line="1594"/>
         <source>The backup carries no data, so nothing was changed.</source>
         <translation>Το αντίγραφο ασφαλείας δεν περιέχει δεδομένα, επομένως δεν έγινε καμία αλλαγή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1636"/>
+        <location filename="../client/desktop/management_tab.cc" line="1602"/>
         <source>The file is not a valid backup.</source>
         <translation>Το αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1640"/>
+        <location filename="../client/desktop/management_tab.cc" line="1606"/>
         <source>Failed to restore from the backup.</source>
         <translation>Δεν ήταν δυνατή η επαναφορά από το αντίγραφο ασφαλείας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1519"/>
-        <location filename="../client/desktop/management_tab.cc" line="1576"/>
+        <location filename="../client/desktop/management_tab.cc" line="1485"/>
+        <location filename="../client/desktop/management_tab.cc" line="1542"/>
         <source>Aspia Backup (*.aspia-backup);;All files (*)</source>
         <translation>Αντίγραφο ασφαλείας Aspia (*.aspia-backup);;Όλα τα αρχεία (*)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1539"/>
+        <location filename="../client/desktop/management_tab.cc" line="1505"/>
         <source>Unable to write the file.</source>
         <translation>Δεν είναι δυνατή η εγγραφή του αρχείου.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1632"/>
+        <location filename="../client/desktop/management_tab.cc" line="1598"/>
         <source>Unable to read the file.</source>
         <translation>Δεν είναι δυνατή η ανάγνωση του αρχείου.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1552"/>
+        <location filename="../client/desktop/management_tab.cc" line="1518"/>
         <source>Export completed successfully.
 Routers exported: %1
 Groups exported: %2
@@ -3836,22 +4026,22 @@ Credentials exported: %5</source>
 Διαπιστευτήρια που εξήχθησαν: %5</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1543"/>
+        <location filename="../client/desktop/management_tab.cc" line="1509"/>
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Ορισμένες εγγραφές της βάσης δεδομένων είναι κατεστραμμένες. Διορθώστε τις ή διαγράψτε τις και δοκιμάστε ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1620"/>
+        <location filename="../client/desktop/management_tab.cc" line="1586"/>
         <source>Unable to decrypt the file with the specified password.</source>
         <translation>Δεν είναι δυνατή η αποκρυπτογράφηση του αρχείου με τον καθορισμένο κωδικό πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1624"/>
+        <location filename="../client/desktop/management_tab.cc" line="1590"/>
         <source>Unsupported file format version.</source>
         <translation>Μη υποστηριζόμενη έκδοση μορφής αρχείου.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="1645"/>
+        <location filename="../client/desktop/management_tab.cc" line="1611"/>
         <source>Import completed successfully.
 Routers imported: %1
 Groups imported: %2
@@ -3866,29 +4056,29 @@ Credentials imported: %5</source>
 Διαπιστευτήρια που εισήχθησαν: %5</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2085"/>
-        <location filename="../client/desktop/management_tab.cc" line="2116"/>
+        <location filename="../client/desktop/management_tab.cc" line="1931"/>
+        <location filename="../client/desktop/management_tab.cc" line="1962"/>
         <source>Copy Link</source>
         <translation>Αντιγραφή συνδέσμου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2104"/>
-        <location filename="../client/desktop/management_tab.cc" line="2138"/>
+        <location filename="../client/desktop/management_tab.cc" line="1950"/>
+        <location filename="../client/desktop/management_tab.cc" line="1984"/>
         <source>Unable to create a link for this host.</source>
         <translation>Δεν είναι δυνατή η δημιουργία συνδέσμου για αυτόν τον κεντρικό υπολογιστή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2179"/>
+        <location filename="../client/desktop/management_tab.cc" line="2025"/>
         <source>The router associated with this host has been deleted. Edit the host to select another router or switch to direct connection.</source>
         <translation>Ο δρομολογητής που είναι συσχετισμένος με αυτόν τον κεντρικό υπολογιστή έχει διαγραφεί. Επεξεργαστείτε τον κεντρικό υπολογιστή για να επιλέξετε άλλον δρομολογητή ή μεταβείτε σε απευθείας σύνδεση.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2186"/>
+        <location filename="../client/desktop/management_tab.cc" line="2032"/>
         <source>The host has an invalid host ID.</source>
         <translation>Ο κεντρικός υπολογιστής έχει μη έγκυρο ID.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management_tab.cc" line="2195"/>
+        <location filename="../client/desktop/management_tab.cc" line="2041"/>
         <source>The host has an incorrect address.</source>
         <translation>Ο κεντρικός υπολογιστής έχει εσφαλμένη διεύθυνση.</translation>
     </message>
@@ -3896,108 +4086,108 @@ Credentials imported: %5</source>
 <context>
     <name>MsgBox</name>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="51"/>
+        <location filename="../common/desktop/msg_box.cc" line="73"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="52"/>
+        <location filename="../common/desktop/msg_box.cc" line="74"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="53"/>
+        <location filename="../common/desktop/msg_box.cc" line="75"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="54"/>
+        <location filename="../common/desktop/msg_box.cc" line="76"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="55"/>
+        <location filename="../common/desktop/msg_box.cc" line="77"/>
         <source>Apply</source>
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="56"/>
+        <location filename="../common/desktop/msg_box.cc" line="78"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="57"/>
+        <location filename="../common/desktop/msg_box.cc" line="79"/>
         <source>Save</source>
         <translation>Αποθήκευση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="58"/>
+        <location filename="../common/desktop/msg_box.cc" line="80"/>
         <source>Discard</source>
         <translation>Απόρριψη</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="59"/>
+        <location filename="../common/desktop/msg_box.cc" line="81"/>
         <source>Reset</source>
         <translation>Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="60"/>
+        <location filename="../common/desktop/msg_box.cc" line="82"/>
         <source>Help</source>
         <translation>Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="61"/>
+        <location filename="../common/desktop/msg_box.cc" line="83"/>
         <source>Abort</source>
         <translation>Ματαίωση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="62"/>
+        <location filename="../common/desktop/msg_box.cc" line="84"/>
         <source>Retry</source>
         <translation>Επανάληψη</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="63"/>
+        <location filename="../common/desktop/msg_box.cc" line="85"/>
         <source>Ignore</source>
         <translation>Παράβλεψη</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="64"/>
+        <location filename="../common/desktop/msg_box.cc" line="86"/>
         <source>Restore Defaults</source>
         <translation>Επαναφορά προεπιλογών</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="65"/>
+        <location filename="../common/desktop/msg_box.cc" line="87"/>
         <source>Save All</source>
         <translation>Αποθήκευση όλων</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="66"/>
+        <location filename="../common/desktop/msg_box.cc" line="88"/>
         <source>Open</source>
         <translation>Άνοιγμα</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="67"/>
+        <location filename="../common/desktop/msg_box.cc" line="89"/>
         <source>Yes to All</source>
         <translation>Ναι σε όλα</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="68"/>
+        <location filename="../common/desktop/msg_box.cc" line="90"/>
         <source>No to All</source>
         <translation>Όχι σε όλα</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="85"/>
+        <location filename="../common/desktop/msg_box.cc" line="107"/>
         <source>Warning</source>
         <translation>Προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="93"/>
+        <location filename="../common/desktop/msg_box.cc" line="115"/>
         <source>Information</source>
         <translation>Πληροφορίες</translation>
     </message>
     <message>
-        <location filename="../common/desktop/msg_box.cc" line="101"/>
-        <location filename="../common/desktop/msg_box.cc" line="111"/>
+        <location filename="../common/desktop/msg_box.cc" line="123"/>
+        <location filename="../common/desktop/msg_box.cc" line="133"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
@@ -4005,7 +4195,7 @@ Credentials imported: %5</source>
 <context>
     <name>NetworkWorker</name>
     <message>
-        <location filename="../client/workers/network_worker.cc" line="371"/>
+        <location filename="../client/workers/network_worker.cc" line="382"/>
         <source>Failed to connect to the relay server</source>
         <translation>Δεν ήταν δυνατή η σύνδεση με τον διακομιστή αναμετάδοσης</translation>
     </message>
@@ -4176,12 +4366,12 @@ Credentials imported: %5</source>
 <context>
     <name>ProcessItem</name>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="89"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="90"/>
         <source>System Idle Process</source>
         <translation>Διεργασία αδράνειας συστήματος</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="91"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="92"/>
         <source>Unknown Process</source>
         <translation>Άγνωστη διεργασία</translation>
     </message>
@@ -4235,37 +4425,37 @@ Credentials imported: %5</source>
 <context>
     <name>RouterClientsWidget</name>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="230"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="231"/>
         <source>Save File</source>
         <translation>Αποθήκευση αρχείου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="230"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="231"/>
         <source>JSON files (*.json)</source>
         <translation>Αρχεία JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="241"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="242"/>
         <source>Could not open file for writing.</source>
         <translation>Δεν ήταν δυνατό το άνοιγμα του αρχείου για εγγραφή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="276"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="277"/>
         <source>Unable to write file.</source>
         <translation>Δεν είναι δυνατή η εγγραφή του αρχείου.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="313"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="316"/>
         <source>Are you sure you want to disconnect client &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε τον πελάτη &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="338"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="341"/>
         <source>Are you sure you want to disconnect all clients?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε όλους τους πελάτες;</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_clients_widget.cc" line="499"/>
+        <location filename="../client/desktop/management/router_clients_widget.cc" line="502"/>
         <source>%n client(s)</source>
         <translation>
             <numerusform>%n πελάτης</numerusform>
@@ -4309,39 +4499,38 @@ Credentials imported: %5</source>
 <context>
     <name>RouterController</name>
     <message>
-        <location filename="../client/router_controller.cc" line="216"/>
-        <location filename="../client/router_controller.cc" line="242"/>
-        <location filename="../client/router_controller.cc" line="442"/>
+        <location filename="../client/router_controller.cc" line="213"/>
+        <location filename="../client/router_controller.cc" line="239"/>
+        <location filename="../client/router_controller.cc" line="283"/>
+        <location filename="../client/router_controller.cc" line="420"/>
         <source>Connecting to router %1...</source>
         <translation>Σύνδεση με τον δρομολογητή %1...</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="265"/>
+        <location filename="../client/router_controller.cc" line="307"/>
         <source>Event history cleared.</source>
         <translation>Το ιστορικό συμβάντων απαλείφθηκε.</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="310"/>
         <source>Too many failed attempts. Router %1 accepts codes again in about %2 min.</source>
-        <translation>Πάρα πολλές αποτυχημένες προσπάθειες. Ο δρομολογητής %1 θα δέχεται ξανά κωδικούς σε περίπου %2 λεπ.</translation>
+        <translation type="vanished">Πάρα πολλές αποτυχημένες προσπάθειες. Ο δρομολογητής %1 θα δέχεται ξανά κωδικούς σε περίπου %2 λεπ.</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="318"/>
         <source>The code was not accepted by router %1.</source>
-        <translation>Ο κωδικός δεν έγινε δεκτός από τον δρομολογητή %1.</translation>
+        <translation type="vanished">Ο κωδικός δεν έγινε δεκτός από τον δρομολογητή %1.</translation>
     </message>
-        <message>
-        <location filename="../client/router_controller.cc" line="350"/>
+    <message>
+        <location filename="../client/router_controller.cc" line="562"/>
         <source>Connection to router %1 established.</source>
         <translation>Η σύνδεση με τον δρομολογητή %1 πραγματοποιήθηκε.</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="395"/>
+        <location filename="../client/router_controller.cc" line="367"/>
         <source>Network error: %1</source>
         <translation>Σφάλμα δικτύου: %1</translation>
     </message>
     <message>
-        <location filename="../client/router_controller.cc" line="409"/>
+        <location filename="../client/router_controller.cc" line="381"/>
         <source>Disconnected from router %1.</source>
         <translation>Έγινε αποσύνδεση από τον δρομολογητή %1.</translation>
     </message>
@@ -4389,22 +4578,32 @@ Credentials imported: %5</source>
         <translation>Κωδικός πρόσβασης:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="46"/>
+        <location filename="../client/desktop/router_dialog.ui" line="99"/>
+        <source>Remember the password for command-line connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/router_dialog.ui" line="105"/>
+        <source>The router account is stored for the whole computer and is used when the client is started with a host ID and without router options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/router_dialog.cc" line="47"/>
         <source>Administrator</source>
         <translation>Διαχειριστής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="47"/>
+        <location filename="../client/desktop/router_dialog.cc" line="48"/>
         <source>Manager</source>
         <translation>Διαχειριστής λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="48"/>
+        <location filename="../client/desktop/router_dialog.cc" line="49"/>
         <source>Operator</source>
         <translation>Χειριστής</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/router_dialog.cc" line="76"/>
+        <location filename="../client/desktop/router_dialog.cc" line="77"/>
         <source>Too long name. The maximum length of the name is %n characters.</source>
         <translation>
             <numerusform>Πολύ μεγάλο όνομα. Το μέγιστο μήκος του ονόματος είναι %n χαρακτήρας.</numerusform>
@@ -4412,34 +4611,33 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="88"/>
+        <location filename="../client/desktop/router_dialog.cc" line="89"/>
         <source>An invalid router address was entered.</source>
         <translation>Εισαγάγατε μη έγκυρη διεύθυνση δρομολογητή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="98"/>
+        <location filename="../client/desktop/router_dialog.cc" line="99"/>
         <source>The user name can not be empty and can contain only alphabet characters, numbers and _, -, . characters.</source>
         <translation>Το όνομα χρήστη δεν μπορεί να είναι κενό και μπορεί να περιέχει μόνο χαρακτήρες του αλφαβήτου, αριθμούς και τους χαρακτήρες _, -, .</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="109"/>
+        <location filename="../client/desktop/router_dialog.cc" line="110"/>
         <source>Password cannot be empty.</source>
         <translation>Ο κωδικός πρόσβασης δεν μπορεί να είναι κενός.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="131"/>
-        <location filename="../client/desktop/router_dialog.cc" line="148"/>
-        <location filename="../client/desktop/router_dialog.cc" line="157"/>
+        <location filename="../client/desktop/router_dialog.cc" line="132"/>
+        <location filename="../client/desktop/router_dialog.cc" line="141"/>
         <source>Failed to save the router.</source>
         <translation>Δεν ήταν δυνατή η αποθήκευση του δρομολογητή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="177"/>
+        <location filename="../client/desktop/router_dialog.cc" line="174"/>
         <source>Failed to read the router.</source>
         <translation>Δεν ήταν δυνατή η ανάγνωση του δρομολογητή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/router_dialog.cc" line="195"/>
+        <location filename="../client/desktop/router_dialog.cc" line="196"/>
         <source>The data of the router is damaged. Enter it again.</source>
         <translation>Τα δεδομένα του δρομολογητή είναι κατεστραμμένα. Εισαγάγετέ τα ξανά.</translation>
     </message>
@@ -4568,7 +4766,7 @@ Credentials imported: %5</source>
 <context>
     <name>RouterGroupWidget</name>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_group_widget.cc" line="441"/>
+        <location filename="../client/desktop/management/router_group_widget.cc" line="442"/>
         <source>%n host(s)</source>
         <translation>
             <numerusform>%n κεντρικός υπολογιστής</numerusform>
@@ -4707,22 +4905,22 @@ Credentials imported: %5</source>
         <translation>Στοιχεία ανά σελίδα:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="356"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="359"/>
         <source>Are you sure you want to disconnect host &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε τον κεντρικό υπολογιστή &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="381"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="384"/>
         <source>Are you sure you want to disconnect all hosts?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε όλους τους κεντρικούς υπολογιστές;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="405"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="410"/>
         <source>Deleting a host will result in all its configuration for connecting to the router being deleted, and the application will be uninstalled on the host. This operation is irreversible. Are you sure you want to do this?</source>
         <translation>Η διαγραφή ενός κεντρικού υπολογιστή θα έχει ως αποτέλεσμα τη διαγραφή όλων των ρυθμίσεών του για τη σύνδεση με τον δρομολογητή, ενώ η εφαρμογή θα απεγκατασταθεί από τον κεντρικό υπολογιστή. Αυτή η ενέργεια είναι μη αναστρέψιμη. Είστε βέβαιοι ότι θέλετε να συνεχίσετε;</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="688"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="693"/>
         <source>%n host(s)</source>
         <translation>
             <numerusform>%n κεντρικός υπολογιστής</numerusform>
@@ -4730,22 +4928,22 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="730"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="735"/>
         <source>Save File</source>
         <translation>Αποθήκευση αρχείου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="730"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="735"/>
         <source>JSON files (*.json)</source>
         <translation>Αρχεία JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="741"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="746"/>
         <source>Could not open file for writing.</source>
         <translation>Δεν ήταν δυνατό το άνοιγμα του αρχείου για εγγραφή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_hosts_widget.cc" line="788"/>
+        <location filename="../client/desktop/management/router_hosts_widget.cc" line="793"/>
         <source>Unable to write file.</source>
         <translation>Δεν είναι δυνατή η εγγραφή του αρχείου.</translation>
     </message>
@@ -4753,57 +4951,57 @@ Credentials imported: %5</source>
 <context>
     <name>RouterRelaysWidget</name>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="246"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="247"/>
         <source>Save File</source>
         <translation>Αποθήκευση αρχείου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="246"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="247"/>
         <source>JSON files (*.json)</source>
         <translation>Αρχεία JSON (*.json)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="257"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="258"/>
         <source>Could not open file for writing.</source>
         <translation>Δεν ήταν δυνατό το άνοιγμα του αρχείου για εγγραφή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="319"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="320"/>
         <source>Unable to write file.</source>
         <translation>Δεν είναι δυνατή η εγγραφή του αρχείου.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="356"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="359"/>
         <source>Are you sure you want to disconnect relay &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε τον αναμεταδότη &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="381"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="384"/>
         <source>Are you sure you want to disconnect all relays?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε όλους τους αναμεταδότες;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="434"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="450"/>
         <source>Disconnect</source>
         <translation>Αποσύνδεση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="436"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="452"/>
         <source>Copy Row</source>
         <translation>Αντιγραφή γραμμής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="437"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="453"/>
         <source>Copy Value</source>
         <translation>Αντιγραφή τιμής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="446"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="462"/>
         <source>Are you sure you want to disconnect peer &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε τον κόμβο &quot;%1&quot;;</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_relays_widget.cc" line="598"/>
+        <location filename="../client/desktop/management/router_relays_widget.cc" line="602"/>
         <source>%n relay(s)</source>
         <translation>
             <numerusform>%n αναμεταδότης</numerusform>
@@ -4814,41 +5012,38 @@ Credentials imported: %5</source>
 <context>
     <name>RouterSession</name>
     <message>
-        <location filename="../client/router_session.cc" line="163"/>
+        <location filename="../client/router_session.cc" line="161"/>
         <source>The router accepted the new password, but the record was not updated.</source>
         <translation>Ο δρομολογητής αποδέχτηκε τον νέο κωδικό πρόσβασης, αλλά η εγγραφή δεν ενημερώθηκε.</translation>
     </message>
 </context>
 <context>
     <name>RouterStatusWidget</name>
-        <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="65"/>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="231"/>
+    <message>
         <source>Enter Code</source>
-        <translation>Εισαγωγή κωδικού</translation>
+        <translation type="vanished">Εισαγωγή κωδικού</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="94"/>
+        <location filename="../client/desktop/management/router_status_widget.ui" line="48"/>
         <source>Date and time</source>
         <translation>Ημερομηνία και ώρα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_status_widget.ui" line="99"/>
+        <location filename="../client/desktop/management/router_status_widget.ui" line="53"/>
         <source>Event</source>
         <translation>Συμβάν</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_status_widget.cc" line="200"/>
+        <location filename="../client/desktop/management/router_status_widget.cc" line="175"/>
         <source>%n event(s)</source>
         <translation>
             <numerusform>%n συμβάν</numerusform>
             <numerusform>%n συμβάντα</numerusform>
         </translation>
     </message>
-            <message>
-        <location filename="../client/desktop/management/router_status_widget.cc" line="236"/>
+    <message>
         <source>Set Up</source>
-        <translation>Ρύθμιση</translation>
+        <translation type="vanished">Ρύθμιση</translation>
     </message>
 </context>
 <context>
@@ -4888,73 +5083,64 @@ Credentials imported: %5</source>
         <source>Disable User Account</source>
         <translation>Απενεργοποίηση λογαριασμού χρήστη</translation>
     </message>
-        <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="103"/>
+    <message>
         <source>Sessions</source>
-        <translation>Περίοδοι λειτουργίας</translation>
+        <translation type="vanished">Περίοδοι λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="119"/>
         <source>Signed in</source>
-        <translation>Σε σύνδεση</translation>
+        <translation type="vanished">Σε σύνδεση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="124"/>
         <source>Last activity</source>
-        <translation>Τελευταία δραστηριότητα</translation>
+        <translation type="vanished">Τελευταία δραστηριότητα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="129"/>
         <source>Address</source>
-        <translation>Διεύθυνση</translation>
+        <translation type="vanished">Διεύθυνση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="152"/>
         <source>Sign out</source>
-        <translation>Αποσύνδεση</translation>
+        <translation type="vanished">Αποσύνδεση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.ui" line="159"/>
         <source>Sign out all</source>
-        <translation>Αποσύνδεση όλων</translation>
+        <translation type="vanished">Αποσύνδεση όλων</translation>
     </message>
-        <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="394"/>
+    <message>
         <source>Are you sure you want to sign this user out of this session?</source>
-        <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε αυτόν τον χρήστη από αυτήν την περίοδο λειτουργίας;</translation>
+        <translation type="vanished">Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε αυτόν τον χρήστη από αυτήν την περίοδο λειτουργίας;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="419"/>
         <source>Are you sure you want to sign this user out of all sessions?</source>
-        <translation>Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε αυτόν τον χρήστη από όλες τις περιόδους λειτουργίας;</translation>
+        <translation type="vanished">Είστε βέβαιοι ότι θέλετε να αποσυνδέσετε αυτόν τον χρήστη από όλες τις περιόδους λειτουργίας;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="533"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="300"/>
         <source>The passwords you entered do not match.</source>
         <translation>Οι κωδικοί πρόσβασης που εισαγάγατε δεν ταιριάζουν.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="205"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="176"/>
         <source>Failed to get list of users.</source>
         <translation>Δεν ήταν δυνατή η λήψη της λίστας χρηστών.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="235"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="206"/>
         <source>The user was deleted from another console.</source>
         <translation>Ο χρήστης διαγράφηκε από άλλη κονσόλα.</translation>
     </message>
-        <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="393"/>
+    <message>
         <source>This is the token of your current session. Revoking it will disconnect you. Continue?</source>
-        <translation>Αυτό είναι το διακριτικό της τρέχουσας περιόδου λειτουργίας σας. Η ανάκλησή του θα σας αποσυνδέσει. Συνέχεια;</translation>
+        <translation type="vanished">Αυτό είναι το διακριτικό της τρέχουσας περιόδου λειτουργίας σας. Η ανάκλησή του θα σας αποσυνδέσει. Συνέχεια;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="520"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="287"/>
         <source>The user name can not be empty and can contain only alphabet characters, numbers and _, -, ., @ characters. It can not consist of digits only.</source>
         <translation>Το όνομα χρήστη δεν μπορεί να είναι κενό και μπορεί να περιέχει μόνο χαρακτήρες του αλφαβήτου, αριθμούς και τους χαρακτήρες _, -, ., @. Δεν μπορεί να αποτελείται μόνο από ψηφία.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="544"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="311"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης δεν πρέπει να είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -4962,7 +5148,7 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="545"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="312"/>
         <source>The password can not be longer than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης δεν πρέπει να υπερβαίνει τον %n χαρακτήρα.</numerusform>
@@ -4970,12 +5156,12 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="556"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="323"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>Ο κωδικός πρόσβασης που εισαγάγατε δεν πληροί τις απαιτήσεις ασφαλείας!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="557"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="324"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης πρέπει να περιέχει πεζούς και κεφαλαίους χαρακτήρες, αριθμούς και να μην είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -4983,75 +5169,73 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="561"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="328"/>
         <source>Do you want to enter a different password?</source>
         <translation>Θέλετε να εισαγάγετε διαφορετικό κωδικό πρόσβασης;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="564"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="331"/>
         <source>Warning</source>
         <translation>Προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="584"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="351"/>
         <source>Unknown internal error when creating or modifying a user.</source>
         <translation>Άγνωστο εσωτερικό σφάλμα κατά τη δημιουργία ή την τροποποίηση χρήστη.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="648"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="414"/>
         <source>The user name you entered already exists.</source>
         <translation>Το όνομα χρήστη που εισαγάγατε υπάρχει ήδη.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="734"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="500"/>
         <source>Double-click to change</source>
         <translation>Κάντε διπλό κλικ για αλλαγή</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="790"/>
         <source>The token of your current session.</source>
-        <translation>Το διακριτικό της τρέχουσας περιόδου λειτουργίας σας.</translation>
+        <translation type="vanished">Το διακριτικό της τρέχουσας περιόδου λειτουργίας σας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="823"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="545"/>
         <source>Administrator</source>
         <translation>Διαχειριστής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="827"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="549"/>
         <source>Manager</source>
         <translation>Διαχειριστής λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="831"/>
+        <location filename="../client/desktop/management/router_user_dialog.cc" line="553"/>
         <source>Operator</source>
         <translation>Χειριστής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_user_dialog.cc" line="849"/>
         <source>Never</source>
-        <translation>Ποτέ</translation>
+        <translation type="vanished">Ποτέ</translation>
     </message>
 </context>
 <context>
     <name>RouterUsersWidget</name>
     <message>
-        <location filename="../client/desktop/management/router_users_widget.cc" line="228"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="229"/>
         <source>You cannot delete a built-in user.</source>
         <translation>Δεν μπορείτε να διαγράψετε έναν ενσωματωμένο χρήστη.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_users_widget.cc" line="233"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="234"/>
         <source>Are you sure you want to delete user &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τον χρήστη &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_users_widget.cc" line="291"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="292"/>
         <source>Failed to get list of users.</source>
         <translation>Δεν ήταν δυνατή η λήψη της λίστας χρηστών.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/router_users_widget.cc" line="434"/>
+        <location filename="../client/desktop/management/router_users_widget.cc" line="435"/>
         <source>%n user(s)</source>
         <translation>
             <numerusform>%n χρήστης</numerusform>
@@ -5191,19 +5375,27 @@ Credentials imported: %5</source>
         <translation>Ο χώρος εργασίας άλλαξε από άλλη κονσόλα. Οι λίστες ανανεώνονται - ελέγξτε τις αλλαγές και αποθηκεύστε ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="530"/>
+        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="534"/>
         <source>Are you sure you want to remove the host from the workspace?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να καταργήσετε τον κεντρικό υπολογιστή από τον χώρο εργασίας;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="913"/>
+        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="917"/>
         <source>Workspace name cannot be empty.</source>
         <translation>Το όνομα του χώρου εργασίας δεν μπορεί να είναι κενό.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="924"/>
+        <location filename="../client/desktop/management/router_workspace_dialog.cc" line="928"/>
         <source>A workspace with the specified name already exists.</source>
         <translation>Υπάρχει ήδη χώρος εργασίας με το καθορισμένο όνομα.</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenWorker</name>
+    <message>
+        <location filename="../host/workers/screen_worker.cc" line="1325"/>
+        <source>All monitors</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5245,27 +5437,27 @@ Credentials imported: %5</source>
 <context>
     <name>SearchWidget</name>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="295"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="296"/>
         <source>Previous</source>
         <translation>Προηγούμενο</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="296"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="297"/>
         <source>Previous page</source>
         <translation>Προηγούμενη σελίδα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="302"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="303"/>
         <source>Next</source>
         <translation>Επόμενο</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="303"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="304"/>
         <source>Next page</source>
         <translation>Επόμενη σελίδα</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/management/search_widget.cc" line="806"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="807"/>
         <source>%n result(s)</source>
         <translation>
             <numerusform>%n αποτέλεσμα</numerusform>
@@ -5324,12 +5516,17 @@ Credentials imported: %5</source>
 <context>
     <name>SelectScreenAction</name>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="38"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="42"/>
+        <source>All monitors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="48"/>
         <source>Monitor %1 (primary)</source>
         <translation>Οθόνη %1 (κύρια)</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/select_screen_action.h" line="40"/>
+        <location filename="../client/desktop/desktop/select_screen_action.h" line="50"/>
         <source>Monitor %1</source>
         <translation>Οθόνη %1</translation>
     </message>
@@ -5337,68 +5534,68 @@ Credentials imported: %5</source>
 <context>
     <name>ServiceItem</name>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="191"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="192"/>
         <source>Continue Pending</source>
         <translation>Συνέχιση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="193"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="194"/>
         <source>Pause Pending</source>
         <translation>Παύση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="195"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="196"/>
         <source>Paused</source>
         <translation>Σε παύση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="197"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="198"/>
         <source>Running</source>
         <translation>Εκτελείται</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="199"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="200"/>
         <source>Start Pending</source>
         <translation>Εκκίνηση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="201"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="202"/>
         <source>Stop Pending</source>
         <translation>Διακοπή σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="203"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="204"/>
         <source>Stopped</source>
         <translation>Διακόπηκε</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="205"/>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="225"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="206"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="226"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="215"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="216"/>
         <source>Auto Start</source>
         <translation>Αυτόματη εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="217"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="218"/>
         <source>Demand Start</source>
         <translation>Εκκίνηση κατ&apos; απαίτηση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="219"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="220"/>
         <source>Disabled</source>
         <translation>Απενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="221"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="222"/>
         <source>Boot Start</source>
         <translation>Εκκίνηση Boot</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="223"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="224"/>
         <source>System Start</source>
         <translation>Εκκίνηση συστήματος</translation>
     </message>
@@ -5434,7 +5631,7 @@ Credentials imported: %5</source>
 <context>
     <name>SettingsTab</name>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="275"/>
+        <location filename="../client/desktop/settings_tab.ui" line="301"/>
         <source>Unlock automatically on startup</source>
         <translation>Αυτόματο ξεκλείδωμα κατά την εκκίνηση</translation>
     </message>
@@ -5490,263 +5687,285 @@ Credentials imported: %5</source>
     </message>
     <message>
         <location filename="../client/desktop/settings_tab.ui" line="215"/>
+        <source>Hosts</source>
+        <translation>Κεντρικοί υπολογιστές</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="221"/>
+        <source>Remove inactive hosts</source>
+        <translation>Κατάργηση ανενεργών κεντρικών υπολογιστών</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="228"/>
+        <source>Inactive for more than:</source>
+        <translation>Ανενεργός για περισσότερο από:</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.ui" line="241"/>
         <source>UDP Connections</source>
         <translation>Συνδέσεις UDP</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="221"/>
+        <location filename="../client/desktop/settings_tab.ui" line="247"/>
         <source>Allow direct connections</source>
         <translation>Να επιτρέπονται απευθείας συνδέσεις</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="228"/>
+        <location filename="../client/desktop/settings_tab.ui" line="254"/>
         <source>Allow UDP Hole Punching</source>
         <translation>Να επιτρέπεται το UDP Hole Punching</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="235"/>
+        <location filename="../client/desktop/settings_tab.ui" line="261"/>
         <source>Allow PCP protocol</source>
         <translation>Να επιτρέπεται το πρωτόκολλο PCP</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="242"/>
+        <location filename="../client/desktop/settings_tab.ui" line="268"/>
         <source>Allow NAT-PMP protocol</source>
         <translation>Να επιτρέπεται το πρωτόκολλο NAT-PMP</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="249"/>
+        <location filename="../client/desktop/settings_tab.ui" line="275"/>
         <source>Allow UPnP protocol</source>
         <translation>Να επιτρέπεται το πρωτόκολλο UPnP</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="259"/>
+        <location filename="../client/desktop/settings_tab.ui" line="285"/>
         <source>Security</source>
         <translation>Ασφάλεια</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="265"/>
+        <location filename="../client/desktop/settings_tab.ui" line="291"/>
         <source>Lock after inactivity:</source>
         <translation>Κλείδωμα μετά από αδράνεια:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="275"/>
+        <location filename="../client/desktop/settings_tab.ui" line="308"/>
         <source>Change Master Password...</source>
         <translation>Αλλαγή κύριου κωδικού πρόσβασης...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="346"/>
+        <location filename="../client/desktop/settings_tab.ui" line="379"/>
         <source>Features</source>
         <translation>Δυνατότητες</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="352"/>
+        <location filename="../client/desktop/settings_tab.ui" line="385"/>
         <source>Enable audio</source>
         <translation>Ενεργοποίηση ήχου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="359"/>
+        <location filename="../client/desktop/settings_tab.ui" line="392"/>
         <source>Enable clipboard</source>
         <translation>Ενεργοποίηση προχείρου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="366"/>
+        <location filename="../client/desktop/settings_tab.ui" line="399"/>
         <source>Show shape of remote cursor</source>
         <translation>Εμφάνιση σχήματος απομακρυσμένου δρομέα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="373"/>
+        <location filename="../client/desktop/settings_tab.ui" line="406"/>
         <source>Show position of remote cursor</source>
         <translation>Εμφάνιση θέσης απομακρυσμένου δρομέα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="380"/>
+        <location filename="../client/desktop/settings_tab.ui" line="413"/>
         <source>Disable desktop effects</source>
         <translation>Απενεργοποίηση εφέ επιφάνειας εργασίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="387"/>
+        <location filename="../client/desktop/settings_tab.ui" line="420"/>
         <source>Disable desktop wallpaper</source>
         <translation>Απενεργοποίηση ταπετσαρίας επιφάνειας εργασίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="394"/>
+        <location filename="../client/desktop/settings_tab.ui" line="427"/>
         <source>Lock computer at disconnect</source>
         <translation>Κλείδωμα υπολογιστή κατά την αποσύνδεση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="401"/>
+        <location filename="../client/desktop/settings_tab.ui" line="434"/>
         <source>Block remote input</source>
         <translation>Αποκλεισμός απομακρυσμένης εισόδου</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="408"/>
+        <location filename="../client/desktop/settings_tab.ui" line="441"/>
         <source>Send key combinations</source>
         <translation>Αποστολή συνδυασμών πλήκτρων</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="415"/>
+        <location filename="../client/desktop/settings_tab.ui" line="448"/>
         <source>Allow hardware video encoding</source>
         <translation>Να επιτρέπεται η κωδικοποίηση βίντεο μέσω υλικού</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="422"/>
+        <location filename="../client/desktop/settings_tab.ui" line="455"/>
         <source>Allow hardware video decoding</source>
         <translation>Να επιτρέπεται η αποκωδικοποίηση βίντεο μέσω υλικού</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="438"/>
+        <location filename="../client/desktop/settings_tab.ui" line="471"/>
         <source>Screen</source>
         <translation>Οθόνη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="446"/>
+        <location filename="../client/desktop/settings_tab.ui" line="479"/>
         <source>Preferred resolution:</source>
         <translation>Προτιμώμενη ανάλυση:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="474"/>
+        <location filename="../client/desktop/settings_tab.ui" line="507"/>
         <source>Recording</source>
         <translation>Εγγραφή</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="480"/>
+        <location filename="../client/desktop/settings_tab.ui" line="513"/>
         <source>Automatically start recording sessions on connection</source>
         <translation>Αυτόματη έναρξη εγγραφής περιόδων λειτουργίας κατά τη σύνδεση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="489"/>
+        <location filename="../client/desktop/settings_tab.ui" line="522"/>
         <source>Write path:</source>
         <translation>Διαδρομή εγγραφής:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="585"/>
-        <location filename="../client/desktop/settings_tab.cc" line="129"/>
+        <location filename="../client/desktop/settings_tab.ui" line="618"/>
+        <location filename="../client/desktop/settings_tab.cc" line="131"/>
         <source>Update</source>
         <translation>Ενημέρωση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="591"/>
+        <location filename="../client/desktop/settings_tab.ui" line="624"/>
         <source>Check for updates on startup</source>
         <translation>Έλεγχος για ενημερώσεις κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="600"/>
+        <location filename="../client/desktop/settings_tab.ui" line="633"/>
         <source>Update channel:</source>
         <translation>Κανάλι ενημερώσεων:</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.ui" line="627"/>
+        <location filename="../client/desktop/settings_tab.ui" line="660"/>
         <source>Check for updates</source>
         <translation>Έλεγχος για ενημερώσεις</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="127"/>
+        <location filename="../client/desktop/settings_tab.cc" line="129"/>
         <source>General</source>
         <translation>Γενικά</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="128"/>
+        <location filename="../client/desktop/settings_tab.cc" line="130"/>
         <source>Desktop</source>
         <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="181"/>
+        <location filename="../client/desktop/settings_tab.cc" line="191"/>
         <source>1 week</source>
         <translation>1 εβδομάδα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="182"/>
+        <location filename="../client/desktop/settings_tab.cc" line="192"/>
         <source>2 weeks</source>
         <translation>2 εβδομάδες</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="183"/>
+        <location filename="../client/desktop/settings_tab.cc" line="184"/>
+        <location filename="../client/desktop/settings_tab.cc" line="193"/>
         <source>1 month</source>
         <translation>1 μήνα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="184"/>
+        <location filename="../client/desktop/settings_tab.cc" line="185"/>
+        <source>3 months</source>
+        <translation>3 μήνες</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="186"/>
+        <location filename="../client/desktop/settings_tab.cc" line="194"/>
         <source>6 months</source>
         <translation>6 μήνες</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="185"/>
+        <location filename="../client/desktop/settings_tab.cc" line="195"/>
         <source>1 year</source>
         <translation>1 έτος</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="189"/>
+        <location filename="../client/desktop/settings_tab.cc" line="199"/>
         <source>Do not lock</source>
         <translation>Ποτέ</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="190"/>
+        <location filename="../client/desktop/settings_tab.cc" line="200"/>
         <source>1 minute</source>
         <translation>1 λεπτό</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="191"/>
+        <location filename="../client/desktop/settings_tab.cc" line="201"/>
         <source>5 minutes</source>
         <translation>5 λεπτά</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="192"/>
+        <location filename="../client/desktop/settings_tab.cc" line="202"/>
         <source>10 minutes</source>
         <translation>10 λεπτά</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="193"/>
+        <location filename="../client/desktop/settings_tab.cc" line="203"/>
         <source>30 minutes</source>
         <translation>30 λεπτά</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="194"/>
+        <location filename="../client/desktop/settings_tab.cc" line="204"/>
         <source>1 hour</source>
         <translation>1 ώρα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="220"/>
+        <location filename="../client/desktop/settings_tab.cc" line="240"/>
         <source>None</source>
         <translation>Κανένα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="245"/>
+        <location filename="../client/desktop/settings_tab.cc" line="265"/>
         <source>Stable</source>
         <translation>Σταθερό</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="246"/>
+        <location filename="../client/desktop/settings_tab.cc" line="266"/>
         <source>Beta</source>
         <translation>Βήτα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="247"/>
+        <location filename="../client/desktop/settings_tab.cc" line="267"/>
         <source>Alpha</source>
         <translation>Άλφα</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="369"/>
+        <location filename="../client/desktop/settings_tab.cc" line="395"/>
         <source>The new language will be applied after the application is restarted.</source>
         <translation>Η νέα γλώσσα θα εφαρμοστεί μετά την επανεκκίνηση της εφαρμογής.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="418"/>
-        <location filename="../client/desktop/settings_tab.cc" line="496"/>
+        <location filename="../client/desktop/settings_tab.cc" line="444"/>
+        <location filename="../client/desktop/settings_tab.cc" line="572"/>
         <source>Choose path</source>
         <translation>Επιλογή διαδρομής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="516"/>
+        <location filename="../client/desktop/settings_tab.cc" line="592"/>
         <source>Change Master Password</source>
         <translation>Αλλαγή κύριου κωδικού πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="518"/>
+        <location filename="../client/desktop/settings_tab.cc" line="594"/>
         <source>Enter your current password and choose a new one.</source>
         <translation>Εισαγάγετε τον τρέχοντα κωδικό πρόσβασης και επιλέξτε έναν νέο.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/settings_tab.cc" line="526"/>
+        <location filename="../client/desktop/settings_tab.cc" line="602"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης δεν πρέπει να είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -5754,12 +5973,12 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="533"/>
+        <location filename="../client/desktop/settings_tab.cc" line="609"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>Ο κωδικός πρόσβασης που εισαγάγατε δεν πληροί τις απαιτήσεις ασφαλείας!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../client/desktop/settings_tab.cc" line="534"/>
+        <location filename="../client/desktop/settings_tab.cc" line="610"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης πρέπει να περιέχει πεζούς και κεφαλαίους χαρακτήρες, αριθμούς και να μην είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -5767,97 +5986,126 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="537"/>
+        <location filename="../client/desktop/settings_tab.cc" line="613"/>
         <source>Do you want to enter a different password?</source>
         <translation>Θέλετε να εισαγάγετε διαφορετικό κωδικό πρόσβασης;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="550"/>
+        <location filename="../client/desktop/settings_tab.cc" line="626"/>
         <source>Invalid current password.</source>
         <translation>Μη έγκυρος τρέχων κωδικός πρόσβασης.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="554"/>
+        <location filename="../client/desktop/settings_tab.cc" line="630"/>
         <source>Some records of the database are damaged. Fix or delete them and try again.</source>
         <translation>Ορισμένες εγγραφές της βάσης δεδομένων είναι κατεστραμμένες. Διορθώστε τις ή διαγράψτε τις και δοκιμάστε ξανά.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/settings_tab.cc" line="558"/>
+        <location filename="../client/desktop/settings_tab.cc" line="634"/>
         <source>Unable to change the password.</source>
         <translation>Δεν είναι δυνατή η αλλαγή του κωδικού πρόσβασης.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="696"/>
+        <source>The key of the database will be stored on this computer. Any program running under your account will be able to read it, even when the application is not running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="699"/>
+        <source>Do you want to continue?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="710"/>
+        <source>Unlock Automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="712"/>
+        <source>Enter the master password to unlock the application automatically on startup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="722"/>
+        <source>Invalid master password.</source>
+        <translation type="unfinished">Μη έγκυρος κύριος κωδικός πρόσβασης.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="726"/>
+        <source>Unable to unlock the database.</source>
+        <translation type="unfinished">Δεν είναι δυνατό το ξεκλείδωμα της βάσης δεδομένων.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/settings_tab.cc" line="740"/>
+        <source>Unable to turn on the automatic unlock.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsUtil</name>
     <message>
-        <location filename="../host/settings_util.cc" line="284"/>
+        <location filename="../host/settings_util.cc" line="280"/>
         <source>The configuration was successfully imported.</source>
         <translation>Οι ρυθμίσεις εισήχθησαν με επιτυχία.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="333"/>
+        <location filename="../host/settings_util.cc" line="329"/>
         <source>The configuration was successfully exported.</source>
         <translation>Οι ρυθμίσεις εξήχθησαν με επιτυχία.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="343"/>
-        <location filename="../host/settings_util.cc" line="347"/>
         <source>Warning</source>
-        <translation>Προειδοποίηση</translation>
+        <translation type="vanished">Προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="250"/>
+        <location filename="../host/settings_util.cc" line="246"/>
         <source>Unable to open the source file.</source>
         <translation>Δεν είναι δυνατό το άνοιγμα του αρχείου προέλευσης.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="262"/>
+        <location filename="../host/settings_util.cc" line="258"/>
         <source>Unable to read the source file: the file is damaged or has an unknown format.</source>
         <translation>Δεν είναι δυνατή η ανάγνωση του αρχείου προέλευσης: το αρχείο είναι κατεστραμμένο ή έχει άγνωστη μορφή.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="279"/>
+        <location filename="../host/settings_util.cc" line="275"/>
         <source>Unable to write the secure database.</source>
         <translation>Δεν είναι δυνατή η εγγραφή της ασφαλούς βάσης δεδομένων.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="299"/>
+        <location filename="../host/settings_util.cc" line="295"/>
         <source>Unable to read the secure database.</source>
         <translation>Δεν είναι δυνατή η ανάγνωση της ασφαλούς βάσης δεδομένων.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="320"/>
+        <location filename="../host/settings_util.cc" line="316"/>
         <source>Unable to open the target file.</source>
         <translation>Δεν είναι δυνατό το άνοιγμα του αρχείου προορισμού.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="328"/>
+        <location filename="../host/settings_util.cc" line="324"/>
         <source>Unable to write the target file.</source>
         <translation>Δεν είναι δυνατή η εγγραφή του αρχείου προορισμού.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="344"/>
         <source>Continue</source>
-        <translation>Συνέχεια</translation>
+        <translation type="vanished">Συνέχεια</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="360"/>
         <source>Error</source>
-        <translation>Σφάλμα</translation>
+        <translation type="vanished">Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="371"/>
         <source>Aspia</source>
-        <translation>Aspia</translation>
+        <translation type="vanished">Aspia</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="241"/>
+        <location filename="../host/settings_util.cc" line="237"/>
         <source>Source settings file does not exist.</source>
         <translation>Το αρχείο ρυθμίσεων προέλευσης δεν υπάρχει.</translation>
     </message>
     <message>
-        <location filename="../host/settings_util.cc" line="344"/>
-        <location filename="../host/settings_util.cc" line="348"/>
+        <location filename="../host/settings_util.cc" line="338"/>
         <source>The existing settings will be overwritten. Continue?</source>
         <translation>Οι υπάρχουσες ρυθμίσεις θα αντικατασταθούν. Συνέχεια;</translation>
     </message>
@@ -5865,15 +6113,15 @@ Credentials imported: %5</source>
 <context>
     <name>Sidebar</name>
     <message>
-        <location filename="../client/desktop/management/search_widget.cc" line="115"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="126"/>
+        <location filename="../client/desktop/management/search_widget.cc" line="116"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="127"/>
         <source>Local</source>
         <translation>Τοπικά</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="151"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="212"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="264"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="152"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="213"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="265"/>
         <source>Failed to read data. The list may be out of date.</source>
         <translation>Δεν ήταν δυνατή η ανάγνωση των δεδομένων. Η λίστα ενδέχεται να μην είναι ενημερωμένη.</translation>
     </message>
@@ -5917,46 +6165,46 @@ Credentials imported: %5</source>
         <translation>Θέλετε να εισαγάγετε διαφορετικό κωδικό πρόσβασης;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="631"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="635"/>
         <source>Changing the password. Waiting for the session to sign in again...</source>
         <translation>Αλλαγή κωδικού πρόσβασης. Αναμονή να συνδεθεί ξανά η περίοδος λειτουργίας...</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="829"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="833"/>
         <source>Are you sure you want to delete group &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε την ομάδα &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="842"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="846"/>
         <source>Unable to remove group</source>
         <translation>Δεν είναι δυνατή η κατάργηση της ομάδας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="907"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="911"/>
         <source>Are you sure you want to delete router &quot;%1&quot;?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να διαγράψετε τον δρομολογητή &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1484"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1482"/>
         <source>A group with this name already exists in the selected parent group.</source>
         <translation>Υπάρχει ήδη ομάδα με αυτό το όνομα στην επιλεγμένη γονική ομάδα.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1474"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1493"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1649"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1472"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1491"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1647"/>
         <source>Failed to move the group.</source>
         <translation>Δεν ήταν δυνατή η μετακίνηση της ομάδας.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1549"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1547"/>
         <source>A host with this name already exists in the selected group.</source>
         <translation>Υπάρχει ήδη κεντρικός υπολογιστής με αυτό το όνομα στην επιλεγμένη ομάδα.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/management/sidebar.cc" line="1540"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1558"/>
-        <location filename="../client/desktop/management/sidebar.cc" line="1727"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1538"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1556"/>
+        <location filename="../client/desktop/management/sidebar.cc" line="1725"/>
         <source>Failed to move the host to the selected group.</source>
         <translation>Δεν ήταν δυνατή η μετακίνηση του κεντρικού υπολογιστή στην επιλεγμένη ομάδα.</translation>
     </message>
@@ -5964,7 +6212,7 @@ Credentials imported: %5</source>
 <context>
     <name>SidebarRouterClients</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="207"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="206"/>
         <source>Clients</source>
         <translation>Πελάτες</translation>
     </message>
@@ -5972,7 +6220,7 @@ Credentials imported: %5</source>
 <context>
     <name>SidebarRouterHosts</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="189"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="188"/>
         <source>Hosts</source>
         <translation>Κεντρικοί υπολογιστές</translation>
     </message>
@@ -5980,7 +6228,7 @@ Credentials imported: %5</source>
 <context>
     <name>SidebarRouterRelays</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="216"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="215"/>
         <source>Relays</source>
         <translation>Αναμεταδότες</translation>
     </message>
@@ -5988,7 +6236,7 @@ Credentials imported: %5</source>
 <context>
     <name>SidebarRouterUsers</name>
     <message>
-        <location filename="../client/desktop/management/sidebar_items.cc" line="198"/>
+        <location filename="../client/desktop/management/sidebar_items.cc" line="197"/>
         <source>Users</source>
         <translation>Χρήστες</translation>
     </message>
@@ -6870,157 +7118,157 @@ Credentials imported: %5</source>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="341"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="342"/>
         <source>HTML File</source>
         <translation>Αρχείο HTML</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="341"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="342"/>
         <source>HTML File (*.html)</source>
         <translation>Αρχείο HTML (*.html)</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="351"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="352"/>
         <source>Failed to save file: %1</source>
         <translation>Δεν ήταν δυνατή η αποθήκευση του αρχείου: %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="376"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="377"/>
         <source>Summary</source>
         <translation>Σύνοψη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="383"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="384"/>
         <source>Hardware</source>
         <translation>Υλικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="386"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="387"/>
         <source>DMI</source>
         <translation>DMI</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="389"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="390"/>
         <source>Processor</source>
         <translation>Επεξεργαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="392"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="393"/>
         <source>Devices</source>
         <translation>Συσκευές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="395"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="396"/>
         <source>Drives</source>
         <translation>Μονάδες δίσκων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="398"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="399"/>
         <source>S.M.A.R.T.</source>
         <translation>S.M.A.R.T.</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="401"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="402"/>
         <source>Video Adapters</source>
         <translation>Προσαρμογείς γραφικών</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="404"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="405"/>
         <source>Monitors</source>
         <translation>Οθόνες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="407"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="408"/>
         <source>Printers</source>
         <translation>Εκτυπωτές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="410"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="411"/>
         <source>Power Options</source>
         <translation>Επιλογές παροχής ενέργειας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="427"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="428"/>
         <source>Software</source>
         <translation>Λογισμικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="430"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="431"/>
         <source>Applications</source>
         <translation>Εφαρμογές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="433"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="434"/>
         <source>Drivers</source>
         <translation>Προγράμματα οδήγησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="436"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="437"/>
         <source>Services</source>
         <translation>Υπηρεσίες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="439"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="440"/>
         <source>Processes</source>
         <translation>Διεργασίες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="442"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="443"/>
         <source>Licenses</source>
         <translation>Άδειες χρήσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="455"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="456"/>
         <source>Network</source>
         <translation>Δίκτυο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="458"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="459"/>
         <source>Network Adapters</source>
         <translation>Προσαρμογείς δικτύου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="461"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="462"/>
         <source>Routes</source>
         <translation>Διαδρομές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="464"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="465"/>
         <source>Connections</source>
         <translation>Συνδέσεις</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="467"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="468"/>
         <source>Network Shares</source>
         <translation>Κοινόχρηστα στοιχεία δικτύου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="470"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="471"/>
         <source>Open Files</source>
         <translation>Ανοιχτά αρχεία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="483"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="484"/>
         <source>Operating System</source>
         <translation>Λειτουργικό σύστημα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="486"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="487"/>
         <source>Environment Variables</source>
         <translation>Μεταβλητές περιβάλλοντος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="489"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="490"/>
         <source>Event Logs</source>
         <translation>Αρχεία καταγραφής συμβάντων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="492"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="493"/>
         <source>Users</source>
         <translation>Χρήστες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_view.cc" line="495"/>
+        <location filename="../common/sys_info/sys_info_view.cc" line="496"/>
         <source>User Groups</source>
         <translation>Ομάδες χρηστών</translation>
     </message>
@@ -7028,133 +7276,133 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetCpu</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="163"/>
         <source>Processor Properties</source>
         <translation>Ιδιότητες επεξεργαστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="166"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="167"/>
         <source>Caches</source>
         <translation>Κρυφές μνήμες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="170"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="171"/>
         <source>Instruction Set</source>
         <translation>Σύνολο εντολών</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="171"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="172"/>
         <source>Security Features</source>
         <translation>Δυνατότητες ασφαλείας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="172"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="173"/>
         <source>Power Management Features</source>
         <translation>Δυνατότητες διαχείρισης ενέργειας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="173"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="174"/>
         <source>Virtualization Features</source>
         <translation>Δυνατότητες εικονικοποίησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="175"/>
         <source>Other Features</source>
         <translation>Άλλες δυνατότητες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="245"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="246"/>
         <source>Packages</source>
         <translation>Πακέτα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="248"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="249"/>
         <source>Physical Cores</source>
         <translation>Φυσικοί πυρήνες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="251"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="252"/>
         <source>Logical Cores</source>
         <translation>Λογικοί πυρήνες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="255"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="256"/>
         <source>Temperature</source>
         <translation>Θερμοκρασία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="256"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="257"/>
         <source>%1 C</source>
         <translation>%1 C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="278"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="279"/>
         <source>L%1 Data Cache</source>
         <translation>Κρυφή μνήμη δεδομένων L%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="282"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="283"/>
         <source>L%1 Instruction Cache</source>
         <translation>Κρυφή μνήμη εντολών L%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="286"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="287"/>
         <source>L%1 Cache</source>
         <translation>Κρυφή μνήμη L%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="293"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="294"/>
         <source>Size</source>
         <translation>Μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="297"/>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="299"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="298"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="300"/>
         <source>Associativity</source>
         <translation>Συσχετιστικότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="297"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="298"/>
         <source>Fully associative</source>
         <translation>Πλήρως συσχετιστική</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="299"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="300"/>
         <source>%1-way</source>
         <translation>%1 δρόμων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="302"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="303"/>
         <source>Line Size</source>
         <translation>Μέγεθος γραμμής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="302"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="303"/>
         <source>%1 bytes</source>
         <translation>%1 byte</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="305"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="306"/>
         <source>Sets</source>
         <translation>Σύνολα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="308"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="309"/>
         <source>Shared By</source>
         <translation>Κοινόχρηστη από</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="308"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="309"/>
         <source>%1 threads</source>
         <translation>%1 νήματα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="332"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="333"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="332"/>
+        <location filename="../common/sys_info/sys_info_widget_cpu.cc" line="333"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
@@ -7162,1138 +7410,1138 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetDmi</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="218"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="831"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="219"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="832"/>
         <source>BIOS</source>
         <translation>BIOS</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="225"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="226"/>
         <source>Motherboard</source>
         <translation>Μητρική πλακέτα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="232"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="233"/>
         <source>Chassis</source>
         <translation>Πλαίσιο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="239"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="240"/>
         <source>Processors</source>
         <translation>Επεξεργαστές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="246"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="247"/>
         <source>Caches</source>
         <translation>Κρυφές μνήμες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="254"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="255"/>
         <source>Port Connectors</source>
         <translation>Υποδοχές θυρών</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="263"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="264"/>
         <source>System Slots</source>
         <translation>Υποδοχές συστήματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="271"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="272"/>
         <source>On-board Devices</source>
         <translation>Ενσωματωμένες συσκευές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="276"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="276"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="630"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="277"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="277"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="631"/>
         <source>OEM Strings</source>
         <translation>Συμβολοσειρές OEM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="281"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="281"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="635"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="282"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="282"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="636"/>
         <source>Configuration Options</source>
         <translation>Επιλογές ρύθμισης παραμέτρων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="289"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="290"/>
         <source>Memory Arrays</source>
         <translation>Συστοιχίες μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="297"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="298"/>
         <source>Memory Devices</source>
         <translation>Συσκευές μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="306"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="307"/>
         <source>Memory Errors</source>
         <translation>Σφάλματα μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="315"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="316"/>
         <source>Memory Array Addresses</source>
         <translation>Διευθύνσεις συστοιχιών μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="325"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="326"/>
         <source>Memory Device Addresses</source>
         <translation>Διευθύνσεις συσκευών μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="333"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="334"/>
         <source>Voltage Probes</source>
         <translation>Αισθητήρες τάσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="341"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="342"/>
         <source>Cooling Devices</source>
         <translation>Συσκευές ψύξης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="351"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="352"/>
         <source>Temperature Probes</source>
         <translation>Αισθητήρες θερμοκρασίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="360"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="361"/>
         <source>Current Probes</source>
         <translation>Αισθητήρες έντασης ρεύματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="363"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="363"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="729"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="364"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="364"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="730"/>
         <source>System Boot</source>
         <translation>Εκκίνηση συστήματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="371"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="372"/>
         <source>Additional Information</source>
         <translation>Πρόσθετες πληροφορίες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="380"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="381"/>
         <source>TPM Device</source>
         <translation>Συσκευή TPM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="389"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="390"/>
         <source>Processor Additional Information</source>
         <translation>Πρόσθετες πληροφορίες επεξεργαστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="398"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="399"/>
         <source>Firmware Inventory</source>
         <translation>Απογραφή υλικολογισμικού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="403"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="404"/>
         <source>Misc</source>
         <translation>Διάφορα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="403"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="746"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="404"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="747"/>
         <source>DMI Properties</source>
         <translation>Ιδιότητες DMI</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="841"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="842"/>
         <source>Vendor</source>
         <translation>Κατασκευαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="844"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="905"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="962"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1028"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1903"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="845"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="906"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="963"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1029"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1904"/>
         <source>Version</source>
         <translation>Έκδοση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="847"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1915"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="848"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1916"/>
         <source>Release Date</source>
         <translation>Ημερομηνία κυκλοφορίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="851"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="852"/>
         <source>Address</source>
         <translation>Διεύθυνση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="856"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="857"/>
         <source>ROM Size</source>
         <translation>Μέγεθος ROM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="859"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="860"/>
         <source>Revision</source>
         <translation>Αναθεώρηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="863"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="864"/>
         <source>Firmware Revision</source>
         <translation>Αναθεώρηση υλικολογισμικού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="873"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1275"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1874"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="874"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1276"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1875"/>
         <source>Characteristics</source>
         <translation>Χαρακτηριστικά</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="889"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="890"/>
         <source>Board %1</source>
         <translation>Πλακέτα %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="899"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="954"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1025"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1552"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1900"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="900"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="955"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1026"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1553"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1901"/>
         <source>Manufacturer</source>
         <translation>Κατασκευαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="902"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="903"/>
         <source>Product</source>
         <translation>Προϊόν</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="908"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="965"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1085"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1603"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="909"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="966"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1086"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1604"/>
         <source>Serial Number</source>
         <translation>Σειριακός αριθμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="911"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="968"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1088"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1606"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="912"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="969"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1089"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1607"/>
         <source>Asset Tag</source>
         <translation>Ετικέτα παγίου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="914"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="915"/>
         <source>Location in Chassis</source>
         <translation>Θέση στο πλαίσιο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="917"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="957"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1034"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1130"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1249"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1304"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1450"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1558"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1650"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="918"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="958"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1035"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1131"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1250"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1305"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1451"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1559"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1651"/>
         <source>Type</source>
         <translation>Τύπος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="921"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
         <source>Hosting Board</source>
         <translation>Πλακέτα υποδοχής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="921"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="923"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="924"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="959"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1093"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="927"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="960"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1098"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1100"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1102"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1166"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1096"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1099"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1101"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1103"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1267"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1168"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1313"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1868"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1870"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1872"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1929"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1274"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1314"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1869"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1871"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1873"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1931"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="921"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="923"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="924"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="959"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1020"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1093"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="927"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="960"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1021"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1098"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1100"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1102"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1166"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1096"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1099"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1101"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1103"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1267"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1168"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1313"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1547"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1868"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1870"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1872"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1929"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1274"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1314"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1548"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1869"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1871"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1873"/>
         <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1931"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="922"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="923"/>
         <source>Requires Daughter Board</source>
         <translation>Απαιτεί θυγατρική πλακέτα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="924"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
         <source>Removable</source>
         <translation>Αφαιρούμενη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="925"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
         <source>Replaceable</source>
         <translation>Αντικαταστάσιμο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="926"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="927"/>
         <source>Hot Swappable</source>
         <translation>Δυνατότητα Hot Swap</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="928"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="929"/>
         <source>Features</source>
         <translation>Δυνατότητες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="944"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="945"/>
         <source>Chassis %1</source>
         <translation>Πλαίσιο %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="959"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="960"/>
         <source>Lock Present</source>
         <translation>Ύπαρξη κλειδώματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="971"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="972"/>
         <source>SKU Number</source>
         <translation>Αριθμός SKU</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="974"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="975"/>
         <source>Boot-up State</source>
         <translation>Κατάσταση κατά την εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="978"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="979"/>
         <source>Power Supply State</source>
         <translation>Κατάσταση τροφοδοτικού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="983"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="984"/>
         <source>Thermal State</source>
         <translation>Θερμική κατάσταση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="986"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="987"/>
         <source>Security Status</source>
         <translation>Κατάσταση ασφαλείας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="990"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="991"/>
         <source>Height</source>
         <translation>Ύψος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="990"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="991"/>
         <source>%1 U</source>
         <translation>%1 U</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="993"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="994"/>
         <source>Power Cords</source>
         <translation>Καλώδια τροφοδοσίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1009"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1010"/>
         <source>Processor %1</source>
         <translation>Επεξεργαστής %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1020"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1547"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1021"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1548"/>
         <source>Installed</source>
         <translation>Εγκατεστημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1031"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1032"/>
         <source>Family</source>
         <translation>Οικογένεια</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1037"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1401"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1453"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1038"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1402"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1454"/>
         <source>Status</source>
         <translation>Κατάσταση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1041"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1125"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1042"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1126"/>
         <source>Socket Designation</source>
         <translation>Χαρακτηρισμός υποδοχής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1046"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1047"/>
         <source>Socket</source>
         <translation>Υποδοχή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1049"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1050"/>
         <source>Socket Type</source>
         <translation>Τύπος υποδοχής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1052"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1263"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1918"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1053"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1264"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1919"/>
         <source>ID</source>
         <translation>ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1055"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1056"/>
         <source>Voltage</source>
         <translation>Τάση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1055"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1056"/>
         <source>%1 V</source>
         <translation>%1 V</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1059"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1060"/>
         <source>External Clock</source>
         <translation>Εξωτερικό ρολόι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1059"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1064"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1068"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1060"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1065"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1069"/>
         <source>%1 MHz</source>
         <translation>%1 MHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1064"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1065"/>
         <source>Max Speed</source>
         <translation>Μέγιστη ταχύτητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1068"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1069"/>
         <source>Current Speed</source>
         <translation>Τρέχουσα ταχύτητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1073"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1074"/>
         <source>Core Count</source>
         <translation>Πλήθος πυρήνων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1076"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1077"/>
         <source>Cores Enabled</source>
         <translation>Ενεργοποιημένοι πυρήνες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1079"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1080"/>
         <source>Thread Count</source>
         <translation>Πλήθος νημάτων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1082"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1083"/>
         <source>Threads Enabled</source>
         <translation>Ενεργοποιημένα νήματα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1091"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1600"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1092"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1601"/>
         <source>Part Number</source>
         <translation>Αριθμός εξαρτήματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1093"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
         <source>64-bit Capable</source>
         <translation>Δυνατότητα 64 bit</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1094"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
         <source>Multi-Core</source>
         <translation>Πολλαπλών πυρήνων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1095"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1096"/>
         <source>Hardware Thread</source>
         <translation>Νήμα υλικού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1097"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1098"/>
         <source>Execute Protection</source>
         <translation>Προστασία εκτέλεσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1099"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1100"/>
         <source>Enhanced Virtualization</source>
         <translation>Βελτιωμένη εικονικοποίηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1101"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1102"/>
         <source>Power/Performance Control</source>
         <translation>Έλεγχος ενέργειας/επιδόσεων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1115"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1116"/>
         <source>L%1 Cache</source>
         <translation>Κρυφή μνήμη L%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1127"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1128"/>
         <source>Level</source>
         <translation>Επίπεδο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1133"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1134"/>
         <source>Installed Size</source>
         <translation>Εγκατεστημένο μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1136"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1137"/>
         <source>Maximum Size</source>
         <translation>Μέγιστο μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1139"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1398"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1496"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1539"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1140"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1399"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1497"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1540"/>
         <source>Location</source>
         <translation>Θέση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1142"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1143"/>
         <source>Operational Mode</source>
         <translation>Τρόπος λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1145"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1146"/>
         <source>SRAM Type</source>
         <translation>Τύπος SRAM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1149"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1150"/>
         <source>Supported SRAM Types</source>
         <translation>Υποστηριζόμενοι τύποι SRAM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1155"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1156"/>
         <source>Error Correction Type</source>
         <translation>Τύπος διόρθωσης σφαλμάτων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1160"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1161"/>
         <source>Associativity</source>
         <translation>Συσχετιστικότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1164"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1570"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1165"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1571"/>
         <source>Speed</source>
         <translation>Ταχύτητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1164"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1165"/>
         <source>%1 ns</source>
         <translation>%1 ns</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1166"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1313"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1314"/>
         <source>Enabled</source>
         <translation>Ενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1167"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1168"/>
         <source>Socketed</source>
         <translation>Σε υποδοχή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1186"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1187"/>
         <source>Port %1</source>
         <translation>Θύρα %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1196"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1197"/>
         <source>Port Type</source>
         <translation>Τύπος θύρας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1200"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1201"/>
         <source>Internal Designator</source>
         <translation>Εσωτερικός χαρακτηρισμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1206"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1207"/>
         <source>Internal Connector Type</source>
         <translation>Τύπος εσωτερικής υποδοχής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1212"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1213"/>
         <source>External Designator</source>
         <translation>Εξωτερικός χαρακτηρισμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1218"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1219"/>
         <source>External Connector Type</source>
         <translation>Τύπος εξωτερικής υποδοχής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1236"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1237"/>
         <source>Slot %1</source>
         <translation>Υποδοχή %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1246"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1247"/>
         <source>Designation</source>
         <translation>Χαρακτηρισμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1252"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1253"/>
         <source>Data Bus Width</source>
         <translation>Πλάτος διαύλου δεδομένων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1255"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1256"/>
         <source>Current Usage</source>
         <translation>Τρέχουσα χρήση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1258"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1259"/>
         <source>Length</source>
         <translation>Μήκος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1261"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1311"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1262"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1312"/>
         <source>Bus Address</source>
         <translation>Διεύθυνση διαύλου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1267"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
         <source>5 V Provided</source>
         <translation>Παροχή 5 V</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1268"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
         <source>3.3 V Provided</source>
         <translation>Παροχή 3,3 V</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1269"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
         <source>Shared</source>
         <translation>Κοινόχρηστη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1270"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
         <source>PME Signal</source>
         <translation>Σήμα PME</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1271"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
         <source>Hot Plug</source>
         <translation>Δυνατότητα Hot Plug</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1272"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
         <source>SMBus Signal</source>
         <translation>Σήμα SMBus</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1273"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1274"/>
         <source>Bifurcation</source>
         <translation>Διακλάδωση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1291"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1437"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1529"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1844"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1292"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1438"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1530"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1845"/>
         <source>Device %1</source>
         <translation>Συσκευή %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1301"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1395"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1447"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1854"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1302"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1396"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1448"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1855"/>
         <source>Description</source>
         <translation>Περιγραφή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1308"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1309"/>
         <source>Type Instance</source>
         <translation>Παρουσία τύπου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1325"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1326"/>
         <source>String %1</source>
         <translation>Συμβολοσειρά %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1339"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1340"/>
         <source>Option %1</source>
         <translation>Επιλογή %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1357"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1358"/>
         <source>Probe %1</source>
         <translation>Αισθητήρας %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1368"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1369"/>
         <source>mV</source>
         <translation>mV</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1370"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1371"/>
         <source>C</source>
         <translation>C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1372"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1373"/>
         <source>mA</source>
         <translation>mA</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1404"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1405"/>
         <source>Nominal Value</source>
         <translation>Ονομαστική τιμή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1407"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1408"/>
         <source>Maximum Value</source>
         <translation>Μέγιστη τιμή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1410"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1411"/>
         <source>Minimum Value</source>
         <translation>Ελάχιστη τιμή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1413"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1414"/>
         <source>Tolerance</source>
         <translation>Ανοχή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1416"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1678"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1417"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1679"/>
         <source>Resolution</source>
         <translation>Ανάλυση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1420"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1421"/>
         <source>Accuracy</source>
         <translation>Ακρίβεια</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1457"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1458"/>
         <source>Cooling Unit Group</source>
         <translation>Ομάδα μονάδων ψύξης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1460"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1461"/>
         <source>Nominal Speed</source>
         <translation>Ονομαστική ταχύτητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1460"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1461"/>
         <source>%1 rpm</source>
         <translation>%1 rpm</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1470"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1471"/>
         <source>Boot Status</source>
         <translation>Κατάσταση εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1486"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1487"/>
         <source>Array %1</source>
         <translation>Συστοιχία %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1499"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1500"/>
         <source>Use</source>
         <translation>Χρήση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1503"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1504"/>
         <source>Error Correction</source>
         <translation>Διόρθωση σφαλμάτων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1509"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1510"/>
         <source>Maximum Capacity</source>
         <translation>Μέγιστη χωρητικότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1513"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1514"/>
         <source>Number of Devices</source>
         <translation>Αριθμός συσκευών</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1542"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1543"/>
         <source>Bank</source>
         <translation>Θέση (bank)</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1555"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1710"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1749"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1556"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1711"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1750"/>
         <source>Size</source>
         <translation>Μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1561"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1562"/>
         <source>Type Detail</source>
         <translation>Λεπτομέρειες τύπου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1564"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1565"/>
         <source>Form Factor</source>
         <translation>Τύπος κατασκευής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1567"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1568"/>
         <source>Technology</source>
         <translation>Τεχνολογία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1570"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1575"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1571"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1576"/>
         <source>%1 MT/s</source>
         <translation>%1 MT/s</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1574"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1575"/>
         <source>Configured Speed</source>
         <translation>Ρυθμισμένη ταχύτητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1579"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1580"/>
         <source>Total Width</source>
         <translation>Συνολικό πλάτος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1579"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1582"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1580"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1583"/>
         <source>%1 bit</source>
         <translation>%1 bit</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1582"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1583"/>
         <source>Data Width</source>
         <translation>Πλάτος δεδομένων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1585"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1586"/>
         <source>Rank</source>
         <translation>Βαθμίδα (rank)</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1588"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1589"/>
         <source>Minimum Voltage</source>
         <translation>Ελάχιστη τάση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1588"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1591"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1596"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1589"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1592"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1597"/>
         <source>%1 mV</source>
         <translation>%1 mV</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1591"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1592"/>
         <source>Maximum Voltage</source>
         <translation>Μέγιστη τάση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1595"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1596"/>
         <source>Configured Voltage</source>
         <translation>Ρυθμισμένη τάση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1610"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1863"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1611"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1864"/>
         <source>Firmware Version</source>
         <translation>Έκδοση υλικολογισμικού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1616"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1617"/>
         <source>Non-volatile Size</source>
         <translation>Μέγεθος μη πτητικής μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1622"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1623"/>
         <source>Volatile Size</source>
         <translation>Μέγεθος πτητικής μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1627"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1628"/>
         <source>Cache Size</source>
         <translation>Μέγεθος κρυφής μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1630"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1631"/>
         <source>Logical Size</source>
         <translation>Λογικό μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1640"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1641"/>
         <source>Record %1</source>
         <translation>Εγγραφή %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1653"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1654"/>
         <source>Granularity</source>
         <translation>Λεπτομέρεια διαβάθμισης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1656"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1657"/>
         <source>Operation</source>
         <translation>Λειτουργία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1661"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1662"/>
         <source>Vendor Syndrome</source>
         <translation>Σύνδρομο κατασκευαστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1667"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1668"/>
         <source>Memory Array Address</source>
         <translation>Διεύθυνση συστοιχίας μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1673"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1674"/>
         <source>Device Address</source>
         <translation>Διεύθυνση συσκευής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1678"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1959"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1679"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1960"/>
         <source>%1 bytes</source>
         <translation>%1 byte</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1691"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1729"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1692"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1730"/>
         <source>Range %1</source>
         <translation>Εύρος %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1701"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1702"/>
         <source>Array</source>
         <translation>Συστοιχία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1706"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1745"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1707"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1746"/>
         <source>Starting Address</source>
         <translation>Διεύθυνση έναρξης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1708"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1747"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1709"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1748"/>
         <source>Ending Address</source>
         <translation>Διεύθυνση τέλους</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1715"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1716"/>
         <source>Partition Width</source>
         <translation>Πλάτος διαμερίσματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1740"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1741"/>
         <source>Device</source>
         <translation>Συσκευή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1753"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1754"/>
         <source>Partition Row Position</source>
         <translation>Θέση σειράς διαμερίσματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1757"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1758"/>
         <source>Interleave Position</source>
         <translation>Θέση παρεμβολής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1763"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1764"/>
         <source>Interleaved Data Depth</source>
         <translation>Βάθος παρεμβαλλόμενων δεδομένων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1778"/>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1813"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1779"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1814"/>
         <source>Entry %1</source>
         <translation>Καταχώρηση %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1788"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1789"/>
         <source>String</source>
         <translation>Συμβολοσειρά</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1791"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1792"/>
         <source>Value</source>
         <translation>Τιμή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1794"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1795"/>
         <source>Referenced Handle</source>
         <translation>Αναφερόμενος δείκτης χειρισμού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1796"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1797"/>
         <source>Referenced Offset</source>
         <translation>Αναφερόμενη μετατόπιση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1825"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1826"/>
         <source>Processor</source>
         <translation>Επεξεργαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1828"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1829"/>
         <source>Architecture</source>
         <translation>Αρχιτεκτονική</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1857"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1858"/>
         <source>Vendor ID</source>
         <translation>ID κατασκευαστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1860"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1861"/>
         <source>Specification Version</source>
         <translation>Έκδοση προδιαγραφής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1867"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1868"/>
         <source>Configurable by Firmware</source>
         <translation>Ρυθμιζόμενο από το υλικολογισμικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1869"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1870"/>
         <source>Configurable by Software</source>
         <translation>Ρυθμιζόμενο από λογισμικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1871"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1872"/>
         <source>Configurable by OEM</source>
         <translation>Ρυθμιζόμενο από τον OEM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1887"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1888"/>
         <source>Firmware %1</source>
         <translation>Υλικολογισμικό %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1897"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1898"/>
         <source>Name</source>
         <translation>Όνομα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1906"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1907"/>
         <source>Version Format</source>
         <translation>Μορφή έκδοσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1910"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1911"/>
         <source>Lowest Supported Version</source>
         <translation>Χαμηλότερη υποστηριζόμενη έκδοση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1921"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1922"/>
         <source>ID Format</source>
         <translation>Μορφή ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1924"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1925"/>
         <source>State</source>
         <translation>Κατάσταση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1927"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1928"/>
         <source>Image Size</source>
         <translation>Μέγεθος ειδώλου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1929"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
         <source>Updatable</source>
         <translation>Με δυνατότητα ενημέρωσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1930"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1931"/>
         <source>Write-protected</source>
         <translation>Με προστασία εγγραφής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1936"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1937"/>
         <source>Component %1</source>
         <translation>Στοιχείο %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1941"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1942"/>
         <source>Associated Components</source>
         <translation>Συσχετισμένα στοιχεία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1953"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1954"/>
         <source>SMBIOS Version</source>
         <translation>Έκδοση SMBIOS</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1956"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1957"/>
         <source>Structures</source>
         <translation>Δομές</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1959"/>
+        <location filename="../common/sys_info/sys_info_widget_dmi.cc" line="1960"/>
         <source>Structures Size</source>
         <translation>Μέγεθος δομών</translation>
     </message>
@@ -8301,68 +8549,68 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetDrivers</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="132"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="133"/>
         <source>Continue Pending</source>
         <translation>Συνέχιση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="134"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="135"/>
         <source>Pause Pending</source>
         <translation>Παύση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="136"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="137"/>
         <source>Paused</source>
         <translation>Σε παύση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="139"/>
         <source>Running</source>
         <translation>Εκτελείται</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="140"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="141"/>
         <source>Start Pending</source>
         <translation>Εκκίνηση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="142"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="143"/>
         <source>Stop Pending</source>
         <translation>Διακοπή σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="145"/>
         <source>Stopped</source>
         <translation>Διακόπηκε</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="146"/>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="147"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="169"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="158"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="159"/>
         <source>Auto Start</source>
         <translation>Αυτόματη εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="160"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="161"/>
         <source>Demand Start</source>
         <translation>Εκκίνηση κατ&apos; απαίτηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="163"/>
         <source>Disabled</source>
         <translation>Απενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="164"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="165"/>
         <source>Boot Start</source>
         <translation>Εκκίνηση Boot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="166"/>
+        <location filename="../common/sys_info/sys_info_widget_drivers.cc" line="167"/>
         <source>System Start</source>
         <translation>Εκκίνηση συστήματος</translation>
     </message>
@@ -8370,77 +8618,77 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetDrives</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="159"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="160"/>
         <source>Path</source>
         <translation>Διαδρομή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="163"/>
         <source>Model</source>
         <translation>Μοντέλο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="165"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="166"/>
         <source>Serial Number</source>
         <translation>Σειριακός αριθμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="169"/>
         <source>Firmware Revision</source>
         <translation>Αναθεώρηση υλικολογισμικού</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="172"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="173"/>
         <source>Bus Type</source>
         <translation>Τύπος διαύλου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="175"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="176"/>
         <source>Size</source>
         <translation>Μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="180"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="181"/>
         <source>Media Type</source>
         <translation>Τύπος μέσου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="182"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="183"/>
         <source>Solid State</source>
         <translation>Στερεάς κατάστασης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="182"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="183"/>
         <source>Rotating</source>
         <translation>Περιστρεφόμενος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="186"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="187"/>
         <source>Rotation Rate</source>
         <translation>Ταχύτητα περιστροφής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="186"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="187"/>
         <source>%1 RPM</source>
         <translation>%1 RPM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="190"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="191"/>
         <source>Cache Size</source>
         <translation>Μέγεθος κρυφής μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="194"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="195"/>
         <source>Removable</source>
         <translation>Αφαιρούμενη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="194"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="195"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="194"/>
+        <location filename="../common/sys_info/sys_info_widget_drives.cc" line="195"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
@@ -8448,47 +8696,47 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetEventLogs</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="68"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="69"/>
         <source>Application</source>
         <translation>Εφαρμογή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="70"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="71"/>
         <source>Security</source>
         <translation>Ασφάλεια</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="72"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="73"/>
         <source>System</source>
         <translation>Σύστημα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="308"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="309"/>
         <source>Information</source>
         <translation>Πληροφορίες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="310"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="311"/>
         <source>Warning</source>
         <translation>Προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="312"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="313"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="314"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="315"/>
         <source>Audit Success</source>
         <translation>Επιτυχία ελέγχου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="316"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="317"/>
         <source>Audit Failure</source>
         <translation>Αποτυχία ελέγχου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="318"/>
+        <location filename="../common/sys_info/sys_info_widget_event_logs.cc" line="319"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
@@ -8496,37 +8744,37 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetLicenses</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="139"/>
         <source>License Type</source>
         <translation>Τύπος άδειας χρήσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="141"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="142"/>
         <source>License Version</source>
         <translation>Έκδοση άδειας χρήσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="145"/>
         <source>Organization</source>
         <translation>Οργανισμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="147"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="148"/>
         <source>Owner</source>
         <translation>Κάτοχος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="151"/>
         <source>Product ID</source>
         <translation>ID προϊόντος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="154"/>
         <source>Product Key</source>
         <translation>Κλειδί προϊόντος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_licenses.cc" line="157"/>
         <source>Unknown Field</source>
         <translation>Άγνωστο πεδίο</translation>
     </message>
@@ -8534,56 +8782,56 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetLocalUsers</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="147"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="148"/>
         <source>Full Name</source>
         <translation>Πλήρες όνομα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="151"/>
         <source>Home Directory</source>
         <translation>Αρχικός κατάλογος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="152"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
         <source>Disabled</source>
         <translation>Απενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="152"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="155"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="152"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
         <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="155"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
         <source>Password Expired</source>
         <translation>Ο κωδικός πρόσβασης έληξε</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="155"/>
         <source>Don&apos;t Expire Password</source>
         <translation>Χωρίς λήξη κωδικού πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="158"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="159"/>
         <source>Never</source>
         <translation>Ποτέ</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="163"/>
         <source>Last Logon</source>
         <translation>Τελευταία είσοδος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_local_users.cc" line="175"/>
         <source>Groups</source>
         <translation>Ομάδες</translation>
     </message>
@@ -8591,153 +8839,153 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetMonitors</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="154"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="155"/>
         <source>Monitor Name</source>
         <translation>Όνομα οθόνης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="157"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="158"/>
         <source>Manufacturer Name</source>
         <translation>Όνομα κατασκευαστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="160"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="161"/>
         <source>Monitor ID</source>
         <translation>ID οθόνης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="163"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="164"/>
         <source>Serial Number</source>
         <translation>Σειριακός αριθμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="167"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="168"/>
         <source>EDID Version</source>
         <translation>Έκδοση EDID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="173"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="174"/>
         <source>Date Of Manufacture</source>
         <translation>Ημερομηνία κατασκευής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="175"/>
         <source>Week %1 / %2</source>
         <translation>Εβδομάδα %1 / %2</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="179"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="180"/>
         <source>Gamma</source>
         <translation>Γάμμα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="183"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="184"/>
         <source>Image Size</source>
         <translation>Μέγεθος εικόνας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="184"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="185"/>
         <source>%1x%2 cm</source>
         <translation>%1x%2 cm</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="193"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="194"/>
         <source>Diagonal Size</source>
         <translation>Μέγεθος διαγωνίου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="198"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="199"/>
         <source>Resolution</source>
         <translation>Ανάλυση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="205"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="206"/>
         <source>Horizontal Frequency</source>
         <translation>Οριζόντια συχνότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="206"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="207"/>
         <source>%1 - %2 kHz</source>
         <translation>%1 - %2 kHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="212"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="213"/>
         <source>Vertical Frequency</source>
         <translation>Κατακόρυφη συχνότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="213"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="214"/>
         <source>%1 - %2 Hz</source>
         <translation>%1 - %2 Hz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="218"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="219"/>
         <source>Pixel Clock</source>
         <translation>Ρολόι εικονοστοιχείων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="218"/>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="221"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="219"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="222"/>
         <source>%1 MHz</source>
         <translation>%1 MHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="221"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="222"/>
         <source>Maximum Pixel Clock</source>
         <translation>Μέγιστο ρολόι εικονοστοιχείων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="223"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="224"/>
         <source>Input Signal Type</source>
         <translation>Τύπος σήματος εισόδου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="226"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="227"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="228"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="229"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="230"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="231"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="232"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="226"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="227"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="228"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="229"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="230"/>
         <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="231"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="232"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="234"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="235"/>
         <source>Supported Features</source>
         <translation>Υποστηριζόμενες δυνατότητες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="243"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="244"/>
         <source>%1 Hz</source>
         <translation>%1 Hz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="247"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="248"/>
         <source>Supported Video Modes</source>
         <translation>Υποστηριζόμενες λειτουργίες βίντεο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="293"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="294"/>
         <source>Digital</source>
         <translation>Ψηφιακό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="295"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="296"/>
         <source>Analog</source>
         <translation>Αναλογικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="297"/>
+        <location filename="../common/sys_info/sys_info_widget_monitors.cc" line="298"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
@@ -8745,67 +8993,67 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetNetAdapters</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="140"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="141"/>
         <source>Adapter Name</source>
         <translation>Όνομα προσαρμογέα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="143"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="144"/>
         <source>Interface Type</source>
         <translation>Τύπος διασύνδεσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="147"/>
         <source>Connection Speed</source>
         <translation>Ταχύτητα σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="149"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="150"/>
         <source>MAC Address</source>
         <translation>Διεύθυνση MAC</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="152"/>
         <source>DHCP Enabled</source>
         <translation>DHCP ενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="152"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="152"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="157"/>
         <source>DHCP Server #%1</source>
         <translation>Διακομιστής DHCP #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="157"/>
         <source>DHCP Server</source>
         <translation>Διακομιστής DHCP</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="169"/>
         <source>Address #%1</source>
         <translation>Διεύθυνση #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="169"/>
         <source>Address</source>
         <translation>Διεύθυνση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="176"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="177"/>
         <source>Gateway #%1</source>
         <translation>Πύλη #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="176"/>
+        <location filename="../common/sys_info/sys_info_widget_net_adapters.cc" line="177"/>
         <source>Gateway</source>
         <translation>Πύλη</translation>
     </message>
@@ -8813,32 +9061,32 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetNetShares</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="133"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="134"/>
         <source>Description</source>
         <translation>Περιγραφή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="136"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="137"/>
         <source>Type</source>
         <translation>Τύπος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="139"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="140"/>
         <source>Local Path</source>
         <translation>Τοπική διαδρομή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="141"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="142"/>
         <source>Current Uses</source>
         <translation>Τρέχουσες χρήσεις</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="145"/>
         <source>Not limited</source>
         <translation>Χωρίς όριο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="145"/>
+        <location filename="../common/sys_info/sys_info_widget_net_shares.cc" line="146"/>
         <source>Maximum Uses</source>
         <translation>Μέγιστες χρήσεις</translation>
     </message>
@@ -8846,170 +9094,170 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetPowerOptions</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="157"/>
         <source>Power Source</source>
         <translation>Πηγή τροφοδοσίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="158"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="159"/>
         <source>Battery Status</source>
         <translation>Κατάσταση μπαταρίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="164"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="165"/>
         <source>Battery Life Percent</source>
         <translation>Ποσοστό διάρκειας μπαταρίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="170"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="171"/>
         <source>Full Battery Life Time</source>
         <translation>Συνολική διάρκεια μπαταρίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="177"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="178"/>
         <source>Remaining Battery Life Time</source>
         <translation>Υπολειπόμενη διάρκεια μπαταρίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="193"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="194"/>
         <source>Device Name</source>
         <translation>Όνομα συσκευής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="196"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="197"/>
         <source>Manufacturer</source>
         <translation>Κατασκευαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="199"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="200"/>
         <source>Manufacture Date</source>
         <translation>Ημερομηνία κατασκευής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="202"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="203"/>
         <source>Unique Id</source>
         <translation>Μοναδικό ID</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="205"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="206"/>
         <source>Serial Number</source>
         <translation>Σειριακός αριθμός</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="208"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="209"/>
         <source>Temperature</source>
         <translation>Θερμοκρασία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="211"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="212"/>
         <source>Design Capacity</source>
         <translation>Ονομαστική χωρητικότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="211"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="217"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="223"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="212"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="218"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="224"/>
         <source>%1 mWh</source>
         <translation>%1 mWh</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="214"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="215"/>
         <source>Type</source>
         <translation>Τύπος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="217"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="218"/>
         <source>Full Charged Capacity</source>
         <translation>Χωρητικότητα πλήρους φόρτισης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="220"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="221"/>
         <source>Depreciation</source>
         <translation>Φθορά</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="223"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="224"/>
         <source>Current Capacity</source>
         <translation>Τρέχουσα χωρητικότητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="226"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="227"/>
         <source>Voltage</source>
         <translation>Τάση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="226"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="227"/>
         <source>%1 mV</source>
         <translation>%1 mV</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="232"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="315"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="233"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="316"/>
         <source>Charging</source>
         <translation>Φόρτιση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="232"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="235"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="238"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="241"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="233"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="239"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="242"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="235"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="313"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="314"/>
         <source>Critical</source>
         <translation>Κρίσιμη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="238"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="239"/>
         <source>Discharging</source>
         <translation>Αποφόρτιση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="241"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="242"/>
         <source>Power OnLine</source>
         <translation>Συνδεδεμένη τροφοδοσία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="245"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="246"/>
         <source>State</source>
         <translation>Κατάσταση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="250"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="251"/>
         <source>Battery #%1</source>
         <translation>Μπαταρία #%1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="291"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="292"/>
         <source>DC Battery</source>
         <translation>Μπαταρία DC</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="294"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="295"/>
         <source>AC Line</source>
         <translation>Τροφοδοσία AC</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="297"/>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="319"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="298"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="320"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="309"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="310"/>
         <source>High</source>
         <translation>Υψηλή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="311"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="312"/>
         <source>Low</source>
         <translation>Χαμηλή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="317"/>
+        <location filename="../common/sys_info/sys_info_widget_power_options.cc" line="318"/>
         <source>No Battery</source>
         <translation>Χωρίς μπαταρία</translation>
     </message>
@@ -9017,44 +9265,44 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetPrinters</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="139"/>
         <source>Default</source>
         <translation>Προεπιλογή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="138"/>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="139"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="147"/>
         <source>Yes</source>
         <translation>Ναι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="138"/>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="139"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="147"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="141"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="142"/>
         <source>Port</source>
         <translation>Θύρα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="145"/>
         <source>Driver</source>
         <translation>Πρόγραμμα οδήγησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="147"/>
         <source>Shared</source>
         <translation>Κοινόχρηστος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="149"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="150"/>
         <source>Share Name</source>
         <translation>Όνομα κοινόχρηστου στοιχείου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="151"/>
+        <location filename="../common/sys_info/sys_info_widget_printers.cc" line="152"/>
         <source>Jobs Count</source>
         <translation>Πλήθος εργασιών</translation>
     </message>
@@ -9062,12 +9310,12 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetProcesses</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="145"/>
         <source>System Idle Process</source>
         <translation>Διεργασία αδράνειας συστήματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_processes.cc" line="147"/>
         <source>Unknown Process</source>
         <translation>Άγνωστη διεργασία</translation>
     </message>
@@ -9075,68 +9323,68 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetServices</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="138"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="139"/>
         <source>Continue Pending</source>
         <translation>Συνέχιση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="140"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="141"/>
         <source>Pause Pending</source>
         <translation>Παύση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="142"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="143"/>
         <source>Paused</source>
         <translation>Σε παύση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="144"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="145"/>
         <source>Running</source>
         <translation>Εκτελείται</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="146"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="147"/>
         <source>Start Pending</source>
         <translation>Εκκίνηση σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="148"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="149"/>
         <source>Stop Pending</source>
         <translation>Διακοπή σε εξέλιξη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="151"/>
         <source>Stopped</source>
         <translation>Διακόπηκε</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="152"/>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="174"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="175"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="164"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="165"/>
         <source>Auto Start</source>
         <translation>Αυτόματη εκκίνηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="166"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="167"/>
         <source>Demand Start</source>
         <translation>Εκκίνηση κατ&apos; απαίτηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="168"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="169"/>
         <source>Disabled</source>
         <translation>Απενεργοποιημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="170"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="171"/>
         <source>Boot Start</source>
         <translation>Εκκίνηση Boot</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_services.cc" line="172"/>
+        <location filename="../common/sys_info/sys_info_widget_services.cc" line="173"/>
         <source>System Start</source>
         <translation>Εκκίνηση συστήματος</translation>
     </message>
@@ -9144,214 +9392,214 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetSmart</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
         <source>Attribute</source>
         <translation>Χαρακτηριστικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="392"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="394"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="393"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="395"/>
         <source>Value</source>
         <translation>Τιμή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
         <source>Worst</source>
         <translation>Χειρότερη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
         <source>Threshold</source>
         <translation>Όριο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="387"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="392"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="393"/>
         <source>Raw</source>
         <translation>Ακατέργαστη τιμή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="388"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="389"/>
         <source>Status</source>
         <translation>Κατάσταση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="392"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="394"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="393"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="395"/>
         <source>Parameter</source>
         <translation>Παράμετρος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="408"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="409"/>
         <source>Health Data</source>
         <translation>Δεδομένα υγείας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="408"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="409"/>
         <source>Not available</source>
         <translation>Μη διαθέσιμο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="425"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="426"/>
         <source>OK. Always passed</source>
         <translation>OK. Επιτυχία πάντα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="427"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="428"/>
         <source>OK. Value is normal</source>
         <translation>OK. Η τιμή είναι κανονική</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="429"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="430"/>
         <source>Warning. Value is pre-failure</source>
         <translation>Προειδοποίηση. Η τιμή προμηνύει βλάβη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="431"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="432"/>
         <source>Warning. Value is not normal</source>
         <translation>Προειδοποίηση. Η τιμή δεν είναι κανονική</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="438"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="439"/>
         <source>Unknown Attribute</source>
         <translation>Άγνωστο χαρακτηριστικό</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="461"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="462"/>
         <source>Spare capacity is below the threshold</source>
         <translation>Η εφεδρική χωρητικότητα είναι κάτω από το όριο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="463"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="464"/>
         <source>Temperature is outside of the operating range</source>
         <translation>Η θερμοκρασία είναι εκτός του εύρους λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="465"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="466"/>
         <source>Reliability is degraded</source>
         <translation>Η αξιοπιστία έχει υποβαθμιστεί</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="467"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="468"/>
         <source>Media is in read-only mode</source>
         <translation>Το μέσο βρίσκεται σε λειτουργία μόνο για ανάγνωση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="469"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="470"/>
         <source>Volatile memory backup device failed</source>
         <translation>Η συσκευή εφεδρικής πτητικής μνήμης παρουσίασε βλάβη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="471"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="472"/>
         <source>Persistent memory region is unreliable</source>
         <translation>Η περιοχή μόνιμης μνήμης είναι αναξιόπιστη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="475"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="476"/>
         <source>Critical Warning</source>
         <translation>Κρίσιμη προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="476"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="477"/>
         <source>None</source>
         <translation>Κανένα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="481"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="482"/>
         <source>Temperature</source>
         <translation>Θερμοκρασία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="482"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="498"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="483"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="499"/>
         <source>%1 C</source>
         <translation>%1 C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="497"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="498"/>
         <source>Temperature Sensor %1</source>
         <translation>Αισθητήρας θερμοκρασίας %1</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="502"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="503"/>
         <source>Available Spare</source>
         <translation>Διαθέσιμο απόθεμα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="502"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="505"/>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="507"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="503"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="506"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="508"/>
         <source>%1%</source>
         <translation>%1%</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="504"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="505"/>
         <source>Available Spare Threshold</source>
         <translation>Όριο διαθέσιμου αποθέματος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="507"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="508"/>
         <source>Percentage Used</source>
         <translation>Ποσοστό χρήσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="510"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="511"/>
         <source>Data Read</source>
         <translation>Δεδομένα που διαβάστηκαν</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="513"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="514"/>
         <source>Data Written</source>
         <translation>Δεδομένα που γράφτηκαν</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="517"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="518"/>
         <source>Host Read Commands</source>
         <translation>Εντολές ανάγνωσης κεντρικού υπολογιστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="519"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="520"/>
         <source>Host Write Commands</source>
         <translation>Εντολές εγγραφής κεντρικού υπολογιστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="521"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="522"/>
         <source>Controller Busy Time</source>
         <translation>Χρόνος απασχόλησης ελεγκτή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="524"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="525"/>
         <source>Power Cycles</source>
         <translation>Κύκλοι τροφοδοσίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="526"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="527"/>
         <source>Power-On Time</source>
         <translation>Χρόνος λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="529"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="530"/>
         <source>Unsafe Shutdowns</source>
         <translation>Μη ασφαλείς τερματισμοί</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="531"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="532"/>
         <source>Media Errors</source>
         <translation>Σφάλματα μέσου</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="533"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="534"/>
         <source>Error Log Entries</source>
         <translation>Καταχωρήσεις αρχείου καταγραφής σφαλμάτων</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="536"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="537"/>
         <source>Warning Temperature Time</source>
         <translation>Χρόνος σε θερμοκρασία προειδοποίησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="539"/>
+        <location filename="../common/sys_info/sys_info_widget_smart.cc" line="540"/>
         <source>Critical Temperature Time</source>
         <translation>Χρόνος σε κρίσιμη θερμοκρασία</translation>
     </message>
@@ -9359,169 +9607,169 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetSummary</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="200"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="241"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="201"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="242"/>
         <source>Name</source>
         <translation>Όνομα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="203"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="204"/>
         <source>Domain</source>
         <translation>Τομέας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="206"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="207"/>
         <source>Workgroup</source>
         <translation>Ομάδα εργασίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="209"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="210"/>
         <source>Uptime</source>
         <translation>Χρόνος λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="212"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="213"/>
         <source>Computer</source>
         <translation>Υπολογιστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="219"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="220"/>
         <source>Host Version</source>
         <translation>Έκδοση κεντρικού υπολογιστή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="222"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="223"/>
         <source>Client Version</source>
         <translation>Έκδοση προγράμματος-πελάτη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="227"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="229"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="228"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="230"/>
         <source>Router Version</source>
         <translation>Έκδοση δρομολογητή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="232"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="233"/>
         <source>Aspia Information</source>
         <translation>Πληροφορίες Aspia</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="244"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="316"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="245"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="317"/>
         <source>Version</source>
         <translation>Έκδοση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="247"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="248"/>
         <source>Architecture</source>
         <translation>Αρχιτεκτονική</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="250"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="251"/>
         <source>License Key</source>
         <translation>Κλειδί άδειας χρήσης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="253"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="254"/>
         <source>Install Date</source>
         <translation>Ημερομηνία εγκατάστασης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="258"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="259"/>
         <source>Operating System</source>
         <translation>Λειτουργικό σύστημα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="268"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="340"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="269"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="341"/>
         <source>Manufacturer</source>
         <translation>Κατασκευαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="271"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="286"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="272"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="287"/>
         <source>Model</source>
         <translation>Μοντέλο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="276"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="277"/>
         <source>Motherboard</source>
         <translation>Μητρική πλακέτα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="289"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="313"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="290"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="314"/>
         <source>Vendor</source>
         <translation>Κατασκευαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="292"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="293"/>
         <source>Packages</source>
         <translation>Πακέτα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="295"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="296"/>
         <source>Cores</source>
         <translation>Πυρήνες</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="298"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="299"/>
         <source>Threads</source>
         <translation>Νήματα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="303"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="304"/>
         <source>Processor</source>
         <translation>Επεξεργαστής</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="319"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="320"/>
         <source>Date</source>
         <translation>Ημερομηνία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="343"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="344"/>
         <source>Size</source>
         <translation>Μέγεθος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="349"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="350"/>
         <source>Speed</source>
         <translation>Ταχύτητα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="346"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="347"/>
         <source>Type</source>
         <translation>Τύπος</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="353"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="354"/>
         <source>Installed</source>
         <translation>Εγκατεστημένο</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="229"/>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="353"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="230"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="354"/>
         <source>No</source>
         <translation>Όχι</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="349"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="350"/>
         <source>%1 MT/s</source>
         <translation>%1 MT/s</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="363"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="364"/>
         <source>Memory</source>
         <translation>Μνήμη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="392"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="393"/>
         <source>%1 (%2 free)</source>
         <translation>%1 (%2 ελεύθερα)</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="402"/>
+        <location filename="../common/sys_info/sys_info_widget_summary.cc" line="403"/>
         <source>Logical Drives</source>
         <translation>Λογικές μονάδες δίσκου</translation>
     </message>
@@ -9529,133 +9777,133 @@ Credentials imported: %5</source>
 <context>
     <name>SysInfoWidgetVideoAdapters</name>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="84"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="85"/>
         <source>%1 C</source>
         <translation>%1 C</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="150"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="151"/>
         <source>Description</source>
         <translation>Περιγραφή</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="153"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="154"/>
         <source>Adapter String</source>
         <translation>Συμβολοσειρά προσαρμογέα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="156"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="157"/>
         <source>BIOS String</source>
         <translation>Συμβολοσειρά BIOS</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="159"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="160"/>
         <source>Chip Type</source>
         <translation>Τύπος τσιπ</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="162"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="163"/>
         <source>DAC Type</source>
         <translation>Τύπος DAC</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="167"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="168"/>
         <source>Location</source>
         <translation>Θέση</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="167"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="168"/>
         <source>Bus %1, device %2, function %3</source>
         <translation>Δίαυλος %1, συσκευή %2, λειτουργία %3</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="175"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="176"/>
         <source>Memory Size</source>
         <translation>Μέγεθος μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="181"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="182"/>
         <source>Memory Used</source>
         <translation>Χρησιμοποιούμενη μνήμη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="187"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="188"/>
         <source>Shared Memory Size</source>
         <translation>Μέγεθος κοινόχρηστης μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="193"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="194"/>
         <source>Shared Memory Used</source>
         <translation>Χρησιμοποιούμενη κοινόχρηστη μνήμη</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="199"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="200"/>
         <source>Memory Frequency</source>
         <translation>Συχνότητα μνήμης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="200"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="201"/>
         <source>%1 MHz</source>
         <translation>%1 MHz</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="214"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="215"/>
         <source>Driver Model</source>
         <translation>Μοντέλο προγράμματος οδήγησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="214"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="215"/>
         <source>WDDM %1.%2</source>
         <translation>WDDM %1.%2</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="221"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="222"/>
         <source>Temperature</source>
         <translation>Θερμοκρασία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="227"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="228"/>
         <source>Maximum Temperature</source>
         <translation>Μέγιστη θερμοκρασία</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="232"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="233"/>
         <source>Fan Speed</source>
         <translation>Ταχύτητα ανεμιστήρα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="232"/>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="233"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="237"/>
         <source>%1 RPM</source>
         <translation>%1 RPM</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="236"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="237"/>
         <source>Maximum Fan Speed</source>
         <translation>Μέγιστη ταχύτητα ανεμιστήρα</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="242"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="243"/>
         <source>Power Usage</source>
         <translation>Κατανάλωση ενέργειας</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="243"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="244"/>
         <source>%1%</source>
         <translation>%1%</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="204"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="205"/>
         <source>Driver Date</source>
         <translation>Ημερομηνία προγράμματος οδήγησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="207"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="208"/>
         <source>Driver Version</source>
         <translation>Έκδοση προγράμματος οδήγησης</translation>
     </message>
     <message>
-        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="210"/>
+        <location filename="../common/sys_info/sys_info_widget_video_adapters.cc" line="211"/>
         <source>Driver Provider</source>
         <translation>Πάροχος προγράμματος οδήγησης</translation>
     </message>
@@ -9838,37 +10086,37 @@ Credentials imported: %5</source>
         <translation>Αποσύνδεση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="652"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="657"/>
         <source>Do you really want to end &quot;%1&quot; process?</source>
         <translation>Θέλετε πραγματικά να τερματίσετε τη διεργασία &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="702"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="711"/>
         <source>Do you really want to disconnect user &quot;%1&quot; session?</source>
         <translation>Θέλετε πραγματικά να αποσυνδέσετε την περίοδο λειτουργίας του χρήστη &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="725"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="737"/>
         <source>Do you really want to end user &quot;%1&quot; session?</source>
         <translation>Θέλετε πραγματικά να τερματίσετε την περίοδο λειτουργίας του χρήστη &quot;%1&quot;;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="944"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="955"/>
         <source>Processes: %1</source>
         <translation>Διεργασίες: %1</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="950"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="961"/>
         <source>CPU loading: %1%</source>
         <translation>Φόρτος CPU: %1%</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="956"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="967"/>
         <source>Physical memory: %1%</source>
         <translation>Φυσική μνήμη: %1%</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="962"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="973"/>
         <source>Update Speed</source>
         <translation>Ταχύτητα ενημέρωσης</translation>
     </message>
@@ -10182,38 +10430,48 @@ Credentials imported: %5</source>
 <context>
     <name>TerminalWidget</name>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="243"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="264"/>
         <source>Authentication failed.</source>
         <translation>Ο έλεγχος ταυτότητας απέτυχε.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="244"/>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1138"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="265"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1166"/>
         <source>User name</source>
         <translation>Όνομα χρήστη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1082"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="271"/>
+        <source>Unable to start the command shell on the remote computer.</source>
+        <translation>Δεν ήταν δυνατή η εκκίνηση του κελύφους εντολών στον απομακρυσμένο υπολογιστή.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="272"/>
+        <source>Check the host log for details.</source>
+        <translation>Δείτε το αρχείο καταγραφής του κεντρικού υπολογιστή για λεπτομέρειες.</translation>
+    </message>
+    <message>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1110"/>
         <source>Copy</source>
         <translation>Αντιγραφή</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1085"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1113"/>
         <source>Paste</source>
         <translation>Επικόλληση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1088"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1116"/>
         <source>Select All</source>
         <translation>Επιλογή όλων</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1136"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1164"/>
         <source>Enter your user name and password to authenticate on the remote computer.</source>
         <translation>Εισαγάγετε το όνομα χρήστη και τον κωδικό πρόσβασης για έλεγχο ταυτότητας στον απομακρυσμένο υπολογιστή.</translation>
     </message>
     <message>
-        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1150"/>
+        <location filename="../client/desktop/terminal/terminal_widget.cc" line="1178"/>
         <source>Password</source>
         <translation>Κωδικός πρόσβασης</translation>
     </message>
@@ -10226,7 +10484,7 @@ Credentials imported: %5</source>
         <translation>Ενημέρωση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="364"/>
+        <location filename="../common/desktop/update_dialog.cc" line="366"/>
         <source>Checking for updates</source>
         <translation>Έλεγχος για ενημερώσεις</translation>
     </message>
@@ -10261,7 +10519,7 @@ Credentials imported: %5</source>
         <translation>Ενημέρωση τώρα!</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="369"/>
+        <location filename="../common/desktop/update_dialog.cc" line="371"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
@@ -10271,75 +10529,75 @@ Credentials imported: %5</source>
         <translation>Λήψη πληροφοριών...</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="152"/>
+        <location filename="../common/desktop/update_dialog.cc" line="154"/>
         <source>Install the update yourself: %1</source>
         <translation>Εγκαταστήστε μόνοι σας την ενημέρωση: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="158"/>
+        <location filename="../common/desktop/update_dialog.cc" line="160"/>
         <source>An update will be downloaded. After the download is complete, the application will automatically close.</source>
         <translation>Θα γίνει λήψη μιας ενημέρωσης. Μετά την ολοκλήρωση της λήψης, η εφαρμογή θα κλείσει αυτόματα.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="160"/>
+        <location filename="../common/desktop/update_dialog.cc" line="162"/>
         <source>All connected sessions will be terminated. You cannot establish a connection until the update is complete.</source>
         <translation>Όλες οι συνδεδεμένες περίοδοι λειτουργίας θα τερματιστούν. Δεν μπορείτε να δημιουργήσετε σύνδεση μέχρι να ολοκληρωθεί η ενημέρωση.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="162"/>
+        <location filename="../common/desktop/update_dialog.cc" line="164"/>
         <source>All unsaved data will be lost.</source>
         <translation>Όλα τα μη αποθηκευμένα δεδομένα θα χαθούν.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="163"/>
+        <location filename="../common/desktop/update_dialog.cc" line="165"/>
         <source>Continue?</source>
         <translation>Συνέχεια;</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="193"/>
-        <location filename="../common/desktop/update_dialog.cc" line="213"/>
-        <location filename="../common/desktop/update_dialog.cc" line="235"/>
-        <location filename="../common/desktop/update_dialog.cc" line="331"/>
+        <location filename="../common/desktop/update_dialog.cc" line="195"/>
+        <location filename="../common/desktop/update_dialog.cc" line="215"/>
+        <location filename="../common/desktop/update_dialog.cc" line="237"/>
+        <location filename="../common/desktop/update_dialog.cc" line="333"/>
         <source>An error occurred while installing the update.</source>
         <translation>Παρουσιάστηκε σφάλμα κατά την εγκατάσταση της ενημέρωσης.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="304"/>
+        <location filename="../common/desktop/update_dialog.cc" line="306"/>
         <source>An error occurred while downloading the update: %1</source>
         <translation>Παρουσιάστηκε σφάλμα κατά τη λήψη της ενημέρωσης: %1</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="329"/>
+        <location filename="../common/desktop/update_dialog.cc" line="331"/>
         <source>The downloaded file is damaged.</source>
         <translation>Το αρχείο που λήφθηκε είναι κατεστραμμένο.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="364"/>
+        <location filename="../common/desktop/update_dialog.cc" line="366"/>
         <source>Downloading the update</source>
         <translation>Λήψη ενημέρωσης</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="369"/>
+        <location filename="../common/desktop/update_dialog.cc" line="371"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="281"/>
+        <location filename="../common/desktop/update_dialog.cc" line="283"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="282"/>
+        <location filename="../common/desktop/update_dialog.cc" line="284"/>
         <source>Error retrieving update information.</source>
         <translation>Σφάλμα κατά την ανάκτηση πληροφοριών ενημέρωσης.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="339"/>
+        <location filename="../common/desktop/update_dialog.cc" line="341"/>
         <source>Installing the update. Please wait.</source>
         <translation>Εγκατάσταση ενημέρωσης. Περιμένετε.</translation>
     </message>
     <message>
-        <location filename="../common/desktop/update_dialog.cc" line="257"/>
+        <location filename="../common/desktop/update_dialog.cc" line="259"/>
         <source>No updates available.</source>
         <translation>Δεν υπάρχουν διαθέσιμες ενημερώσεις.</translation>
     </message>
@@ -10387,22 +10645,22 @@ Credentials imported: %5</source>
         <translation>Αποεπιλογή όλων</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="181"/>
+        <location filename="../host/ui/user_dialog.cc" line="182"/>
         <source>The user name can not be empty and can contain only alphabet characters, numbers and _, -, ., @ characters. It can not consist of digits only.</source>
         <translation>Το όνομα χρήστη δεν μπορεί να είναι κενό και μπορεί να περιέχει μόνο χαρακτήρες του αλφαβήτου, αριθμούς και τους χαρακτήρες _, -, ., @. Δεν μπορεί να αποτελείται μόνο από ψηφία.</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="199"/>
+        <location filename="../host/ui/user_dialog.cc" line="200"/>
         <source>The username you entered already exists.</source>
         <translation>Το όνομα χρήστη που εισαγάγατε υπάρχει ήδη.</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="208"/>
+        <location filename="../host/ui/user_dialog.cc" line="209"/>
         <source>The passwords you entered do not match.</source>
         <translation>Οι κωδικοί πρόσβασης που εισαγάγατε δεν ταιριάζουν.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../host/ui/user_dialog.cc" line="219"/>
+        <location filename="../host/ui/user_dialog.cc" line="220"/>
         <source>The password can not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης δεν πρέπει να είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -10410,7 +10668,7 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../host/ui/user_dialog.cc" line="221"/>
+        <location filename="../host/ui/user_dialog.cc" line="222"/>
         <source>The password can not be longer than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης δεν πρέπει να υπερβαίνει τον %n χαρακτήρα.</numerusform>
@@ -10418,12 +10676,12 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="233"/>
+        <location filename="../host/ui/user_dialog.cc" line="234"/>
         <source>Password you entered does not meet the security requirements!</source>
         <translation>Ο κωδικός πρόσβασης που εισαγάγατε δεν πληροί τις απαιτήσεις ασφαλείας!</translation>
     </message>
     <message numerus="yes">
-        <location filename="../host/ui/user_dialog.cc" line="236"/>
+        <location filename="../host/ui/user_dialog.cc" line="237"/>
         <source>The password must contain lowercase and uppercase characters, numbers and should not be shorter than %n characters.</source>
         <translation>
             <numerusform>Ο κωδικός πρόσβασης πρέπει να περιέχει πεζούς και κεφαλαίους χαρακτήρες, αριθμούς και να μην είναι μικρότερος από %n χαρακτήρα.</numerusform>
@@ -10431,24 +10689,24 @@ Credentials imported: %5</source>
         </translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="240"/>
+        <location filename="../host/ui/user_dialog.cc" line="241"/>
         <source>Do you want to enter a different password?</source>
         <translation>Θέλετε να εισαγάγετε διαφορετικό κωδικό πρόσβασης;</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="243"/>
+        <location filename="../host/ui/user_dialog.cc" line="244"/>
         <source>Warning</source>
         <translation>Προειδοποίηση</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="261"/>
-        <location filename="../host/ui/user_dialog.cc" line="291"/>
-        <location filename="../host/ui/user_dialog.cc" line="301"/>
+        <location filename="../host/ui/user_dialog.cc" line="262"/>
+        <location filename="../host/ui/user_dialog.cc" line="292"/>
+        <location filename="../host/ui/user_dialog.cc" line="302"/>
         <source>Unknown internal error when creating or modifying a user.</source>
         <translation>Άγνωστο εσωτερικό σφάλμα κατά τη δημιουργία ή την τροποποίηση χρήστη.</translation>
     </message>
     <message>
-        <location filename="../host/ui/user_dialog.cc" line="339"/>
+        <location filename="../host/ui/user_dialog.cc" line="340"/>
         <source>Double-click to change</source>
         <translation>Κάντε διπλό κλικ για αλλαγή</translation>
     </message>
@@ -10456,62 +10714,62 @@ Credentials imported: %5</source>
 <context>
     <name>UserItem</name>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="253"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="254"/>
         <source>&lt;no user&gt;</source>
         <translation>&lt;χωρίς χρήστη&gt;</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="288"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="289"/>
         <source>Active</source>
         <translation>Ενεργή</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="290"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="291"/>
         <source>Connected</source>
         <translation>Συνδεδεμένη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="292"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="293"/>
         <source>Connect Query</source>
         <translation>Ερώτημα σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="294"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="295"/>
         <source>Shadow</source>
         <translation>Σκιώδης</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="296"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="297"/>
         <source>Disconnected</source>
         <translation>Αποσυνδεδεμένη</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="298"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="299"/>
         <source>Idle</source>
         <translation>Αδρανής</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="300"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="301"/>
         <source>Listen</source>
         <translation>Ακρόαση</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="302"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="303"/>
         <source>Reset</source>
         <translation>Επαναφορά</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="304"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="305"/>
         <source>Down</source>
         <translation>Εκτός λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="306"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="307"/>
         <source>Init</source>
         <translation>Προετοιμασία</translation>
     </message>
     <message>
-        <location filename="../client/desktop/desktop/task_manager_window.cc" line="308"/>
+        <location filename="../client/desktop/desktop/task_manager_window.cc" line="309"/>
         <source>Unknown</source>
         <translation>Άγνωστο</translation>
     </message>
