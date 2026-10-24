@@ -244,6 +244,13 @@ void TerminalWidget::onResult(int result_code)
         writeLocal("\r\n" + tr("Authentication failed.") + "\r\n");
         writeLocal(tr("User name") + ": ");
     }
+    else if (result_code == proto::terminal::Result::CODE_LAUNCH_ERROR)
+    {
+        // The host accepted the credentials but could not start the shell. Say so: otherwise the
+        // window just disappears without any explanation when the session is closed.
+        writeLocal("\r\n" + tr("Unable to start the command shell on the remote computer.") + "\r\n");
+        writeLocal(tr("Check the host log for details.") + "\r\n");
+    }
 }
 
 //--------------------------------------------------------------------------------------------------

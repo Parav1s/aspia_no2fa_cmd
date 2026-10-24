@@ -23,11 +23,14 @@
 #include "host/terminal_process.h"
 
 #include <array>
+#include <string>
+#include <vector>
 
 #include <asio/windows/stream_handle.hpp>
 
-// Pseudo-terminal process backed by ConPTY. The shell output is read asynchronously from an overlapped
-// pipe on the agent's I/O context.
+// Terminal process backed by a pseudo console (ConPTY, Windows 10 1809 and newer) or, on older
+// systems, by a shell process with redirected standard handles. The shell output is read
+// asynchronously from an overlapped pipe on the agent's I/O context.
 class TerminalProcessWin final : public TerminalProcess
 {
     Q_OBJECT
@@ -45,6 +48,17 @@ public:
     void resize(int columns, int rows) final;
 
 private:
+    // Two ways to run the shell: a pseudo console (full VT support) or plain pipes (the fallback
+    // for systems without ConPTY, which have no VT and no terminal size reporting).
+    bool startPseudoConsole(int columns, int rows);
+    bool startPipeShell();
+
+    // Starts the first shell from the candidates list that the system is able to launch.
+    bool spawnShell(const std::vector<std::wstring>& candidates, DWORD extra_flags,
+                    bool inherit_handles, STARTUPINFOW* startup_info,
+                    PROCESS_INFORMATION* process_info);
+
+    void echoInput(const QByteArray& data);
     void doRead();
     void stop();
 
@@ -62,6 +76,10 @@ private:
     ScopedHandle input_write_;
     ScopedHandle process_;
     asio::windows::stream_handle output_stream_;
+
+    // True when the shell runs behind redirected pipes instead of a pseudo console: its output is
+    // then in the OEM code page and typed input has to be echoed back to the client.
+    bool pipe_mode_ = false;
 
     Q_DISABLE_COPY_MOVE(TerminalProcessWin)
 };

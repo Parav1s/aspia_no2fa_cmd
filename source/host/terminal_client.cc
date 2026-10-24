@@ -355,6 +355,47 @@ bool startProcessWithToken(HANDLE token, const QString& command_line, const QStr
 
     return true;
 }
+
+//--------------------------------------------------------------------------------------------------
+// Returns the full (elevated) token linked to |token| when the account runs with a filtered token -
+// that is an administrator under UAC. The service runs as SYSTEM, so it can start the agent with the
+// elevated token without a consent prompt (the same thing the -h switch of psexec does).
+bool getElevatedToken(HANDLE token, ScopedHandle* elevated_token)
+{
+    TOKEN_ELEVATION_TYPE elevation_type = TokenElevationTypeDefault;
+    DWORD length = 0;
+    if (!GetTokenInformation(token, TokenElevationType, &elevation_type, sizeof(elevation_type),
+                             &length))
+    {
+        PLOG(WARNING) << "GetTokenInformation (elevation type) failed";
+        return false;
+    }
+
+    if (elevation_type != TokenElevationTypeLimited)
+    {
+        LOG(INFO) << "The user token is not filtered, the shell inherits its rights";
+        return false;
+    }
+
+    TOKEN_LINKED_TOKEN linked_token;
+    memset(&linked_token, 0, sizeof(linked_token));
+    if (!GetTokenInformation(token, TokenLinkedToken, &linked_token, sizeof(linked_token), &length))
+    {
+        PLOG(WARNING) << "Unable to get the linked token";
+        return false;
+    }
+
+    ScopedHandle linked(linked_token.LinkedToken);
+
+    if (!DuplicateTokenEx(linked, MAXIMUM_ALLOWED, nullptr, SecurityImpersonation, TokenPrimary,
+                          elevated_token->recieve()))
+    {
+        PLOG(WARNING) << "DuplicateTokenEx failed";
+        return false;
+    }
+
+    return true;
+}
 #endif // defined(Q_OS_WINDOWS)
 
 } // namespace
@@ -571,11 +612,37 @@ bool TerminalClient::launchAgent(
     if (!grantWindowStationAccess(user_token))
         CLOG(WARNING) << "Unable to grant window station access; the agent may fail to start";
 
+    // An administrator gets the terminal with the elevated token, so the shell really is elevated.
+    // Without the linked token the agent keeps the user's rights (no UAC prompt is possible here:
+    // an elevated shell can not be attached to a pseudo console of a lower-privileged process).
+    ScopedHandle elevated_token;
+    if (getElevatedToken(user_token, &elevated_token))
+        CLOG(INFO) << "The terminal agent will run with the elevated token";
+
     CLOG(INFO) << "Starting terminal agent process";
     const QString command_line =
         QString("\"%1\" --agent terminal").arg(
             QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
-    if (!startProcessWithToken(user_token, command_line, ipc_channel_id))
+
+    const bool started = startProcessWithToken(
+        elevated_token.isValid() ? elevated_token.get() : user_token.get(), command_line,
+        ipc_channel_id);
+
+    if (!started && elevated_token.isValid())
+    {
+        // Some configurations refuse an elevated primary token: keep the session usable at least
+        // with the rights of the logged on user.
+        CLOG(WARNING) << "Unable to start the agent with the elevated token, retrying without it";
+        if (!startProcessWithToken(user_token, command_line, ipc_channel_id))
+        {
+            CLOG(ERROR) << "startProcessWithToken failed";
+            return false;
+        }
+
+        return true;
+    }
+
+    if (!started)
     {
         CLOG(ERROR) << "startProcessWithToken failed";
         return false;

@@ -19,9 +19,12 @@
 #include "host/terminal_process_win.h"
 
 #include <string>
+#include <vector>
 
 #include <qt_windows.h>
 #include <comdef.h>
+
+#include <QString>
 
 #include <asio/buffer.hpp>
 #include <asio/error.hpp>
@@ -56,11 +59,12 @@ T conPtyFunction(const char* name)
 //--------------------------------------------------------------------------------------------------
 // Creates a unidirectional pipe whose read end supports overlapped I/O (required to read it through
 // an asio stream). CreatePipe can not produce overlapped handles, so a uniquely named pipe is used.
+// The write end is inheritable: the shell process receives it as its standard output.
 bool createOverlappedPipe(ScopedHandle* read_end, ScopedHandle* write_end)
 {
     static unsigned counter = 0;
 
-    // Headroom for what ConPTY may write between the wakeups of the agent's I/O context; doRead()
+    // Headroom for what the shell may write between the wakeups of the agent's I/O context; doRead()
     // drains the pipe completely on each wakeup, so this only needs to cover the scheduling latency.
     const DWORD buffer_size = 64 * 1024;
 
@@ -76,7 +80,12 @@ bool createOverlappedPipe(ScopedHandle* read_end, ScopedHandle* write_end)
         return false;
     }
 
-    write_end->reset(CreateFileW(name.c_str(), GENERIC_WRITE, 0, nullptr, OPEN_EXISTING,
+    SECURITY_ATTRIBUTES attributes;
+    memset(&attributes, 0, sizeof(attributes));
+    attributes.nLength = sizeof(attributes);
+    attributes.bInheritHandle = TRUE;
+
+    write_end->reset(CreateFileW(name.c_str(), GENERIC_WRITE, 0, &attributes, OPEN_EXISTING,
                                  FILE_ATTRIBUTE_NORMAL, nullptr));
     if (!write_end->isValid())
     {
@@ -85,6 +94,115 @@ bool createOverlappedPipe(ScopedHandle* read_end, ScopedHandle* write_end)
     }
 
     return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+// Returns a path inside the system directory (|relative| includes the leading backslash).
+std::wstring system32Path(const wchar_t* relative)
+{
+    wchar_t buffer[MAX_PATH];
+    const UINT length = GetSystemDirectoryW(buffer, MAX_PATH);
+    if (length == 0 || length >= MAX_PATH)
+        return {};
+
+    return std::wstring(buffer) + relative;
+}
+
+//--------------------------------------------------------------------------------------------------
+std::wstring findExecutable(const wchar_t* name)
+{
+    wchar_t buffer[MAX_PATH];
+    const DWORD length = SearchPathW(nullptr, name, nullptr, MAX_PATH, buffer, nullptr);
+    if (length == 0 || length >= MAX_PATH)
+        return {};
+
+    return buffer;
+}
+
+//--------------------------------------------------------------------------------------------------
+std::wstring quote(const std::wstring& path)
+{
+    return L"\"" + path + L"\"";
+}
+
+//--------------------------------------------------------------------------------------------------
+// The shells for the pseudo console path (Windows 10 1809 and newer, full VT support).
+std::vector<std::wstring> pseudoConsoleShells()
+{
+    std::vector<std::wstring> result;
+
+    // PowerShell 7 speaks UTF-8 and VT by default. It is optional, so it is only tried first.
+    const std::wstring pwsh = findExecutable(L"pwsh.exe");
+    if (!pwsh.empty())
+        result.push_back(quote(pwsh) + L" -NoLogo");
+
+    const std::wstring powershell =
+        system32Path(L"\\WindowsPowerShell\\v1.0\\powershell.exe");
+    if (!powershell.empty())
+        result.push_back(quote(powershell) + L" -NoLogo");
+
+    return result;
+}
+
+//--------------------------------------------------------------------------------------------------
+// The shells for the pipe fallback. PowerShell is used where it exists (Windows 8 and newer), cmd.exe
+// on Windows 7. There is no VT in this mode, so the shell output arrives as plain text.
+std::vector<std::wstring> pipeShells()
+{
+    std::vector<std::wstring> result;
+
+    if (windowsVersion() >= VERSION_WIN8)
+    {
+        const std::wstring powershell =
+            system32Path(L"\\WindowsPowerShell\\v1.0\\powershell.exe");
+        if (!powershell.empty())
+            result.push_back(quote(powershell) + L" -NoLogo -NoProfile");
+    }
+
+    const std::wstring cmd = system32Path(L"\\cmd.exe");
+    if (!cmd.empty())
+        result.push_back(quote(cmd) + L" /Q");
+
+    return result;
+}
+
+//--------------------------------------------------------------------------------------------------
+std::wstring userProfileDirectory()
+{
+    wchar_t buffer[MAX_PATH];
+    const DWORD length = GetEnvironmentVariableW(L"USERPROFILE", buffer, MAX_PATH);
+    if (length == 0 || length >= MAX_PATH)
+        return {};
+
+    return buffer;
+}
+
+//--------------------------------------------------------------------------------------------------
+// The shell of the pipe fallback writes in the OEM code page (there is a console behind it, even
+// though it has no window), while the client expects UTF-8.
+QByteArray oemToUtf8(const QByteArray& data)
+{
+    if (data.isEmpty())
+        return data;
+
+    const int wide_length =
+        MultiByteToWideChar(CP_OEMCP, 0, data.constData(), data.size(), nullptr, 0);
+    if (wide_length <= 0)
+        return data;
+
+    std::wstring wide(wide_length, L'\0');
+    if (MultiByteToWideChar(CP_OEMCP, 0, data.constData(), data.size(), wide.data(), wide_length) <= 0)
+        return data;
+
+    const int utf8_length =
+        WideCharToMultiByte(CP_UTF8, 0, wide.data(), wide_length, nullptr, 0, nullptr, nullptr);
+    if (utf8_length <= 0)
+        return data;
+
+    QByteArray result(utf8_length, Qt::Uninitialized);
+    WideCharToMultiByte(CP_UTF8, 0, wide.data(), wide_length, result.data(), utf8_length, nullptr,
+                        nullptr);
+    return result;
 }
 
 } // namespace
@@ -127,11 +245,24 @@ TerminalProcessWin::~TerminalProcessWin()
 //--------------------------------------------------------------------------------------------------
 bool TerminalProcessWin::start(int columns, int rows)
 {
+    const bool conpty = isSupported();
+    LOG(INFO) << "Starting shell (ConPTY:" << conpty << ")";
+
+    if (!(conpty ? startPseudoConsole(columns, rows) : startPipeShell()))
+        return false;
+
+    doRead();
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+bool TerminalProcessWin::startPseudoConsole(int columns, int rows)
+{
     static CreatePseudoConsoleFunc create_pseudo_console =
         conPtyFunction<CreatePseudoConsoleFunc>("CreatePseudoConsole");
     if (!create_pseudo_console)
     {
-        LOG(ERROR) << "ConPTY is not available (requires Windows 10 1809 or newer)";
+        LOG(ERROR) << "ConPTY is not available";
         return false;
     }
 
@@ -155,7 +286,8 @@ bool TerminalProcessWin::start(int columns, int rows)
     size.Y = static_cast<SHORT>(rows);
 
     decltype(pseudo_console_) pseudo_console;
-    _com_error hr = create_pseudo_console(size, input_read, output_write, 0, pseudo_console.recieve());
+    _com_error hr = create_pseudo_console(size, input_read, output_write, 0,
+                                          pseudo_console.recieve());
     if (FAILED(hr.Error()))
     {
         LOG(ERROR) << "CreatePseudoConsole failed:" << hr;
@@ -194,20 +326,9 @@ bool TerminalProcessWin::start(int columns, int rows)
     BOOL created = FALSE;
     if (attributes_ready)
     {
-        const DWORD flags = EXTENDED_STARTUPINFO_PRESENT | CREATE_UNICODE_ENVIRONMENT;
-
-        // Prefer PowerShell 7 (pwsh.exe), fall back to the bundled Windows PowerShell.
-        const wchar_t kPwsh[] = L"pwsh.exe";
-        const wchar_t kPowerShell[] = L"powershell.exe";
-
-        created = CreateProcessW(nullptr, const_cast<wchar_t*>(kPwsh), nullptr, nullptr, FALSE, flags,
-                                 nullptr, nullptr, &startup_info.StartupInfo, &process_info);
-        if (!created)
-        {
-            created = CreateProcessW(nullptr, const_cast<wchar_t*>(kPowerShell), nullptr, nullptr,
-                                     FALSE, flags, nullptr, nullptr, &startup_info.StartupInfo,
-                                     &process_info);
-        }
+        created = spawnShell(pseudoConsoleShells(),
+                             EXTENDED_STARTUPINFO_PRESENT | CREATE_UNICODE_ENVIRONMENT, false,
+                             &startup_info.StartupInfo, &process_info);
     }
 
     if (attributes_initialized)
@@ -237,9 +358,139 @@ bool TerminalProcessWin::start(int columns, int rows)
     pseudo_console_ = std::move(pseudo_console);
     input_write_ = std::move(input_write);
     process_ = std::move(process_handle);
-
-    doRead();
     return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+bool TerminalProcessWin::startPipeShell()
+{
+    SECURITY_ATTRIBUTES attributes;
+    memset(&attributes, 0, sizeof(attributes));
+    attributes.nLength = sizeof(attributes);
+    attributes.bInheritHandle = TRUE;
+
+    // Input pipe: the shell reads its commands from |input_read|, the agent writes to |input_write|.
+    ScopedHandle input_read;
+    ScopedHandle input_write;
+    if (!CreatePipe(input_read.recieve(), input_write.recieve(), &attributes, 0))
+    {
+        PLOG(ERROR) << "CreatePipe failed";
+        return false;
+    }
+
+    // Only the shell may inherit the ends it works with; the agent's own ends are private.
+    if (!SetHandleInformation(input_write, HANDLE_FLAG_INHERIT, 0))
+    {
+        PLOG(ERROR) << "SetHandleInformation failed";
+        return false;
+    }
+
+    ScopedHandle output_read;
+    ScopedHandle output_write;
+    if (!createOverlappedPipe(&output_read, &output_write))
+        return false;
+
+    STARTUPINFOEXW startup_info;
+    memset(&startup_info, 0, sizeof(startup_info));
+    startup_info.StartupInfo.cb = sizeof(startup_info);
+    startup_info.StartupInfo.dwFlags = STARTF_USESTDHANDLES;
+    startup_info.StartupInfo.hStdInput = input_read.get();
+    startup_info.StartupInfo.hStdOutput = output_write.get();
+    startup_info.StartupInfo.hStdError = output_write.get();
+
+    SIZE_T attribute_list_size = 0;
+    InitializeProcThreadAttributeList(nullptr, 1, 0, &attribute_list_size);
+
+    startup_info.lpAttributeList = reinterpret_cast<LPPROC_THREAD_ATTRIBUTE_LIST>(
+        HeapAlloc(GetProcessHeap(), 0, attribute_list_size));
+    if (!startup_info.lpAttributeList)
+    {
+        PLOG(ERROR) << "HeapAlloc failed";
+        return false;
+    }
+
+    // Without an explicit handle list CreateProcessW would hand every inheritable handle of the
+    // agent (including the IPC channel) to the shell.
+    HANDLE inherited_handles[2] = { input_read.get(), output_write.get() };
+
+    const bool attributes_initialized =
+        InitializeProcThreadAttributeList(startup_info.lpAttributeList, 1, 0, &attribute_list_size);
+    const bool attributes_ready = attributes_initialized &&
+        UpdateProcThreadAttribute(startup_info.lpAttributeList, 0, PROC_THREAD_ATTRIBUTE_HANDLE_LIST,
+            inherited_handles, sizeof(inherited_handles), nullptr, nullptr);
+
+    PROCESS_INFORMATION process_info;
+    memset(&process_info, 0, sizeof(process_info));
+
+    BOOL created = FALSE;
+    if (attributes_ready)
+    {
+        created = spawnShell(pipeShells(),
+                             EXTENDED_STARTUPINFO_PRESENT | CREATE_UNICODE_ENVIRONMENT |
+                                 CREATE_NO_WINDOW,
+                             true, &startup_info.StartupInfo, &process_info);
+    }
+
+    if (attributes_initialized)
+        DeleteProcThreadAttributeList(startup_info.lpAttributeList);
+    HeapFree(GetProcessHeap(), 0, startup_info.lpAttributeList);
+
+    if (!created)
+    {
+        PLOG(ERROR) << "Unable to start the shell process";
+        return false;
+    }
+
+    ScopedHandle thread_handle(process_info.hThread);
+    ScopedHandle process_handle(process_info.hProcess);
+
+    // The shell owns the other ends now; closing them here lets the agent see EOF when it exits.
+    input_read.reset();
+    output_write.reset();
+
+    std::error_code error_code;
+    output_stream_.assign(output_read.release(), error_code);
+    if (error_code)
+    {
+        LOG(ERROR) << "Unable to assign output handle:" << error_code;
+        TerminateProcess(process_handle, 0);
+        return false;
+    }
+
+    input_write_ = std::move(input_write);
+    process_ = std::move(process_handle);
+    pipe_mode_ = true;
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+bool TerminalProcessWin::spawnShell(const std::vector<std::wstring>& candidates, DWORD extra_flags,
+                                    bool inherit_handles, STARTUPINFOW* startup_info,
+                                    PROCESS_INFORMATION* process_info)
+{
+    const std::wstring directory = userProfileDirectory();
+    const wchar_t* working_directory = directory.empty() ? nullptr : directory.c_str();
+
+    for (const std::wstring& candidate : candidates)
+    {
+        // CreateProcessW may modify the command line, so it gets its own writable copy.
+        std::vector<wchar_t> command_line(candidate.begin(), candidate.end());
+        command_line.push_back(L'\0');
+
+        memset(process_info, 0, sizeof(*process_info));
+
+        if (CreateProcessW(nullptr, command_line.data(), nullptr, nullptr, inherit_handles,
+                           extra_flags, nullptr, working_directory, startup_info, process_info))
+        {
+            LOG(INFO) << "Shell started:" << QString::fromStdWString(candidate);
+            return true;
+        }
+
+        PLOG(WARNING) << "Unable to start the shell:"
+                      << QString::fromStdWString(candidate).toStdString();
+    }
+
+    return false;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -248,8 +499,35 @@ void TerminalProcessWin::writeInput(const QByteArray& data)
     if (!input_write_.isValid())
         return;
 
+    // A shell behind a plain pipe does not echo what it reads (that is the job of a terminal). Show
+    // the typed characters locally, otherwise the user types blind.
+    if (pipe_mode_)
+        echoInput(data);
+
     DWORD written = 0;
     WriteFile(input_write_, data.constData(), static_cast<DWORD>(data.size()), &written, nullptr);
+}
+
+//--------------------------------------------------------------------------------------------------
+void TerminalProcessWin::echoInput(const QByteArray& data)
+{
+    QByteArray echo;
+    echo.reserve(data.size());
+
+    for (const char character : data)
+    {
+        const unsigned char byte = static_cast<unsigned char>(character);
+
+        if (byte == '\r' || byte == '\n')
+            echo.append("\r\n");
+        else if (byte == 0x08 || byte == 0x7F)
+            echo.append("\b \b");
+        else if (byte == '\t' || byte >= 0x20)
+            echo.append(character);
+    }
+
+    if (!echo.isEmpty())
+        emit sig_output(echo);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -309,6 +587,9 @@ void TerminalProcessWin::doRead()
 
             batch.append(read_buffer_.data(), static_cast<int>(read));
         }
+
+        if (pipe_mode_)
+            batch = oemToUtf8(batch);
 
         emit sig_output(batch);
         doRead();

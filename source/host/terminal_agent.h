@@ -48,6 +48,9 @@ private slots:
     void onPtyFinished();
 
 private:
+    // Tells the client why the shell could not be started, so it does not just lose the window.
+    void sendLaunchError();
+
     IpcChannel* ipc_channel_ = nullptr;
     TerminalProcess* terminal_process_ = nullptr;
     bool process_started_ = false;

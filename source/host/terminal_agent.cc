@@ -130,6 +130,7 @@ void TerminalAgent::onIpcMessageReceived(
         if (!terminal_process_->start(columns, rows))
         {
             LOG(ERROR) << "Unable to start terminal process";
+            sendLaunchError();
             QCoreApplication::quit();
             return;
         }
@@ -145,6 +146,17 @@ void TerminalAgent::onIpcMessageReceived(
 
     if (message.has_data())
         terminal_process_->writeInput(QByteArray::fromStdString(message.data().data()));
+}
+
+//--------------------------------------------------------------------------------------------------
+void TerminalAgent::sendLaunchError()
+{
+    if (!ipc_channel_)
+        return;
+
+    proto::terminal::HostToClient message;
+    message.mutable_result()->set_code(proto::terminal::Result::CODE_LAUNCH_ERROR);
+    ipc_channel_->send(0, serialize(message));
 }
 
 //--------------------------------------------------------------------------------------------------

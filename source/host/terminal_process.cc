@@ -38,11 +38,11 @@ TerminalProcess::TerminalProcess(QObject* parent)
 TerminalProcess* TerminalProcess::create(QObject* parent)
 {
 #if defined(Q_OS_WINDOWS)
+    // ConPTY is used where it exists (Windows 10 1809 and newer); older systems get a shell behind
+    // redirected pipes, so terminal sessions work on Windows 7 and 8 as well.
     if (!TerminalProcessWin::isSupported())
-    {
-        LOG(ERROR) << "Terminal sessions require Windows 10 1809 or newer";
-        return nullptr;
-    }
+        LOG(INFO) << "ConPTY is not available, using the pipe fallback";
+
     return new TerminalProcessWin(parent);
 #elif defined(Q_OS_LINUX) || defined(Q_OS_MACOS)
     return new TerminalProcessUnix(parent);
