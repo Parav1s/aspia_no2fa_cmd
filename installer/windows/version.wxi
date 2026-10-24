@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Include>
-    <?define Manufacturer="Parav1s"?>
+    <?define Manufacturer="Paravis"?>
     <?define Version="$(env.ASPIA_VERSION)"?>
     <?define SourceFiles="$(env.ASPIA_BIN_DIR)"?>
     <?if $(sys.BUILDARCH)="x86"?>

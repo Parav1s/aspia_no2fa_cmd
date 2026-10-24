@@ -31,7 +31,7 @@ BEGIN
     BEGIN
         BLOCK "040904E4"
         BEGIN
-            VALUE "CompanyName",      "Parav1s"
+            VALUE "CompanyName",      "Paravis"
             VALUE "FileDescription",  ASPIA_FILE_DESCRIPTION
             VALUE "FileVersion",      ASPIA_VERSION_STRING
             VALUE "InternalName",     "Aspia"

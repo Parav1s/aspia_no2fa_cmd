@@ -45,7 +45,7 @@ const char kGitHubLink[] = "https://github.com/Parav1s/aspia_no2fa_cmd";
 const char* kDevelopers[] =
 {
     "Dmitry Chapyshev",
-    "Parav1s (fork maintainer)"
+    "Paravis (fork maintainer)"
 };
 
 const char* kTranslators[] =
