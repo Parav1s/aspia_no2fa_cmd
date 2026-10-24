@@ -2773,8 +2773,8 @@ Credentials replaced: %2</source>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="751"/>
-        <location filename="../host/main.cc" line="786"/>
+        <location filename="../host/main.cc" line="818"/>
+        <location filename="../host/main.cc" line="853"/>
         <source>Settings storage is unavailable.</source>
         <translation>設定儲存空間無法使用。</translation>
     </message>
@@ -2855,37 +2855,42 @@ Credentials replaced: %2</source>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="680"/>
+        <location filename="../host/main.cc" line="738"/>
         <source>Launch the application hidden.</source>
         <translation>以隱藏方式啟動應用程式。</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="682"/>
+        <location filename="../host/main.cc" line="740"/>
         <source>Launch the window of a Quick Support package.</source>
         <translation>啟動 Quick Support 套件的視窗。</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="684"/>
+        <location filename="../host/main.cc" line="742"/>
+        <source>Data directory of a Quick Support package.</source>
+        <translation>Quick Support 套件的資料目錄。</translation>
+    </message>
+    <message>
+        <location filename="../host/main.cc" line="744"/>
         <source>Export parameters to file.</source>
         <translation>將參數匯出到檔案。</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="686"/>
+        <location filename="../host/main.cc" line="746"/>
         <source>Import parameters from file.</source>
         <translation>從檔案匯入參數。</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="688"/>
+        <location filename="../host/main.cc" line="748"/>
         <source>Do not display any messages during import and export.</source>
         <translation>匯入和匯出期間不顯示任何訊息。</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="690"/>
+        <location filename="../host/main.cc" line="750"/>
         <source>Calling the settings dialog.</source>
         <translation>呼叫設定對話方塊。</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="692"/>
+        <location filename="../host/main.cc" line="752"/>
         <source>Calling the security log dialog.</source>
         <translation>呼叫安全性記錄對話方塊。</translation>
     </message>
@@ -2922,9 +2927,9 @@ Credentials replaced: %2</source>
     <name>HostWindow</name>
     <message>
         <location filename="../host/ui/host_window.ui" line="26"/>
-        <location filename="../host/ui/host_window.cc" line="575"/>
-        <location filename="../host/ui/host_window.cc" line="832"/>
-        <location filename="../host/ui/host_window.cc" line="1123"/>
+        <location filename="../host/ui/host_window.cc" line="590"/>
+        <location filename="../host/ui/host_window.cc" line="869"/>
+        <location filename="../host/ui/host_window.cc" line="1160"/>
         <source>Aspia Host</source>
         <translation>Aspia Host</translation>
     </message>
@@ -2940,164 +2945,174 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="198"/>
-        <location filename="../host/ui/host_window.cc" line="1037"/>
+        <location filename="../host/ui/host_window.cc" line="1074"/>
         <source>Router is disabled</source>
         <translation>路由器已停用</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="255"/>
+        <location filename="../host/ui/host_window.ui" line="256"/>
         <source>Help</source>
         <translation>說明</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="264"/>
+        <location filename="../host/ui/host_window.ui" line="265"/>
         <source>Access</source>
         <translation>存取</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="274"/>
+        <location filename="../host/ui/host_window.ui" line="275"/>
         <source>View</source>
         <translation>檢視</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="278"/>
+        <location filename="../host/ui/host_window.ui" line="279"/>
         <source>Language</source>
         <translation>語言</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="283"/>
+        <location filename="../host/ui/host_window.ui" line="284"/>
         <source>Theme</source>
         <translation>佈景主題</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="296"/>
+        <location filename="../host/ui/host_window.ui" line="297"/>
         <source>Exit</source>
         <translation>離開</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="301"/>
+        <location filename="../host/ui/host_window.ui" line="302"/>
         <source>Online Help...</source>
         <translation>線上說明...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="304"/>
+        <location filename="../host/ui/host_window.ui" line="305"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="309"/>
+        <location filename="../host/ui/host_window.ui" line="310"/>
         <source>About System</source>
         <translation>關於系統</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="314"/>
+        <location filename="../host/ui/host_window.ui" line="315"/>
         <source>About</source>
         <translation>關於</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="319"/>
+        <location filename="../host/ui/host_window.ui" line="320"/>
         <source>Security Log...</source>
         <translation>安全性記錄...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="324"/>
+        <location filename="../host/ui/host_window.ui" line="325"/>
         <source>Settings...</source>
         <translation>設定...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="329"/>
-        <location filename="../host/ui/host_window.cc" line="795"/>
+        <location filename="../host/ui/host_window.ui" line="330"/>
+        <source>Run as administrator</source>
+        <translation>以系統管理員身分執行</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.ui" line="335"/>
+        <location filename="../host/ui/host_window.cc" line="832"/>
         <source>Hide</source>
         <translation>隱藏</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="340"/>
+        <location filename="../host/ui/host_window.ui" line="346"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="351"/>
+        <location filename="../host/ui/host_window.ui" line="357"/>
         <source>Terminal</source>
         <translation>終端機</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="362"/>
+        <location filename="../host/ui/host_window.ui" line="368"/>
         <source>Desktop View</source>
         <translation>桌面檢視</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="373"/>
+        <location filename="../host/ui/host_window.ui" line="379"/>
         <source>File Transfer</source>
         <translation>檔案傳輸</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="384"/>
+        <location filename="../host/ui/host_window.ui" line="390"/>
         <source>System Information</source>
         <translation>系統資訊</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="395"/>
+        <location filename="../host/ui/host_window.ui" line="401"/>
         <source>Text Chat</source>
         <translation>文字聊天</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="400"/>
+        <location filename="../host/ui/host_window.ui" line="406"/>
         <source>Show chat</source>
         <translation>顯示聊天</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="295"/>
-        <location filename="../host/ui/host_window.cc" line="790"/>
+        <location filename="../host/ui/host_window.cc" line="310"/>
+        <location filename="../host/ui/host_window.cc" line="827"/>
         <source>Show</source>
         <translation>顯示</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="570"/>
+        <location filename="../host/ui/host_window.cc" line="585"/>
         <source>Screen recording has started.</source>
         <translation>螢幕錄製已開始。</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="572"/>
+        <location filename="../host/ui/host_window.cc" line="587"/>
         <source>Screen recording stopped.</source>
         <translation>螢幕錄製已停止。</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="779"/>
+        <location filename="../host/ui/host_window.cc" line="634"/>
+        <source>Unable to request administrator rights.</source>
+        <translation>無法要求系統管理員權限。</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>設定儲存空間無法使用。</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="850"/>
+        <location filename="../host/ui/host_window.cc" line="887"/>
         <source>If you exit from Aspia, it will not be possible to connect to this computer until you turn on the computer or Aspia again manually. Do you really want to exit the application?</source>
         <translation>如果離開 Aspia，在您再次手動開啟電腦或 Aspia 之前，將無法連線到這台電腦。確定要離開應用程式嗎？</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1029"/>
+        <location filename="../host/ui/host_window.cc" line="1066"/>
         <source>Not connected to service</source>
         <translation>未連線到服務</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1042"/>
+        <location filename="../host/ui/host_window.cc" line="1079"/>
         <source>Connecting to router...</source>
         <translation>正在連線到路由器...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1047"/>
+        <location filename="../host/ui/host_window.cc" line="1084"/>
         <source>Connected to router</source>
         <translation>已連線到路由器</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1052"/>
+        <location filename="../host/ui/host_window.cc" line="1089"/>
         <source>Connection error</source>
         <translation>連線錯誤</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1120"/>
+        <location filename="../host/ui/host_window.cc" line="1157"/>
         <source>IP addresses:</source>
         <translation>IP 位址：</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1124"/>
+        <location filename="../host/ui/host_window.cc" line="1161"/>
         <source>ID: %1</source>
         <translation>ID：%1</translation>
     </message>

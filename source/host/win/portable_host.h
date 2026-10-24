@@ -23,34 +23,35 @@
 
 // The portable run of a Quick Support package.
 //
-// The user starts the exported copy of the host. The launcher asks for administrator rights, copies
-// the executable to a fresh directory under Program Files, registers a temporary service for it and
-// waits. The service is the ordinary host service: it connects to the router built into the package,
-// authorizes the users built into the package (the one-time password is off) and starts the usual
-// host window in the user's session. When the window is closed, the service stops and everything of
-// the run is removed.
+// The user starts the exported copy of the host. It runs in the user's session without asking for
+// administrator rights: the host service and the window live in one process and keep their
+// settings and database in a directory of their own. What needs administrator rights (access to
+// the logon screen, starting agents for other accounts) is simply unavailable - the run works with
+// what the current user may do.
 //
-// Both the service and the window of the run work with the same executable, so the unique IPC
-// channel suffix and the service name are derived from its path.
+// The window has a shield button: it restarts the package elevated, so the same run continues with
+// the administrator rights of the user (the database directory is passed to the new process).
 class PortableHost
 {
 public:
-    // Whether the executable of this process is a Quick Support package.
+    // Whether this process is the port run (the installed host is not).
     static bool isPortable();
 
-    // Whether this invocation is the launcher the user started (not the service, the window or an
-    // agent of the run).
-    static bool isLauncherInvocation(int argc, char* argv[]);
-
-    // Runs the launcher: asks for administrator rights and starts the temporary service.
-    static int runLauncher();
+    // Whether this invocation is the portable host the user started (a bare start or the elevated
+    // relaunch of the shield button), not a role process (the service, an agent).
+    static bool isPortableInvocation(int argc, char* argv[]);
 
     // Directory the run keeps its database and settings in. Empty for the installed host.
     static bool applyDataDirectory(const QString& path);
+
+    // Remembers the directory without touching it (the window process needs it only to restart the
+    // run elevated).
+    static void setDataDirectory(const QString& path);
     static QString dataDirectory();
 
-    // Name of the temporary service of this run.
-    static QString serviceName();
+    // %LOCALAPPDATA%\AspiaQS\<id of the executable>: writable without administrator rights and
+    // separate for every copy of the package.
+    static QString defaultDataDirectory();
 
     // Suffix that makes the IPC channels of a package unique on a machine where the installed host
     // runs as well. Empty for the installed host.
@@ -58,6 +59,9 @@ public:
 
     // Writes the router settings and the users built into the package into the database of the run.
     static bool prepareDatabase();
+
+    // Restarts the package with administrator rights, waiting for this process to exit first.
+    static bool restartElevated();
 
 private:
     Q_DISABLE_COPY_MOVE(PortableHost)

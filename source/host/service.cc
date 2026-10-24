@@ -195,14 +195,7 @@ const char Service::kDescription[] = "Accepts incoming remote desktop connection
 
 //--------------------------------------------------------------------------------------------------
 Service::Service(QObject* parent)
-#if defined(Q_OS_WINDOWS)
-    // A Quick Support package registers a temporary service of its own so it can coexist with the
-    // installed host (and so several packages work side by side).
-    : CoreService(PortableHost::isPortable() ? PortableHost::serviceName() : QString::fromLatin1(kName),
-                  parent)
-#else
     : CoreService(kName, parent)
-#endif // defined(Q_OS_WINDOWS)
 {
     LOG(INFO) << "Ctor";
 }

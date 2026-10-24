@@ -210,6 +210,14 @@ bool UserSession::start()
     }
 
     LOG(INFO) << "IPC server for UI is started";
+
+#if defined(Q_OS_WINDOWS)
+    // The window of a portable run is part of this process: there is no UI process to attach to
+    // (and no privileges to launch one).
+    if (PortableHost::isPortable())
+        return true;
+#endif // defined(Q_OS_WINDOWS)
+
     SessionId session_id = activeUserSessionId();
     if (session_id == kInvalidSessionId)
     {
@@ -567,9 +575,17 @@ void UserSession::onIpcNewConnection()
         return;
     }
 
-    // Verify the connecting peer's executable is exactly the UI binary we shipped.
+    // Verify the connecting peer's executable is exactly the UI binary we shipped. A portable run
+    // has the window in its own executable (the package is not named aspia_host.exe).
+#if defined(Q_OS_WINDOWS)
+    const QString expected_path = QFileInfo(
+        PortableHost::isPortable() ? QCoreApplication::applicationFilePath()
+                                   : QCoreApplication::applicationDirPath() + '/' + kExecutableNameForUi)
+        .canonicalFilePath();
+#else
     const QString expected_path = QFileInfo(
         QCoreApplication::applicationDirPath() + '/' + kExecutableNameForUi).canonicalFilePath();
+#endif // defined(Q_OS_WINDOWS)
     const QString actual_path = QFileInfo(
         ProcessUtil::filePath(ipc_channel->processId())).canonicalFilePath();
     if (actual_path.isEmpty() || actual_path != expected_path)
@@ -586,7 +602,12 @@ void UserSession::onIpcNewConnection()
 
         LOG(INFO) << "User GUI started by user with session id" << ipc_session_id;
 
+#if defined(Q_OS_WINDOWS)
+        // The window of a portable run is this process: it is in the right session by definition.
+        if (!PortableHost::isPortable() && ipc_session_id != activeUserSessionId())
+#else
         if (ipc_session_id != activeUserSessionId())
+#endif // defined(Q_OS_WINDOWS)
         {
             LOG(WARNING) << "Launching GUI is only possible in the user session";
             ipc_channel->deleteLater();
@@ -794,6 +815,11 @@ void UserSession::onTimer(TimePoint now)
 void UserSession::startupUserCheck()
 {
 #if defined(Q_OS_WINDOWS)
+    // The window of a portable run lives in this very process: there is no UI process to look for
+    // and none to launch.
+    if (PortableHost::isPortable())
+        return;
+
     // Windows can automatically restore login (ARSO, Automatic Restart Sign On) when rebooting
     // (login as the user who was logged in before the reboot). When the service starts, we don't
     // see the logged in user, but after a while they appear (in a locked state) without any events.

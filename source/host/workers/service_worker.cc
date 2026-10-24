@@ -154,7 +154,6 @@ void ServiceWorker::onPrepare()
 
     tcp_server_ = new TcpServer(this);
     connect(tcp_server_, &TcpServer::sig_newConnection, this, &ServiceWorker::onNewDirectConnection);
-
     connect(tcp_server_, &TcpServer::sig_errorOccurred, this, [this](const QString& address, const QString& username)
     {
         SLOG(ERROR) << "[connection failed] address:" << address << "user:" << username;
@@ -193,7 +192,12 @@ void ServiceWorker::onStart()
     desktop_manager_->start();
 
     Database& db = Database::instance();
-    tcp_server_->start(db.tcpPort());
+
+    // A portable run serves through the router only: the direct server would fight the installed
+    // host for the port, and without administrator rights the firewall rules would not be added
+    // for it anyway.
+    if (!PortableHost::isPortable())
+        tcp_server_->start(db.tcpPort());
 
     if (db.isRouterEnabled())
         connectToRouter(FROM_HERE);

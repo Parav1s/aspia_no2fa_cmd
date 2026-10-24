@@ -18,26 +18,17 @@
 
 #include "host/win/portable_host.h"
 
-#include <QCoreApplication>
 #include <QDir>
-#include <QFile>
 #include <QFileInfo>
+#include <QLockFile>
 #include <QSettings>
-#include <QThread>
 #include <qt_windows.h>
-#include <ShlObj.h>
-#include <TlHelp32.h>
 
 #include "base/crypto/generic_hash.h"
-#include "base/crypto/random.h"
+#include "base/files/base_paths.h"
 #include "base/logging.h"
 #include "base/process_util.h"
 #include "base/service_controller.h"
-#include "base/time_types.h"
-#include "base/win/scoped_co_mem.h"
-#include "base/win/scoped_com_initializer.h"
-#include "base/win/scoped_object.h"
-#include "base/win/security_helpers.h"
 #include "host/database.h"
 #include "host/win/portable_package.h"
 
@@ -45,309 +36,62 @@ namespace {
 
 const char kLaunchOption[] = "--portable-launch";
 const char kDataDirectoryVariable[] = "ASPIA_QS_DATA_DIR";
-const char kExecutableName[] = "aspia_host.exe";
 const char kBaseDirectoryName[] = "AspiaQS";
-const char kDataDirectoryName[] = "data";
-const char kServiceNamePrefix[] = "aspia-qs-";
-const char kServiceDisplayName[] = "Aspia Quick Support";
+const char kInstalledServiceName[] = "aspia-host-service";
 
-// Only SYSTEM and Administrators may read the settings of the run (the database holds the password
-// verifiers of the users built into the package).
-const char kDataDirectorySddl[] = "O:SYG:SYD:P(A;OICI;GA;;;SY)(A;OICI;GA;;;BA)";
-
-const MilliSeconds kPollInterval(100);
-const int kServiceStartAttempts = 300;
-const int kRemoveAttempts = 30;
+// Held for the lifetime of the process: two runs of a package would share the same database (and
+// therefore the same host ID), which the router cannot tell apart.
+QLockFile* g_data_directory_lock = nullptr;
+QString g_data_directory;
 
 //--------------------------------------------------------------------------------------------------
-// Where the copies of the run live. It is Program Files: only administrators can create files
-// there, so nobody can replace the executable the service runs as SYSTEM.
-QString baseDirectory()
+QString executablePath()
 {
-    ScopedCoMem<wchar_t> buffer;
-    const HRESULT hr = SHGetKnownFolderPath(FOLDERID_ProgramFiles, 0, nullptr, &buffer);
-    if (FAILED(hr))
-    {
-        LOG(ERROR) << "SHGetKnownFolderPath failed";
-        return QString();
-    }
-
-    return QDir::fromNativeSeparators(QString::fromWCharArray(buffer)) + '/' + kBaseDirectoryName;
+    return ProcessUtil::filePath(ProcessUtil::currentProcessId());
 }
 
 //--------------------------------------------------------------------------------------------------
 QString executableHash()
 {
-    const QByteArray path =
-        QFileInfo(ProcessUtil::filePath(ProcessUtil::currentProcessId())).canonicalFilePath().toLower().toUtf8();
+    const QByteArray path = QFileInfo(executablePath()).canonicalFilePath().toLower().toUtf8();
     return QString::fromLatin1(
         GenericHash::hash(GenericHash::BLAKE2s256, path).toHex().left(16));
 }
 
 //--------------------------------------------------------------------------------------------------
-QString serviceNameForId(const QString& run_id)
+// The ID the host of an installed Aspia is already known by. A support run on a machine that had
+// the host installed keeps that ID instead of asking the router for a new one.
+QByteArray installedHostKey()
 {
-    return QString::fromLatin1(kServiceNamePrefix) + run_id;
-}
-
-//--------------------------------------------------------------------------------------------------
-QString mutexName(const QString& run_id)
-{
-    return "Global\\aspia-qs-" + run_id;
-}
-
-//--------------------------------------------------------------------------------------------------
-void removeService(const QString& name)
-{
-    if (!ServiceController::isInstalled(name))
-        return;
-
-    if (ServiceController::isRunning(name))
+    // A running installed host owns its ID; taking it over would make the router mix up the two.
+    if (ServiceController::isRunning(QLatin1String(kInstalledServiceName)))
     {
-        std::unique_ptr<ServiceController> service = ServiceController::open(name);
-        if (service)
-            service->stop();
+        LOG(INFO) << "The installed host is running, its ID is not taken over";
+        return QByteArray();
     }
 
-    if (ServiceController::remove(name))
-        LOG(INFO) << "Service" << name << "is removed";
-    else
-        LOG(ERROR) << "Unable to remove service:" << name;
-}
+    const QString dir = BasePaths::genericConfigDir();
+    if (dir.isEmpty())
+        return QByteArray();
 
-//--------------------------------------------------------------------------------------------------
-// Terminates the processes still running from |run_dir| so the directory can be removed. The window
-// outlives the service (like the installed host's) and a desktop agent may still be exiting.
-void terminateRunProcesses(const QString& run_dir)
-{
-    ScopedHandle snapshot(CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0));
-    if (!snapshot.isValid())
+    const QString file_path = dir + "/aspia/secure/host.db3";
+    if (!QFileInfo::exists(file_path))
+        return QByteArray();
+
+    // The database of the installed host is readable only by SYSTEM and administrators; without
+    // those rights the run simply does not see it.
+    std::unique_ptr<Database> database = Database::openForTesting(file_path);
+    if (!database || !database->isValid())
     {
-        PLOG(ERROR) << "CreateToolhelp32Snapshot failed";
-        return;
+        LOG(INFO) << "Unable to read the database of the installed host";
+        return QByteArray();
     }
 
-    PROCESSENTRY32W entry;
-    entry.dwSize = sizeof(entry);
+    const QByteArray host_key = database->hostKey();
+    if (!host_key.isEmpty())
+        LOG(INFO) << "The ID of the installed host is taken over";
 
-    if (!Process32FirstW(snapshot, &entry))
-        return;
-
-    const QString prefix = QDir::toNativeSeparators(run_dir) + '\\';
-
-    do
-    {
-        if (QString::fromWCharArray(entry.szExeFile).compare(
-                QLatin1String(kExecutableName), Qt::CaseInsensitive) != 0)
-        {
-            continue;
-        }
-
-        const QString path = QDir::toNativeSeparators(ProcessUtil::filePath(entry.th32ProcessID));
-        if (!path.startsWith(prefix, Qt::CaseInsensitive))
-            continue;
-
-        ScopedHandle process(OpenProcess(PROCESS_TERMINATE, FALSE, entry.th32ProcessID));
-        if (process.isValid() && TerminateProcess(process, 0))
-            LOG(INFO) << "Terminated process from the run directory:" << path;
-    }
-    while (Process32NextW(snapshot, &entry));
-}
-
-//--------------------------------------------------------------------------------------------------
-void removeDirectory(const QString& path)
-{
-    for (int i = 0; i < kRemoveAttempts; ++i)
-    {
-        if (!QFileInfo::exists(path) || QDir(path).removeRecursively())
-            return;
-
-        // The processes of the run started from the directory may still be exiting.
-        QThread::sleep(Seconds(1));
-    }
-
-    LOG(ERROR) << "Unable to remove directory:" << path;
-}
-
-//--------------------------------------------------------------------------------------------------
-// Removes what is left of the runs whose launcher is gone (killed, or the user logged off).
-void removeStaleRuns(const QString& base_dir)
-{
-    const QStringList run_ids = QDir(base_dir).entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-    for (const QString& run_id : run_ids)
-    {
-        ScopedHandle mutex(OpenMutexW(SYNCHRONIZE, FALSE, qUtf16Printable(mutexName(run_id))));
-        if (mutex.isValid())
-            continue;
-
-        LOG(INFO) << "Removing stale run:" << run_id;
-        removeService(serviceNameForId(run_id));
-        terminateRunProcesses(base_dir + '/' + run_id);
-        removeDirectory(base_dir + '/' + run_id);
-    }
-}
-
-//--------------------------------------------------------------------------------------------------
-bool createDirectoryWithSecurity(const QString& path)
-{
-    ScopedSd security_descriptor = convertSddlToSd(QString::fromLatin1(kDataDirectorySddl));
-    if (!security_descriptor)
-        return false;
-
-    SECURITY_ATTRIBUTES attributes;
-    attributes.nLength = sizeof(attributes);
-    attributes.lpSecurityDescriptor = security_descriptor.get();
-    attributes.bInheritHandle = FALSE;
-
-    if (!CreateDirectoryW(qUtf16Printable(QDir::toNativeSeparators(path)), &attributes))
-    {
-        PLOG(ERROR) << "CreateDirectoryW failed";
-        return false;
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-// Copies the executable to |run_dir|, registers the temporary service for it and waits until the
-// service stops.
-bool runHost(const QString& run_dir, const QString& data_dir, const QString& run_id)
-{
-    if (!QDir().mkpath(run_dir) || !createDirectoryWithSecurity(data_dir))
-    {
-        LOG(ERROR) << "Unable to create directory:" << run_dir;
-        return false;
-    }
-
-    const QString file_path = run_dir + '/' + kExecutableName;
-    if (!QFile::copy(ProcessUtil::filePath(ProcessUtil::currentProcessId()), file_path))
-    {
-        LOG(ERROR) << "Unable to copy the executable to:" << file_path;
-        return false;
-    }
-
-    if (!PortableHost::applyDataDirectory(data_dir))
-        return false;
-
-    if (!PortableHost::prepareDatabase())
-    {
-        LOG(ERROR) << "Unable to prepare the database of the run";
-        return false;
-    }
-
-    ScopedScHandle manager(
-        OpenSCManagerW(nullptr, nullptr, SC_MANAGER_CONNECT | SC_MANAGER_CREATE_SERVICE));
-    if (!manager.isValid())
-    {
-        PLOG(ERROR) << "OpenSCManagerW failed";
-        return false;
-    }
-
-    const QString service_name = PortableHost::serviceName();
-    const QString command_line = '"' + QDir::toNativeSeparators(file_path) +
-        "\" --service --qs-dir=\"" + QDir::toNativeSeparators(data_dir) + '"';
-
-    ScopedScHandle service(CreateServiceW(manager, qUtf16Printable(service_name),
-        qUtf16Printable(QString::fromLatin1(kServiceDisplayName) + " (" + run_id + ')'),
-        SERVICE_ALL_ACCESS, SERVICE_WIN32_OWN_PROCESS, SERVICE_DEMAND_START, SERVICE_ERROR_IGNORE,
-        qUtf16Printable(command_line), nullptr, nullptr, nullptr, nullptr, nullptr));
-    if (!service.isValid())
-    {
-        PLOG(ERROR) << "CreateServiceW failed";
-        return false;
-    }
-
-    if (!StartServiceW(service, 0, nullptr))
-    {
-        PLOG(ERROR) << "StartServiceW failed";
-        return false;
-    }
-
-    SERVICE_STATUS_PROCESS status;
-    memset(&status, 0, sizeof(status));
-
-    for (int i = 0; i < kServiceStartAttempts; ++i)
-    {
-        DWORD bytes_needed = 0;
-        if (!QueryServiceStatusEx(service, SC_STATUS_PROCESS_INFO, reinterpret_cast<BYTE*>(&status),
-                                  sizeof(status), &bytes_needed))
-        {
-            PLOG(ERROR) << "QueryServiceStatusEx failed";
-            return false;
-        }
-
-        if (status.dwCurrentState != SERVICE_START_PENDING)
-            break;
-
-        QThread::sleep(kPollInterval);
-    }
-
-    if (status.dwCurrentState != SERVICE_RUNNING)
-    {
-        LOG(ERROR) << "Service is not started (state:" << status.dwCurrentState << ")";
-        return false;
-    }
-
-    ScopedHandle process(OpenProcess(SYNCHRONIZE, FALSE, status.dwProcessId));
-    if (!process.isValid())
-    {
-        PLOG(ERROR) << "OpenProcess failed";
-        return false;
-    }
-
-    LOG(INFO) << "Quick Support is started from:" << run_dir;
-    WaitForSingleObject(process, INFINITE);
-    LOG(INFO) << "Quick Support is stopped";
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-int launch()
-{
-    // The firewall rules are removed through COM.
-    ScopedCOMInitializer com_initializer;
-
-    const QString base_dir = baseDirectory();
-    if (base_dir.isEmpty())
-        return 1;
-
-    removeStaleRuns(base_dir);
-
-    QString run_id;
-    QString run_dir;
-    do
-    {
-        run_id = QString::fromLatin1(Random::byteArray(8).toHex());
-        run_dir = base_dir + '/' + run_id;
-    }
-    while (QFileInfo::exists(run_dir));
-
-    ScopedHandle mutex(CreateMutexW(nullptr, FALSE, qUtf16Printable(mutexName(run_id))));
-    if (!mutex.isValid())
-    {
-        PLOG(ERROR) << "CreateMutexW failed";
-        return 1;
-    }
-
-    const QString data_dir = run_dir + '/' + kDataDirectoryName;
-    const bool result = runHost(run_dir, data_dir, run_id);
-
-    removeService(serviceNameForId(run_id));
-    terminateRunProcesses(run_dir);
-    removeDirectory(run_dir);
-
-    // Removed only when there are no other runs.
-    QDir().rmdir(base_dir);
-
-    if (!result)
-    {
-        MessageBoxW(nullptr,
-                    L"The Quick Support host could not be started.\n"
-                    L"See the log files in %TEMP%\\aspia for details.",
-                    L"Aspia Quick Support", MB_ICONERROR | MB_OK);
-    }
-
-    return result ? 0 : 1;
+    return host_key;
 }
 
 } // namespace
@@ -361,43 +105,20 @@ bool PortableHost::isPortable()
 
 //--------------------------------------------------------------------------------------------------
 // static
-bool PortableHost::isLauncherInvocation(int argc, char* argv[])
+bool PortableHost::isPortableInvocation(int argc, char* argv[])
 {
     if (!isPortable())
         return false;
 
-    // The internal relaunch (asking for elevation) is always the launcher.
-    if (argc == 2 && qstrcmp(argv[1], kLaunchOption) == 0)
-        return true;
-
-    // A role invocation (the service, the window, an agent) is never the launcher. A bare invocation
-    // is what the user double-clicked.
-    return argc == 1;
-}
-
-//--------------------------------------------------------------------------------------------------
-// static
-int PortableHost::runLauncher()
-{
-    if (!ProcessUtil::isProcessElevated())
+    // The elevated relaunch of the shield button is the portable host as well.
+    for (int i = 1; i < argc; ++i)
     {
-        // Ask for elevation (the temporary service needs administrator rights).
-        if (ProcessUtil::createProcess(ProcessUtil::filePath(ProcessUtil::currentProcessId()),
-                                       QString::fromLatin1(kLaunchOption),
-                                       ProcessUtil::ExecuteMode::ELEVATE))
-        {
-            return 0;
-        }
-
-        // The UAC prompt was declined: without the service the host cannot serve the session.
-        MessageBoxW(nullptr,
-                    L"Aspia Quick Support needs administrator rights to start.\n"
-                    L"Start the program again and allow the elevation request.",
-                    L"Aspia Quick Support", MB_ICONWARNING | MB_OK);
-        return 1;
+        if (qstrcmp(argv[i], kLaunchOption) == 0)
+            return true;
     }
 
-    return launch();
+    // A bare invocation is what the user double-clicked. A role invocation (an agent) is never it.
+    return argc == 1;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -414,7 +135,21 @@ bool PortableHost::applyDataDirectory(const QString& path)
         return false;
     }
 
+    // One run at a time: a second one would reuse the same database and the same host ID.
+    if (!g_data_directory_lock)
+    {
+        g_data_directory_lock = new QLockFile(dir.filePath("aspia-qs.lock"));
+        if (!g_data_directory_lock->tryLock(10000))
+        {
+            LOG(ERROR) << "Another Quick Support run is using" << path;
+            delete g_data_directory_lock;
+            g_data_directory_lock = nullptr;
+            return false;
+        }
+    }
+
     qputenv(kDataDirectoryVariable, path.toUtf8());
+    g_data_directory = path;
 
     // The system settings of the host (host.ini) are machine-wide by default; inside a run they
     // live next to its database.
@@ -427,23 +162,30 @@ bool PortableHost::applyDataDirectory(const QString& path)
 // static
 QString PortableHost::dataDirectory()
 {
+    if (!g_data_directory.isEmpty())
+        return g_data_directory;
+
     return qEnvironmentVariable(kDataDirectoryVariable);
 }
 
 //--------------------------------------------------------------------------------------------------
 // static
-QString PortableHost::serviceName()
+void PortableHost::setDataDirectory(const QString& path)
 {
-    QString run_id;
+    g_data_directory = path;
+}
 
-    const QString data_dir = dataDirectory();
-    if (!data_dir.isEmpty())
-        run_id = QFileInfo(data_dir).dir().dirName();
+//--------------------------------------------------------------------------------------------------
+// static
+QString PortableHost::defaultDataDirectory()
+{
+    const QString base = qEnvironmentVariable("LOCALAPPDATA");
+    if (base.isEmpty())
+        return QString();
 
-    if (run_id.isEmpty())
-        run_id = executableHash();
-
-    return serviceNameForId(run_id);
+    // One directory per user, not per executable: a package exported again keeps the host ID the
+    // router already knows instead of asking for a new one on every start.
+    return QDir::fromNativeSeparators(base) + '/' + kBaseDirectoryName;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -471,9 +213,12 @@ bool PortableHost::prepareDatabase()
         return false;
     }
 
-    // Prepared by the launcher already.
-    if (!db.userList().isEmpty())
-        return true;
+    // The ID is the one the router already knows: of a previous run of this package, or of the
+    // installed host this computer had. A new ID on every start is exactly what a support session
+    // does not need.
+    QByteArray host_key = db.hostKey();
+    if (host_key.isEmpty())
+        host_key = installedHostKey();
 
     if (!db.setRouterEnabled(true))
         LOG(ERROR) << "Unable to enable the router";
@@ -488,12 +233,34 @@ bool PortableHost::prepareDatabase()
     if (!db.setOneTimePassword(false))
         LOG(ERROR) << "Unable to disable the one-time password";
 
+    // The users and the router always follow the package: a package exported again with new users
+    // works without losing the ID.
     if (!db.replaceUsers(settings->users))
     {
         LOG(ERROR) << "Unable to write the users of the package";
         return false;
     }
 
-    LOG(INFO) << "Quick Support database is prepared (users:" << settings->users.size() << ")";
+    if (!host_key.isEmpty() && !db.setHostKey(host_key))
+        LOG(ERROR) << "Unable to keep the host ID";
+
+    LOG(INFO) << "Quick Support database is prepared (users:" << settings->users.size()
+              << "id kept:" << !host_key.isEmpty() << ")";
     return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+// static
+bool PortableHost::restartElevated()
+{
+    QString arguments = QString::fromLatin1(kLaunchOption);
+
+    const QString dir = dataDirectory();
+    if (!dir.isEmpty())
+        arguments += " --qs-dir=\"" + QDir::toNativeSeparators(dir) + '"';
+
+    LOG(INFO) << "Restarting the portable host elevated";
+
+    return ProcessUtil::createProcess(executablePath(), arguments,
+                                      ProcessUtil::ExecuteMode::ELEVATE);
 }

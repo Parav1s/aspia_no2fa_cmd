@@ -75,6 +75,7 @@ private slots:
     void onShowChat();
     void onSecurityLog();
     void onSettings();
+    void onRunAsAdmin();
     void onShowHide();
     void onHelp();
     void onAboutSystem();

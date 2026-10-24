@@ -2773,8 +2773,8 @@ Değiştirilen kimlik bilgileri: %2</translation>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="751"/>
-        <location filename="../host/main.cc" line="786"/>
+        <location filename="../host/main.cc" line="818"/>
+        <location filename="../host/main.cc" line="853"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ayar depolama alanı kullanılamıyor.</translation>
     </message>
@@ -2855,37 +2855,42 @@ Değiştirilen kimlik bilgileri: %2</translation>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="680"/>
+        <location filename="../host/main.cc" line="738"/>
         <source>Launch the application hidden.</source>
         <translation>Uygulamayı gizli başlatır.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="682"/>
+        <location filename="../host/main.cc" line="740"/>
         <source>Launch the window of a Quick Support package.</source>
         <translation>Quick Support paketinin penceresini başlat.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="684"/>
+        <location filename="../host/main.cc" line="742"/>
+        <source>Data directory of a Quick Support package.</source>
+        <translation>Quick Support paketinin veri dizini.</translation>
+    </message>
+    <message>
+        <location filename="../host/main.cc" line="744"/>
         <source>Export parameters to file.</source>
         <translation>Parametreleri dosyaya dışa aktarır.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="686"/>
+        <location filename="../host/main.cc" line="746"/>
         <source>Import parameters from file.</source>
         <translation>Parametreleri dosyadan içe aktarır.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="688"/>
+        <location filename="../host/main.cc" line="748"/>
         <source>Do not display any messages during import and export.</source>
         <translation>İçe ve dışa aktarma sırasında hiçbir mesaj göstermez.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="690"/>
+        <location filename="../host/main.cc" line="750"/>
         <source>Calling the settings dialog.</source>
         <translation>Ayarlar iletişim kutusunu açar.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="692"/>
+        <location filename="../host/main.cc" line="752"/>
         <source>Calling the security log dialog.</source>
         <translation>Güvenlik günlüğü iletişim kutusunu açar.</translation>
     </message>
@@ -2922,9 +2927,9 @@ Değiştirilen kimlik bilgileri: %2</translation>
     <name>HostWindow</name>
     <message>
         <location filename="../host/ui/host_window.ui" line="26"/>
-        <location filename="../host/ui/host_window.cc" line="575"/>
-        <location filename="../host/ui/host_window.cc" line="832"/>
-        <location filename="../host/ui/host_window.cc" line="1123"/>
+        <location filename="../host/ui/host_window.cc" line="590"/>
+        <location filename="../host/ui/host_window.cc" line="869"/>
+        <location filename="../host/ui/host_window.cc" line="1160"/>
         <source>Aspia Host</source>
         <translation>Aspia Host</translation>
     </message>
@@ -2940,164 +2945,174 @@ Değiştirilen kimlik bilgileri: %2</translation>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="198"/>
-        <location filename="../host/ui/host_window.cc" line="1037"/>
+        <location filename="../host/ui/host_window.cc" line="1074"/>
         <source>Router is disabled</source>
         <translation>Yönlendirici devre dışı</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="255"/>
+        <location filename="../host/ui/host_window.ui" line="256"/>
         <source>Help</source>
         <translation>Yardım</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="264"/>
+        <location filename="../host/ui/host_window.ui" line="265"/>
         <source>Access</source>
         <translation>Erişim</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="274"/>
+        <location filename="../host/ui/host_window.ui" line="275"/>
         <source>View</source>
         <translation>Görünüm</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="278"/>
+        <location filename="../host/ui/host_window.ui" line="279"/>
         <source>Language</source>
         <translation>Dil</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="283"/>
+        <location filename="../host/ui/host_window.ui" line="284"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="296"/>
+        <location filename="../host/ui/host_window.ui" line="297"/>
         <source>Exit</source>
         <translation>Çıkış</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="301"/>
+        <location filename="../host/ui/host_window.ui" line="302"/>
         <source>Online Help...</source>
         <translation>Çevrimiçi Yardım...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="304"/>
+        <location filename="../host/ui/host_window.ui" line="305"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="309"/>
+        <location filename="../host/ui/host_window.ui" line="310"/>
         <source>About System</source>
         <translation>Sistem Hakkında</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="314"/>
+        <location filename="../host/ui/host_window.ui" line="315"/>
         <source>About</source>
         <translation>Hakkında</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="319"/>
+        <location filename="../host/ui/host_window.ui" line="320"/>
         <source>Security Log...</source>
         <translation>Güvenlik Günlüğü...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="324"/>
+        <location filename="../host/ui/host_window.ui" line="325"/>
         <source>Settings...</source>
         <translation>Ayarlar...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="329"/>
-        <location filename="../host/ui/host_window.cc" line="795"/>
+        <location filename="../host/ui/host_window.ui" line="330"/>
+        <source>Run as administrator</source>
+        <translation>Yönetici olarak çalıştır</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.ui" line="335"/>
+        <location filename="../host/ui/host_window.cc" line="832"/>
         <source>Hide</source>
         <translation>Gizle</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="340"/>
+        <location filename="../host/ui/host_window.ui" line="346"/>
         <source>Desktop</source>
         <translation>Masaüstü</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="351"/>
+        <location filename="../host/ui/host_window.ui" line="357"/>
         <source>Terminal</source>
         <translation>Terminal</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="362"/>
+        <location filename="../host/ui/host_window.ui" line="368"/>
         <source>Desktop View</source>
         <translation>Masaüstü Görünümü</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="373"/>
+        <location filename="../host/ui/host_window.ui" line="379"/>
         <source>File Transfer</source>
         <translation>Dosya Aktarımı</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="384"/>
+        <location filename="../host/ui/host_window.ui" line="390"/>
         <source>System Information</source>
         <translation>Sistem Bilgileri</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="395"/>
+        <location filename="../host/ui/host_window.ui" line="401"/>
         <source>Text Chat</source>
         <translation>Metin Sohbeti</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="400"/>
+        <location filename="../host/ui/host_window.ui" line="406"/>
         <source>Show chat</source>
         <translation>Sohbeti göster</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="295"/>
-        <location filename="../host/ui/host_window.cc" line="790"/>
+        <location filename="../host/ui/host_window.cc" line="310"/>
+        <location filename="../host/ui/host_window.cc" line="827"/>
         <source>Show</source>
         <translation>Göster</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="570"/>
+        <location filename="../host/ui/host_window.cc" line="585"/>
         <source>Screen recording has started.</source>
         <translation>Ekran kaydı başladı.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="572"/>
+        <location filename="../host/ui/host_window.cc" line="587"/>
         <source>Screen recording stopped.</source>
         <translation>Ekran kaydı durduruldu.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="779"/>
+        <location filename="../host/ui/host_window.cc" line="634"/>
+        <source>Unable to request administrator rights.</source>
+        <translation>Yönetici hakları istenemedi.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ayar depolama alanı kullanılamıyor.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="850"/>
+        <location filename="../host/ui/host_window.cc" line="887"/>
         <source>If you exit from Aspia, it will not be possible to connect to this computer until you turn on the computer or Aspia again manually. Do you really want to exit the application?</source>
         <translation>Aspia&apos;dan çıkarsanız, bilgisayarı veya Aspia&apos;yı yeniden elle açana kadar bu bilgisayara bağlanmak mümkün olmayacak. Uygulamadan çıkmak istediğinizden gerçekten emin misiniz?</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1029"/>
+        <location filename="../host/ui/host_window.cc" line="1066"/>
         <source>Not connected to service</source>
         <translation>Hizmete bağlı değil</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1042"/>
+        <location filename="../host/ui/host_window.cc" line="1079"/>
         <source>Connecting to router...</source>
         <translation>Yönlendiriciye bağlanılıyor...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1047"/>
+        <location filename="../host/ui/host_window.cc" line="1084"/>
         <source>Connected to router</source>
         <translation>Yönlendiriciye bağlanıldı</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1052"/>
+        <location filename="../host/ui/host_window.cc" line="1089"/>
         <source>Connection error</source>
         <translation>Bağlantı hatası</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1120"/>
+        <location filename="../host/ui/host_window.cc" line="1157"/>
         <source>IP addresses:</source>
         <translation>IP adresleri:</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1124"/>
+        <location filename="../host/ui/host_window.cc" line="1161"/>
         <source>ID: %1</source>
         <translation>ID: %1</translation>
     </message>

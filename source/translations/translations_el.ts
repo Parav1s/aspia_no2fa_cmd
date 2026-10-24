@@ -2785,8 +2785,8 @@ Credentials replaced: %2</source>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="751"/>
-        <location filename="../host/main.cc" line="786"/>
+        <location filename="../host/main.cc" line="818"/>
+        <location filename="../host/main.cc" line="853"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ο χώρος αποθήκευσης ρυθμίσεων δεν είναι διαθέσιμος.</translation>
     </message>
@@ -2867,37 +2867,42 @@ Credentials replaced: %2</source>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="680"/>
+        <location filename="../host/main.cc" line="738"/>
         <source>Launch the application hidden.</source>
         <translation>Εκκίνηση της εφαρμογής σε κρυφή λειτουργία.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="682"/>
+        <location filename="../host/main.cc" line="740"/>
         <source>Launch the window of a Quick Support package.</source>
         <translation>Εκκίνηση του παραθύρου ενός πακέτου Quick Support.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="684"/>
+        <location filename="../host/main.cc" line="742"/>
+        <source>Data directory of a Quick Support package.</source>
+        <translation>Κατάλογος δεδομένων ενός πακέτου Quick Support.</translation>
+    </message>
+    <message>
+        <location filename="../host/main.cc" line="744"/>
         <source>Export parameters to file.</source>
         <translation>Εξαγωγή παραμέτρων σε αρχείο.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="686"/>
+        <location filename="../host/main.cc" line="746"/>
         <source>Import parameters from file.</source>
         <translation>Εισαγωγή παραμέτρων από αρχείο.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="688"/>
+        <location filename="../host/main.cc" line="748"/>
         <source>Do not display any messages during import and export.</source>
         <translation>Να μην εμφανίζονται μηνύματα κατά την εισαγωγή και την εξαγωγή.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="690"/>
+        <location filename="../host/main.cc" line="750"/>
         <source>Calling the settings dialog.</source>
         <translation>Κλήση του παραθύρου διαλόγου ρυθμίσεων.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="692"/>
+        <location filename="../host/main.cc" line="752"/>
         <source>Calling the security log dialog.</source>
         <translation>Κλήση του παραθύρου διαλόγου αρχείου καταγραφής ασφαλείας.</translation>
     </message>
@@ -2934,9 +2939,9 @@ Credentials replaced: %2</source>
     <name>HostWindow</name>
     <message>
         <location filename="../host/ui/host_window.ui" line="26"/>
-        <location filename="../host/ui/host_window.cc" line="575"/>
-        <location filename="../host/ui/host_window.cc" line="832"/>
-        <location filename="../host/ui/host_window.cc" line="1123"/>
+        <location filename="../host/ui/host_window.cc" line="590"/>
+        <location filename="../host/ui/host_window.cc" line="869"/>
+        <location filename="../host/ui/host_window.cc" line="1160"/>
         <source>Aspia Host</source>
         <translation>Aspia Host</translation>
     </message>
@@ -2952,164 +2957,174 @@ Credentials replaced: %2</source>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="198"/>
-        <location filename="../host/ui/host_window.cc" line="1037"/>
+        <location filename="../host/ui/host_window.cc" line="1074"/>
         <source>Router is disabled</source>
         <translation>Ο δρομολογητής είναι απενεργοποιημένος</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="255"/>
+        <location filename="../host/ui/host_window.ui" line="256"/>
         <source>Help</source>
         <translation>Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="264"/>
+        <location filename="../host/ui/host_window.ui" line="265"/>
         <source>Access</source>
         <translation>Πρόσβαση</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="274"/>
+        <location filename="../host/ui/host_window.ui" line="275"/>
         <source>View</source>
         <translation>Προβολή</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="278"/>
+        <location filename="../host/ui/host_window.ui" line="279"/>
         <source>Language</source>
         <translation>Γλώσσα</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="283"/>
+        <location filename="../host/ui/host_window.ui" line="284"/>
         <source>Theme</source>
         <translation>Θέμα</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="296"/>
+        <location filename="../host/ui/host_window.ui" line="297"/>
         <source>Exit</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="301"/>
+        <location filename="../host/ui/host_window.ui" line="302"/>
         <source>Online Help...</source>
         <translation>Ηλεκτρονική βοήθεια...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="304"/>
+        <location filename="../host/ui/host_window.ui" line="305"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="309"/>
+        <location filename="../host/ui/host_window.ui" line="310"/>
         <source>About System</source>
         <translation>Πληροφορίες συστήματος</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="314"/>
+        <location filename="../host/ui/host_window.ui" line="315"/>
         <source>About</source>
         <translation>Πληροφορίες</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="319"/>
+        <location filename="../host/ui/host_window.ui" line="320"/>
         <source>Security Log...</source>
         <translation>Αρχείο καταγραφής ασφαλείας...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="324"/>
+        <location filename="../host/ui/host_window.ui" line="325"/>
         <source>Settings...</source>
         <translation>Ρυθμίσεις...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="329"/>
-        <location filename="../host/ui/host_window.cc" line="795"/>
+        <location filename="../host/ui/host_window.ui" line="330"/>
+        <source>Run as administrator</source>
+        <translation>Εκτέλεση ως διαχειριστής</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.ui" line="335"/>
+        <location filename="../host/ui/host_window.cc" line="832"/>
         <source>Hide</source>
         <translation>Απόκρυψη</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="340"/>
+        <location filename="../host/ui/host_window.ui" line="346"/>
         <source>Desktop</source>
         <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="351"/>
+        <location filename="../host/ui/host_window.ui" line="357"/>
         <source>Terminal</source>
         <translation>Τερματικό</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="362"/>
+        <location filename="../host/ui/host_window.ui" line="368"/>
         <source>Desktop View</source>
         <translation>Προβολή επιφάνειας εργασίας</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="373"/>
+        <location filename="../host/ui/host_window.ui" line="379"/>
         <source>File Transfer</source>
         <translation>Μεταφορά αρχείων</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="384"/>
+        <location filename="../host/ui/host_window.ui" line="390"/>
         <source>System Information</source>
         <translation>Πληροφορίες συστήματος</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="395"/>
+        <location filename="../host/ui/host_window.ui" line="401"/>
         <source>Text Chat</source>
         <translation>Συνομιλία κειμένου</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="400"/>
+        <location filename="../host/ui/host_window.ui" line="406"/>
         <source>Show chat</source>
         <translation>Εμφάνιση συνομιλίας</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="295"/>
-        <location filename="../host/ui/host_window.cc" line="790"/>
+        <location filename="../host/ui/host_window.cc" line="310"/>
+        <location filename="../host/ui/host_window.cc" line="827"/>
         <source>Show</source>
         <translation>Εμφάνιση</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="570"/>
+        <location filename="../host/ui/host_window.cc" line="585"/>
         <source>Screen recording has started.</source>
         <translation>Η εγγραφή οθόνης ξεκίνησε.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="572"/>
+        <location filename="../host/ui/host_window.cc" line="587"/>
         <source>Screen recording stopped.</source>
         <translation>Η εγγραφή οθόνης σταμάτησε.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="779"/>
+        <location filename="../host/ui/host_window.cc" line="634"/>
+        <source>Unable to request administrator rights.</source>
+        <translation>Δεν ήταν δυνατή η αίτηση δικαιωμάτων διαχειριστή.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>Ο χώρος αποθήκευσης ρυθμίσεων δεν είναι διαθέσιμος.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="850"/>
+        <location filename="../host/ui/host_window.cc" line="887"/>
         <source>If you exit from Aspia, it will not be possible to connect to this computer until you turn on the computer or Aspia again manually. Do you really want to exit the application?</source>
         <translation>Εάν εξέλθετε από το Aspia, δεν θα είναι δυνατή η σύνδεση με αυτόν τον υπολογιστή μέχρι να ενεργοποιήσετε ξανά τον υπολογιστή ή το Aspia χειροκίνητα. Θέλετε πραγματικά να εξέλθετε από την εφαρμογή;</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1029"/>
+        <location filename="../host/ui/host_window.cc" line="1066"/>
         <source>Not connected to service</source>
         <translation>Δεν υπάρχει σύνδεση με την υπηρεσία</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1042"/>
+        <location filename="../host/ui/host_window.cc" line="1079"/>
         <source>Connecting to router...</source>
         <translation>Σύνδεση με τον δρομολογητή...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1047"/>
+        <location filename="../host/ui/host_window.cc" line="1084"/>
         <source>Connected to router</source>
         <translation>Συνδέθηκε με τον δρομολογητή</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1052"/>
+        <location filename="../host/ui/host_window.cc" line="1089"/>
         <source>Connection error</source>
         <translation>Σφάλμα σύνδεσης</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1120"/>
+        <location filename="../host/ui/host_window.cc" line="1157"/>
         <source>IP addresses:</source>
         <translation>Διευθύνσεις IP:</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1124"/>
+        <location filename="../host/ui/host_window.cc" line="1161"/>
         <source>ID: %1</source>
         <translation>ID: %1</translation>
     </message>

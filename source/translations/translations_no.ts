@@ -2785,8 +2785,8 @@ Påloggingsinformasjon erstattet: %2</translation>
 <context>
     <name>Host</name>
     <message>
-        <location filename="../host/main.cc" line="751"/>
-        <location filename="../host/main.cc" line="786"/>
+        <location filename="../host/main.cc" line="818"/>
+        <location filename="../host/main.cc" line="853"/>
         <source>Settings storage is unavailable.</source>
         <translation>Innstillingslagringen er utilgjengelig.</translation>
     </message>
@@ -2867,37 +2867,42 @@ Påloggingsinformasjon erstattet: %2</translation>
 <context>
     <name>HostMain</name>
     <message>
-        <location filename="../host/main.cc" line="680"/>
+        <location filename="../host/main.cc" line="738"/>
         <source>Launch the application hidden.</source>
         <translation>Start programmet skjult.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="682"/>
+        <location filename="../host/main.cc" line="740"/>
         <source>Launch the window of a Quick Support package.</source>
         <translation>Start vinduet for en Quick Support-pakke.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="684"/>
+        <location filename="../host/main.cc" line="742"/>
+        <source>Data directory of a Quick Support package.</source>
+        <translation>Datamappe for en Quick Support-pakke.</translation>
+    </message>
+    <message>
+        <location filename="../host/main.cc" line="744"/>
         <source>Export parameters to file.</source>
         <translation>Eksporter parametere til fil.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="686"/>
+        <location filename="../host/main.cc" line="746"/>
         <source>Import parameters from file.</source>
         <translation>Importer parametere fra fil.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="688"/>
+        <location filename="../host/main.cc" line="748"/>
         <source>Do not display any messages during import and export.</source>
         <translation>Ikke vis noen meldinger under import og eksport.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="690"/>
+        <location filename="../host/main.cc" line="750"/>
         <source>Calling the settings dialog.</source>
         <translation>Åpner innstillingsdialogen.</translation>
     </message>
     <message>
-        <location filename="../host/main.cc" line="692"/>
+        <location filename="../host/main.cc" line="752"/>
         <source>Calling the security log dialog.</source>
         <translation>Åpner dialogen for sikkerhetsloggen.</translation>
     </message>
@@ -2934,9 +2939,9 @@ Påloggingsinformasjon erstattet: %2</translation>
     <name>HostWindow</name>
     <message>
         <location filename="../host/ui/host_window.ui" line="26"/>
-        <location filename="../host/ui/host_window.cc" line="575"/>
-        <location filename="../host/ui/host_window.cc" line="832"/>
-        <location filename="../host/ui/host_window.cc" line="1123"/>
+        <location filename="../host/ui/host_window.cc" line="590"/>
+        <location filename="../host/ui/host_window.cc" line="869"/>
+        <location filename="../host/ui/host_window.cc" line="1160"/>
         <source>Aspia Host</source>
         <translation>Aspia Host</translation>
     </message>
@@ -2952,164 +2957,174 @@ Påloggingsinformasjon erstattet: %2</translation>
     </message>
     <message>
         <location filename="../host/ui/host_window.ui" line="198"/>
-        <location filename="../host/ui/host_window.cc" line="1037"/>
+        <location filename="../host/ui/host_window.cc" line="1074"/>
         <source>Router is disabled</source>
         <translation>Ruteren er deaktivert</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="255"/>
+        <location filename="../host/ui/host_window.ui" line="256"/>
         <source>Help</source>
         <translation>Hjelp</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="264"/>
+        <location filename="../host/ui/host_window.ui" line="265"/>
         <source>Access</source>
         <translation>Tilgang</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="274"/>
+        <location filename="../host/ui/host_window.ui" line="275"/>
         <source>View</source>
         <translation>Vis</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="278"/>
+        <location filename="../host/ui/host_window.ui" line="279"/>
         <source>Language</source>
         <translation>Språk</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="283"/>
+        <location filename="../host/ui/host_window.ui" line="284"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="296"/>
+        <location filename="../host/ui/host_window.ui" line="297"/>
         <source>Exit</source>
         <translation>Avslutt</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="301"/>
+        <location filename="../host/ui/host_window.ui" line="302"/>
         <source>Online Help...</source>
         <translation>Hjelp på nettet...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="304"/>
+        <location filename="../host/ui/host_window.ui" line="305"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="309"/>
+        <location filename="../host/ui/host_window.ui" line="310"/>
         <source>About System</source>
         <translation>Om systemet</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="314"/>
+        <location filename="../host/ui/host_window.ui" line="315"/>
         <source>About</source>
         <translation>Om</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="319"/>
+        <location filename="../host/ui/host_window.ui" line="320"/>
         <source>Security Log...</source>
         <translation>Sikkerhetslogg...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="324"/>
+        <location filename="../host/ui/host_window.ui" line="325"/>
         <source>Settings...</source>
         <translation>Innstillinger...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="329"/>
-        <location filename="../host/ui/host_window.cc" line="795"/>
+        <location filename="../host/ui/host_window.ui" line="330"/>
+        <source>Run as administrator</source>
+        <translation>Kjør som administrator</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.ui" line="335"/>
+        <location filename="../host/ui/host_window.cc" line="832"/>
         <source>Hide</source>
         <translation>Skjul</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="340"/>
+        <location filename="../host/ui/host_window.ui" line="346"/>
         <source>Desktop</source>
         <translation>Skrivebord</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="351"/>
+        <location filename="../host/ui/host_window.ui" line="357"/>
         <source>Terminal</source>
         <translation>Terminal</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="362"/>
+        <location filename="../host/ui/host_window.ui" line="368"/>
         <source>Desktop View</source>
         <translation>Skrivebordsvisning</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="373"/>
+        <location filename="../host/ui/host_window.ui" line="379"/>
         <source>File Transfer</source>
         <translation>Filoverføring</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="384"/>
+        <location filename="../host/ui/host_window.ui" line="390"/>
         <source>System Information</source>
         <translation>Systeminformasjon</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="395"/>
+        <location filename="../host/ui/host_window.ui" line="401"/>
         <source>Text Chat</source>
         <translation>Tekstchat</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.ui" line="400"/>
+        <location filename="../host/ui/host_window.ui" line="406"/>
         <source>Show chat</source>
         <translation>Vis chat</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="295"/>
-        <location filename="../host/ui/host_window.cc" line="790"/>
+        <location filename="../host/ui/host_window.cc" line="310"/>
+        <location filename="../host/ui/host_window.cc" line="827"/>
         <source>Show</source>
         <translation>Vis</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="570"/>
+        <location filename="../host/ui/host_window.cc" line="585"/>
         <source>Screen recording has started.</source>
         <translation>Skjermopptak er startet.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="572"/>
+        <location filename="../host/ui/host_window.cc" line="587"/>
         <source>Screen recording stopped.</source>
         <translation>Skjermopptak er stoppet.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="779"/>
+        <location filename="../host/ui/host_window.cc" line="634"/>
+        <source>Unable to request administrator rights.</source>
+        <translation>Kunne ikke be om administratorrettigheter.</translation>
+    </message>
+    <message>
+        <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>Innstillingslagringen er utilgjengelig.</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="850"/>
+        <location filename="../host/ui/host_window.cc" line="887"/>
         <source>If you exit from Aspia, it will not be possible to connect to this computer until you turn on the computer or Aspia again manually. Do you really want to exit the application?</source>
         <translation>Hvis du avslutter Aspia, vil det ikke være mulig å koble til denne datamaskinen før du slår på datamaskinen eller Aspia igjen manuelt. Vil du virkelig avslutte programmet?</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1029"/>
+        <location filename="../host/ui/host_window.cc" line="1066"/>
         <source>Not connected to service</source>
         <translation>Ikke tilkoblet tjenesten</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1042"/>
+        <location filename="../host/ui/host_window.cc" line="1079"/>
         <source>Connecting to router...</source>
         <translation>Kobler til ruter...</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1047"/>
+        <location filename="../host/ui/host_window.cc" line="1084"/>
         <source>Connected to router</source>
         <translation>Tilkoblet ruter</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1052"/>
+        <location filename="../host/ui/host_window.cc" line="1089"/>
         <source>Connection error</source>
         <translation>Tilkoblingsfeil</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1120"/>
+        <location filename="../host/ui/host_window.cc" line="1157"/>
         <source>IP addresses:</source>
         <translation>IP-adresser:</translation>
     </message>
     <message>
-        <location filename="../host/ui/host_window.cc" line="1124"/>
+        <location filename="../host/ui/host_window.cc" line="1161"/>
         <source>ID: %1</source>
         <translation>ID: %1</translation>
     </message>

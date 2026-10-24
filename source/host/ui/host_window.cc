@@ -27,6 +27,7 @@
 #include <QNetworkInterface>
 #include <QProcess>
 #include <QShowEvent>
+#include <QStyle>
 #include <QTimer>
 #include <QUrl>
 
@@ -37,6 +38,9 @@
 #include "base/process_util.h"
 #include "base/peer/host_id.h"
 #include "common/clipboard.h"
+#if defined(Q_OS_WINDOWS)
+#include "host/win/portable_host.h"
+#endif // defined(Q_OS_WINDOWS)
 #include "common/desktop/about_dialog.h"
 #include "common/desktop/chat_widget.h"
 #include "common/desktop/language_action.h"
@@ -113,9 +117,19 @@ HostWindow::HostWindow(QWidget* parent)
     tray_menu_.addAction(ui->action_show_chat);
     tray_menu_.addAction(ui->action_security_log);
     tray_menu_.addAction(ui->action_settings);
+    tray_menu_.addAction(ui->action_run_as_admin);
     tray_menu_.addSeparator();
     tray_menu_.addAction(ui->action_show_hide);
     tray_menu_.addAction(ui->action_exit);
+
+#if defined(Q_OS_WINDOWS)
+    // A Quick Support run without administrator rights offers to restart itself elevated.
+    ui->action_run_as_admin->setIcon(style()->standardIcon(QStyle::SP_VistaShield));
+    ui->action_run_as_admin->setVisible(PortableHost::isPortable() &&
+                                        !ProcessUtil::isProcessElevated());
+#else
+    ui->action_run_as_admin->setVisible(false);
+#endif // defined(Q_OS_WINDOWS)
 
     // Qt probes the D-Bus status-notifier tray once, when the icon object is created; an icon created
     // before the shell registers its notifier host silently falls back to XEmbed, which modern shells
@@ -166,6 +180,7 @@ HostWindow::HostWindow(QWidget* parent)
     connect(ui->action_show_chat, &QAction::triggered, this, &HostWindow::onShowChat);
     connect(ui->action_security_log, &QAction::triggered, this, &HostWindow::onSecurityLog);
     connect(ui->action_settings, &QAction::triggered, this, &HostWindow::onSettings);
+    connect(ui->action_run_as_admin, &QAction::triggered, this, &HostWindow::onRunAsAdmin);
     connect(ui->action_show_hide, &QAction::triggered, this, &HostWindow::onShowHide);
     connect(ui->action_exit, &QAction::triggered, this, &HostWindow::onExit);
     connect(ui->action_help, &QAction::triggered, this, &HostWindow::onHelp);
@@ -603,6 +618,28 @@ void HostWindow::realClose()
     if (service_reconnect_timer_)
         service_reconnect_timer_->stop();
     close();
+}
+
+//--------------------------------------------------------------------------------------------------
+void HostWindow::onRunAsAdmin()
+{
+    LOG(INFO) << "[ACTION] Run as administrator";
+
+#if defined(Q_OS_WINDOWS)
+    if (!PortableHost::isPortable() || ProcessUtil::isProcessElevated())
+        return;
+
+    if (!PortableHost::restartElevated())
+    {
+        MsgBox::warning(this, tr("Unable to request administrator rights."));
+        return;
+    }
+
+    // The elevated instance waits for this process to exit, so the two runs never share the
+    // database and the host ID.
+    realClose();
+    QCoreApplication::quit();
+#endif // defined(Q_OS_WINDOWS)
 }
 
 //--------------------------------------------------------------------------------------------------

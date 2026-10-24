@@ -40,6 +40,7 @@
 #if defined(Q_OS_WINDOWS)
 #include "host/host_storage.h"
 #include "host/service.h"
+#include "host/win/portable_host.h"
 #include "host/win/safe_mode_util.h"
 #endif // defined(Q_OS_WINDOWS)
 
@@ -98,6 +99,11 @@ QString DesktopClient::attach()
     // it runs as that user, so the data channel must be reachable by non-root. The peer is verified by
     // executable path in onIpcNewConnection().
     const IpcServer::AccessMode access_mode = IpcServer::AccessMode::INTERACTIVE_USER;
+#elif defined(Q_OS_WINDOWS)
+    // A portable run starts the agent as an ordinary process of the user, so the channel must be
+    // reachable by that user (the peer is verified by executable path and session as well).
+    const IpcServer::AccessMode access_mode = PortableHost::isPortable()
+        ? IpcServer::AccessMode::INTERACTIVE_USER : IpcServer::AccessMode::SYSTEM_ONLY;
 #else
     // The desktop agent runs as SYSTEM/root (launched by the service), so the data channel is
     // restricted to system processes.

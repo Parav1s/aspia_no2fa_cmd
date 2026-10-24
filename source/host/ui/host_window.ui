@@ -246,6 +246,7 @@ border-radius: 2px;
     <addaction name="action_show_chat"/>
     <addaction name="action_security_log"/>
     <addaction name="action_settings"/>
+    <addaction name="action_run_as_admin"/>
     <addaction name="separator"/>
     <addaction name="action_show_hide"/>
     <addaction name="action_exit"/>
@@ -322,6 +323,11 @@ border-radius: 2px;
   <action name="action_settings">
    <property name="text">
     <string>Settings...</string>
+   </property>
+  </action>
+  <action name="action_run_as_admin">
+   <property name="text">
+    <string>Run as administrator</string>
    </property>
   </action>
   <action name="action_show_hide">

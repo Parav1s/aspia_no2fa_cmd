@@ -31,6 +31,9 @@
 #include "base/threading/worker.h"
 #include "host/desktop_client.h"
 #include "host/host_constants.h"
+#if defined(Q_OS_WINDOWS)
+#include "host/win/portable_host.h"
+#endif // defined(Q_OS_WINDOWS)
 #include "proto/desktop_internal.h"
 
 #if defined(Q_OS_WINDOWS)
@@ -267,7 +270,11 @@ void DesktopManager::start()
     // On Windows and Linux the agent always runs as SYSTEM/root (launched by the service), so the
     // control channel is restricted to system processes as defence in depth on top of the executable
     // path check in onIpcNewConnection().
-    const IpcServer::AccessMode access_mode = IpcServer::AccessMode::SYSTEM_ONLY;
+    //
+    // A portable run starts the agent as an ordinary process of the user, so the pipe must accept
+    // that user (the peer is still verified by its executable path and session).
+    const IpcServer::AccessMode access_mode = PortableHost::isPortable()
+        ? IpcServer::AccessMode::INTERACTIVE_USER : IpcServer::AccessMode::SYSTEM_ONLY;
 #endif // defined(Q_OS_MACOS)
 
     if (!ipc_server_->start(desktopAgentChannelId(), access_mode))
@@ -642,6 +649,24 @@ bool DesktopManager::startProcess()
         return false;
     }
 
+    const QString command_line = QString("\"%1\" --agent desktop").arg(
+        QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
+
+    // The portable host already runs in the user's session, so the agent is an ordinary child
+    // process of this process: it needs neither a token of another session nor the privileges of
+    // SYSTEM (which a run without administrator rights could not use).
+    if (PortableHost::isPortable())
+    {
+        if (!ProcessUtil::createProcess(QCoreApplication::applicationFilePath(),
+                                        QStringLiteral("--agent desktop")))
+        {
+            LOG(ERROR) << "Unable to start the desktop agent";
+            return false;
+        }
+
+        return true;
+    }
+
     ScopedHandle session_token;
     if (!createSessionToken(session_id_, &session_token))
     {
@@ -649,8 +674,6 @@ bool DesktopManager::startProcess()
         return false;
     }
 
-    const QString command_line = QString("\"%1\" --agent desktop").arg(
-        QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
     if (!startProcessWithToken(session_token, command_line))
     {
         LOG(ERROR) << "startProcessWithToken failed (session_id:" << session_id_ << ")";

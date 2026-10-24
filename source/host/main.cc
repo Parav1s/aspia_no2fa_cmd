@@ -17,6 +17,7 @@
 //
 
 #include <QCommandLineParser>
+#include <QDir>
 #include <QFile>
 #include <QIODevice>
 #include <QSysInfo>
@@ -62,6 +63,7 @@
 #include "base/process_util.h"
 #include "base/session_id.h"
 #include "base/win/desktop.h"
+#include "base/win/scoped_object.h"
 #include "base/win/session_info.h"
 #include "host/win/portable_host.h"
 #include "host/win/portable_package.h"
@@ -416,6 +418,75 @@ int runService(int& argc, char* argv[])
     return Service().exec(application);
 }
 
+#if defined(Q_OS_WINDOWS)
+//--------------------------------------------------------------------------------------------------
+// Runs a Quick Support package. The package is a host of its own: the service part runs in this
+// process exactly as the installed service does, and the window is a second process of the same
+// executable (the usual IPC between them). No Windows service and no administrator rights are
+// needed; what requires them is simply unavailable. The shield button in the window restarts the
+// whole package elevated when the user asks for it.
+int runPortable(int& argc, char* argv[])
+{
+    QString data_dir;
+
+    const char kQsDirOption[] = "--qs-dir=";
+    for (int i = 1; i < argc; ++i)
+    {
+        if (qstrncmp(argv[i], kQsDirOption, qstrlen(kQsDirOption)) == 0)
+        {
+            data_dir = QString::fromLocal8Bit(argv[i] + qstrlen(kQsDirOption));
+            break;
+        }
+    }
+
+    if (data_dir.isEmpty())
+        data_dir = PortableHost::defaultDataDirectory();
+
+    if (!PortableHost::applyDataDirectory(data_dir))
+    {
+        MessageBoxW(nullptr,
+                    L"Another Quick Support is already running, or its data directory cannot be "
+                    L"created.",
+                    L"Aspia Quick Support", MB_ICONWARNING | MB_OK);
+        return 1;
+    }
+
+    if (!PortableHost::prepareDatabase())
+    {
+        MessageBoxW(nullptr, L"Unable to prepare the Quick Support settings.",
+                    L"Aspia Quick Support", MB_ICONERROR | MB_OK);
+        return 1;
+    }
+
+    CoreApplication::setEventDispatcher(new AsioEventDispatcher());
+    CoreApplication::setApplicationVersion(ASPIA_VERSION_STRING);
+
+    CoreApplication application(argc, argv);
+
+    HostUtils::printDebugInfo();
+
+    application.addWorker(std::make_unique<ServiceWorker>());
+    application.addWorker(std::make_unique<SysInfoWorker>());
+    application.addWorker(std::make_unique<TaskMgrWorker>());
+    application.addWorker(std::make_unique<ToolsWorker>());
+    application.addWorker(std::make_unique<UpdateWorker>());
+
+    // The window is a separate process of the same executable: it shows the host ID and stops the
+    // run when it is closed (see ServiceWorker::onUserSessionDettached).
+    const QString executable_path = ProcessUtil::filePath(ProcessUtil::currentProcessId());
+    const QString window_arguments = "--qs-ui --qs-dir=\"" +
+        QDir::toNativeSeparators(data_dir) + '"';
+
+    QTimer::singleShot(MilliSeconds(700), &application, [executable_path, window_arguments]()
+    {
+        if (!ProcessUtil::createProcess(executable_path, window_arguments))
+            LOG(ERROR) << "Unable to start the Quick Support window";
+    });
+
+    return application.exec();
+}
+#endif // defined(Q_OS_WINDOWS)
+
 #if defined(Q_OS_LINUX)
 //--------------------------------------------------------------------------------------------------
 // Called by Xlib when the X11 (Xwayland) connection is lost. The host GUI runs on Xwayland, so this
@@ -557,22 +628,9 @@ int main(int argc, char* argv[])
     ScopedLogging scoped_logging(logging_settings);
 
 #if defined(Q_OS_WINDOWS)
-    // The database and the settings of a Quick Support run live in its own directory instead of the
-    // machine-wide ones of the installed host.
-    const char kQsDirOption[] = "--qs-dir=";
-    for (int i = 1; i < argc; ++i)
-    {
-        if (qstrncmp(argv[i], kQsDirOption, qstrlen(kQsDirOption)) == 0)
-        {
-            PortableHost::applyDataDirectory(
-                QString::fromLocal8Bit(argv[i] + qstrlen(kQsDirOption)));
-            break;
-        }
-    }
-
-    // A Quick Support package started by the user is a launcher, not a host role.
-    if (PortableHost::isLauncherInvocation(argc, argv))
-        return PortableHost::runLauncher();
+    // A Quick Support package started by the user is a host of its own, not a role process.
+    if (PortableHost::isPortableInvocation(argc, argv))
+        return runPortable(argc, argv);
 #endif // defined(Q_OS_WINDOWS)
 
     for (int i = 1; i < argc; ++i)
@@ -680,6 +738,8 @@ int main(int argc, char* argv[])
         GuiApplication::translate("HostMain", "Launch the application hidden."));
     QCommandLineOption qs_ui_option("qs-ui",
         GuiApplication::translate("HostMain", "Launch the window of a Quick Support package."));
+    QCommandLineOption qs_dir_option("qs-dir",
+        GuiApplication::translate("HostMain", "Data directory of a Quick Support package."), "path");
     QCommandLineOption export_option("export",
         GuiApplication::translate("HostMain", "Export parameters to file."), "export");
     QCommandLineOption import_option("import",
@@ -694,6 +754,7 @@ int main(int argc, char* argv[])
     QCommandLineParser parser;
     parser.addOption(hidden_option);
     parser.addOption(qs_ui_option);
+    parser.addOption(qs_dir_option);
     parser.addOption(export_option);
     parser.addOption(import_option);
     parser.addOption(silent_option);
@@ -703,6 +764,12 @@ int main(int argc, char* argv[])
     parser.addVersionOption();
 
     parser.process(application);
+
+#if defined(Q_OS_WINDOWS)
+    // The window of a Quick Support package needs the directory only to restart the run elevated.
+    if (!parser.value(qs_dir_option).isEmpty())
+        PortableHost::setDataDirectory(parser.value(qs_dir_option));
+#endif // defined(Q_OS_WINDOWS)
 
     if (parser.isSet(import_option))
     {
