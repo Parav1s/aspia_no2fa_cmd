@@ -216,19 +216,24 @@ int runShellTest(int& argc, char* argv[])
     CoreApplication::setApplicationVersion(ASPIA_VERSION_STRING);
     CoreApplication application(argc, argv);
 
-    TerminalProcess* process = TerminalProcess::create(&application);
+    // The process owns an asio object bound to the application's I/O context, so it must be
+    // destroyed before the application (the event dispatcher dies with it). An object parented to
+    // the application would be deleted too late - inside ~QCoreApplication - and the asio
+    // destructor would then touch the already destroyed I/O context.
+    std::unique_ptr<TerminalProcess> process(TerminalProcess::create());
     if (!process)
     {
         LOG(ERROR) << "Terminal process is not supported on this system";
         return 1;
     }
 
-    QObject::connect(process, &TerminalProcess::sig_output, [](const QByteArray& data)
+    QObject::connect(process.get(), &TerminalProcess::sig_output, [](const QByteArray& data)
     {
         LOG(INFO) << "Shell output:" << QString::fromUtf8(data);
     });
 
-    QObject::connect(process, &TerminalProcess::sig_finished, &application, [&application]()
+    QObject::connect(process.get(), &TerminalProcess::sig_finished, &application,
+                     [&application]()
     {
         LOG(INFO) << "Shell process finished";
         application.exit(0);
@@ -242,7 +247,7 @@ int runShellTest(int& argc, char* argv[])
 
     // The shell needs a moment to be ready for input; an immediate write would land before its
     // input loop starts.
-    QTimer::singleShot(MilliSeconds(1500), process, [process]()
+    QTimer::singleShot(MilliSeconds(1500), process.get(), [&process]()
     {
         process->writeInput(QByteArrayLiteral("echo ASPIA-SHELL-TEST\r\nwhoami\r\nexit\r\n"));
     });

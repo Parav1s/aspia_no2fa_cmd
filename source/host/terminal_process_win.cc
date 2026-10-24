@@ -326,6 +326,8 @@ bool TerminalProcessWin::startPseudoConsole(int columns, int rows)
     BOOL created = FALSE;
     if (attributes_ready)
     {
+        // CREATE_NO_WINDOW is not used here: it conflicts with the pseudo console attribute and the
+        // shell then produces no output at all. See runShellTest() for the console case.
         created = spawnShell(pseudoConsoleShells(),
                              EXTENDED_STARTUPINFO_PRESENT | CREATE_UNICODE_ENVIRONMENT, false,
                              &startup_info.StartupInfo, &process_info);
