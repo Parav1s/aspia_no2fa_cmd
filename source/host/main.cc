@@ -22,6 +22,7 @@
 #include <QSysInfo>
 #include <QTextStream>
 #include <QThread>
+#include <QTimer>
 
 #include "version.h"
 #include "base/build_config.h"
@@ -39,6 +40,7 @@
 #include "host/service.h"
 #include "host/settings_util.h"
 #include "host/terminal_agent.h"
+#include "host/terminal_process.h"
 #include "host/user_settings.h"
 #include "host/ui/application.h"
 #include "host/ui/check_password_dialog.h"
@@ -202,6 +204,53 @@ int runAgent(int& argc, char* argv[], const char* agent_type)
     TerminalAgent agent;
     agent.start(channel_id);
     return application.exec();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Diagnostic mode: starts the terminal shell exactly the way the terminal agent does and logs what
+// the shell prints for a few seconds. It lets the shell be checked on a machine without opening a
+// terminal session (and without knowing the password of an account).
+int runShellTest(int& argc, char* argv[])
+{
+    CoreApplication::setEventDispatcher(new AsioEventDispatcher());
+    CoreApplication::setApplicationVersion(ASPIA_VERSION_STRING);
+    CoreApplication application(argc, argv);
+
+    TerminalProcess* process = TerminalProcess::create(&application);
+    if (!process)
+    {
+        LOG(ERROR) << "Terminal process is not supported on this system";
+        return 1;
+    }
+
+    QObject::connect(process, &TerminalProcess::sig_output, [](const QByteArray& data)
+    {
+        LOG(INFO) << "Shell output:" << QString::fromUtf8(data);
+    });
+
+    QObject::connect(process, &TerminalProcess::sig_finished, &application, [&application]()
+    {
+        LOG(INFO) << "Shell process finished";
+        application.exit(0);
+    });
+
+    if (!process->start(80, 24))
+    {
+        LOG(ERROR) << "Unable to start the shell";
+        return 1;
+    }
+
+    // The shell needs a moment to be ready for input; an immediate write would land before its
+    // input loop starts.
+    QTimer::singleShot(MilliSeconds(1500), process, [process]()
+    {
+        process->writeInput(QByteArrayLiteral("echo ASPIA-SHELL-TEST\r\nwhoami\r\nexit\r\n"));
+    });
+
+    QTimer::singleShot(MilliSeconds(8000), &application, &QCoreApplication::quit);
+    const int result = application.exec();
+    LOG(INFO) << "Shell test finished (exit code:" << result << ")";
+    return result;
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -507,6 +556,8 @@ int main(int argc, char* argv[])
             return runServiceCommand(argc, argv, stopService);
         if (qstrcmp(argv[i], "--agent") == 0 && i + 1 < argc)
             return runAgent(argc, argv, argv[i + 1]);
+        if (qstrcmp(argv[i], "--shell-test") == 0)
+            return runShellTest(argc, argv);
         if (qstrcmp(argv[i], "--sys-info") == 0)
             return runSysInfo(argc, argv);
         if (qstrcmp(argv[i], "--version") == 0)
