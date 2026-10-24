@@ -140,6 +140,10 @@ private:
     RouterStatusWidget* router_status_widget_ = nullptr;
     SearchWidget* search_widget_ = nullptr;
 
+    // The removal of inactive hosts is a once-per-start action, even when several routers come
+    // online one after another.
+    bool startup_cleanup_started_ = false;
+
     Q_DISABLE_COPY_MOVE(ManagementTab)
 };
 

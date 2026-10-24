@@ -52,6 +52,8 @@ constexpr auto kSettingBackupEnabled = "backup_on_startup";
 constexpr auto kSettingBackupPath    = "backup_path";
 constexpr auto kSettingBackupKeep    = "backup_retention";
 constexpr auto kSettingLockTimeout   = "lock_timeout";
+constexpr auto kSettingRemoveInactiveHosts = "remove_inactive_hosts";
+constexpr auto kSettingInactiveHostsPeriod = "inactive_hosts_period";
 constexpr auto kSettingDesktopConfig = "desktop_config";
 constexpr auto kSettingRecordEnabled = "record_sessions";
 constexpr auto kSettingRecordPath    = "recording_path";
@@ -1771,6 +1773,38 @@ bool Database::isBackupOnStartupEnabled() const
 bool Database::setBackupOnStartupEnabled(bool enable)
 {
     return writeSetting(kSettingBackupEnabled, enable ? "1" : "0");
+}
+
+//--------------------------------------------------------------------------------------------------
+bool Database::isRemoveInactiveHostsEnabled() const
+{
+    return readSetting(kSettingRemoveInactiveHosts) == "1";
+}
+
+//--------------------------------------------------------------------------------------------------
+bool Database::setRemoveInactiveHostsEnabled(bool enable)
+{
+    return writeSetting(kSettingRemoveInactiveHosts, enable ? "1" : "0");
+}
+
+//--------------------------------------------------------------------------------------------------
+int Database::inactiveHostsPeriod() const
+{
+    bool found = false;
+    const int months = readSetting(kSettingInactiveHostsPeriod, &found).toInt();
+    if (!found || (months != 1 && months != 3 && months != 6))
+        return 3;
+
+    return months;
+}
+
+//--------------------------------------------------------------------------------------------------
+bool Database::setInactiveHostsPeriod(int months)
+{
+    if (months != 1 && months != 3 && months != 6)
+        return false;
+
+    return writeSetting(kSettingInactiveHostsPeriod, QString::number(months));
 }
 
 //--------------------------------------------------------------------------------------------------

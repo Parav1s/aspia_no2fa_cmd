@@ -49,6 +49,8 @@ list(APPEND SOURCE_CLIENT_CORE
     file_transfer_queue_builder.h
     host_url.cc
     host_url.h
+    inactive_hosts_cleaner.cc
+    inactive_hosts_cleaner.h
     master_password.cc
     master_password.h
     router_cache.cc

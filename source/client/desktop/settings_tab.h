@@ -61,6 +61,8 @@ private slots:
     void onBackupPathChanged();
     void onSelectBackupPath();
     void onBackupRetentionChanged();
+    void onRemoveInactiveHostsChanged();
+    void onInactiveHostsPeriodChanged();
     void onUdpMethodsChanged();
     void onLockTimeoutChanged();
     void onAutoUnlockChanged();

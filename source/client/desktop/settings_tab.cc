@@ -43,6 +43,7 @@
 #include "client/application.h"
 #include "client/database.h"
 #include "client/master_password.h"
+#include "client/inactive_hosts_cleaner.h"
 #include "client/settings.h"
 #include "client/desktop/ui_settings_tab.h"
 #include "common/desktop/credentials_dialog.h"
@@ -179,6 +180,14 @@ SettingsTab::SettingsTab(QWidget* parent)
     ui->checkbox_backup_on_startup->setChecked(db.isBackupOnStartupEnabled());
     ui->edit_backup_dir->setText(db.backupPath());
 
+    ui->checkbox_remove_inactive_hosts->setChecked(db.isRemoveInactiveHostsEnabled());
+    ui->combo_inactive_hosts_period->addItem(tr("1 month"), 1);
+    ui->combo_inactive_hosts_period->addItem(tr("3 months"), 3);
+    ui->combo_inactive_hosts_period->addItem(tr("6 months"), 6);
+    ui->combo_inactive_hosts_period->setCurrentIndex(
+        ui->combo_inactive_hosts_period->findData(db.inactiveHostsPeriod()));
+    ui->combo_inactive_hosts_period->setEnabled(ui->checkbox_remove_inactive_hosts->isChecked());
+
     ui->combo_backup_retention->addItem(tr("1 week"), static_cast<int>(AutoBackup::Retention::ONE_WEEK));
     ui->combo_backup_retention->addItem(tr("2 weeks"), static_cast<int>(AutoBackup::Retention::TWO_WEEKS));
     ui->combo_backup_retention->addItem(tr("1 month"), static_cast<int>(AutoBackup::Retention::ONE_MONTH));
@@ -274,6 +283,11 @@ SettingsTab::SettingsTab(QWidget* parent)
     connect(ui->button_select_backup_dir, &QPushButton::clicked, this, &SettingsTab::onSelectBackupPath);
     connect(ui->combo_backup_retention, QOverload<int>::of(&QComboBox::currentIndexChanged),
             this, &SettingsTab::onBackupRetentionChanged);
+    connect(ui->checkbox_remove_inactive_hosts, &QCheckBox::toggled,
+            this, &SettingsTab::onRemoveInactiveHostsChanged);
+    connect(ui->combo_inactive_hosts_period,
+            QOverload<int>::of(&QComboBox::currentIndexChanged),
+            this, &SettingsTab::onInactiveHostsPeriodChanged);
     connect(ui->checkbox_udp_direct, &QCheckBox::toggled, this, &SettingsTab::onUdpMethodsChanged);
     connect(ui->checkbox_udp_hole_punching, &QCheckBox::toggled, this, &SettingsTab::onUdpMethodsChanged);
     connect(ui->checkbox_udp_pcp, &QCheckBox::toggled, this, &SettingsTab::onUdpMethodsChanged);
@@ -447,6 +461,35 @@ void SettingsTab::onBackupRetentionChanged()
     LOG(INFO) << "[ACTION] Backup retention changed";
     Database::instance().setBackupRetention(
         static_cast<AutoBackup::Retention>(ui->combo_backup_retention->currentData().toInt()));
+}
+
+//--------------------------------------------------------------------------------------------------
+void SettingsTab::onRemoveInactiveHostsChanged()
+{
+    const bool enabled = ui->checkbox_remove_inactive_hosts->isChecked();
+
+    LOG(INFO) << "[ACTION] Remove inactive hosts changed:" << enabled;
+
+    ui->combo_inactive_hosts_period->setEnabled(enabled);
+
+    if (!Database::instance().setRemoveInactiveHostsEnabled(enabled))
+        LOG(ERROR) << "Unable to save the setting";
+
+    // Turning the option on cleans up right away, so the result is visible immediately. Turning it
+    // off only stops the passes at startup.
+    if (enabled)
+        runInactiveHostsCleanup(this);
+}
+
+//--------------------------------------------------------------------------------------------------
+void SettingsTab::onInactiveHostsPeriodChanged()
+{
+    const int months = ui->combo_inactive_hosts_period->currentData().toInt();
+
+    LOG(INFO) << "[ACTION] Inactive hosts period changed:" << months;
+
+    if (!Database::instance().setInactiveHostsPeriod(months))
+        LOG(ERROR) << "Unable to save the setting";
 }
 
 //--------------------------------------------------------------------------------------------------

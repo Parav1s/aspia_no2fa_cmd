@@ -139,6 +139,13 @@ public:
     Minutes lockTimeout() const;
     bool setLockTimeout(Minutes timeout);
 
+    // Removal of the hosts that have not been connected to for longer than |inactiveHostsPeriod()|
+    // months. Disabled by default.
+    bool isRemoveInactiveHostsEnabled() const;
+    bool setRemoveInactiveHostsEnabled(bool enable);
+    int inactiveHostsPeriod() const;
+    bool setInactiveHostsPeriod(int months);
+
     proto::control::Config desktopConfig() const;
     bool setDesktopConfig(const proto::control::Config& config);
 

@@ -36,10 +36,12 @@
 #include "base/net/address.h"
 #include "base/peer/host_id.h"
 #include "base/peer/user.h"
+#include "base/time_types.h"
 #include "client/aab_importer.h"
 #include "client/backup.h"
 #include "client/database.h"
 #include "client/host_url.h"
+#include "client/inactive_hosts_cleaner.h"
 #include "client/router_controller.h"
 #include "client/settings.h"
 #include "client/desktop/file_dialog.h"
@@ -161,6 +163,25 @@ ManagementTab::ManagementTab(QWidget* parent)
             router_status_widget_, &RouterStatusWidget::onEvent);
     connect(&controller, &RouterController::sig_statusChanged,
             this, &ManagementTab::updateActionsState);
+
+    // The removal of inactive hosts runs once per start: as soon as the first router of the
+    // address book is online, with a short delay so the other routers can follow.
+    connect(&controller, &RouterController::sig_statusChanged, this,
+            [this](qint64 /* router_id */, RouterStatus status)
+    {
+        if (status != RouterStatus::ONLINE || startup_cleanup_started_)
+            return;
+
+        if (!Database::instance().isRemoveInactiveHostsEnabled())
+            return;
+
+        startup_cleanup_started_ = true;
+
+        QTimer::singleShot(MilliSeconds(3000), this, [this]()
+        {
+            runInactiveHostsCleanup(this);
+        });
+    });
 
     connect(router_hosts_widget_, &RouterHostsWidget::sig_currentChanged,
             this, &ManagementTab::updateActionsState);

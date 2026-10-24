@@ -210,6 +210,32 @@
             </widget>
            </item>
            <item>
+            <widget class="QGroupBox" name="groupbox_hosts">
+             <property name="title">
+              <string>Hosts</string>
+             </property>
+             <layout class="QGridLayout" name="layout_hosts">
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkbox_remove_inactive_hosts">
+                <property name="text">
+                 <string>Remove inactive hosts</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_inactive_hosts_period">
+                <property name="text">
+                 <string>Inactive for more than:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="combo_inactive_hosts_period"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
             <widget class="QGroupBox" name="groupbox_udp">
              <property name="title">
               <string>UDP Connections</string>
