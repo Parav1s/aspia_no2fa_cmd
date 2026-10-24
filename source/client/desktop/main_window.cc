@@ -592,11 +592,30 @@ void MainWindow::onConnect(const HostConfig& host, proto::peer::SessionType sess
     ClientTab* client_tab = new ClientTab(client_window);
     addTab(client_tab, computer_name, icon);
 
+    LOG(INFO) << "Session opened in" << (detached ? "a separate window" : "a tab");
+
     if (detached)
     {
         int index = ui->tabs->indexOf(client_tab);
         ui->tabs->tabBar()->setTabVisible(index, false);
         client_tab->detachToWindow();
+
+        // A session is usually started from another session, and that one may be fullscreen or
+        // configured to stay on top. The new window must be brought to the foreground, otherwise
+        // pressing "Terminal" in the toolbar of a fullscreen desktop looks like nothing happened:
+        // the terminal session is connected but its window stays behind the desktop.
+        if (QWidget* window = client_tab->detachedWindow())
+        {
+            if (QScreen* target_screen = screen())
+            {
+                const QRect available = target_screen->availableGeometry();
+                if (!available.intersects(window->frameGeometry()))
+                    window->move(available.center() - window->rect().center());
+            }
+
+            window->raise();
+            window->activateWindow();
+        }
     }
 }
 
