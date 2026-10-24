@@ -209,6 +209,26 @@ TerminalWidget::TerminalWidget(QWidget* parent)
 }
 
 //--------------------------------------------------------------------------------------------------
+QSize TerminalWidget::sizeHint() const
+{
+    // 80x24 cells is the classic terminal size. The hint is what an unparented session window is
+    // sized from: without it Qt shows the window with a zero size, so it is invisible (and keeps
+    // the application alive because it is still an open window).
+    const int scrollbar_width = scrollbar_ ? scrollbar_->sizeHint().width() : 0;
+
+    return QSize(columns_ * char_width_ + 2 * kPadding + scrollbar_width,
+                 rows_ * line_height_ + 2 * kPadding);
+}
+
+//--------------------------------------------------------------------------------------------------
+QSize TerminalWidget::minimumSizeHint() const
+{
+    const int scrollbar_width = scrollbar_ ? scrollbar_->sizeHint().width() : 0;
+
+    return QSize(40 * char_width_ + 2 * kPadding + scrollbar_width, 10 * line_height_ + 2 * kPadding);
+}
+
+//--------------------------------------------------------------------------------------------------
 TerminalWidget::~TerminalWidget()
 {
     qApp->removeNativeEventFilter(this);

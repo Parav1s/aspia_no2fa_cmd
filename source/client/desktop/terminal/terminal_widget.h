@@ -63,6 +63,10 @@ public:
     explicit TerminalWidget(QWidget* parent = nullptr);
     ~TerminalWidget() final;
 
+    // QWidget implementation.
+    QSize sizeHint() const final;
+    QSize minimumSizeHint() const final;
+
 public slots:
     void writeOutput(const QByteArray& data);
     void onResult(int result_code);
