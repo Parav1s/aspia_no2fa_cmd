@@ -469,7 +469,10 @@ int runPortable(int& argc, char* argv[])
     application.addWorker(std::make_unique<SysInfoWorker>());
     application.addWorker(std::make_unique<TaskMgrWorker>());
     application.addWorker(std::make_unique<ToolsWorker>());
-    application.addWorker(std::make_unique<UpdateWorker>());
+
+    // No update worker: a Quick Support package is a copy the user runs on purpose, and an update
+    // would try to install the installed product with an elevation prompt on top of the package.
+    // The person who exports the package updates it by exporting it again.
 
     // The window is a separate process of the same executable: it shows the host ID and stops the
     // run when it is closed (see ServiceWorker::onUserSessionDettached).

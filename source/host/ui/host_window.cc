@@ -984,8 +984,18 @@ void HostWindow::onSettingsChanged()
 //--------------------------------------------------------------------------------------------------
 void HostWindow::updatePasswordSection()
 {
-    ui->label_password->setVisible(one_time_password_enabled_);
-    ui->frame->setVisible(one_time_password_enabled_);
+    bool show_password = one_time_password_enabled_;
+
+#if defined(Q_OS_WINDOWS)
+    // A Quick Support package authorizes by the user password only: it never has a one-time
+    // password, so the section must not appear even for the moment before the service reports the
+    // credentials.
+    if (PortableHost::isPortable())
+        show_password = false;
+#endif // defined(Q_OS_WINDOWS)
+
+    ui->label_password->setVisible(show_password);
+    ui->frame->setVisible(show_password);
 
     // The window takes its height from the content on the first show; a row that went away has to
     // shrink it, or the window keeps an empty place where the password was.
