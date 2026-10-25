@@ -23,12 +23,14 @@
 #include <QLockFile>
 #include <QSettings>
 #include <qt_windows.h>
+#include <TlHelp32.h>
 
 #include "base/crypto/generic_hash.h"
 #include "base/files/base_paths.h"
 #include "base/logging.h"
 #include "base/process_util.h"
 #include "base/service_controller.h"
+#include "base/win/scoped_object.h"
 #include "host/database.h"
 #include "host/win/portable_package.h"
 
@@ -59,12 +61,51 @@ QString executableHash()
 }
 
 //--------------------------------------------------------------------------------------------------
+// Whether an installed host of this machine works right now. Its service is the usual case; a host
+// started by hand (the same binary outside the service) is caught by the process name.
+bool installedHostIsRunning()
+{
+    if (ServiceController::isInstalled(QLatin1String(kInstalledServiceName)) &&
+        ServiceController::isRunning(QLatin1String(kInstalledServiceName)))
+    {
+        return true;
+    }
+
+    const DWORD current_pid = GetCurrentProcessId();
+
+    ScopedHandle snapshot(CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0));
+    if (!snapshot.isValid())
+        return false;
+
+    PROCESSENTRY32W entry;
+    entry.dwSize = sizeof(entry);
+
+    if (!Process32FirstW(snapshot, &entry))
+        return false;
+
+    do
+    {
+        if (entry.th32ProcessID == current_pid)
+            continue;
+
+        if (QString::fromWCharArray(entry.szExeFile).compare(
+                QLatin1String("aspia_host.exe"), Qt::CaseInsensitive) == 0)
+        {
+            return true;
+        }
+    }
+    while (Process32NextW(snapshot, &entry));
+
+    return false;
+}
+
+//--------------------------------------------------------------------------------------------------
 // The ID the host of an installed Aspia is already known by. A support run on a machine that had
 // the host installed keeps that ID instead of asking the router for a new one.
 QByteArray installedHostKey()
 {
     // A running installed host owns its ID; taking it over would make the router mix up the two.
-    if (ServiceController::isRunning(QLatin1String(kInstalledServiceName)))
+    if (installedHostIsRunning())
     {
         LOG(INFO) << "The installed host is running, its ID is not taken over";
         return QByteArray();
@@ -213,14 +254,26 @@ bool PortableHost::prepareDatabase()
         return false;
     }
 
-    // The ID is the one the router already knows: of this run, of the package (taken at export from
-    // the installed host) or, as a last resort, of the installed host's database. A new ID on every
-    // start is exactly what a support session does not need.
-    QByteArray host_key = db.hostKey();
-    if (host_key.isEmpty())
-        host_key = settings->host_key;
-    if (host_key.isEmpty())
-        host_key = installedHostKey();
+    // A running installed host owns the ID of this machine. The package must not take it over (nor
+    // keep the ID of a previous run): the router accepts only one of them, and the user would not
+    // be able to tell which host they are looking at. In this case the run asks for an ID of its own.
+    QByteArray host_key;
+
+    if (installedHostIsRunning())
+    {
+        LOG(INFO) << "The installed host is running, the package asks for an ID of its own";
+
+        if (!db.setHostKey(QByteArray()))
+            LOG(ERROR) << "Unable to clear the host ID";
+    }
+    else
+    {
+        host_key = db.hostKey();
+        if (host_key.isEmpty())
+            host_key = settings->host_key;
+        if (host_key.isEmpty())
+            host_key = installedHostKey();
+    }
 
     if (!db.setRouterEnabled(true))
         LOG(ERROR) << "Unable to enable the router";

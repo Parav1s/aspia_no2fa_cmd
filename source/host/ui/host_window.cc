@@ -28,6 +28,9 @@
 #include <QProcess>
 #include <QShowEvent>
 #include <QStyle>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPixmap>
 #include <QTimer>
 #include <QUrl>
 
@@ -83,6 +86,38 @@ QString formatHostId(HostId host_id)
     return id;
 }
 
+#if defined(Q_OS_WINDOWS)
+//--------------------------------------------------------------------------------------------------
+// Monochrome shield for the elevation button. Drawn with the palette color instead of loaded from a
+// colored icon, so it matches both the light and the dark theme of the application.
+QIcon shieldIcon(const QColor& color)
+{
+    const int size = 32;
+
+    QPixmap pixmap(size, size);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    QPainterPath path;
+    path.moveTo(16, 3.5);
+    path.lineTo(26.5, 7.0);
+    path.lineTo(26.5, 15.5);
+    path.cubicTo(26.5, 23.0, 21.5, 27.5, 16.0, 29.5);
+    path.cubicTo(10.5, 27.5, 5.5, 23.0, 5.5, 15.5);
+    path.lineTo(5.5, 7.0);
+    path.closeSubpath();
+
+    painter.setPen(QPen(color, 2.4, Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
+    painter.setBrush(Qt::NoBrush);
+    painter.drawPath(path);
+    painter.end();
+
+    return QIcon(pixmap);
+}
+#endif // defined(Q_OS_WINDOWS)
+
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
@@ -123,12 +158,24 @@ HostWindow::HostWindow(QWidget* parent)
     tray_menu_.addAction(ui->action_exit);
 
 #if defined(Q_OS_WINDOWS)
-    // A Quick Support run without administrator rights offers to restart itself elevated.
-    ui->action_run_as_admin->setIcon(style()->standardIcon(QStyle::SP_VistaShield));
-    ui->action_run_as_admin->setVisible(PortableHost::isPortable() &&
-                                        !ProcessUtil::isProcessElevated());
+    // A Quick Support run without administrator rights offers to restart itself elevated: a compact
+    // shield button next to the ID (and the same action in the tray menu).
+    const bool can_elevate = PortableHost::isPortable() && !ProcessUtil::isProcessElevated();
+
+    if (can_elevate)
+    {
+        const QColor icon_color = ui->button_elevate->palette().color(QPalette::ButtonText);
+
+        ui->button_elevate->setIcon(shieldIcon(icon_color));
+        ui->button_elevate->setVisible(true);
+        ui->action_run_as_admin->setIcon(shieldIcon(icon_color));
+        ui->action_run_as_admin->setVisible(true);
+
+        connect(ui->button_elevate, &QToolButton::clicked, this, &HostWindow::onRunAsAdmin);
+    }
 #else
     ui->action_run_as_admin->setVisible(false);
+    ui->button_elevate->setVisible(false);
 #endif // defined(Q_OS_WINDOWS)
 
     // Qt probes the D-Bus status-notifier tray once, when the icon object is created; an icon created
