@@ -38,6 +38,7 @@
 
 #if defined(Q_OS_WINDOWS)
 #include "host/screen_capturer_win.h"
+#include "host/win/portable_host.h"
 #endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_LINUX)
@@ -289,7 +290,18 @@ void ScreenWorker::onConfigure(
 
     if (!desktop_environment_)
         desktop_environment_ = DesktopEnvironment::create(this);
-    if (desktop_environment_)
+
+    // A Quick Support run leaves the host's wallpaper and effects alone: they are the machine
+    // owner's settings, not something a support package should visibly change. This also matters
+    // after the shield: an elevated run can disable the wallpaper for real, which turns the
+    // desktop black for the person sitting at the machine.
+    bool change_desktop_environment = true;
+#if defined(Q_OS_WINDOWS)
+    if (PortableHost::isPortable())
+        change_desktop_environment = false;
+#endif // defined(Q_OS_WINDOWS)
+
+    if (desktop_environment_ && change_desktop_environment)
     {
         desktop_environment_->setWallpaper(config.wallpaper());
         desktop_environment_->setEffects(config.effects());
