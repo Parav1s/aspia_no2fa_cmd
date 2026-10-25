@@ -25,6 +25,7 @@
 #include "base/location.h"
 #include "base/logging.h"
 #include "base/process_util.h"
+#include "base/session_id.h"
 #include "base/serialization.h"
 #include "base/ipc/ipc_channel.h"
 #include "base/ipc/ipc_server.h"
@@ -500,7 +501,21 @@ void DesktopManager::onIpcNewConnection()
     }
 
 #if defined(Q_OS_WINDOWS)
-    if (ProcessUtil::parentProcessId(client_pid) != ProcessUtil::currentProcessId())
+    // A Quick Support package starts its elevated desktop agent through UAC from the host window,
+    // so that agent is not our child. It is still identified by the executable path (checked above)
+    // and by the session: both the plain and the elevated agent run the package in the same
+    // interactive session as the service.
+    if (PortableHost::isPortable())
+    {
+        if (channel->sessionId() != currentProcessSessionId())
+        {
+            LOG(ERROR) << "Rejecting IPC client from another session (pid:" << client_pid
+                       << "session:" << channel->sessionId() << ")";
+            channel->deleteLater();
+            return;
+        }
+    }
+    else if (ProcessUtil::parentProcessId(client_pid) != ProcessUtil::currentProcessId())
     {
         LOG(ERROR) << "Rejecting IPC client that is not our child (pid:" << client_pid << ")";
         channel->deleteLater();

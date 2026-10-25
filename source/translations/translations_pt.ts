@@ -3093,6 +3093,10 @@ Credenciais substituídas: %2</translation>
         <translation>Não foi possível pedir direitos de administrador.</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights. Confirm the UAC request on the host computer. The remote session will continue; the screen may freeze for a few seconds.</source>
+        <translation>Waiting for administrator rights. Confirm the UAC request on the host computer. The remote session will continue; the screen may freeze for a few seconds.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>O armazenamento de definições não está disponível.</translation>

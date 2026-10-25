@@ -3081,6 +3081,10 @@ Credentials replaced: %2</source>
         <translation>无法请求管理员权限。</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights. Confirm the UAC request on the host computer. The remote session will continue; the screen may freeze for a few seconds.</source>
+        <translation>Waiting for administrator rights. Confirm the UAC request on the host computer. The remote session will continue; the screen may freeze for a few seconds.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>设置存储不可用。</translation>

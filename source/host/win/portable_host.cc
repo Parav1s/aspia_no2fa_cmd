@@ -36,7 +36,6 @@
 
 namespace {
 
-const char kLaunchOption[] = "--portable-launch";
 const char kDataDirectoryVariable[] = "ASPIA_QS_DATA_DIR";
 const char kBaseDirectoryName[] = "AspiaQS";
 const char kInstalledServiceName[] = "aspia-host-service";
@@ -163,17 +162,13 @@ bool PortableHost::isPortable()
 // static
 bool PortableHost::isPortableInvocation(int argc, char* argv[])
 {
+    Q_UNUSED(argv)
+
     if (!isPortable())
         return false;
 
-    // The elevated relaunch of the shield button is the portable host as well.
-    for (int i = 1; i < argc; ++i)
-    {
-        if (qstrcmp(argv[i], kLaunchOption) == 0)
-            return true;
-    }
-
-    // A bare invocation is what the user double-clicked. A role invocation (an agent) is never it.
+    // A bare invocation is what the user double-clicked. A role invocation (the window, an agent)
+    // is never it.
     return argc == 1;
 }
 
@@ -317,20 +312,4 @@ bool PortableHost::prepareDatabase()
     LOG(INFO) << "Quick Support database is prepared (users:" << settings->users.size()
               << "id kept:" << !host_key.isEmpty() << ")";
     return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-// static
-bool PortableHost::restartElevated()
-{
-    QString arguments = QString::fromLatin1(kLaunchOption);
-
-    const QString dir = dataDirectory();
-    if (!dir.isEmpty())
-        arguments += " --qs-dir=\"" + QDir::toNativeSeparators(dir) + '"';
-
-    LOG(INFO) << "Restarting the portable host elevated";
-
-    return ProcessUtil::createProcess(executablePath(), arguments,
-                                      ProcessUtil::ExecuteMode::ELEVATE);
 }

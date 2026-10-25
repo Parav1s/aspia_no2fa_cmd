@@ -29,23 +29,22 @@
 // the logon screen, starting agents for other accounts) is simply unavailable - the run works with
 // what the current user may do.
 //
-// The window has a shield button: it restarts the package elevated, so the same run continues with
-// the administrator rights of the user (the database directory is passed to the new process).
+// The window has a shield button: it starts the desktop agent again with the administrator rights of
+// the user. The service and the client session stay; the elevated agent supersedes the ordinary one.
 class PortableHost
 {
 public:
     // Whether this process is the port run (the installed host is not).
     static bool isPortable();
 
-    // Whether this invocation is the portable host the user started (a bare start or the elevated
-    // relaunch of the shield button), not a role process (the service, an agent).
+    // Whether this invocation is the portable host the user started (a bare start), not a role
+    // process (the service, an agent).
     static bool isPortableInvocation(int argc, char* argv[]);
 
     // Directory the run keeps its database and settings in. Empty for the installed host.
     static bool applyDataDirectory(const QString& path);
 
-    // Remembers the directory without touching it (the window process needs it only to restart the
-    // run elevated).
+    // Remembers the directory without touching it (the window process gets it with --qs-dir).
     static void setDataDirectory(const QString& path);
     static QString dataDirectory();
 
@@ -59,9 +58,6 @@ public:
 
     // Writes the router settings and the users built into the package into the database of the run.
     static bool prepareDatabase();
-
-    // Restarts the package with administrator rights, waiting for this process to exit first.
-    static bool restartElevated();
 
 private:
     Q_DISABLE_COPY_MOVE(PortableHost)

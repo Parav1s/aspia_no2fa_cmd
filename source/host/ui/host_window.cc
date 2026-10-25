@@ -685,16 +685,24 @@ void HostWindow::onRunAsAdmin()
     if (!PortableHost::isPortable() || ProcessUtil::isProcessElevated())
         return;
 
-    if (!PortableHost::restartElevated())
+    // The service and the client session stay. Only the desktop agent is started again with
+    // administrator rights: it connects to the running service and supersedes the ordinary agent.
+    // Restarting the whole package would drop every connected client ("remote host closed the
+    // connection") and is not needed for controlling elevated windows.
+    MsgBox::information(this,
+        tr("Waiting for administrator rights. Confirm the UAC request on the host computer. "
+           "The remote session will continue; the screen may freeze for a few seconds."));
+
+    if (!ProcessUtil::createProcess(QCoreApplication::applicationFilePath(),
+                                    QStringLiteral("--agent desktop"),
+                                    ProcessUtil::ExecuteMode::ELEVATE))
     {
         MsgBox::warning(this, tr("Unable to request administrator rights."));
         return;
     }
 
-    // The elevated instance waits for this process to exit, so the two runs never share the
-    // database and the host ID.
-    realClose();
-    QCoreApplication::quit();
+    ui->button_elevate->setVisible(false);
+    ui->action_run_as_admin->setVisible(false);
 #endif // defined(Q_OS_WINDOWS)
 }
 

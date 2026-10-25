@@ -3105,6 +3105,10 @@ Credentials replaced: %2</source>
         <translation>Не удалось запросить права администратора.</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights. Confirm the UAC request on the host computer. The remote session will continue; the screen may freeze for a few seconds.</source>
+        <translation>Ожидание прав администратора. Подтвердите запрос UAC на компьютере хоста. Удалённый сеанс продолжится; изображение может замереть на несколько секунд.</translation>
+    </message>
+    <message>
         <location filename="../host/ui/host_window.cc" line="816"/>
         <source>Settings storage is unavailable.</source>
         <translation>Хранилище настроек недоступно.</translation>
