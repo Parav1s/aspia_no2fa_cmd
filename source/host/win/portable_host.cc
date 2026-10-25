@@ -73,6 +73,11 @@ bool installedHostIsRunning()
 
     const DWORD current_pid = GetCurrentProcessId();
 
+    // The package itself and its agents run the same executable, and a package exported under the
+    // name aspia_host.exe matches the process name below. They are not the installed host: a restart
+    // of the package (the shield button) must not look like one and throw the host ID away.
+    const QString current_path = QFileInfo(executablePath()).canonicalFilePath();
+
     ScopedHandle snapshot(CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0));
     if (!snapshot.isValid())
         return false;
@@ -89,10 +94,20 @@ bool installedHostIsRunning()
             continue;
 
         if (QString::fromWCharArray(entry.szExeFile).compare(
-                QLatin1String("aspia_host.exe"), Qt::CaseInsensitive) == 0)
+                QLatin1String("aspia_host.exe"), Qt::CaseInsensitive) != 0)
         {
-            return true;
+            continue;
         }
+
+        if (!current_path.isEmpty())
+        {
+            const QString process_path =
+                QFileInfo(ProcessUtil::filePath(entry.th32ProcessID)).canonicalFilePath();
+            if (process_path == current_path)
+                continue;
+        }
+
+        return true;
     }
     while (Process32NextW(snapshot, &entry));
 
