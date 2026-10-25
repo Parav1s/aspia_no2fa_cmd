@@ -271,10 +271,27 @@ bool PortableHost::prepareDatabase()
 
     if (installedHostIsRunning())
     {
-        LOG(INFO) << "The installed host is running, the package asks for an ID of its own";
+        // The installed host owns the machine's ID. A unique ID from a previous run is fine to
+        // keep: the router already knows it and it does not conflict. Only the installed host's
+        // own ID (taken over while its service was stopped) has to go.
+        const QByteArray own_key = db.hostKey();
 
-        if (!db.setHostKey(QByteArray()))
-            LOG(ERROR) << "Unable to clear the host ID";
+        QByteArray installed_key = installedHostKey();
+        if (installed_key.isEmpty())
+            installed_key = settings->host_key;
+
+        if (!own_key.isEmpty() && own_key != installed_key)
+        {
+            LOG(INFO) << "The installed host is running, the package keeps its own ID";
+            host_key = own_key;
+        }
+        else
+        {
+            LOG(INFO) << "The installed host is running, the package asks for an ID of its own";
+
+            if (!own_key.isEmpty() && !db.setHostKey(QByteArray()))
+                LOG(ERROR) << "Unable to clear the host ID";
+        }
     }
     else
     {
