@@ -47,7 +47,7 @@
 //--------------------------------------------------------------------------------------------------
 DesktopClient::DesktopClient(TcpChannel* tcp_channel, QObject* parent)
     : Client(tcp_channel, parent),
-      attach_deadline_(Clock::now() + Seconds(15)),
+      attach_deadline_(Clock::now() + Seconds(60)),
       task_mgr_worker_(CoreApplication::findWorker<TaskMgrWorker>()),
       tools_worker_(CoreApplication::findWorker<ToolsWorker>())
 {
@@ -137,7 +137,7 @@ void DesktopClient::dettach()
         ipc_channel_.reset();
     }
 
-    attach_deadline_ = Clock::now() + Seconds(15);
+    attach_deadline_ = Clock::now() + Seconds(60);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -382,10 +382,21 @@ void DesktopClient::onIpcNewConnection()
     }
 
 #if defined(Q_OS_WINDOWS)
-    // desktop_agent is spawned by DesktopManager which lives in the same process as us, so the
-    // agent's parent PID is our PID. On UNIX the agent is launched via sh/sudo chain plus '&'
-    // backgrounding, so its parent PID is not us; the check would reject legitimate agents.
-    if (ProcessUtil::parentProcessId(client_pid) != ProcessUtil::currentProcessId())
+    // A Quick Support package starts its elevated desktop agent through UAC from the host window,
+    // so that agent is not our child. It is still identified by the executable path (checked above)
+    // and by the session: both the plain and the elevated agent run the package in the same
+    // interactive session as the service.
+    if (PortableHost::isPortable())
+    {
+        if (ipc_channel_->sessionId() != currentProcessSessionId())
+        {
+            CLOG(ERROR) << "IPC client is from another session (pid:" << client_pid << ")";
+            ipc_channel_.reset();
+            finish();
+            return;
+        }
+    }
+    else if (ProcessUtil::parentProcessId(client_pid) != ProcessUtil::currentProcessId())
     {
         CLOG(ERROR) << "IPC client is not our child (pid:" << client_pid << ")";
         ipc_channel_.reset();

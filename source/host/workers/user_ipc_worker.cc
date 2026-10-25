@@ -100,6 +100,26 @@ void UserIpcWorker::onStopClient(quint32 client_id)
     sendServiceMessage();
 }
 
+//----------------------------------------------------------------------------------
+void UserIpcWorker::onPauseDesktop()
+{
+    LOG(INFO) << "Pause desktop request";
+    proto::user::ServiceControl* control =
+        outgoing_message_.newMessage<proto::user::UserToService>().mutable_control();
+    control->set_command_name("pause_desktop");
+    sendServiceMessage();
+}
+
+//----------------------------------------------------------------------------------
+void UserIpcWorker::onResumeDesktop()
+{
+    LOG(INFO) << "Resume desktop request";
+    proto::user::ServiceControl* control =
+        outgoing_message_.newMessage<proto::user::UserToService>().mutable_control();
+    control->set_command_name("resume_desktop");
+    sendServiceMessage();
+}
+
 //--------------------------------------------------------------------------------------------------
 void UserIpcWorker::onConnectConfirmation(quint32 id, bool accept)
 {

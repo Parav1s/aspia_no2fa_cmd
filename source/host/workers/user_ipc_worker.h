@@ -74,6 +74,8 @@ public slots:
     void onUpdateCredentials(proto::user::CredentialsRequest_Type type);
     void onOneTimeSessions(quint32 sessions);
     void onStopClient(quint32 client_id);
+    void onPauseDesktop();
+    void onResumeDesktop();
     void onConnectConfirmation(quint32 request_id, bool accept);
     void onMouseLock(bool enable);
     void onKeyboardLock(bool enable);

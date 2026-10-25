@@ -60,6 +60,11 @@ public slots:
     void onUserLockMouse(bool enable);
     void onUserLockKeyboard(bool enable);
 
+    // Detach the agent before the Quick Support window starts an elevated one, and bring the normal
+    // agent back if the elevation request is cancelled.
+    void pause();
+    void resume();
+
 signals:
     void sig_attached();
     void sig_dettached();

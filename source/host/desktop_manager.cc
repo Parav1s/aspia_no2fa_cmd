@@ -355,6 +355,23 @@ void DesktopManager::onClientSwitchSession(SessionId session_id)
 }
 
 //--------------------------------------------------------------------------------------------------
+void DesktopManager::pause()
+{
+    LOG(INFO) << "Pause the desktop agent for elevation";
+    dettach(FROM_HERE);
+}
+
+//--------------------------------------------------------------------------------------------------
+void DesktopManager::resume()
+{
+    if (state_ != State::DETTACHED)
+        return;
+
+    LOG(INFO) << "Resume the desktop agent after the elevation request";
+    attach(FROM_HERE, activeTargetSessionId());
+}
+
+//--------------------------------------------------------------------------------------------------
 void DesktopManager::onUserPause(bool enable)
 {
     proto::desktop::ServiceToAgent message;

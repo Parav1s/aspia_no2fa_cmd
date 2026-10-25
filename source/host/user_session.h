@@ -85,6 +85,8 @@ signals:
     void sig_changeOneTimeSessions(quint32 sessions);
     void sig_confirmationReply(quint32 request_id, bool accept);
     void sig_stopClient(quint32 client_id);
+    void sig_pauseDesktop();
+    void sig_resumeDesktop();
     void sig_chatMessage(const proto::chat::Chat& chat);
     void sig_lockMouseChanged(bool enable);
     void sig_lockKeyboardChanged(bool enable);

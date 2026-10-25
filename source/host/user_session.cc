@@ -753,6 +753,16 @@ void UserSession::onIpcMessageReceived(quint32 channel_id, const QByteArray& buf
             LOG(INFO) << "pause" << control.boolean();
             emit sig_pauseChanged(control.boolean());
         }
+        else if (command_name == "pause_desktop")
+        {
+            LOG(INFO) << "pause_desktop";
+            emit sig_pauseDesktop();
+        }
+        else if (command_name == "resume_desktop")
+        {
+            LOG(INFO) << "resume_desktop";
+            emit sig_resumeDesktop();
+        }
         else if (command_name == "lock_mouse")
         {
             if (!control.has_boolean())

@@ -689,14 +689,25 @@ void HostWindow::onRunAsAdmin()
     // administrator rights: it connects to the running service and supersedes the ordinary agent.
     // Restarting the whole package would drop every connected client ("remote host closed the
     // connection") and is not needed for controlling elevated windows.
-    MsgBox::information(this,
-        tr("Waiting for administrator rights. Confirm the UAC request on the host computer. "
-           "The remote session will continue; the screen may freeze for a few seconds."));
+    // The service detaches the desktop agent before the UAC prompt: connected clients see the
+    // "session temporarily unavailable" overlay and the desktop client keeps the session for up to
+    // 60 seconds while the elevated agent starts. No additional dialog is shown on the host.
+    if (ipc_worker_)
+    {
+        QMetaObject::invokeMethod(ipc_worker_, &UserIpcWorker::onPauseDesktop,
+                                  Qt::QueuedConnection);
+    }
 
     if (!ProcessUtil::createProcess(QCoreApplication::applicationFilePath(),
                                     QStringLiteral("--agent desktop"),
                                     ProcessUtil::ExecuteMode::ELEVATE))
     {
+        if (ipc_worker_)
+        {
+            QMetaObject::invokeMethod(ipc_worker_, &UserIpcWorker::onResumeDesktop,
+                                      Qt::QueuedConnection);
+        }
+
         MsgBox::warning(this, tr("Unable to request administrator rights."));
         return;
     }

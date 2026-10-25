@@ -148,6 +148,8 @@ void ServiceWorker::onPrepare()
     connect(user_session_, &UserSession::sig_lockMouseChanged, desktop_manager_, &DesktopManager::onUserLockMouse);
     connect(user_session_, &UserSession::sig_lockKeyboardChanged, desktop_manager_, &DesktopManager::onUserLockKeyboard);
     connect(desktop_manager_, &DesktopManager::sig_attached, this, &ServiceWorker::onDesktopManagerAttached);
+    connect(user_session_, &UserSession::sig_pauseDesktop, desktop_manager_, &DesktopManager::pause);
+    connect(user_session_, &UserSession::sig_resumeDesktop, desktop_manager_, &DesktopManager::resume);
 
     connect(CoreApplication::instance(), &CoreApplication::sig_powerEvent,
             this, &ServiceWorker::onPowerEvent, Qt::QueuedConnection);
