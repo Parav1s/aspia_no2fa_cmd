@@ -278,11 +278,17 @@ bool PortableHost::prepareDatabase()
     }
     else
     {
-        host_key = db.hostKey();
+        // The installed host is stopped: its identity is what the clients already have in their
+        // address books, so the package stands in for it. The installed database is readable only
+        // with administrator rights, so the snapshot embedded in the package comes next; the ID
+        // this run used before is the last fallback.
+        LOG(INFO) << "The installed host is stopped, the package takes its ID";
+
+        host_key = installedHostKey();
         if (host_key.isEmpty())
             host_key = settings->host_key;
         if (host_key.isEmpty())
-            host_key = installedHostKey();
+            host_key = db.hostKey();
     }
 
     if (!db.setRouterEnabled(true))
