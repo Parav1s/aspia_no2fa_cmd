@@ -370,6 +370,9 @@ border-radius: 2px;
    </property>
   </action>
   <action name="action_run_as_admin">
+   <property name="visible">
+    <bool>false</bool>
+   </property>
    <property name="text">
     <string>Run as administrator</string>
    </property>

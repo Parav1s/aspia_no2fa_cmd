@@ -159,17 +159,19 @@ HostWindow::HostWindow(QWidget* parent)
 
 #if defined(Q_OS_WINDOWS)
     // A Quick Support run without administrator rights offers to restart itself elevated: a compact
-    // shield button next to the ID (and the same action in the tray menu).
+    // shield button next to the ID (and the same action in the tray menu). The installed host never
+    // offers it: the elevation restart belongs to the portable run only.
     const bool can_elevate = PortableHost::isPortable() && !ProcessUtil::isProcessElevated();
+
+    ui->button_elevate->setVisible(can_elevate);
+    ui->action_run_as_admin->setVisible(can_elevate);
 
     if (can_elevate)
     {
         const QColor icon_color = ui->button_elevate->palette().color(QPalette::ButtonText);
 
         ui->button_elevate->setIcon(shieldIcon(icon_color));
-        ui->button_elevate->setVisible(true);
         ui->action_run_as_admin->setIcon(shieldIcon(icon_color));
-        ui->action_run_as_admin->setVisible(true);
 
         connect(ui->button_elevate, &QToolButton::clicked, this, &HostWindow::onRunAsAdmin);
     }
