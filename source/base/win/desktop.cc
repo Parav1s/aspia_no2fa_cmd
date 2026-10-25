@@ -18,6 +18,8 @@
 
 #include "base/win/desktop.h"
 
+#include <atomic>
+
 #include "base/logging.h"
 
 //--------------------------------------------------------------------------------------------------
@@ -72,7 +74,19 @@ Desktop Desktop::inputDesktop()
     HDESK desktop = OpenInputDesktop(0, FALSE, desired_access);
     if (!desktop)
     {
-        PLOG(ERROR) << "OpenInputDesktop failed";
+        // A UAC prompt or a locked session switches the input desktop to one a user process cannot
+        // open. The callers repeat this on every captured frame and every input event, so log the
+        // expected failure at most once per few seconds instead of flooding the log.
+        static std::atomic<ULONGLONG> last_log_tick { 0 };
+
+        const ULONGLONG now = GetTickCount64();
+        ULONGLONG last_tick = last_log_tick.load(std::memory_order_relaxed);
+        if (now - last_tick >= 5000 &&
+            last_log_tick.compare_exchange_strong(last_tick, now, std::memory_order_relaxed))
+        {
+            PLOG(ERROR) << "OpenInputDesktop failed";
+        }
+
         return Desktop();
     }
 
