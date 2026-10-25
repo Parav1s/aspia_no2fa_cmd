@@ -940,6 +940,16 @@ void UserSession::attach(const Location& location, AttachReason reason, SessionI
         return;
     }
 
+    if (PortableHost::isPortable())
+    {
+        // The package starts its own window (runPortable). Never launch aspia_host.exe from the
+        // package directory here: that file may be the installed host binary, and the installed
+        // product would then start behind the Quick Support window.
+        LOG(INFO) << "Portable run: the window is started by the package";
+        dettach(FROM_HERE);
+        return;
+    }
+
     QString file_path = QDir::toNativeSeparators(
         QCoreApplication::applicationDirPath() + '\\' + kExecutableNameForUi);
 
