@@ -19,18 +19,23 @@
 #include "host/host_utils.h"
 
 #include <QCoreApplication>
+#include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QLibrary>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QProcessEnvironment>
+#include <QSettings>
+#include <QStandardPaths>
 
 #if defined(Q_OS_WINDOWS)
 #include <qt_windows.h>
 #include <dxgi.h>
 #include <d3d11.h>
 #include <comdef.h>
+#include <sddl.h>
+#include <WtsApi32.h>
 #include <wrl/client.h>
 
 #include "base/win/desktop.h"
@@ -728,3 +733,76 @@ void HostUtils::uninstallApplication()
     NOTIMPLEMENTED();
 #endif
 }
+
+#if defined(Q_OS_WINDOWS)
+//--------------------------------------------------------------------------------------------------
+// static
+QString HostUtils::sessionUserDesktop()
+{
+    const QString fallback = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+
+    // The process runs with the rights of the user working in the session: its own profile is the
+    // right one.
+    if (!ProcessUtil::isProcessElevated())
+        return fallback;
+
+    // Elevation may have been granted with the credentials of another administrator. The dialogs
+    // must then still start in the profile of the user who works in the session, not in that
+    // administrator's.
+    DWORD session_id = 0;
+    if (!ProcessIdToSessionId(GetCurrentProcessId(), &session_id))
+        return fallback;
+
+    auto query_session = [session_id](WTS_INFO_CLASS info) -> QString
+    {
+        LPWSTR buffer = nullptr;
+        DWORD size = 0;
+        if (!WTSQuerySessionInformationW(WTS_CURRENT_SERVER_HANDLE, session_id, info, &buffer, &size))
+            return QString();
+
+        const QString result = QString::fromWCharArray(buffer);
+        WTSFreeMemory(buffer);
+        return result;
+    };
+
+    const QString user_name = query_session(WTSUserName);
+    if (user_name.isEmpty())
+        return fallback;
+
+    const QString domain = query_session(WTSDomainName);
+    const QString account = domain.isEmpty() ? user_name : domain + '\\' + user_name;
+
+    DWORD sid_size = 0;
+    DWORD domain_size = 0;
+    SID_NAME_USE sid_type = SidTypeUnknown;
+    LookupAccountNameW(nullptr, qUtf16Printable(account), nullptr, &sid_size, nullptr, &domain_size,
+                       &sid_type);
+    if (sid_size == 0)
+        return fallback;
+
+    std::vector<BYTE> sid(sid_size);
+    std::vector<wchar_t> domain_name(domain_size);
+    if (!LookupAccountNameW(nullptr, qUtf16Printable(account), sid.data(), &sid_size,
+                            domain_name.data(), &domain_size, &sid_type))
+    {
+        return fallback;
+    }
+
+    LPWSTR sid_string = nullptr;
+    if (!ConvertSidToStringSidW(reinterpret_cast<PSID>(sid.data()), &sid_string))
+        return fallback;
+
+    QSettings profile_list(
+        "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\ProfileList\\" +
+            QString::fromWCharArray(sid_string),
+        QSettings::NativeFormat);
+    LocalFree(sid_string);
+
+    const QString profile = profile_list.value("ProfileImagePath").toString();
+    if (profile.isEmpty())
+        return fallback;
+
+    const QString desktop = QDir::fromNativeSeparators(profile) + "/Desktop";
+    return QFileInfo(desktop).isDir() ? desktop : fallback;
+}
+#endif // defined(Q_OS_WINDOWS)

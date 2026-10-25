@@ -35,6 +35,7 @@
 #include "common/desktop/msg_box.h"
 #include "common/desktop/update_dialog.h"
 #include "host/database.h"
+#include "host/host_utils.h"
 #include "host/screen_capturer.h"
 #include "host/service.h"
 #include "host/settings_util.h"
@@ -63,9 +64,13 @@ namespace {
 // Where the save dialog starts: the desktop, with |file_name| filled in.
 QString desktopPath(const QString& file_name)
 {
-    const QString desktop = QStandardPaths::writableLocation(QStandardPaths::DesktopLocation);
+    // The Desktop of the user working in the session: the settings dialog is elevated and may run
+    // with the credentials of another administrator.
+    const QString desktop = HostUtils::sessionUserDesktop();
     if (desktop.isEmpty())
         return file_name;
+    if (file_name.isEmpty())
+        return desktop;
     return desktop + '/' + file_name;
 }
 #endif // defined(Q_OS_WINDOWS)
@@ -575,7 +580,7 @@ void ConfigDialog::onExport()
     LOG(INFO) << "[ACTION] Export settings";
 
     QString file_path =
-        QFileDialog::getSaveFileName(this, tr("Export"), QString(), tr("JSON-files (*.json)"));
+        QFileDialog::getSaveFileName(this, tr("Export"), desktopPath(QString()), tr("JSON-files (*.json)"));
     if (file_path.isEmpty())
     {
         LOG(INFO) << "No selected file path";

@@ -19,6 +19,7 @@
 #ifndef HOST_HOST_UTILS_H
 #define HOST_HOST_UTILS_H
 
+#include <QString>
 #include <QtClassHelperMacros>
 #include <QtTypes>
 
@@ -37,6 +38,13 @@ public:
 
     static void printDebugInfo(quint32 features = INCLUDE_DEFAULT);
     static void uninstallApplication();
+
+#if defined(Q_OS_WINDOWS)
+    // The Desktop of the user who works in this session. Same as the current user's Desktop unless
+    // the process was elevated with another administrator's credentials: then the process lives in
+    // that administrator's profile, and the dialogs must still start where the user expects.
+    static QString sessionUserDesktop();
+#endif // defined(Q_OS_WINDOWS)
 
 private:
     Q_DISABLE_COPY_MOVE(HostUtils)
