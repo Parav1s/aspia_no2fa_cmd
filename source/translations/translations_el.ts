@@ -246,6 +246,10 @@ Routers added: %4</source>
         <translation>Εικόνες</translation>
     </message>
     <message>
+        <source>AppData</source>
+        <translation>AppData</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/file_transfer/address_bar_model.cc" line="302"/>
         <source>Computer</source>
         <translation>Υπολογιστής</translation>

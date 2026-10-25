@@ -150,6 +150,10 @@ QIcon FilePlatformUtil::driveIcon(proto::file_transfer::DriveList::Item::Type ty
             icon_name = ":/img/folder-documents.svg";
             break;
 
+        case proto::file_transfer::DriveList::Item::TYPE_APPDATA_FOLDER:
+            icon_name = QStringLiteral(":/img/folder.svg");
+            break;
+
         case proto::file_transfer::DriveList::Item::TYPE_ROOT_DIRECTORY:
             icon_name = QStringLiteral(":/img/folder.svg");
             break;

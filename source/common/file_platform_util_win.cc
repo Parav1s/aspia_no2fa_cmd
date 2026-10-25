@@ -159,6 +159,9 @@ QIcon FilePlatformUtil::driveIcon(proto::file_transfer::DriveList::Item::Type ty
         case proto::file_transfer::DriveList::Item::TYPE_DOCUMENTS_FOLDER:
             return knownFolderIcon(FOLDERID_Documents);
 
+        case proto::file_transfer::DriveList::Item::TYPE_APPDATA_FOLDER:
+            return stockIcon(SIID_FOLDER);
+
         default:
             return stockIcon(SIID_DRIVEFIXED);
     }

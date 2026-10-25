@@ -153,8 +153,9 @@ void addDesktopDrives(proto::file_transfer::DriveList* drive_list)
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
-FileRequestHandler::FileRequestHandler(QObject* parent)
-    : QObject(parent)
+FileRequestHandler::FileRequestHandler(QObject* parent, bool include_user_appdata)
+    : QObject(parent),
+      include_user_appdata_(include_user_appdata)
 {
     LOG(INFO) << "Ctor";
 }
@@ -231,6 +232,24 @@ void FileRequestHandler::doDriveListRequest(proto::file_transfer::Reply* reply)
     proto::file_transfer::DriveList* drive_list = reply->mutable_drive_list();
 
     addDesktopDrives(drive_list);
+
+#if defined(Q_OS_WINDOWS)
+    // A remote user often needs the AppData of the session user. Only the host side adds it: the
+    // local panel must keep showing the client's own folders.
+    if (include_user_appdata_)
+    {
+        const QString roaming = QDir::fromNativeSeparators(qEnvironmentVariable("APPDATA"));
+        const QString app_data = roaming.isEmpty()
+            ? QString() : QFileInfo(roaming).dir().absolutePath();
+
+        if (!app_data.isEmpty() && QDir(app_data).exists())
+        {
+            proto::file_transfer::DriveList::Item* item = drive_list->add_item();
+            item->set_type(proto::file_transfer::DriveList::Item::TYPE_APPDATA_FOLDER);
+            item->set_path(app_data.toStdString());
+        }
+    }
+#endif // defined(Q_OS_WINDOWS)
 
     if (drive_list->item_size() == 0)
         reply->set_error_code(proto::file_transfer::ERROR_CODE_NO_DRIVES_FOUND);

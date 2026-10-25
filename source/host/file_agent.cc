@@ -28,7 +28,7 @@
 //--------------------------------------------------------------------------------------------------
 FileAgent::FileAgent(QObject* parent)
     : QObject(parent),
-      handler_(new FileRequestHandler(this))
+      handler_(new FileRequestHandler(this, true))
 {
     LOG(INFO) << "Ctor";
 }

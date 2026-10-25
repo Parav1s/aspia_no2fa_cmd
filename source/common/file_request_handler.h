@@ -44,7 +44,7 @@ class FileRequestHandler final : public QObject
     Q_OBJECT
 
 public:
-    explicit FileRequestHandler(QObject* parent = nullptr);
+    explicit FileRequestHandler(QObject* parent = nullptr, bool include_user_appdata = false);
     ~FileRequestHandler();
 
     void doRequest(const FileTask& task);
@@ -63,6 +63,10 @@ private:
 
     std::unique_ptr<FileDepacketizer> depacketizer_;
     std::unique_ptr<FilePacketizer> packetizer_;
+
+    // The remote (host) panel offers the session user's AppData folder. The local (client) panel
+    // does not: it would show the client user's own AppData there.
+    const bool include_user_appdata_ = false;
 
     Q_DISABLE_COPY_MOVE(FileRequestHandler)
 };

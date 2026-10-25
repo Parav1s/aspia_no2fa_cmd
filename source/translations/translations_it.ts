@@ -246,6 +246,10 @@ Router aggiunti: %4</translation>
         <translation>Immagini</translation>
     </message>
     <message>
+        <source>AppData</source>
+        <translation>AppData</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/file_transfer/address_bar_model.cc" line="302"/>
         <source>Computer</source>
         <translation>Computer</translation>

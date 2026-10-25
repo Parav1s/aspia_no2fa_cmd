@@ -98,6 +98,10 @@ void AddressBarModel::setDriveList(const proto::file_transfer::DriveList& list)
                 drive.name = tr("Pictures");
                 break;
 
+            case proto::file_transfer::DriveList::Item::TYPE_APPDATA_FOLDER:
+                drive.name = tr("AppData");
+                break;
+
             default:
                 break;
         }
@@ -361,7 +365,8 @@ QVariant AddressBarModel::data(const QModelIndex& index, int role) const
                         drive.type == proto::file_transfer::DriveList::Item::TYPE_HOME_FOLDER ||
                         drive.type == proto::file_transfer::DriveList::Item::TYPE_DOWNLOAD_FOLDER ||
                         drive.type == proto::file_transfer::DriveList::Item::TYPE_DOCUMENTS_FOLDER ||
-                        drive.type == proto::file_transfer::DriveList::Item::TYPE_PICTURES_FOLDER)
+                        drive.type == proto::file_transfer::DriveList::Item::TYPE_PICTURES_FOLDER ||
+                        drive.type == proto::file_transfer::DriveList::Item::TYPE_APPDATA_FOLDER)
                     {
                         return drive.name;
                     }
@@ -479,6 +484,9 @@ QString AddressBarModel::typeToString(proto::file_transfer::DriveList::Item::Typ
 
         case proto::file_transfer::DriveList::Item::TYPE_PICTURES_FOLDER:
             return tr("Pictures Folder");
+
+        case proto::file_transfer::DriveList::Item::TYPE_APPDATA_FOLDER:
+            return tr("AppData");
 
         case proto::file_transfer::DriveList::Item::TYPE_ROOT_DIRECTORY:
             return tr("Root Directory");
