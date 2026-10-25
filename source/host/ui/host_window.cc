@@ -363,6 +363,13 @@ void HostWindow::closeEvent(QCloseEvent* event)
 {
     bool hide_to_tray = !should_be_quit_;
 
+#if defined(Q_OS_WINDOWS)
+    // A Quick Support package is closed by its window: there is no service that would keep working
+    // and nobody to bring the window back from the tray.
+    if (PortableHost::isPortable())
+        hide_to_tray = false;
+#endif // defined(Q_OS_WINDOWS)
+
 #if defined(Q_OS_MACOS)
     // Only the window's own close button (a spontaneous close) hides to the tray. A non-spontaneous
     // close is an application-termination request - macOS "Quit & Reopen" after a permission change,
@@ -959,7 +966,15 @@ void HostWindow::onSettingsChanged()
 {
     LOG(INFO) << "Settings changed";
     SystemSettings settings;
+
+#if defined(Q_OS_WINDOWS)
+    // The machine-wide "do not allow the host to be closed" belongs to the installed host. A Quick
+    // Support package is closed by the user who started it, so the option does not apply to it.
+    ui->action_exit->setEnabled(PortableHost::isPortable() ||
+                                !settings.isApplicationShutdownDisabled());
+#else
     ui->action_exit->setEnabled(!settings.isApplicationShutdownDisabled());
+#endif // defined(Q_OS_WINDOWS)
 
     updatePasswordSection();
 }

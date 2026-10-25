@@ -654,6 +654,17 @@ void UserSession::onIpcDisconnected()
             // Start a timer, after which all connected clients will be disconnected.
 
             LOG(WARNING) << "GUI process terminated during an active user session";
+
+#if defined(Q_OS_WINDOWS)
+            // A Quick Support run lives as long as its window: there is no service that would stay
+            // and nobody to bring the window back, so the run ends right here.
+            if (PortableHost::isPortable())
+            {
+                dettach(FROM_HERE);
+                return;
+            }
+#endif // defined(Q_OS_WINDOWS)
+
             dettach_deadline_ = Clock::now() + kDettachTimeout;
             ipc_channel_.reset();
         }
