@@ -49,6 +49,9 @@ public:
     {
         Address router_address { kDefaultRouterHostTcpPort };
         QByteArray router_public_key;
+        // The ID the host is already known by: the router keeps it for the package, so a support
+        // session starts with the ID the operator already knows.
+        QByteArray host_key;
         QVector<User> users;
     };
 

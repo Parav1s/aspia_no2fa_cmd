@@ -657,8 +657,8 @@ bool DesktopManager::startProcess()
     // SYSTEM (which a run without administrator rights could not use).
     if (PortableHost::isPortable())
     {
-        if (!ProcessUtil::createProcess(QCoreApplication::applicationFilePath(),
-                                        QStringLiteral("--agent desktop")))
+        if (!ProcessUtil::createChildProcess(QCoreApplication::applicationFilePath(),
+                                             QStringLiteral("--agent desktop")))
         {
             LOG(ERROR) << "Unable to start the desktop agent";
             return false;

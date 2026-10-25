@@ -213,10 +213,12 @@ bool PortableHost::prepareDatabase()
         return false;
     }
 
-    // The ID is the one the router already knows: of a previous run of this package, or of the
-    // installed host this computer had. A new ID on every start is exactly what a support session
-    // does not need.
+    // The ID is the one the router already knows: of this run, of the package (taken at export from
+    // the installed host) or, as a last resort, of the installed host's database. A new ID on every
+    // start is exactly what a support session does not need.
     QByteArray host_key = db.hostKey();
+    if (host_key.isEmpty())
+        host_key = settings->host_key;
     if (host_key.isEmpty())
         host_key = installedHostKey();
 

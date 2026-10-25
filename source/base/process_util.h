@@ -54,6 +54,12 @@ public:
 
     static bool createProcess(const QString& program, const QString& arguments,
                               ExecuteMode mode = ExecuteMode::NORMAL);
+
+    // Starts |program| as a direct child of the calling process. Unlike createProcess(), the new
+    // process always inherits the exact token of the caller (elevated when the caller is elevated)
+    // and the caller's environment: that is what the portable run needs for its window and its
+    // desktop agent.
+    static bool createChildProcess(const QString& program, const QString& arguments);
 #endif // defined(Q_OS_WINDOWS)
 
 private:

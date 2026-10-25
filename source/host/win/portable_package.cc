@@ -39,6 +39,7 @@ const WORD kResourceLanguage = MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL);
 const char kVersion[] = "version";
 const char kRouterAddress[] = "router_address";
 const char kRouterPublicKey[] = "router_public_key";
+const char kHostKey[] = "host_key";
 const char kUsers[] = "users";
 
 const int kSettingsVersion = 1;
@@ -142,6 +143,7 @@ PortablePackage::Result PortablePackage::exportWithSettings(const QString& file_
     settings.router_address = db.routerAddress();
     settings.router_public_key = db.routerPublicKey();
     settings.users = db.userList();
+    settings.host_key = db.hostKey();
 
     if (!db.isRouterEnabled() || !settings.router_address.isValid() ||
         settings.router_public_key.size() != kRouterPublicKeySize)
@@ -161,6 +163,7 @@ PortablePackage::Result PortablePackage::exportWithSettings(const QString& file_
     object[kRouterAddress] = settings.router_address.toString();
     object[kRouterPublicKey] = QString::fromLatin1(settings.router_public_key.toHex());
     object[kUsers] = QString::fromLatin1(serializeUsers(settings.users).toBase64());
+    object[kHostKey] = QString::fromLatin1(settings.host_key.toHex());
 
     const QString executable_path = ProcessUtil::filePath(ProcessUtil::currentProcessId());
 
@@ -220,6 +223,7 @@ std::optional<PortablePackage::Settings> PortablePackage::builtInSettings()
     settings.router_address =
         Address::fromString(object[kRouterAddress].toString(), kDefaultRouterHostTcpPort);
     settings.router_public_key = QByteArray::fromHex(object[kRouterPublicKey].toString().toLatin1());
+    settings.host_key = QByteArray::fromHex(object[kHostKey].toString().toLatin1());
     settings.users = deserializeUsers(
         QByteArray::fromBase64(object[kUsers].toString().toLatin1()));
 

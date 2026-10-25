@@ -27,7 +27,9 @@
 #include "base/session_id.h"
 #include "base/win/scoped_object.h"
 
+#include <QDir>
 #include <qt_windows.h>
+#include <vector>
 #include <shellapi.h>
 #include <tlhelp32.h>
 #endif // defined(Q_OS_WINDOWS)
@@ -266,6 +268,36 @@ bool ProcessUtil::isProcessElevated()
 
 //--------------------------------------------------------------------------------------------------
 // static
+bool ProcessUtil::createChildProcess(const QString& program, const QString& arguments)
+{
+    std::wstring command_line = L'"' + QDir::toNativeSeparators(program).toStdWString() + L'"';
+    if (!arguments.isEmpty())
+        command_line += L' ' + arguments.toStdWString();
+
+    std::vector<wchar_t> buffer(command_line.begin(), command_line.end());
+    buffer.push_back(L'\0');
+
+    STARTUPINFOW startup_info;
+    memset(&startup_info, 0, sizeof(startup_info));
+    startup_info.cb = sizeof(startup_info);
+
+    PROCESS_INFORMATION process_info;
+    memset(&process_info, 0, sizeof(process_info));
+
+    const BOOL result = CreateProcessW(nullptr, buffer.data(), nullptr, nullptr, FALSE,
+        CREATE_UNICODE_ENVIRONMENT, nullptr, nullptr, &startup_info, &process_info);
+    if (!result)
+    {
+        PLOG(ERROR) << "CreateProcessW failed";
+        return false;
+    }
+
+    CloseHandle(process_info.hThread);
+    CloseHandle(process_info.hProcess);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
 bool ProcessUtil::createProcess(const QString& program, const QString& arguments, ExecuteMode mode)
 {
     SHELLEXECUTEINFOW sei;
