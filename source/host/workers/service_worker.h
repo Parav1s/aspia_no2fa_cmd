@@ -61,6 +61,8 @@ private slots:
     void onUserSessionAttached();
     void onUserSessionDettached();
     void onStopClient(quint32 client_id);
+    void onPauseDesktop();
+    void onResumeDesktop();
     void onDesktopManagerAttached();
     void onClientFinished();
     void onChatClientStarted();

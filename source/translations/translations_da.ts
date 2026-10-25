@@ -2095,6 +2095,10 @@ Legitimationsoplysninger erstattet: %2</translation>
         <translation>Sessionen er midlertidigt utilgængelig</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights confirmation</source>
+        <translation>Waiting for administrator rights confirmation</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/desktop/desktop_widget.cc" line="602"/>
         <source>The session is permanently unavailable</source>
         <translation>Sessionen er permanent utilgængelig</translation>

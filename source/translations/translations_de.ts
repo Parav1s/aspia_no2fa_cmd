@@ -2095,6 +2095,10 @@ Ersetzte Anmeldedaten: %2</translation>
         <translation>Die Sitzung ist vorübergehend nicht verfügbar</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights confirmation</source>
+        <translation>Waiting for administrator rights confirmation</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/desktop/desktop_widget.cc" line="602"/>
         <source>The session is permanently unavailable</source>
         <translation>Die Sitzung ist dauerhaft nicht verfügbar</translation>

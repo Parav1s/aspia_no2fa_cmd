@@ -2087,6 +2087,10 @@ Lecserélt hitelesítő adatok: %2</translation>
         <translation>A munkamenet átmenetileg nem érhető el</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights confirmation</source>
+        <translation>Waiting for administrator rights confirmation</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/desktop/desktop_widget.cc" line="602"/>
         <source>The session is permanently unavailable</source>
         <translation>A munkamenet véglegesen nem érhető el</translation>

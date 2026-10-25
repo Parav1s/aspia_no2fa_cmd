@@ -148,8 +148,8 @@ void ServiceWorker::onPrepare()
     connect(user_session_, &UserSession::sig_lockMouseChanged, desktop_manager_, &DesktopManager::onUserLockMouse);
     connect(user_session_, &UserSession::sig_lockKeyboardChanged, desktop_manager_, &DesktopManager::onUserLockKeyboard);
     connect(desktop_manager_, &DesktopManager::sig_attached, this, &ServiceWorker::onDesktopManagerAttached);
-    connect(user_session_, &UserSession::sig_pauseDesktop, desktop_manager_, &DesktopManager::pause);
-    connect(user_session_, &UserSession::sig_resumeDesktop, desktop_manager_, &DesktopManager::resume);
+    connect(user_session_, &UserSession::sig_pauseDesktop, this, &ServiceWorker::onPauseDesktop);
+    connect(user_session_, &UserSession::sig_resumeDesktop, this, &ServiceWorker::onResumeDesktop);
 
     connect(CoreApplication::instance(), &CoreApplication::sig_powerEvent,
             this, &ServiceWorker::onPowerEvent, Qt::QueuedConnection);
@@ -414,6 +414,30 @@ void ServiceWorker::onStopClient(quint32 client_id)
 }
 
 //--------------------------------------------------------------------------------------------------
+void ServiceWorker::onPauseDesktop()
+{
+    for (auto* client : std::as_const(clients_))
+    {
+        if (auto* desktop_client = dynamic_cast<DesktopClient*>(client))
+            desktop_client->setElevationPending(true);
+    }
+
+    desktop_manager_->pause();
+}
+
+//--------------------------------------------------------------------------------------------------
+void ServiceWorker::onResumeDesktop()
+{
+    for (auto* client : std::as_const(clients_))
+    {
+        if (auto* desktop_client = dynamic_cast<DesktopClient*>(client))
+            desktop_client->setElevationPending(false);
+    }
+
+    desktop_manager_->resume();
+}
+
+//--------------------------------------------------------------------------------------------------
 void ServiceWorker::onDesktopManagerAttached()
 {
     // Iterate over a snapshot: attach() emits sig_finished() synchronously when its IPC server fails
@@ -426,6 +450,7 @@ void ServiceWorker::onDesktopManagerAttached()
         if (!desktop_client)
             continue;
 
+        desktop_client->setElevationPending(false);
         desktop_client->dettach();
 
         QString ipc_channel_name = desktop_client->attach();

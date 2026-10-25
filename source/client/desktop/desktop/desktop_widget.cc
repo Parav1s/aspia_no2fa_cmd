@@ -598,6 +598,9 @@ void DesktopWidget::paintEvent(QPaintEvent* /* event */)
             case proto::video::ERROR_CODE_TEMPORARY:
                 message = tr("The session is temporarily unavailable");
                 break;
+            case proto::video::ERROR_CODE_ELEVATION:
+                message = tr("Waiting for administrator rights confirmation");
+                break;
             case proto::video::ERROR_CODE_PERMANENT:
                 message = tr("The session is permanently unavailable");
                 break;

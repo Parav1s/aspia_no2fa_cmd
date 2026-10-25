@@ -141,6 +141,12 @@ void DesktopClient::dettach()
 }
 
 //--------------------------------------------------------------------------------------------------
+void DesktopClient::setElevationPending(bool pending)
+{
+    elevation_pending_ = pending;
+}
+
+//--------------------------------------------------------------------------------------------------
 void DesktopClient::onUserMessage(quint8 channel_id, const QByteArray& buffer)
 {
     if (channel_id == proto::desktop::CHANNEL_ID_CLIPBOARD || channel_id == proto::desktop::CHANNEL_ID_FILE)
@@ -298,7 +304,8 @@ void DesktopClient::onTimer(TimePoint now)
 
         proto::video::HostToClient message;
         proto::video::Packet* packet = message.mutable_packet();
-        packet->set_error_code(proto::video::ERROR_CODE_TEMPORARY);
+        packet->set_error_code(elevation_pending_ ? proto::video::ERROR_CODE_ELEVATION
+                                                  : proto::video::ERROR_CODE_TEMPORARY);
         send(proto::desktop::CHANNEL_ID_VIDEO, serialize(message));
     }
 

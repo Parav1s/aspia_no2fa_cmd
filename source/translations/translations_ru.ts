@@ -2103,6 +2103,10 @@ Credentials replaced: %2</source>
         <translation>Сессия временно недоступна</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights confirmation</source>
+        <translation>Ожидание подтверждения прав администратора</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/desktop/desktop_widget.cc" line="602"/>
         <source>The session is permanently unavailable</source>
         <translation>Сессия недоступна</translation>

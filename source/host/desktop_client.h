@@ -51,6 +51,10 @@ public:
     QString attach();
     void dettach();
 
+    // While the desktop agent is being restarted with administrator rights, the client shows a
+    // dedicated "waiting for confirmation" message instead of the generic temporary error.
+    void setElevationPending(bool pending);
+
 public slots:
     void onUserMessage(quint8 channel_id, const QByteArray& buffer);
 
@@ -79,6 +83,7 @@ private:
     void readPowerControl(const proto::power::Control& control);
 
     TimePoint attach_deadline_;
+    bool elevation_pending_ = false;
     ScopedQPointer<IpcServer> ipc_server_;
     ScopedQPointer<IpcChannel> ipc_channel_;
 

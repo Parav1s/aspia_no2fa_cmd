@@ -2087,6 +2087,10 @@ Credentials replaced: %2</source>
         <translation>会话暂时不可用</translation>
     </message>
     <message>
+        <source>Waiting for administrator rights confirmation</source>
+        <translation>Waiting for administrator rights confirmation</translation>
+    </message>
+    <message>
         <location filename="../client/desktop/desktop/desktop_widget.cc" line="602"/>
         <source>The session is permanently unavailable</source>
         <translation>会话永久不可用</translation>
