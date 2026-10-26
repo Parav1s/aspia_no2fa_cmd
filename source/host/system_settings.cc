@@ -160,7 +160,9 @@ void SystemSettings::setApplicationShutdownDisabled(bool value)
 //--------------------------------------------------------------------------------------------------
 bool SystemSettings::isAutoUpdateEnabled() const
 {
-    return settings_.value(kUpdateAutoUpdate, true).toBool();
+    // Auto-update is opt-in: the fork must not pull official Aspia releases on its own. The user
+    // can still enable it in the settings or run a manual check.
+    return settings_.value(kUpdateAutoUpdate, false).toBool();
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -1738,7 +1738,10 @@ bool Database::isCheckUpdatesEnabled() const
 {
     QString value = readSetting(kSettingCheckUpdates);
     if (value.isEmpty())
-        return true;
+    {
+        // Auto-update is opt-in: the fork must not pull official Aspia releases on its own.
+        return false;
+    }
     return value == "1";
 }
 
