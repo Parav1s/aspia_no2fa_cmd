@@ -724,7 +724,6 @@ int main(int argc, char* argv[])
 
             out << "Router: " << settings->router_address.toString() << Qt::endl;
             out << "Users: " << settings->users.size() << Qt::endl;
-            out << "Host ID embedded: " << (!settings->host_key.isEmpty() ? "yes" : "no") << Qt::endl;
             for (const User& user : std::as_const(settings->users))
                 out << "  " << user.name << Qt::endl;
 

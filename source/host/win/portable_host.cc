@@ -19,6 +19,7 @@
 #include "host/win/portable_host.h"
 
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QLockFile>
 #include <QSettings>
@@ -32,6 +33,7 @@
 #include "base/service_controller.h"
 #include "base/win/scoped_object.h"
 #include "host/database.h"
+#include "host/host_storage.h"
 #include "host/win/portable_package.h"
 
 namespace {
@@ -39,6 +41,11 @@ namespace {
 const char kDataDirectoryVariable[] = "ASPIA_QS_DATA_DIR";
 const char kBaseDirectoryName[] = "AspiaQS";
 const char kInstalledServiceName[] = "aspia-host-service";
+
+// Marks that the ID in the database belongs to this data directory. It is absent in data
+// directories created by versions that embedded the host ID in the package; the first start of
+// such a directory discards that ID once.
+const char kLocalIdMarker[] = "id-local";
 
 // Held for the lifetime of the process: two runs of a package would share the same database (and
 // therefore the same host ID), which the router cannot tell apart.
@@ -257,8 +264,8 @@ QString PortableHost::defaultDataDirectory()
     if (base.isEmpty())
         return QString();
 
-    // One directory per user, not per executable: a package exported again keeps the host ID the
-    // router already knows instead of asking for a new one on every start.
+    // One directory per user: the settings and the ID belong to this machine, not to a package
+    // exported elsewhere. A package run without an installed host asks for its own ID.
     return QDir::fromNativeSeparators(base) + '/' + kBaseDirectoryName;
 }
 
@@ -287,6 +294,28 @@ bool PortableHost::prepareDatabase()
         return false;
     }
 
+    // Old packages embedded the ID of the host they were exported from. A data directory created
+    // by one of them has no marker; discard its stored ID once so the target machine asks the
+    // router for its own. The marker makes sure a legitimate ID survives later starts.
+    const QString data_dir = dataDirectory();
+    if (!data_dir.isEmpty())
+    {
+        const QString marker_path = data_dir + '/' + QLatin1String(kLocalIdMarker);
+        if (!QFileInfo::exists(marker_path))
+        {
+            LOG(INFO) << "The Quick Support data directory has no local ID marker; resetting the ID";
+
+            if (!db.hostKey().isEmpty() && !db.setHostKey(QByteArray()))
+                LOG(ERROR) << "Unable to clear the host ID";
+
+            HostStorage().setLastHostId(kInvalidHostId);
+
+            QFile marker(marker_path);
+            if (!marker.open(QIODevice::WriteOnly))
+                LOG(ERROR) << "Unable to create the local ID marker:" << marker.errorString();
+        }
+    }
+
     // A running installed host owns the ID of this machine. The package must not take it over (nor
     // keep the ID of a previous run): the router accepts only one of them, and the user would not
     // be able to tell which host they are looking at. In this case the run asks for an ID of its own.
@@ -299,9 +328,7 @@ bool PortableHost::prepareDatabase()
         // own ID (taken over while its service was stopped) has to go.
         const QByteArray own_key = db.hostKey();
 
-        QByteArray installed_key = installedHostKey();
-        if (installed_key.isEmpty())
-            installed_key = settings->host_key;
+        const QByteArray installed_key = installedHostKey();
 
         if (!own_key.isEmpty() && own_key != installed_key)
         {
@@ -320,13 +347,10 @@ bool PortableHost::prepareDatabase()
     {
         // The installed host is stopped: its identity is what the clients already have in their
         // address books, so the package stands in for it. The installed database is readable only
-        // with administrator rights, so the snapshot embedded in the package comes next; the ID
-        // this run used before is the last fallback.
+        // with administrator rights; the ID this run used before is the last fallback.
         LOG(INFO) << "The installed host is stopped, the package takes its ID";
 
         host_key = installedHostKey();
-        if (host_key.isEmpty())
-            host_key = settings->host_key;
         if (host_key.isEmpty())
             host_key = db.hostKey();
     }

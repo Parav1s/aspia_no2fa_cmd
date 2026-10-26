@@ -32,6 +32,8 @@
 // A copy of the host executable with the settings of this host built in: the router it connects
 // to and the users it authorizes. Such a copy is a Quick Support package: the user runs it, the
 // window shows the host ID, and the operator connects with the built-in user name and password.
+// The package does not carry the ID of the host it was exported from: the machine that runs it
+// gets its own ID (or takes the ID of its installed host).
 //
 // The one-time password is not exported: the package authorizes by the user password only.
 class PortablePackage
@@ -49,9 +51,6 @@ public:
     {
         Address router_address { kDefaultRouterHostTcpPort };
         QByteArray router_public_key;
-        // The ID the host is already known by: the router keeps it for the package, so a support
-        // session starts with the ID the operator already knows.
-        QByteArray host_key;
         QVector<User> users;
     };
 
