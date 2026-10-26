@@ -21,6 +21,8 @@
 
 #include <QString>
 
+#include "base/peer/host_id.h"
+
 // The portable run of a Quick Support package.
 //
 // The user starts the exported copy of the host. It runs in the user's session without asking for
@@ -58,6 +60,14 @@ public:
 
     // Writes the router settings and the users built into the package into the database of the run.
     static bool prepareDatabase();
+
+    // Whether an installed Aspia host works on this machine right now. Its service is the usual
+    // case; a host started by hand (the same binary outside the service) is caught by process name.
+    static bool installedHostIsRunning();
+
+    // The last ID the installed host received from the router. |kInvalidHostId| if the installed
+    // host has never connected or its storage cannot be read.
+    static HostId installedHostId();
 
 private:
     Q_DISABLE_COPY_MOVE(PortableHost)

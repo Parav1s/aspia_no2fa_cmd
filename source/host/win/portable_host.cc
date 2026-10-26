@@ -62,7 +62,7 @@ QString executableHash()
 //--------------------------------------------------------------------------------------------------
 // Whether an installed host of this machine works right now. Its service is the usual case; a host
 // started by hand (the same binary outside the service) is caught by the process name.
-bool installedHostIsRunning()
+bool detectInstalledHost()
 {
     if (ServiceController::isInstalled(QLatin1String(kInstalledServiceName)) &&
         ServiceController::isRunning(QLatin1String(kInstalledServiceName)))
@@ -119,7 +119,7 @@ bool installedHostIsRunning()
 QByteArray installedHostKey()
 {
     // A running installed host owns its ID; taking it over would make the router mix up the two.
-    if (installedHostIsRunning())
+    if (detectInstalledHost())
     {
         LOG(INFO) << "The installed host is running, its ID is not taken over";
         return QByteArray();
@@ -150,6 +150,29 @@ QByteArray installedHostKey()
 }
 
 } // namespace
+
+//--------------------------------------------------------------------------------------------------
+// static
+bool PortableHost::installedHostIsRunning()
+{
+    return detectInstalledHost();
+}
+
+//--------------------------------------------------------------------------------------------------
+// static
+HostId PortableHost::installedHostId()
+{
+    const QString dir = BasePaths::genericConfigDir();
+    if (dir.isEmpty())
+        return kInvalidHostId;
+
+    // HostStorage keeps the last ID in a machine-wide INI file. It is readable without
+    // administrator rights even though the host database next to it is not.
+    QSettings settings(dir + "/aspia/host_storage.ini", QSettings::IniFormat);
+    const HostId host_id = settings.value("host_id").toULongLong();
+    LOG(INFO) << "The last ID of the installed host:" << host_id;
+    return host_id;
+}
 
 //--------------------------------------------------------------------------------------------------
 // static
@@ -269,7 +292,7 @@ bool PortableHost::prepareDatabase()
     // be able to tell which host they are looking at. In this case the run asks for an ID of its own.
     QByteArray host_key;
 
-    if (installedHostIsRunning())
+    if (PortableHost::installedHostIsRunning())
     {
         // The installed host owns the machine's ID. A unique ID from a previous run is fine to
         // keep: the router already knows it and it does not conflict. Only the installed host's

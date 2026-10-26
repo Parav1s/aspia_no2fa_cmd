@@ -30,8 +30,9 @@
 #include "base/core_application.h"
 #include "base/gui_application.h"
 #include "base/logging.h"
-#include "base/service_controller.h"
 #include "base/ipc/ipc_server.h"
+#include "base/peer/host_id.h"
+#include "base/service_controller.h"
 #include "base/threading/asio_event_dispatcher.h"
 #include "base/threading/worker.h"
 #include "common/desktop/msg_box.h"
@@ -427,6 +428,42 @@ int runService(int& argc, char* argv[])
 // whole package elevated when the user asks for it.
 int runPortable(int& argc, char* argv[])
 {
+    // One Quick Support per session. A named mutex is released by the OS even if the previous run
+    // crashed, so a stale lock cannot block the next start. The data directory lock below stays as
+    // a second line of defense for another session or a differently configured run.
+    SetLastError(ERROR_SUCCESS);
+    ScopedHandle instance_mutex(CreateMutexW(nullptr, TRUE, L"Local\\AspiaQuickSupport"));
+    const DWORD mutex_error = GetLastError();
+    if (!instance_mutex.isValid() || mutex_error == ERROR_ALREADY_EXISTS)
+    {
+        MessageBoxW(nullptr,
+                    L"Quick Support \u0443\u0436\u0435 \u0437\u0430\u043F\u0443\u0449\u0435\u043D.",
+                    L"Aspia Quick Support", MB_ICONWARNING | MB_OK);
+        return 1;
+    }
+
+    // The installed host owns the machine's ID while it runs. Starting a second host would either
+    // take that ID away from it or leave the user with two windows and no way to tell which one
+    // the operator sees. Show the ID of the running host instead.
+    if (PortableHost::installedHostIsRunning())
+    {
+        const HostId installed_id = PortableHost::installedHostId();
+        const QString id_text = installed_id == kInvalidHostId
+            ? QString::fromWCharArray(L"\u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u0435\u043D")
+            : QString::number(installed_id);
+
+        const QString message = QString::fromWCharArray(
+            L"Aspia \u0443\u0436\u0435 \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442.\n"
+            L"ID \u2014 %1.\n"
+            L"\u0421\u043E\u043E\u0431\u0449\u0438\u0442\u0435 \u0435\u0433\u043E "
+            L"\u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0443.")
+            .arg(id_text);
+
+        MessageBoxW(nullptr, qUtf16Printable(message), L"Aspia Quick Support",
+                    MB_ICONINFORMATION | MB_OK);
+        return 1;
+    }
+
     QString data_dir;
 
     const char kQsDirOption[] = "--qs-dir=";
@@ -445,8 +482,10 @@ int runPortable(int& argc, char* argv[])
     if (!PortableHost::applyDataDirectory(data_dir))
     {
         MessageBoxW(nullptr,
-                    L"Another Quick Support is already running, or its data directory cannot be "
-                    L"created.",
+                    L"Quick Support \u0443\u0436\u0435 \u0437\u0430\u043F\u0443\u0449\u0435\u043D "
+                    L"\u0438\u043B\u0438 \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C "
+                    L"\u0441\u043E\u0437\u0434\u0430\u0442\u044C \u0435\u0433\u043E \u043A\u0430"
+                    L"\u0442\u0430\u043B\u043E\u0433 \u0434\u0430\u043D\u043D\u044B\u0445.",
                     L"Aspia Quick Support", MB_ICONWARNING | MB_OK);
         return 1;
     }
