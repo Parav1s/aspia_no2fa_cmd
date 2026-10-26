@@ -53,6 +53,9 @@
   ([07181da19](https://github.com/Parav1s/aspia_no2fa_cmd/commit/07181da19),
   [5db67d9c4](https://github.com/Parav1s/aspia_no2fa_cmd/commit/5db67d9c4),
   [6337edfb3](https://github.com/Parav1s/aspia_no2fa_cmd/commit/6337edfb3)).
+- Экспортируемый из хоста MSI не содержит ключ/ID хоста: при установке на другой машине хост
+  получает её собственный ID
+  ([6b57732d3](https://github.com/Parav1s/aspia_no2fa_cmd/commit/6b57732d3)).
 
 ## Терминал
 
@@ -79,12 +82,14 @@
   ([c334a1b25](https://github.com/Parav1s/aspia_no2fa_cmd/commit/c334a1b25)).
 - Если установленный хост уже запущен, пакет не запускается: показывает «Aspia уже работает.
   ID — <ID>. Сообщите его администратору.» и завершается. ID берётся из последнего ID установленного
-  хоста. Если установленный хост остановлен, пакет использует его ID — из его базы или из настроек,
-  встроенных в пакет, — чтобы клиенты находили его по прежнему ID
+  хоста. Если установленный хост остановлен, пакет использует ID установленного хоста из его базы;
+  если база недоступна — собственный ID этой машины. ID хоста, с которого экспортировали, в пакет
+  не попадает; у старых каталогов QS он сбрасывается один раз по маркеру `id-local`
   ([eeb604421](https://github.com/Parav1s/aspia_no2fa_cmd/commit/eeb604421),
   [9e03716c2](https://github.com/Parav1s/aspia_no2fa_cmd/commit/9e03716c2),
   [11b401bf4](https://github.com/Parav1s/aspia_no2fa_cmd/commit/11b401bf4),
-  [85135d9bf](https://github.com/Parav1s/aspia_no2fa_cmd/commit/85135d9bf)).
+  [85135d9bf](https://github.com/Parav1s/aspia_no2fa_cmd/commit/85135d9bf),
+  [6b57732d3](https://github.com/Parav1s/aspia_no2fa_cmd/commit/6b57732d3)).
 - Одновременно может работать только одна копия пакета: повторный запуск показывает сообщение и
   завершается
   ([85135d9bf](https://github.com/Parav1s/aspia_no2fa_cmd/commit/85135d9bf)).
