@@ -26,6 +26,7 @@
 #include <QEvent>
 #include <QHeaderView>
 #include <QIODevice>
+#include <QItemSelectionModel>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -187,7 +188,34 @@ void RouterHostsWidget::setMimeType(const QString& mime_type)
 //--------------------------------------------------------------------------------------------------
 bool RouterHostsWidget::hasSelectedHost() const
 {
-    return currentHost() != nullptr;
+    return !selectedHostIds().isEmpty();
+}
+
+//--------------------------------------------------------------------------------------------------
+QList<HostId> RouterHostsWidget::selectedHostIds() const
+{
+    QList<HostId> host_ids;
+
+    QItemSelectionModel* selection_model = ui->tree_hosts->selectionModel();
+    if (!selection_model)
+        return host_ids;
+
+    for (const QModelIndex& index : selection_model->selectedRows(0))
+    {
+        const RouterHost* host = model_->hostAt(index.row());
+        if (!host || host->host_id == kInvalidHostId || host_ids.contains(host->host_id))
+            continue;
+
+        host_ids.append(host->host_id);
+    }
+
+    return host_ids;
+}
+
+//--------------------------------------------------------------------------------------------------
+int RouterHostsWidget::selectedHostCount() const
+{
+    return selectedHostIds().size();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -398,21 +426,28 @@ void RouterHostsWidget::onDisconnectAllHosts()
 //--------------------------------------------------------------------------------------------------
 void RouterHostsWidget::onRemoveHost()
 {
-    const RouterHost* host = currentHost();
-    if (!host)
+    const QList<HostId> host_ids = selectedHostIds();
+    if (host_ids.isEmpty())
     {
-        LOG(INFO) << "No selected host";
+        LOG(INFO) << "No selected hosts";
         return;
     }
 
-    const HostId host_id = host->host_id;
+    if (pending_remove_count_ > 0)
+    {
+        LOG(INFO) << "A host removal is already in progress";
+        return;
+    }
 
     QString message = tr("Deleting a host will result in all its configuration for connecting "
                          "to the router being deleted, and the application will be uninstalled "
                          "on the host. This operation is irreversible. Are you sure you want to "
                          "do this?");
 
-    if (MsgBox::importantQuestion(this, message, Seconds(10)) == MsgBox::No)
+    if (host_ids.size() > 1)
+        message = tr("%n host(s)", "", host_ids.size()) + ". " + message;
+
+    if (MsgBox::question(this, message) != MsgBox::Yes)
     {
         LOG(INFO) << "[ACTION] Remove host rejected by user";
         return;
@@ -422,8 +457,39 @@ void RouterHostsWidget::onRemoveHost()
     if (!session)
         return;
 
-    LOG(INFO) << "[ACTION] Remove host accepted by user";
-    session->removeHost(host_id, { this, &RouterHostsWidget::onHostResultReceived });
+    LOG(INFO) << "[ACTION] Remove hosts accepted by user:" << host_ids.size();
+
+    pending_remove_count_ = host_ids.size();
+    remove_error_.clear();
+
+    for (HostId host_id : std::as_const(host_ids))
+    {
+        session->removeHost(host_id, { this, [this](const proto::router::HostResult& result)
+        {
+            onRemoveHostResult(result);
+        }});
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+void RouterHostsWidget::onRemoveHostResult(const proto::router::HostResult& result)
+{
+    const std::string& error_code = result.error_code();
+    if (error_code != proto::router::kErrorOk && remove_error_.isEmpty())
+        remove_error_ = routerErrorText(error_code);
+
+    if (--pending_remove_count_ > 0)
+        return;
+
+    pending_remove_count_ = 0;
+
+    if (!remove_error_.isEmpty())
+    {
+        MsgBox::warning(this, remove_error_);
+        remove_error_.clear();
+    }
+
+    fetchHosts();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -464,9 +530,16 @@ bool RouterHostsWidget::eventFilter(QObject* watched, QEvent* event)
 {
     if (watched == ui->tree_hosts && event->type() == QEvent::KeyPress)
     {
-        if (static_cast<QKeyEvent*>(event)->key() == Qt::Key_F2)
+        const int key = static_cast<QKeyEvent*>(event)->key();
+        if (key == Qt::Key_F2)
         {
             onModifyHost();
+            return true;
+        }
+
+        if (key == Qt::Key_Delete)
+        {
+            onRemoveHost();
             return true;
         }
     }

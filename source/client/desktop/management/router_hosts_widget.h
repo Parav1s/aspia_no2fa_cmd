@@ -20,6 +20,7 @@
 #define CLIENT_DESKTOP_MANAGEMENT_ROUTER_HOSTS_WIDGET_H
 
 #include <QHash>
+#include <QList>
 #include <QPoint>
 
 #include <memory>
@@ -56,6 +57,8 @@ public:
     bool isSelectedHostOnline() const;
     HostId selectedHostId() const;
     HostConfig selectedHostConfig() const;
+    QList<HostId> selectedHostIds() const;
+    int selectedHostCount() const;
     int hostCount() const;
 
     void copyCurrentHostRow();
@@ -107,12 +110,18 @@ private:
     QString workspaceNameById(qint64 workspace_id) const;
     const RouterHost* currentHost() const;
     void saveHostsToFile();
+    void onRemoveHostResult(const proto::router::HostResult& result);
 
     std::unique_ptr<Ui::RouterHostsWidget> ui;
     qint64 router_id_ = 0;
     QString mime_type_;
     QPoint start_pos_;
     QLabel* status_hosts_label_ = nullptr;
+
+    // A batch removal waits for one answer per host and refreshes the list once, not after every
+    // host.
+    int pending_remove_count_ = 0;
+    QString remove_error_;
 
     // Maps workspace entry_id -> name, kept in sync via onWorkspaceListReceived. Used to populate
     // the workspace column without a dedicated workspaces view.
