@@ -67,10 +67,22 @@ UpdateDialog::UpdateDialog(const QString& channel, const QString& package, Actio
     connect(ui->button_close, &QPushButton::clicked, this, &UpdateDialog::close);
 
     ui->label_current->setText(kCurrentBuildVersion.toString());
+
+    const QString update_server = server.trimmed();
+    if (update_server.isEmpty() || public_key.size() != 32)
+    {
+        LOG(INFO) << "Update server is not configured";
+
+        ui->label_available->setText(tr("Not configured"));
+        ui->edit_description->setText(tr("The update server is not configured."));
+        setError(tr("The update server is not configured."));
+        return;
+    }
+
     ui->label_available->setText(tr("Receiving information..."));
 
     checker_ = std::make_unique<UpdateChecker>(channel, package);
-    checker_->setServer(server);
+    checker_->setServer(update_server);
     checker_->addPublicKey(public_key);
 
     connect(checker_.get(), &UpdateChecker::sig_checkFinished,

@@ -19,13 +19,9 @@
 #ifndef BASE_BUILD_CONFIG_H
 #define BASE_BUILD_CONFIG_H
 
-#include <QByteArrayView>
 #include <QLatin1StringView>
 
-#include <array>
-
 inline constexpr QLatin1StringView kDefaultLocale("en");
-inline constexpr QLatin1StringView kUpdateServer("https://aspia.org/updates");
 
 // Update channels, each with a directory of its own on the update server.
 inline constexpr QLatin1StringView kStableUpdateChannel("stable");
@@ -45,9 +41,5 @@ inline constexpr quint16 kDefaultRouterClientTcpPort     = 8062;
 inline constexpr quint16 kDefaultRouterRelayTcpPort      = 8063;
 inline constexpr quint16 kDefaultRelayPeerTcpPort        = 8070;
 inline constexpr quint16 kDefaultStunPort                = 8065;
-
-// Public keys the update files are signed with. There is room for more than one so that a key
-// can be replaced without cutting off the applications that know only the old one.
-extern const std::array<QByteArrayView, 1> kUpdatePublicKeys;
 
 #endif // BASE_BUILD_CONFIG_H

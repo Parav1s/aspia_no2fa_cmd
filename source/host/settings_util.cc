@@ -41,6 +41,8 @@ const char kSystem[] = "system";
 const char kDatabase[] = "database";
 
 const char kUpdateChannel[] = "update_channel";
+const char kUpdateServer[] = "update_server";
+const char kUpdatePublicKey[] = "update_public_key";
 const char kPreferredVideoCapturer[] = "preferred_video_capturer";
 const char kHardwareVideoEncodingEnabled[] = "hardware_video_encoding_enabled";
 const char kApplicationShutdownDisabled[] = "application_shutdown_disabled";
@@ -77,6 +79,8 @@ QJsonObject exportSystemSettings()
 
     QJsonObject obj;
     obj[kUpdateChannel] = settings.updateChannel();
+    obj[kUpdateServer] = settings.updateServer();
+    obj[kUpdatePublicKey] = QString::fromLatin1(settings.updatePublicKey().toHex());
     obj[kPreferredVideoCapturer] = static_cast<qint64>(settings.preferredVideoCapturer());
     obj[kHardwareVideoEncodingEnabled] = settings.isHardwareVideoEncodingEnabled();
     obj[kApplicationShutdownDisabled] = settings.isApplicationShutdownDisabled();
@@ -131,6 +135,11 @@ void importSystemSettings(const QJsonObject& obj)
 
     if (obj.contains(kUpdateChannel))
         settings.setUpdateChannel(obj[kUpdateChannel].toString());
+    if (obj.contains(kUpdateServer))
+        settings.setUpdateServer(obj[kUpdateServer].toString());
+    if (obj.contains(kUpdatePublicKey))
+        settings.setUpdatePublicKey(
+            QByteArray::fromHex(obj[kUpdatePublicKey].toString().toLatin1()));
     if (obj.contains(kPreferredVideoCapturer))
         settings.setPreferredVideoCapturer(static_cast<quint32>(obj[kPreferredVideoCapturer].toInteger()));
     if (obj.contains(kHardwareVideoEncodingEnabled))

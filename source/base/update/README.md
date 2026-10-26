@@ -192,8 +192,8 @@ it covers everything that can change, the algorithm, what exactly is signed and 
 Version 1 is Ed25519 over the bytes of the file with the signature in base64. A version that is not
 known, or a missing signature, means the file is treated as absent.
 
-An application checks a signature against the public keys built into it. There is room for more
-than one, so a key can be replaced without cutting off the versions that know only the old one.
+An application checks a signature against the public keys configured for its update server. There
+are no built-in servers or keys: an empty server or key means no update is checked.
 
 ```
 aspia_signer genkey <private-key>               creates a key and prints its public half

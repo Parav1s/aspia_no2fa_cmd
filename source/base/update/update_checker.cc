@@ -87,14 +87,10 @@ int debugFunc(CURL* /* handle */, curl_infotype type, char* data, size_t size, v
 //--------------------------------------------------------------------------------------------------
 UpdateChecker::UpdateChecker(const QString& channel, const QString& package, QObject* parent)
     : QThread(parent),
-      server_(kUpdateServer),
       channel_(channelName(channel)),
       package_(package)
 {
     LOG(TRACE) << "Ctor";
-
-    for (QByteArrayView public_key : kUpdatePublicKeys)
-        public_keys_.append(public_key.toByteArray());
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -109,8 +105,9 @@ UpdateChecker::~UpdateChecker()
 //--------------------------------------------------------------------------------------------------
 void UpdateChecker::setServer(const QString& server)
 {
-    if (!server.isEmpty())
-        server_ = server;
+    server_ = server.trimmed();
+    while (server_.endsWith('/'))
+        server_.chop(1);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -144,6 +141,13 @@ void UpdateChecker::run()
 //--------------------------------------------------------------------------------------------------
 void UpdateChecker::check()
 {
+    if (server_.isEmpty())
+    {
+        LOG(INFO) << "Update server is not configured";
+        emit sig_checkFailed();
+        return;
+    }
+
     QString os;
 #if defined(Q_OS_WINDOWS)
     os = "windows";

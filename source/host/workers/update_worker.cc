@@ -74,23 +74,25 @@ void UpdateWorker::onCheckUpdates()
         return;
     }
 
+    SystemSettings settings;
+
+    const QString update_server = settings.updateServer();
+    const QByteArray update_public_key = settings.updatePublicKey();
+    if (update_server.isEmpty() || update_public_key.size() != 32)
+    {
+        LOG(INFO) << "Update server is not configured";
+        return;
+    }
+
     HostStorage storage;
     storage.setLastUpdateCheck(std::time(nullptr));
     storage.setUpdateRetryTime(0);
     storage.setUpdateCheckResult(QString());
     storage.setUpdateInstallVersion(QString());
 
-    SystemSettings settings;
-
     update_checker_ = new UpdateChecker(settings.updateChannel(), kHostUpdatePackage, this);
-
-    const QString update_server = settings.updateServer();
-    if (!update_server.isEmpty())
-    {
-        LOG(INFO) << "Updates are read from:" << update_server;
-        update_checker_->setServer(update_server);
-        update_checker_->addPublicKey(settings.updatePublicKey());
-    }
+    update_checker_->setServer(update_server);
+    update_checker_->addPublicKey(update_public_key);
 
     connect(update_checker_, &UpdateChecker::sig_checkFinished,
             this, &UpdateWorker::onUpdateCheckFinished);
@@ -270,6 +272,9 @@ void UpdateWorker::checkForUpdates()
 {
     SystemSettings settings;
     if (!settings.isAutoUpdateEnabled())
+        return;
+
+    if (settings.updateServer().isEmpty() || settings.updatePublicKey().size() != 32)
         return;
 
     HostStorage storage;
