@@ -60,7 +60,7 @@ const char kSettingsFile[] = "aspia_host.json";
 const char kSettingsCabinet[] = "config.cab";
 
 // The shortcut checkboxes of the installer. An exported package must not restore the old defaults
-// from the package it was copied from.
+// from the package it was copied from: an unset property means an unchecked box.
 const char kStartMenuShortcutProperty[] = "STARTMENU_SHORTCUT";
 const char kDesktopShortcutProperty[] = "DESKTOP_SHORTCUT";
 
@@ -463,14 +463,12 @@ void setRecordString(MSIHANDLE record, UINT field, const QString& value)
 }
 
 //--------------------------------------------------------------------------------------------------
-bool setPropertyValue(MSIHANDLE database, const char* property, const char* value)
+bool removeProperty(MSIHANDLE database, const char* property)
 {
-    ScopedMsiHandle row(pfn_MsiCreateRecord(2));
-    setRecordString(row, 1, QString::fromLatin1(value));
-    setRecordString(row, 2, QString::fromLatin1(property));
+    ScopedMsiHandle row(pfn_MsiCreateRecord(1));
+    setRecordString(row, 1, QString::fromLatin1(property));
 
-    return executeQuery(database,
-        "UPDATE `Property` SET `Value`=? WHERE `Property`=?", row);
+    return executeQuery(database, "DELETE FROM `Property` WHERE `Property`=?", row);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -660,9 +658,10 @@ MsiPackage::Result embedSettings(const QString& package_path, const QString& set
     }
 
     // The installed package may predate the change that cleared the shortcut defaults. The exported
-    // installer is a copy of it, so set both to 0 here as well.
-    if (!setPropertyValue(database, kStartMenuShortcutProperty, "0") ||
-        !setPropertyValue(database, kDesktopShortcutProperty, "0"))
+    // installer is a copy of it. A property with any value makes the check box appear selected, so
+    // remove both rows instead of writing 0.
+    if (!removeProperty(database, kStartMenuShortcutProperty) ||
+        !removeProperty(database, kDesktopShortcutProperty))
     {
         return MsiPackage::Result::FAILED;
     }

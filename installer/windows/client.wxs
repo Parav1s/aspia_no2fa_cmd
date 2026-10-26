@@ -127,10 +127,8 @@
             </Control>
         </Dialog>
 
-        <!-- Shortcuts are opt-in: the installer starts with both checkboxes cleared. -->
-        <Property Id="STARTMENU_SHORTCUT" Value="0"></Property>
-        <Property Id="DESKTOP_SHORTCUT" Value="0"></Property>
-
+        <!-- Both shortcuts are opt-in: the properties have no default value, so the installer
+             starts with both checkboxes cleared. -->
         <Publish Dialog="LicenseAgreementDlg" Control="Next" Event="NewDialog" Value="ShortcutsDlg" Order="10">LicenseAccepted = "1"</Publish>
         <Publish Dialog="VerifyReadyDlg" Control="Back" Event="NewDialog" Value="ShortcutsDlg" Order="10">NOT Installed</Publish>
 
