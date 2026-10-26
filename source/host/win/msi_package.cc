@@ -59,6 +59,11 @@ const char kSettingsFileSddl[] = "D:P(A;;FA;;;SY)(A;;FA;;;BA)";
 const char kSettingsFile[] = "aspia_host.json";
 const char kSettingsCabinet[] = "config.cab";
 
+// The shortcut checkboxes of the installer. An exported package must not restore the old defaults
+// from the package it was copied from.
+const char kStartMenuShortcutProperty[] = "STARTMENU_SHORTCUT";
+const char kDesktopShortcutProperty[] = "DESKTOP_SHORTCUT";
+
 // The host does not link with msi.dll and cabinet.dll: their functions are loaded on first use.
 using PFN_MsiCloseHandle = decltype(&::MsiCloseHandle);
 using PFN_MsiCreateRecord = decltype(&::MsiCreateRecord);
@@ -458,6 +463,17 @@ void setRecordString(MSIHANDLE record, UINT field, const QString& value)
 }
 
 //--------------------------------------------------------------------------------------------------
+bool setPropertyValue(MSIHANDLE database, const char* property, const char* value)
+{
+    ScopedMsiHandle row(pfn_MsiCreateRecord(2));
+    setRecordString(row, 1, QString::fromLatin1(value));
+    setRecordString(row, 2, QString::fromLatin1(property));
+
+    return executeQuery(database,
+        "UPDATE `Property` SET `Value`=? WHERE `Property`=?", row);
+}
+
+//--------------------------------------------------------------------------------------------------
 bool lockSettingsFile(MSIHANDLE database)
 {
     if (pfn_MsiDatabaseIsTablePersistentW(database, L"MsiLockPermissionsEx") == MSICONDITION_NONE &&
@@ -641,6 +657,14 @@ MsiPackage::Result embedSettings(const QString& package_path, const QString& set
     {
         LOG(ERROR) << "The installed package has no executable or import action";
         return MsiPackage::Result::UNSUPPORTED_PACKAGE;
+    }
+
+    // The installed package may predate the change that cleared the shortcut defaults. The exported
+    // installer is a copy of it, so set both to 0 here as well.
+    if (!setPropertyValue(database, kStartMenuShortcutProperty, "0") ||
+        !setPropertyValue(database, kDesktopShortcutProperty, "0"))
+    {
+        return MsiPackage::Result::FAILED;
     }
 
     // A package exported before already carries the settings file.
