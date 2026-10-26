@@ -245,9 +245,76 @@ void InputInjectorWin::setBlockInput(bool enable)
 }
 
 //--------------------------------------------------------------------------------------------------
+void InputInjectorWin::applyKeyboardLayout(const QString& layout_id)
+{
+    if (layout_id.isEmpty())
+        return;
+
+    HKL layout = resolveKeyboardLayout(layout_id);
+    if (!layout)
+        return;
+
+    HWND foreground = GetForegroundWindow();
+    if (!foreground)
+        return;
+
+    const DWORD thread_id = GetWindowThreadProcessId(foreground, nullptr);
+    if (!thread_id)
+        return;
+
+    if (GetKeyboardLayout(thread_id) == layout)
+        return;
+
+    DWORD_PTR result = 0;
+    if (!SendMessageTimeoutW(foreground, WM_INPUTLANGCHANGEREQUEST, 0,
+                             reinterpret_cast<LPARAM>(layout),
+                             SMTO_ABORTIFHUNG, 100, &result))
+    {
+        LOG(WARNING) << "Unable to activate keyboard layout:" << layout_id;
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+HKL InputInjectorWin::resolveKeyboardLayout(const QString& layout_id)
+{
+    auto it = keyboard_layouts_.constFind(layout_id);
+    if (it != keyboard_layouts_.constEnd())
+        return it.value();
+
+    HKL layout = LoadKeyboardLayoutW(reinterpret_cast<LPCWSTR>(layout_id.utf16()), 0);
+    if (!layout)
+    {
+        // The exact layout may not be installed, but a layout of the same language may be.
+        bool ok = false;
+        const uint language_id = layout_id.right(4).toUInt(&ok, 16);
+        if (ok)
+        {
+            HKL layouts[64] = { 0 };
+            const int count = GetKeyboardLayoutList(64, layouts);
+            for (int i = 0; i < count; ++i)
+            {
+                if (LOWORD(layouts[i]) == language_id)
+                {
+                    layout = layouts[i];
+                    break;
+                }
+            }
+        }
+    }
+
+    keyboard_layouts_.insert(layout_id, layout);
+    if (!layout)
+        LOG(WARNING) << "Keyboard layout is not installed:" << layout_id;
+
+    return layout;
+}
+
+//--------------------------------------------------------------------------------------------------
 void InputInjectorWin::injectKeyEvent(const proto::input::KeyEvent& event)
 {
     switchToInputDesktop();
+
+    applyKeyboardLayout(QString::fromStdString(event.keyboard_layout()));
 
     if (event.flags() & proto::input::KeyEvent::PRESSED)
     {

@@ -19,7 +19,11 @@
 #ifndef HOST_INPUT_INJECTOR_WIN_H
 #define HOST_INPUT_INJECTOR_WIN_H
 
+#include <QHash>
 #include <QSet>
+#include <QString>
+
+#include <qt_windows.h>
 
 #include "base/win/scoped_thread_desktop.h"
 #include "host/input_injector.h"
@@ -44,6 +48,8 @@ public:
 
 private:
     void switchToInputDesktop();
+    void applyKeyboardLayout(const QString& layout_id);
+    HKL resolveKeyboardLayout(const QString& layout_id);
     bool isCtrlAndAltPressed();
     void setBlockInputImpl(bool enable);
 
@@ -51,6 +57,7 @@ private:
 
     bool block_input_ = false;
     QSet<quint32> pressed_keys_;
+    QHash<QString, HKL> keyboard_layouts_;
 
     QPoint screen_offset_;
     QSize screen_size_;

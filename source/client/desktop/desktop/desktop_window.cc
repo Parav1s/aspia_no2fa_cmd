@@ -61,6 +61,8 @@
 #include "proto/task_manager.h"
 
 #if defined(Q_OS_WINDOWS)
+#include <qt_windows.h>
+
 #include "base/win/windows_version.h"
 #endif // defined(Q_OS_WINDOWS)
 
@@ -72,6 +74,20 @@ const quint32 kWheelMask =
 // Mouse move events are coalesced and flushed at this fixed rate to cap the outgoing event stream
 // from high-polling-rate mice. Button and wheel events bypass coalescing and are sent immediately.
 const MilliSeconds kMouseFlushInterval{ 20 }; // 50Hz
+
+#if defined(Q_OS_WINDOWS)
+//--------------------------------------------------------------------------------------------------
+// KLID of the layout the client is typing with (for example "00000419"). It is sent with every key
+// so the host can activate the matching layout before injecting the key.
+QString currentKeyboardLayoutId()
+{
+    wchar_t name[KL_NAMELENGTH] = { 0 };
+    if (!GetKeyboardLayoutNameW(name))
+        return QString();
+
+    return QString::fromWCharArray(name);
+}
+#endif // defined(Q_OS_WINDOWS)
 
 //--------------------------------------------------------------------------------------------------
 QSize scaledSize(const QSize& source_size, int scale)
@@ -913,16 +929,24 @@ void DesktopWindow::onKeyEvent(const proto::input::KeyEvent& event)
 {
     ++send_key_count_;
 
+    proto::input::KeyEvent key_event = event;
+
+#if defined(Q_OS_WINDOWS)
+    const QString keyboard_layout = currentKeyboardLayoutId();
+    if (!keyboard_layout.isEmpty())
+        key_event.set_keyboard_layout(keyboard_layout.toStdString());
+#endif // defined(Q_OS_WINDOWS)
+
     if (isLegacy())
     {
         proto::legacy::ClientToSession message;
-        message.mutable_key_event()->CopyFrom(event);
+        message.mutable_key_event()->CopyFrom(key_event);
         sendMessage(proto::desktop::CHANNEL_ID_LEGACY, serialize(message));
     }
     else
     {
         proto::input::ClientToHost& message = outgoing_message_.newMessage<proto::input::ClientToHost>();
-        message.mutable_key()->CopyFrom(event);
+        message.mutable_key()->CopyFrom(key_event);
         sendMessage(proto::desktop::CHANNEL_ID_INPUT,
                     outgoing_message_.serialize<proto::input::ClientToHost>());
     }

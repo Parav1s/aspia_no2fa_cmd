@@ -35,6 +35,11 @@ message KeyEvent
 
     uint32 usb_keycode = 1;
     uint32 flags = 2;
+
+    // The active keyboard layout of the client (Windows KLID, for example "00000409"). A Windows
+    // host activates it before injecting the key, so the client's layout and layout-switch hotkey
+    // take precedence over the host's own settings. Empty for clients that do not provide it.
+    string keyboard_layout = 3;
 }
 
 message TextEvent
