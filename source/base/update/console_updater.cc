@@ -196,7 +196,7 @@ std::optional<UpdateInfo> ConsoleUpdater::offeredUpdate(const QString& channel, 
         return std::nullopt;
     }
 
-    out_ << "Installed version: " << kCurrentVersion.toString() << Qt::endl;
+    out_ << "Installed version: " << kCurrentBuildVersion.toString() << Qt::endl;
 
     std::optional<UpdateInfo> update_info = checkForUpdates(channel);
     if (!update_info)

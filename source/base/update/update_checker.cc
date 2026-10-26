@@ -190,16 +190,16 @@ void UpdateChecker::check()
         return;
     }
 
-    std::optional<QVersionNumber> target_version = UpdateInfo::targetVersion(rules, kCurrentVersion);
+    std::optional<QVersionNumber> target_version = UpdateInfo::targetVersion(rules, kCurrentBuildVersion);
     if (!target_version)
     {
         emit sig_checkFailed();
         return;
     }
 
-    if (target_version->isNull() || *target_version <= kCurrentVersion)
+    if (target_version->isNull() || *target_version <= kCurrentBuildVersion)
     {
-        LOG(INFO) << "No updates for version" << kCurrentVersion.toString();
+        LOG(INFO) << "No updates for version" << kCurrentBuildVersion.toString();
         emit sig_checkFinished(UpdateInfo());
         return;
     }

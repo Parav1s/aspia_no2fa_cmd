@@ -48,6 +48,30 @@ bool isLowerHex(const QString& text)
 }
 
 //--------------------------------------------------------------------------------------------------
+int versionSegment(const QVersionNumber& version, int index)
+{
+    return index < version.segmentCount() ? version.segmentAt(index) : 0;
+}
+
+//--------------------------------------------------------------------------------------------------
+// A rule with a three-part source names a release and matches every build of it: 3.0.37 matches
+// 3.0.37.8285 as well. A source with a fourth part names one exact build. Targets always keep all
+// of their parts, so a rule can offer 3.0.37.8286 to a 3.0.37.8285 build.
+bool isSameRelease(const QVersionNumber& source, const QVersionNumber& current)
+{
+    for (int i = 0; i < 3; ++i)
+    {
+        if (versionSegment(source, i) != versionSegment(current, i))
+            return false;
+    }
+
+    if (source.segmentCount() >= 4)
+        return versionSegment(source, 3) == versionSegment(current, 3);
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
 QJsonObject rootObject(const QByteArray& buffer)
 {
     QJsonParseError error;
@@ -86,7 +110,7 @@ std::optional<QVersionNumber> UpdateInfo::targetVersion(
         QJsonObject rule = item.toObject();
         QVersionNumber source = QVersionNumber::fromString(rule.value("source").toString());
 
-        if (source.normalized() != current.normalized())
+        if (!isSameRelease(source, current))
             continue;
 
         QString target = rule.value("target").toString();

@@ -19,6 +19,8 @@
 #include "base/version_constants.h"
 
 const QVersionNumber kCurrentVersion(ASPIA_VERSION_MAJOR, ASPIA_VERSION_MINOR, ASPIA_VERSION_PATCH);
+const QVersionNumber kCurrentBuildVersion(
+    { ASPIA_VERSION_MAJOR, ASPIA_VERSION_MINOR, ASPIA_VERSION_PATCH, GIT_COMMIT_COUNT });
 const QVersionNumber kMinimumSupportedVersion(2, 4, 0);
 const QVersionNumber kVersion_2_7_0(2, 7, 0);
 const QVersionNumber kVersion_3_0_0(3, 0, 0);

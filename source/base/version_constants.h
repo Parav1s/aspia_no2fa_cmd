@@ -23,6 +23,10 @@
 
 extern const QVersionNumber kCurrentVersion;
 
+// The version of this build including the commit counter (for example 3.0.37.8285). Update checks
+// compare this four-part version, while |kCurrentVersion| remains the three-part protocol version.
+extern const QVersionNumber kCurrentBuildVersion;
+
 // The oldest peer this build talks to through the legacy layer. Version 2.4 kept the layout of
 // every message a connection needs (ClientHello, SessionChallenge, Config, HostToClient,
 // ClientToHost, the host protocol of the router) and later versions only added optional fields,

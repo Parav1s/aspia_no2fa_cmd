@@ -111,7 +111,9 @@ void UpdateWorker::onStart()
     const QString version = storage.updateInstallVersion();
     storage.setUpdateInstallVersion(QString());
 
-    if (QVersionNumber::fromString(version) == kCurrentVersion)
+    const QVersionNumber installed_version = QVersionNumber::fromString(version);
+
+    if (installed_version == kCurrentBuildVersion || installed_version == kCurrentVersion)
     {
         LOG(INFO) << "Update to version" << version << "is installed";
         setCheckResult(kResultInstallSucceeded);

@@ -139,6 +139,33 @@ TEST(UpdateInfoTest, SourceIsComparedAsVersion)
 }
 
 //--------------------------------------------------------------------------------------------------
+// A three-part source names the release and applies to every build of it; a four-part source names
+// one build. The target keeps the build number, so a rebuild of the same release can be offered.
+TEST(UpdateInfoTest, BuildNumberIsCompared)
+{
+    QByteArray release_rule = R"({
+        "format": 1,
+        "updates": [ { "source": "3.0.37", "target": "3.0.37.8286" } ]
+    })";
+
+    EXPECT_EQ(UpdateInfo::targetVersion(release_rule, QVersionNumber({ 3, 0, 37, 8285 })),
+              QVersionNumber({ 3, 0, 37, 8286 }));
+
+    QByteArray build_rule = R"({
+        "format": 1,
+        "updates": [ { "source": "3.0.37.8285", "target": "3.0.37.8286" } ]
+    })";
+
+    EXPECT_EQ(UpdateInfo::targetVersion(build_rule, QVersionNumber({ 3, 0, 37, 8285 })),
+              QVersionNumber({ 3, 0, 37, 8286 }));
+
+    std::optional<QVersionNumber> other_build =
+        UpdateInfo::targetVersion(build_rule, QVersionNumber({ 3, 0, 37, 8284 }));
+    ASSERT_TRUE(other_build.has_value());
+    EXPECT_TRUE(other_build->isNull());
+}
+
+//--------------------------------------------------------------------------------------------------
 TEST(UpdateInfoTest, BrokenRulesAreRejected)
 {
     const char* kAnswers[] =

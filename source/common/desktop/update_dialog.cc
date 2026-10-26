@@ -66,7 +66,7 @@ UpdateDialog::UpdateDialog(const QString& channel, const QString& package, Actio
     connect(ui->button_update, &QPushButton::clicked, this, &UpdateDialog::onUpdateNow);
     connect(ui->button_close, &QPushButton::clicked, this, &UpdateDialog::close);
 
-    ui->label_current->setText(kCurrentVersion.toString());
+    ui->label_current->setText(kCurrentBuildVersion.toString());
     ui->label_available->setText(tr("Receiving information..."));
 
     checker_ = std::make_unique<UpdateChecker>(channel, package);
@@ -255,7 +255,7 @@ void UpdateDialog::onUpdateCheckFinished(const UpdateInfo& update_info)
     {
         LOG(INFO) << "No updates available";
 
-        ui->label_available->setText(kCurrentVersion.toString());
+        ui->label_available->setText(kCurrentBuildVersion.toString());
         ui->edit_description->setText(tr("No updates available."));
     }
     else

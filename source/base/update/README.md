@@ -70,8 +70,11 @@ that is asking.
 
 - `format` is the version of the schema and is 1. A file with anything else is not read.
 - `source` is an exact version, one entry per released version. There are no version masks.
-- A version here has three parts. The fourth part of `3.0.5.8006` is the build number and takes no
-  part in any comparison.
+- A version has three release parts and an optional fourth build part: `3.0.5` is the release,
+  `3.0.5.8006` is one build of it. A three-part `source` matches every build of that release; a
+  four-part `source` matches only that build. Targets may name a build, and a build is newer than
+  the release it belongs to (`3.0.5.8006 > 3.0.5`). To offer a rebuild of the same release, the
+  target and its manifest must name the build.
 - `target` is a version or a label written as `@name`; the keys of `targets` are written without
   the `@`. The prefix is what makes a typo visible: a version can never begin with `@`, so a
   misspelled label cannot be mistaken for a version.
@@ -261,8 +264,8 @@ Example
 A Windows host of version 3.0.4.8006 on the beta channel, against the files above:
 
 1. `https://updates.example.com/beta.json` and its signature are read, and the signature is good.
-2. The running version is 3.0.4, the entry `{ "source": "3.0.4", "target": "@latest" }` matches,
-   the label `latest` resolves to 3.0.5, which is newer.
+2. The running build is 3.0.4.8006; the entry `{ "source": "3.0.4", "target": "@latest" }` matches
+   its release, the label `latest` resolves to 3.0.5, which is newer.
 3. `https://updates.example.com/versions/3.0.5.json` and its signature are read.
 4. Under `packages.host.windows.x86_64` there is one entry, an `msi`, which is what Windows wants.
 5. The file is `https://files.aspia.net/beta/3.0.5/aspia-host-3.0.5-x86_64.msi` and must hash to
