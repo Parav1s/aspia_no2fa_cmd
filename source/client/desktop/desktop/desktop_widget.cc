@@ -33,6 +33,11 @@
 #include "common/keycode_converter.h"
 #include "proto/desktop_input.h"
 
+#if defined(Q_OS_WINDOWS)
+#include <QSettings>
+#include <qt_windows.h>
+#endif // defined(Q_OS_WINDOWS)
+
 #if defined(Q_OS_LINUX)
 #include "base/linux/x11_headers.h"
 #endif // defined(Q_OS_LINUX)
@@ -126,6 +131,10 @@ DesktopWidget::DesktopWidget(QWidget* parent)
     setMouseTracking(true);
 
     enableKeyHooks(true);
+
+#if defined(Q_OS_WINDOWS)
+    readLayoutHotkeys();
+#endif // defined(Q_OS_WINDOWS)
 
     connect(error_timer_, &QTimer::timeout, this, [this]()
     {
@@ -496,6 +505,11 @@ void DesktopWidget::executeKeyCombination(QKeyCombination key_sequence)
 void DesktopWidget::enableKeyCombinations(bool enable)
 {
     enable_key_sequenses_ = enable;
+
+#if defined(Q_OS_WINDOWS)
+    if (!enable)
+        resetLayoutHotkey();
+#endif // defined(Q_OS_WINDOWS)
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -508,6 +522,10 @@ void DesktopWidget::enableRemoteCursorPosition(bool enable)
 //--------------------------------------------------------------------------------------------------
 void DesktopWidget::userLeftFromWindow()
 {
+#if defined(Q_OS_WINDOWS)
+    resetLayoutHotkey();
+#endif // defined(Q_OS_WINDOWS)
+
     releaseMouseButtons();
     releaseKeyboardButtons();
 }
@@ -859,6 +877,9 @@ LRESULT CALLBACK DesktopWidget::keyboardHookProc(INT code, WPARAM wparam, LPARAM
 
                 if (is_foreground && self->enable_key_sequenses_)
                 {
+                    self->handleLayoutHotkey(hook->vkCode,
+                                             wparam == WM_KEYDOWN || wparam == WM_SYSKEYDOWN);
+
                     flags |= (isCapsLockActivated() ? proto::input::KeyEvent::CAPSLOCK : 0);
                     flags |= (isNumLockActivated() ? proto::input::KeyEvent::NUMLOCK : 0);
 
@@ -885,6 +906,146 @@ LRESULT CALLBACK DesktopWidget::keyboardHookProc(INT code, WPARAM wparam, LPARAM
     }
 
     return CallNextHookEx(nullptr, code, wparam, lparam);
+}
+#endif // defined(Q_OS_WINDOWS)
+
+#if defined(Q_OS_WINDOWS)
+//--------------------------------------------------------------------------------------------------
+void DesktopWidget::readLayoutHotkeys()
+{
+    // Windows stores the user's layout shortcuts here: 1 is Alt+Shift, 2 is Ctrl+Shift, 3 is the
+    // grave key and 4 means that the shortcut is disabled.
+    QSettings settings("HKEY_CURRENT_USER\\Keyboard Layout\\Toggle", QSettings::NativeFormat);
+
+    const QString values[] =
+    {
+        settings.value("Language Hotkey").toString(),
+        settings.value("Layout Hotkey").toString(),
+        settings.value("Hotkey").toString()
+    };
+
+    bool configured = false;
+
+    for (const QString& value : values)
+    {
+        if (value.isEmpty())
+            continue;
+
+        configured = true;
+
+        if (value == "1")
+            layout_hotkey_alt_shift_ = true;
+        else if (value == "2")
+            layout_hotkey_ctrl_shift_ = true;
+    }
+
+    // No settings at all: keep the classic Windows default.
+    if (!configured)
+        layout_hotkey_alt_shift_ = true;
+
+    LOG(INFO) << "Layout hotkeys: Ctrl+Shift" << layout_hotkey_ctrl_shift_
+              << "Alt+Shift" << layout_hotkey_alt_shift_;
+}
+
+//--------------------------------------------------------------------------------------------------
+void DesktopWidget::handleLayoutHotkey(quint32 vk_code, bool pressed)
+{
+    quint32 modifier = 0;
+
+    if (vk_code == VK_CONTROL || vk_code == VK_LCONTROL || vk_code == VK_RCONTROL)
+        modifier = 1;
+    else if (vk_code == VK_SHIFT || vk_code == VK_LSHIFT || vk_code == VK_RSHIFT)
+        modifier = 2;
+    else if (vk_code == VK_MENU || vk_code == VK_LMENU || vk_code == VK_RMENU)
+        modifier = 4;
+
+    if (!modifier)
+    {
+        // Any other key makes the chord a normal shortcut, not a layout switch.
+        if (pressed && layout_chord_active_)
+            layout_chord_other_key_ = true;
+        return;
+    }
+
+    if (pressed)
+        layout_modifiers_ |= modifier;
+    else
+        layout_modifiers_ &= ~modifier;
+
+    constexpr quint32 kCtrlShift = 1 | 2;
+    constexpr quint32 kAltShift = 4 | 2;
+
+    const bool chord_held =
+        (layout_hotkey_ctrl_shift_ && (layout_modifiers_ & kCtrlShift) == kCtrlShift) ||
+        (layout_hotkey_alt_shift_ && (layout_modifiers_ & kAltShift) == kAltShift);
+
+    if (pressed)
+    {
+        if (chord_held && !layout_chord_active_)
+        {
+            layout_chord_active_ = true;
+            layout_chord_other_key_ = false;
+            layout_chord_fired_ = false;
+        }
+        return;
+    }
+
+    if (!layout_chord_active_)
+        return;
+
+    // The switch happens when the chord is released, so Ctrl+Shift+C stays a normal shortcut.
+    if (!chord_held && !layout_chord_other_key_ && !layout_chord_fired_)
+    {
+        switchKeyboardLayout();
+        layout_chord_fired_ = true;
+    }
+
+    if ((layout_modifiers_ & (1 | 2 | 4)) == 0)
+        resetLayoutHotkey();
+}
+
+//--------------------------------------------------------------------------------------------------
+void DesktopWidget::switchKeyboardLayout()
+{
+    HKL layouts[64] = { 0 };
+    const int count = GetKeyboardLayoutList(64, layouts);
+    if (count < 2)
+        return;
+
+    const HKL current = GetKeyboardLayout(0);
+
+    int index = -1;
+    for (int i = 0; i < count; ++i)
+    {
+        if (layouts[i] == current)
+        {
+            index = i;
+            break;
+        }
+    }
+
+    const HKL next = layouts[(index + 1) % count];
+    if (!next || next == current)
+        return;
+
+    if (!ActivateKeyboardLayout(next, 0))
+    {
+        LOG(WARNING) << "Unable to switch the keyboard layout";
+        return;
+    }
+
+    wchar_t name[KL_NAMELENGTH] = { 0 };
+    if (GetKeyboardLayoutNameW(name))
+        LOG(INFO) << "Keyboard layout switched to" << QString::fromWCharArray(name);
+}
+
+//--------------------------------------------------------------------------------------------------
+void DesktopWidget::resetLayoutHotkey()
+{
+    layout_chord_active_ = false;
+    layout_chord_other_key_ = false;
+    layout_chord_fired_ = false;
+    layout_modifiers_ = 0;
 }
 #endif // defined(Q_OS_WINDOWS)
 

@@ -105,7 +105,21 @@ private:
 
 #if defined(Q_OS_WINDOWS)
     static LRESULT CALLBACK keyboardHookProc(INT code, WPARAM wparam, LPARAM lparam);
+    void readLayoutHotkeys();
+    void handleLayoutHotkey(quint32 vk_code, bool pressed);
+    void switchKeyboardLayout();
+    void resetLayoutHotkey();
+
     ScopedHHOOK keyboard_hook_;
+
+    // The layout switch is handled by the client itself: the hook swallows the hotkey, so Windows
+    // would never change the client's layout and the host would keep receiving the old KLID.
+    bool layout_hotkey_ctrl_shift_ = false;
+    bool layout_hotkey_alt_shift_ = false;
+    bool layout_chord_active_ = false;
+    bool layout_chord_other_key_ = false;
+    bool layout_chord_fired_ = false;
+    quint32 layout_modifiers_ = 0;
 #endif // defined(Q_OS_WINDOWS)
 
 #if defined(Q_OS_MACOS)
