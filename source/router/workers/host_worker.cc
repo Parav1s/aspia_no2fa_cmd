@@ -505,6 +505,21 @@ HostWorker::RemoveHostResult HostWorker::doRemoveHost(HostId host_id)
     result.scheduled = true;
     result.online = host != nullptr;
 
+    if (!host)
+    {
+        // Nobody is connected to acknowledge the remove command, so the queued id would stay out of
+        // use for months. The removal is final now: the id is freed and the host, if it ever comes
+        // back, is approved as a new one.
+        if (!database.finalizeHostRemoval(host_id))
+        {
+            LOG(ERROR) << "Failed to finalize removal for offline host_id:" << host_id;
+            result.error_code = proto::router::kErrorInternalError;
+        }
+
+        result.scheduled = false;
+        return result;
+    }
+
     if (HostNG* host_ng = dynamic_cast<HostNG*>(host))
     {
         host_ng->sendRemoveCommand();

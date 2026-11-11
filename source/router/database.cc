@@ -51,7 +51,7 @@ constexpr qint64 kHostRemovalTtlSec = 180 * 24 * 3600;
 
 // The layout version of the database, kept in the SQLite header. Version 1 records that the user
 // table has already been through the 2.7.0 -> 3.0 manager-role migration.
-constexpr int kSchemaVersion = 1;
+constexpr int kSchemaVersion = 2;
 
 // Every list query has to name the page it wants. Whatever comes out of one goes into a single
 // reply, and a reply the channel cannot carry is not sent at all but ends the session, so the size
@@ -249,6 +249,15 @@ bool ensureSchema(SqlDatabase& db)
              "\"timestamp\" INTEGER NOT NULL DEFAULT 0)"))
     {
         return false;
+    }
+
+    // Older routers kept a queued removal until the host acknowledged it. A host that is offline
+    // cannot, so the id stayed reserved for months and was never handed out again. Drop the old
+    // queue once on upgrade: the ids become available, and a host that returns is approved anew.
+    if (version < 2)
+    {
+        if (!run("DELETE FROM hosts_remove"))
+            return false;
     }
 
     // workspace_access's PRIMARY KEY is (workspace_id, user_id), which indexes only the leading
