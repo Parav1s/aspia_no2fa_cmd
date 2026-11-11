@@ -50,6 +50,8 @@ private:
     void switchToInputDesktop();
     void applyKeyboardLayout(const QString& layout_id);
     HKL resolveKeyboardLayout(const QString& layout_id);
+    bool sendLayoutHotkey();
+    void switchKeyboardLayoutByHotkey(HKL desired, DWORD thread_id);
     bool isCtrlAndAltPressed();
     void setBlockInputImpl(bool enable);
 

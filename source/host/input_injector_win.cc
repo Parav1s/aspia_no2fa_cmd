@@ -19,6 +19,7 @@
 #include "host/input_injector_win.h"
 
 #include <QTimer>
+#include <QThread>
 
 #include <qt_windows.h>
 #include <sas.h>
@@ -41,6 +42,20 @@ const char kSoftwareSASGenerationPath[] =
     "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
 
 const char kSoftwareSASGeneration[] = "SoftwareSASGeneration";
+
+//--------------------------------------------------------------------------------------------------
+QString layoutHotkeyValue()
+{
+    RegKey key;
+    if (key.open(HKEY_CURRENT_USER, "Keyboard Layout\\Toggle", KEY_READ) != ERROR_SUCCESS)
+        return QString();
+
+    QString value;
+    if (key.readValue("Language Hotkey", &value) != ERROR_SUCCESS || value.isEmpty())
+        key.readValue("Hotkey", &value);
+
+    return value;
+}
 
 //--------------------------------------------------------------------------------------------------
 class ScopedSasPolicy
@@ -268,10 +283,98 @@ void InputInjectorWin::applyKeyboardLayout(const QString& layout_id)
     DWORD_PTR result = 0;
     if (!SendMessageTimeoutW(foreground, WM_INPUTLANGCHANGEREQUEST, 0,
                              reinterpret_cast<LPARAM>(layout),
-                             SMTO_ABORTIFHUNG, 100, &result))
+                             SMTO_ABORTIFHUNG, 500, &result))
     {
         LOG(WARNING) << "Unable to activate keyboard layout:" << layout_id;
     }
+
+    // Windows 7 ignores the request when the target thread has not loaded the layout (the HKL was
+    // loaded in this process only). The user's own layout hotkey changes the thread the same way as
+    // a real key press, so use it as a fallback there.
+    const HKL actual = GetKeyboardLayout(thread_id);
+    if (actual == layout || static_cast<quint32>(LOWORD(actual)) == static_cast<quint32>(LOWORD(layout)))
+        return;
+
+    LOG(INFO) << "Layout request was ignored, switching with the layout hotkey";
+    switchKeyboardLayoutByHotkey(layout, thread_id);
+}
+
+//--------------------------------------------------------------------------------------------------
+bool InputInjectorWin::sendLayoutHotkey()
+{
+    const QString hotkey = layoutHotkeyValue();
+
+    INPUT inputs[4] = {};
+    UINT count = 0;
+
+    auto add = [&](WORD vk, DWORD flags)
+    {
+        inputs[count].type = INPUT_KEYBOARD;
+        inputs[count].ki.wVk = vk;
+        inputs[count].ki.dwFlags = flags;
+        ++count;
+    };
+
+    if (hotkey == "1")
+    {
+        add(VK_LMENU, 0);
+        add(VK_LSHIFT, 0);
+        add(VK_LSHIFT, KEYEVENTF_KEYUP);
+        add(VK_LMENU, KEYEVENTF_KEYUP);
+    }
+    else if (hotkey == "2")
+    {
+        add(VK_LCONTROL, 0);
+        add(VK_LSHIFT, 0);
+        add(VK_LSHIFT, KEYEVENTF_KEYUP);
+        add(VK_LCONTROL, KEYEVENTF_KEYUP);
+    }
+    else if (hotkey == "3")
+    {
+        add(VK_OEM_3, 0);
+        add(VK_OEM_3, KEYEVENTF_KEYUP);
+    }
+    else
+    {
+        LOG(INFO) << "No layout hotkey is configured";
+        return false;
+    }
+
+    if (SendInput(count, inputs, sizeof(INPUT)) != count)
+    {
+        LOG(WARNING) << "Unable to send the layout hotkey";
+        return false;
+    }
+
+    QThread::msleep(30);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void InputInjectorWin::switchKeyboardLayoutByHotkey(HKL desired, DWORD thread_id)
+{
+    HKL layouts[64] = { 0 };
+    const int count = GetKeyboardLayoutList(64, layouts);
+    if (count < 2)
+        return;
+
+    const quint32 desired_language = static_cast<quint32>(LOWORD(desired));
+
+    for (int attempt = 0; attempt < count; ++attempt)
+    {
+        HKL current = GetKeyboardLayout(thread_id);
+        if (current == desired || static_cast<quint32>(LOWORD(current)) == desired_language)
+            return;
+
+        if (!sendLayoutHotkey())
+            return;
+
+        current = GetKeyboardLayout(thread_id);
+        if (current == desired || static_cast<quint32>(LOWORD(current)) == desired_language)
+            return;
+    }
+
+    LOG(WARNING) << "Unable to switch the keyboard layout with the hotkey";
 }
 
 //--------------------------------------------------------------------------------------------------
