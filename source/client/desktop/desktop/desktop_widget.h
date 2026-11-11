@@ -81,6 +81,7 @@ public slots:
 signals:
     void sig_mouseEvent(const proto::input::MouseEvent& event);
     void sig_keyEvent(const proto::input::KeyEvent& event);
+    void sig_keyboardLayoutChanged();
 
 protected:
     // QWidget implementation.

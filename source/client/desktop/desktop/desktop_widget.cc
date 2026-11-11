@@ -1037,6 +1037,8 @@ void DesktopWidget::switchKeyboardLayout()
     wchar_t name[KL_NAMELENGTH] = { 0 };
     if (GetKeyboardLayoutNameW(name))
         LOG(INFO) << "Keyboard layout switched to" << QString::fromWCharArray(name);
+
+    emit sig_keyboardLayoutChanged();
 }
 
 //--------------------------------------------------------------------------------------------------

@@ -235,6 +235,20 @@ DesktopWindow::DesktopWindow(const proto::control::Config& desktop_config, QWidg
 
     connect(desktop_, &DesktopWidget::sig_mouseEvent, this, &DesktopWindow::onMouseEvent);
     connect(desktop_, &DesktopWidget::sig_keyEvent, this, &DesktopWindow::onKeyEvent);
+    connect(desktop_, &DesktopWidget::sig_keyboardLayoutChanged, this, [this]()
+    {
+        // The host sees the same layout hotkey and switches by itself. A layout-only event, sent
+        // after the host has processed the chord, puts it on the layout the client has chosen. Doing
+        // it before the chord (or on the modifier keys) would apply the new layout and then let the
+        // host's own hotkey toggle again, which makes the language flicker between the two.
+        QTimer::singleShot(100, this, [this]()
+        {
+            proto::input::KeyEvent event;
+            event.set_usb_keycode(0);
+            event.set_flags(0);
+            onKeyEvent(event);
+        });
+    });
 
     desktop_->setFocus();
 }
@@ -932,8 +946,15 @@ void DesktopWindow::onKeyEvent(const proto::input::KeyEvent& event)
     proto::input::KeyEvent key_event = event;
 
 #if defined(Q_OS_WINDOWS)
+    // The modifiers of a layout hotkey must go to the host without the new layout: the host has its
+    // own hotkey and applies the layout itself. Sending the new layout with them would apply it
+    // first and let the host toggle once more, so the language would flicker. The layout is sent
+    // with the next ordinary key and by sig_keyboardLayoutChanged.
+    const quint32 keycode = event.usb_keycode();
+    const bool is_modifier = keycode >= 0xE0 && keycode <= 0xE7;
+
     const QString keyboard_layout = currentKeyboardLayoutId();
-    if (!keyboard_layout.isEmpty())
+    if (!keyboard_layout.isEmpty() && !is_modifier)
         key_event.set_keyboard_layout(keyboard_layout.toStdString());
 #endif // defined(Q_OS_WINDOWS)
 
