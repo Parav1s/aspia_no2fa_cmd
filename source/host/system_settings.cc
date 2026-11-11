@@ -29,6 +29,7 @@ const QString kApplication = "host";
 const QString kApplicationShutdown = "application_shutdown";
 const QString kPreferredVideoCapturer = "preferred_video_capturer";
 const QString kHardwareVideoEncoding = "hardware_video_encoding";
+const QString kVideoEncoding = "video/encoding";
 const QString kWaylandRestoreToken = "wayland_restore_token";
 
 const QString kUpdateChannel = "update/channel";
@@ -131,6 +132,19 @@ bool SystemSettings::isHardwareVideoEncodingEnabled() const
 void SystemSettings::setHardwareVideoEncodingEnabled(bool enable)
 {
     settings_.setValue(kHardwareVideoEncoding, enable);
+}
+
+//--------------------------------------------------------------------------------------------------
+QString SystemSettings::videoEncoding() const
+{
+    const QString encoding = settings_.value(kVideoEncoding).toString();
+    return encoding.isEmpty() ? "vp8" : encoding;
+}
+
+//--------------------------------------------------------------------------------------------------
+void SystemSettings::setVideoEncoding(const QString& encoding)
+{
+    settings_.setValue(kVideoEncoding, encoding);
 }
 
 //--------------------------------------------------------------------------------------------------

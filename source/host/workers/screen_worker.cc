@@ -262,10 +262,15 @@ void ScreenWorker::onConfigure(
         preferred_resolution_.setHeight(config.preferred_resolution().height());
     }
 
-    // Prefer hardware H264 when both endpoints support it; fall back to VP otherwise. The
-    // explicit reset of an H264 encoding when h264_supported_ flipped to false handles the case
-    // where the client revokes H264 capability mid-session (decoder failure -> renegotiation).
-    if (h264_supported_)
+    // Prefer hardware H264 when both endpoints support it; fall back to VP otherwise. The explicit
+    // reset of an H264 encoding when h264_supported_ flipped to false handles the case where the
+    // client revokes H264 capability mid-session (decoder failure -> renegotiation). The codec
+    // chosen in the host settings ("vp8" by default) wins over both.
+    if (force_vp9_ && vp9_supported_)
+        video_encoding_ = proto::video::ENCODING_VP9;
+    else if (force_vp8_)
+        video_encoding_ = proto::video::ENCODING_VP8;
+    else if (h264_supported_)
         video_encoding_ = proto::video::ENCODING_H264;
     else if (video_encoding_ == proto::video::ENCODING_H264)
         video_encoding_ = proto::video::ENCODING_VP8;
@@ -481,8 +486,8 @@ void ScreenWorker::onBandwidthChanged(qint64 bandwidth)
     proto::video::Encoding desired_encoding = video_encoding_;
     const qint64 kVp9SwitchingThreshold = 1.5 * 1024 * 1024; // 1.5 MB/s
 
-    // Hardware H264 outperforms VP at every bandwidth - if it was selected at startup, keep it.
-    if (video_encoding_ != proto::video::ENCODING_H264)
+    // A codec chosen explicitly in the host settings is not switched by the bandwidth estimate.
+    if (!force_vp8_ && !force_vp9_ && video_encoding_ != proto::video::ENCODING_H264)
     {
         if (bandwidth < kVp9SwitchingThreshold && vp9_supported_)
         {
@@ -550,8 +555,16 @@ void ScreenWorker::onPrepare()
 
     SystemSettings settings;
     preferred_capturer_ = static_cast<ScreenCapturer::Type>(settings.preferredVideoCapturer());
-    h264_enabled_ = settings.isHardwareVideoEncodingEnabled() &&
+
+    const QString video_codec = settings.videoEncoding();
+    force_vp8_ = (video_codec == "vp8");
+    force_vp9_ = (video_codec == "vp9");
+    h264_enabled_ = (video_codec == "auto" || video_codec == "h264") &&
+                    settings.isHardwareVideoEncodingEnabled() &&
                     VideoEncoder::isSupported(proto::video::ENCODING_H264);
+
+    LOG(INFO) << "Video codec:" << video_codec << "vp8:" << force_vp8_
+              << "vp9:" << force_vp9_ << "h264:" << h264_enabled_;
 
     default_fps_ = defaultCaptureFps();
     min_fps_ = minCaptureFps();

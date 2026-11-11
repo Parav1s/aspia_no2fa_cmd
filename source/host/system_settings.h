@@ -56,6 +56,11 @@ public:
     bool isHardwareVideoEncodingEnabled() const;
     void setHardwareVideoEncodingEnabled(bool enable);
 
+    // "vp8" (default), "vp9", "h264" or "auto". The default is VP8: it keeps the host small, while
+    // H.264 needs a D3D11 device, several NV12 textures and the video driver's own allocations.
+    QString videoEncoding() const;
+    void setVideoEncoding(const QString& encoding);
+
     // Token for restoring a Wayland portal session without re-prompting the user.
     QString waylandRestoreToken() const;
     void setWaylandRestoreToken(const QString& token);

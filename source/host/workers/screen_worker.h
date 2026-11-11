@@ -188,6 +188,8 @@ private:
     bool vp9_supported_ = false;
     bool h264_supported_ = false;
     bool h264_enabled_ = false;
+    bool force_vp8_ = false;
+    bool force_vp9_ = false;
 
     proto::video::Encoding video_encoding_ = proto::video::ENCODING_VP8;
     qint64 last_bandwidth_ = 0;
