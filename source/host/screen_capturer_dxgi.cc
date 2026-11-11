@@ -164,12 +164,15 @@ bool ScreenCapturerDxgi::selectScreen(ScreenId screen_id)
 {
     LOG(INFO) << "Select screen with ID:" << screen_id;
 
+    const ScreenId previous_screen_id = current_screen_id_;
+
     // The screen of every monitor at once is not a monitor and has no index among them: the frame
     // of it is the frame of the whole desktop, which is captured and drawn in one go.
     if (screen_id == ScreenCapturer::kAllScreensId)
     {
         all_screens_ = true;
         current_screen_id_ = screen_id;
+        pruneFrames(previous_screen_id, screen_id);
 
         // Force the next captured frame to report the whole desktop as updated (see
         // |force_full_update_|).
@@ -199,6 +202,7 @@ bool ScreenCapturerDxgi::selectScreen(ScreenId screen_id)
 
     current_screen_index_ = index;
     current_screen_id_ = screen_id;
+    pruneFrames(previous_screen_id, screen_id);
 
     // Force the next captured frame to report the whole monitor as updated (see |force_full_update_|).
     force_full_update_ = true;
@@ -322,6 +326,18 @@ const QRect& ScreenCapturerDxgi::currentScreenRect() const
         return controller_->initialDesktopRect();
 
     return controller_->initialScreenRect(current_screen_index_);
+}
+
+//--------------------------------------------------------------------------------------------------
+void ScreenCapturerDxgi::pruneFrames(ScreenId first, ScreenId second)
+{
+    for (auto it = frames_.begin(); it != frames_.end();)
+    {
+        if (it->first != first && it->first != second)
+            it = frames_.erase(it);
+        else
+            ++it;
+    }
 }
 
 //--------------------------------------------------------------------------------------------------

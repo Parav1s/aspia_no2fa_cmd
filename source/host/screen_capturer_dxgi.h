@@ -59,6 +59,8 @@ protected:
     void reset() final;
 
 private:
+    void pruneFrames(ScreenId first, ScreenId second);
+
     std::shared_ptr<DxgiDuplicatorController> controller_;
 
     int current_screen_index_ = 0;
@@ -68,10 +70,10 @@ private:
     // so the frame is of the size of the desktop and every monitor is in it where it belongs.
     bool all_screens_ = false;
 
-    // One retained frame per monitor, keyed by the stable screen id (not the index, which shifts when
-    // a monitor is (un)plugged). Keeping each monitor's last frame instead of dropping it on every
-    // screen switch means switching back to a monitor reuses its content directly, so a static screen
-    // is not shown black and the duplicator does not have to reconstruct a full frame.
+    // The frame of the screen being captured and the frame of the screen it was switched from are
+    // kept; the frames of other screens are dropped. A frame is a full ARGB picture, and the screen
+    // ids change when a monitor is replugged or a virtual display is recreated, so keeping every id
+    // ever seen made the process grow with each such change.
     std::map<ScreenId, std::unique_ptr<DxgiFrame>> frames_;
 
     // Set on a screen switch, consumed by the next captured frame. The retained frame already holds
