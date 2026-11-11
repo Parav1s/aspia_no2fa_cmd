@@ -857,8 +857,8 @@ LRESULT CALLBACK DesktopWidget::keyboardHookProc(INT code, WPARAM wparam, LPARAM
         KBDLLHOOKSTRUCT* hook = reinterpret_cast<KBDLLHOOKSTRUCT*>(lparam);
         if (hook->vkCode != VK_CAPITAL && hook->vkCode != VK_NUMLOCK)
         {
-            quint32 flags = ((wparam == WM_KEYDOWN || wparam == WM_SYSKEYDOWN) ?
-                proto::input::KeyEvent::PRESSED : 0);
+            const bool pressed = (wparam == WM_KEYDOWN || wparam == WM_SYSKEYDOWN);
+            quint32 flags = (pressed ? proto::input::KeyEvent::PRESSED : 0);
             quint32 scan_code = hook->scanCode;
 
             if (hook->flags & LLKHF_EXTENDED)
@@ -866,20 +866,23 @@ LRESULT CALLBACK DesktopWidget::keyboardHookProc(INT code, WPARAM wparam, LPARAM
 
             quint32 usb_keycode = KeycodeConverter::nativeKeycodeToUsbKeycode(
                 static_cast<int>(scan_code));
+
+            DesktopWidget* self = dynamic_cast<DesktopWidget*>(QApplication::focusWidget());
+            WId foreground_window = reinterpret_cast<WId>(GetForegroundWindow());
+            bool is_foreground = false;
+
+            if (self && self->parentWidget()->window()->winId() == foreground_window)
+                is_foreground = true;
+
+            // Handle the layout hotkey before the keycode check: right Ctrl, Shift and Alt must
+            // switch the layout even if their scan code has no USB mapping on this keyboard.
+            if (self && is_foreground && self->enable_key_sequenses_)
+                self->handleLayoutHotkey(hook->vkCode, pressed);
+
             if (usb_keycode != KeycodeConverter::invalidUsbKeycode())
             {
-                DesktopWidget* self = dynamic_cast<DesktopWidget*>(QApplication::focusWidget());
-                WId foreground_window = reinterpret_cast<WId>(GetForegroundWindow());
-                bool is_foreground = false;
-
-                if (self && self->parentWidget()->window()->winId() == foreground_window)
-                    is_foreground = true;
-
-                if (is_foreground && self->enable_key_sequenses_)
+                if (self && is_foreground && self->enable_key_sequenses_)
                 {
-                    self->handleLayoutHotkey(hook->vkCode,
-                                             wparam == WM_KEYDOWN || wparam == WM_SYSKEYDOWN);
-
                     flags |= (isCapsLockActivated() ? proto::input::KeyEvent::CAPSLOCK : 0);
                     flags |= (isNumLockActivated() ? proto::input::KeyEvent::NUMLOCK : 0);
 
