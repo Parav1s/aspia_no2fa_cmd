@@ -87,6 +87,29 @@ TEST(serialization_test, version_large_values)
     EXPECT_EQ(restored, original);
 }
 
+// The fourth part is the build number and must survive the representation: the router shows it in
+// the host list, and the update checker compares the full build.
+TEST(serialization_test, version_with_build)
+{
+    QVersionNumber original({ 3, 0, 37, 8300 });
+    proto::peer::Version proto_ver = serialize(original);
+    EXPECT_EQ(proto_ver.revision(), 8300u);
+    EXPECT_EQ(parse(proto_ver), original);
+}
+
+// Peers that predate the build number send no revision, and their version stays three-part.
+TEST(serialization_test, version_without_build_keeps_three_parts)
+{
+    proto::peer::Version proto_ver;
+    proto_ver.set_major(3);
+    proto_ver.set_minor(0);
+    proto_ver.set_patch(37);
+
+    QVersionNumber restored = parse(proto_ver);
+    EXPECT_EQ(restored.segmentCount(), 3);
+    EXPECT_EQ(restored, QVersionNumber(3, 0, 37));
+}
+
 // ============================================================================
 // Free functions: Rect serialize/parse
 // ============================================================================

@@ -41,9 +41,11 @@ QByteArray serialize(const google::protobuf::MessageLite& message)
 //--------------------------------------------------------------------------------------------------
 proto::peer::Version serialize(const QVersionNumber& version)
 {
-    if (version.segmentCount() != 3)
+    const int segment_count = version.segmentCount();
+
+    if (segment_count != 3 && segment_count != 4)
     {
-        LOG(ERROR) << "Invalid version segments count:" << version.segmentCount();
+        LOG(ERROR) << "Invalid version segments count:" << segment_count;
         return proto::peer::Version();
     }
 
@@ -52,15 +54,25 @@ proto::peer::Version serialize(const QVersionNumber& version)
     proto_version.set_minor(static_cast<quint32>(version.minorVersion()));
     proto_version.set_patch(static_cast<quint32>(version.microVersion()));
 
+    if (segment_count == 4)
+        proto_version.set_revision(static_cast<quint32>(version.segmentAt(3)));
+
     return proto_version;
 }
 
 //--------------------------------------------------------------------------------------------------
+// The fourth part is the build number. Peers that predate it send zero, and then the version stays
+// three-part: appending ".0" would only add noise to the version shown to a person.
 QVersionNumber parse(const proto::peer::Version& version)
 {
-    return QVersionNumber({ static_cast<int>(version.major()),
-                            static_cast<int>(version.minor()),
-                            static_cast<int>(version.patch()) });
+    const int major = static_cast<int>(version.major());
+    const int minor = static_cast<int>(version.minor());
+    const int patch = static_cast<int>(version.patch());
+
+    if (version.revision() != 0)
+        return QVersionNumber({ major, minor, patch, static_cast<int>(version.revision()) });
+
+    return QVersionNumber({ major, minor, patch });
 }
 
 //--------------------------------------------------------------------------------------------------
