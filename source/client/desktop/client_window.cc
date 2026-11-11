@@ -314,7 +314,7 @@ void ClientWindow::onStatusChanged(NetworkWorker::Status status, const QVariant&
         case NetworkWorker::Status::VERSION_MISMATCH:
         {
             QString host_version = session_state_->hostVersion().toString();
-            QString client_version = kCurrentVersion.toString();
+            QString client_version = kCurrentBuildVersion.toString();
 
             onErrorOccurred(tr("The Host version is newer than the Client version (%1 > %2). "
                                "Please update the application.").arg(host_version, client_version));

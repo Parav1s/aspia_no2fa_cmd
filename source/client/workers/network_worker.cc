@@ -546,10 +546,17 @@ void NetworkWorker::tcpChannelReady()
     const QVersionNumber& host_version = tcp_channel_->peerVersion();
     session_state_->setHostVersion(host_version);
 
-    const QVersionNumber& client_version = kCurrentVersion;
-    if (host_version > client_version)
+    // The build number is not a protocol change. A host of the same release with a newer build is
+    // compatible; comparing the full host version with the client release made every client reject
+    // every host of the same release that carried a build number.
+    const QVersionNumber host_release(host_version.majorVersion(),
+                                      host_version.minorVersion(),
+                                      host_version.microVersion());
+
+    if (host_release > kCurrentVersion)
     {
-        LOG(ERROR) << "Version mismatch. Host:" << host_version << "Client:" << client_version;
+        LOG(ERROR) << "Version mismatch. Host:" << host_version
+                   << "Client:" << kCurrentBuildVersion;
         emit sig_statusChanged(Status::VERSION_MISMATCH);
         return;
     }
