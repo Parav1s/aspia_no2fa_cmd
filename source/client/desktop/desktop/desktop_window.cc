@@ -337,6 +337,7 @@ void DesktopWindow::onSessionStarted()
     LOG(INFO) << "Desktop session started";
 
     start_time_ = Clock::now();
+    last_keyboard_layout_.clear();
 
     // The window outlives a single connection; drop the previous session's transfer before the new
     // one (a reconnect goes through onRegisterWorkers/onSessionStarted again).
@@ -955,7 +956,15 @@ void DesktopWindow::onKeyEvent(const proto::input::KeyEvent& event)
 
     const QString keyboard_layout = currentKeyboardLayoutId();
     if (!keyboard_layout.isEmpty() && !is_modifier)
+    {
         key_event.set_keyboard_layout(keyboard_layout.toStdString());
+
+        if (keyboard_layout != last_keyboard_layout_)
+        {
+            LOG(INFO) << "Sending keyboard layout:" << keyboard_layout;
+            last_keyboard_layout_ = keyboard_layout;
+        }
+    }
 #endif // defined(Q_OS_WINDOWS)
 
     if (isLegacy())

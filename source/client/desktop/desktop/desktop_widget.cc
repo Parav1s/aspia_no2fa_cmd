@@ -943,6 +943,12 @@ void DesktopWidget::readLayoutHotkeys()
     if (!configured)
         layout_hotkey_alt_shift_ = true;
 
+    // The host may use a different combination than the client (for example Alt+Shift against
+    // Ctrl+Shift). Accept both classic combinations, so the hotkey the user presses switches the
+    // client too; otherwise only the host toggles, and the next key brings the old layout back.
+    layout_hotkey_ctrl_shift_ = true;
+    layout_hotkey_alt_shift_ = true;
+
     LOG(INFO) << "Layout hotkeys: Ctrl+Shift" << layout_hotkey_ctrl_shift_
               << "Alt+Shift" << layout_hotkey_alt_shift_;
 }
@@ -1012,27 +1018,77 @@ void DesktopWidget::switchKeyboardLayout()
     if (count < 2)
         return;
 
-    const HKL current = GetKeyboardLayout(0);
+    HWND window_handle = reinterpret_cast<HWND>(window()->winId());
+    const DWORD thread_id = window_handle ? GetWindowThreadProcessId(window_handle, nullptr) : 0;
+    const HKL window_layout = thread_id ? GetKeyboardLayout(thread_id) : GetKeyboardLayout(0);
 
     int index = -1;
     for (int i = 0; i < count; ++i)
     {
-        if (layouts[i] == current)
+        if (layouts[i] == window_layout)
         {
             index = i;
             break;
         }
     }
 
-    const HKL next = layouts[(index + 1) % count];
-    if (!next || next == current)
+    // The layout handle of the thread is not always one of the handles the list returns, so a
+    // miss above is normal. Match the language in that case, and prefer a layout of another
+    // language: the user switches RU/ENG, not two variants of one language.
+    const quint32 current_language = LOWORD(window_layout);
+    if (index < 0)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            if (static_cast<quint32>(LOWORD(layouts[i])) == current_language)
+            {
+                index = i;
+                break;
+            }
+        }
+    }
+
+    HKL next = nullptr;
+    if (index >= 0)
+    {
+        for (int step = 1; step <= count; ++step)
+        {
+            const HKL candidate = layouts[(index + step) % count];
+            if (candidate != window_layout &&
+                static_cast<quint32>(LOWORD(candidate)) != current_language)
+            {
+                next = candidate;
+                break;
+            }
+        }
+    }
+
+    if (!next)
+    {
+        for (int i = 0; i < count; ++i)
+        {
+            if (layouts[i] != window_layout)
+            {
+                next = layouts[i];
+                break;
+            }
+        }
+    }
+
+    if (!next || next == window_layout)
         return;
 
-    if (!ActivateKeyboardLayout(next, 0))
+    // WM_INPUTLANGCHANGEREQUEST is handled by the window's thread, which is the thread that
+    // DesktopWindow reads the layout from. ActivateKeyboardLayout alone changes the thread the hook
+    // runs on, and that is not necessarily the same one.
+    if (window_handle)
     {
-        LOG(WARNING) << "Unable to switch the keyboard layout";
-        return;
+        SendMessageW(window_handle, WM_INPUTLANGCHANGEREQUEST, 0,
+                     reinterpret_cast<LPARAM>(next));
     }
+
+    if (!ActivateKeyboardLayout(next, 0))
+        LOG(WARNING) << "Unable to activate the keyboard layout in the hook thread";
 
     wchar_t name[KL_NAMELENGTH] = { 0 };
     if (GetKeyboardLayoutNameW(name))
