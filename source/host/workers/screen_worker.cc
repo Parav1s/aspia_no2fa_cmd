@@ -68,6 +68,17 @@ constexpr int kMinScreenCaptureFps = 10;
 constexpr int kMaxScreenCaptureFpsHighEnd = 30;
 constexpr int kMaxScreenCaptureFpsLowEnd = 20;
 
+// A static screen produces no updates, so nothing is sent and the picture stays at the quality of
+// the last busy moment. If that moment was encoded while the CPU or the link was under pressure,
+// the client keeps a soft picture until something moves. Re-sending the whole frame while the
+// screen is idle lets the encoder spend the otherwise unused bitrate on detail, so the picture
+// converges back to the best quality the codec can give.
+constexpr MilliSeconds kIdleRefreshInterval { 1000 };
+
+// A key frame rebuilds the reference from scratch and repairs whatever went wrong in it, but it is
+// much more expensive than an ordinary refresh, so it is asked for far less often.
+constexpr MilliSeconds kIdleKeyFrameInterval { 10000 };
+
 #if defined(Q_OS_WINDOWS)
 // How many capture failures in a row are tolerated before the whole capturer chain is tried again.
 // A capturer can refuse a session that later becomes capturable again: DXGI cannot duplicate a
@@ -87,6 +98,16 @@ constexpr MilliSeconds kWaylandProbeRetryDelay { 250 };
 // without a single frame the capture path selection is re-run (see reselectLinuxCapture()).
 constexpr MilliSeconds kCaptureErrorReprobeDelay { 3000 };
 #endif // defined(Q_OS_LINUX)
+
+//--------------------------------------------------------------------------------------------------
+int updatedArea(const Region& region)
+{
+    int area = 0;
+    for (const QRect& rect : region)
+        area += rect.width() * rect.height();
+
+    return area;
+}
 
 //--------------------------------------------------------------------------------------------------
 int defaultCaptureFps()
@@ -346,6 +367,7 @@ void ScreenWorker::onStopCapture()
     pressure_score_ = 0;
     stable_time_ = Seconds::zero();
     cooldown_time_ = Seconds::zero();
+    last_refresh_time_ = TimePoint();
 
     published_capture_type_ = ScreenCapturer::Type::UNKNOWN;
     published_screen_size_ = QSize();
@@ -1445,13 +1467,48 @@ void ScreenWorker::encodeScreen(const Frame* frame)
     if (!frame || !video_encoder_)
         return;
 
-    if (frame->constUpdatedRegion().isEmpty())
-    {
-        if (!video_encoder_->isKeyFrameRequired())
-            return;
+    const TimePoint now = Clock::now();
+    const QSize frame_size = frame->size();
+    const QRect frame_rect(QPoint(0, 0), frame_size);
 
-        *const_cast<Frame*>(frame)->updatedRegion() += QRect(QPoint(0, 0), frame->size());
+    // The screen is quiet while almost nothing changes on it. While it is quiet the encoder has
+    // bitrate to spare, so the whole frame is re-sent now and then: the parts that were encoded
+    // coarsely during the last busy moment (a weak CPU or a narrow link is enough) get re-encoded
+    // with that spare budget and the picture sharpens by itself, without waiting for something to
+    // move. A screen with real motion is left alone - it is re-encoded continuously already, and
+    // a full frame every second would only add load where there is none to spare.
+    const bool is_quiet = updatedArea(frame->constUpdatedRegion()) < (frame_rect.width() * frame_rect.height()) / 4;
+
+    // The H264 path encodes a whole frame every time and a hardware encoder does not starve the
+    // way the software ones do, so it has nothing to converge and is left as it was.
+    const bool needs_idle_refresh = video_encoding_ != proto::video::ENCODING_H264;
+
+    bool send_whole_frame = video_encoder_->isKeyFrameRequired();
+
+    if (!send_whole_frame && is_quiet && needs_idle_refresh)
+    {
+        const bool is_refresh_due = last_refresh_time_ == TimePoint() ||
+                                    now - last_refresh_time_ >= kIdleRefreshInterval;
+        if (!is_refresh_due)
+        {
+            // Nothing changed and this is not the moment for the next refresh - the frame is
+            // simply skipped, as before.
+            if (frame->constUpdatedRegion().isEmpty())
+                return;
+        }
+        else
+        {
+            send_whole_frame = true;
+
+            // A key frame rebuilds the reference from scratch and repairs whatever went wrong in
+            // it. It costs far more than a plain refresh, so it is asked for much less often.
+            if (last_refresh_time_ == TimePoint() || now - last_refresh_time_ >= kIdleKeyFrameInterval)
+                video_encoder_->setKeyFrameRequired(true);
+        }
     }
+
+    if (send_whole_frame)
+        *const_cast<Frame*>(frame)->updatedRegion() += frame_rect;
 
     if (source_size_ != frame->size())
     {
@@ -1527,6 +1584,11 @@ void ScreenWorker::encodeScreen(const Frame* frame)
     bool is_key_frame = packet->flags() & proto::video::PACKET_FLAG_IS_KEY_FRAME;
 
     emit sig_videoData(serializer_.serialize<proto::video::HostToClient>(), is_key_frame);
+
+    // The frame went out whole, so the next idle refresh is counted from here. A failed encode
+    // leaves the time alone: the refresh is retried on the next capture.
+    if (send_whole_frame)
+        last_refresh_time_ = now;
 
     video_encoder_->setEncodeBuffer(std::move(*message.mutable_packet()->mutable_data()));
 }

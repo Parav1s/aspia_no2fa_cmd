@@ -226,6 +226,10 @@ private:
     Seconds stable_time_{ 0 };
     Seconds cooldown_time_{ 0 };
 
+    // When the last whole frame was sent. A quiet screen is re-sent now and then (see encodeScreen)
+    // so that the picture can converge to the best quality the encoder gives.
+    TimePoint last_refresh_time_ = TimePoint();
+
     int default_fps_ = 0;
     int min_fps_ = 0;
     int max_fps_ = 0;
