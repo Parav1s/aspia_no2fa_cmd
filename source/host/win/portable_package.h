@@ -63,8 +63,9 @@ public:
     };
 
     // Saves a copy of the host executable of |architecture| to |file_path| with the router settings
-    // and the users of this host built in.
-    static Result exportWithSettings(const QString& file_path, Architecture architecture);
+    // and the users of this host built in. The 32-bit build is the default: it runs on any Windows.
+    static Result exportWithSettings(const QString& file_path,
+                                     Architecture architecture = Architecture::X86);
 
     // The builds an export can be made from here, best first. The 32-bit one is always available:
     // it is the current executable on a 32-bit host, and the 32-bit build installed next to a
