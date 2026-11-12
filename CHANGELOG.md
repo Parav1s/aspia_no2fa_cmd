@@ -35,7 +35,8 @@
   сорвалась, повтор будет только со следующим релизом. На 32-битной Windows всё остаётся как было,
   а если в релизе нет 64-битного пакета — хост берёт 32-битный
   ([524d1ceef](https://github.com/Parav1s/aspia_no2fa_cmd/commit/524d1ceef),
-  [ee21f7f38](https://github.com/Parav1s/aspia_no2fa_cmd/commit/ee21f7f38)).
+  [ee21f7f38](https://github.com/Parav1s/aspia_no2fa_cmd/commit/ee21f7f38),
+  [bdf15d59a](https://github.com/Parav1s/aspia_no2fa_cmd/commit/bdf15d59a)).
 - У хостов автоматическая проверка и установка обновлений включены по умолчанию; одноразовая
   миграция включает их и на уже установленных хостах. Снятая вручную галка сохраняется. При
   пустом сервере или ключе проверок по-прежнему нет
