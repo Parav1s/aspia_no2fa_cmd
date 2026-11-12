@@ -55,6 +55,16 @@ public:
     // UpdateInstaller::setCrossArchitecture), so it is enabled by the caller that can do it.
     void setPreferNativeArchitecture(bool enable) { prefer_native_architecture_ = enable; }
 
+    // Offers the package of the other platform even when the release is the version already
+    // installed. The first update brings the code that prefers the 64-bit package, and this is how
+    // that package of the same release is reached without publishing a second release. Enable it
+    // once per release: otherwise a failed move is attempted on every check.
+    void setAllowSameVersionReplacement(bool enable) { allow_same_version_ = enable; }
+
+    // True when this process is a 32-bit build running on 64-bit Windows, so the machine can take
+    // the 64-bit package.
+    static bool isPlatformMoveAvailable();
+
     // True when the package found by the check is built for the other platform than this process.
     // Read after sig_checkFinished, while the checker still exists.
     bool isCrossArchitecture() const { return is_cross_architecture_; }
@@ -77,6 +87,7 @@ private:
     QList<QByteArray> public_keys_;
     std::atomic_bool interrupted_ { false };
     bool prefer_native_architecture_ = false;
+    bool allow_same_version_ = false;
     bool is_cross_architecture_ = false;
 
     Q_DISABLE_COPY_MOVE(UpdateChecker)

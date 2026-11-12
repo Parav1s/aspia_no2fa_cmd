@@ -30,6 +30,10 @@
 #include "base/crypto/signature.h"
 #include "base/net/curl_util.h"
 
+#if defined(Q_OS_WINDOWS)
+#include <qt_windows.h>
+#endif // defined(Q_OS_WINDOWS)
+
 namespace {
 
 const long kMaxFileSize = 1024 * 1024;
@@ -139,6 +143,25 @@ void UpdateChecker::run()
 }
 
 //--------------------------------------------------------------------------------------------------
+// static
+bool UpdateChecker::isPlatformMoveAvailable()
+{
+#if defined(Q_OS_WINDOWS) && defined(Q_PROCESSOR_X86_32)
+    // The native architecture is asked for separately: a 32-bit process on an ARM64 machine is
+    // also a WOW64 process, and the x86_64 package is not what that machine needs.
+    SYSTEM_INFO system_info;
+    GetNativeSystemInfo(&system_info);
+    if (system_info.wProcessorArchitecture != PROCESSOR_ARCHITECTURE_AMD64)
+        return false;
+
+    BOOL wow64 = FALSE;
+    return IsWow64Process(GetCurrentProcess(), &wow64) && wow64 != FALSE;
+#else
+    return false;
+#endif
+}
+
+//--------------------------------------------------------------------------------------------------
 void UpdateChecker::check()
 {
     is_cross_architecture_ = false;
@@ -170,10 +193,10 @@ void UpdateChecker::check()
 #elif defined(Q_PROCESSOR_X86_32)
     arch = native_arch = "x86";
 
-    // A 32-bit host on 64-bit Windows asks for the 64-bit build once: the 2 GB address space of a
+    // A 32-bit host on 64-bit Windows asks for the 64-bit build: the 2 GB address space of a
     // 32-bit process is what large frames and long uptimes exhaust. A 32-bit Windows cannot run
-    // the 64-bit package, and there the variable is not set at all.
-    if (prefer_native_architecture_ && qEnvironmentVariableIsSet("PROCESSOR_ARCHITEW6432"))
+    // the 64-bit package, and there the check below says so.
+    if (prefer_native_architecture_ && isPlatformMoveAvailable())
         arch = "x86_64";
 #elif defined(Q_PROCESSOR_ARM_32)
     arch = native_arch = "arm";
@@ -205,6 +228,9 @@ void UpdateChecker::check()
         return;
     }
 
+    LOG(INFO) << "Update check for" << os << arch << format
+              << "running" << kCurrentBuildVersion.toString();
+
     std::optional<QVersionNumber> target_version = UpdateInfo::targetVersion(rules, kCurrentBuildVersion);
     if (!target_version)
     {
@@ -212,7 +238,17 @@ void UpdateChecker::check()
         return;
     }
 
-    if (target_version->isNull() || *target_version <= kCurrentBuildVersion)
+    const bool has_target = !target_version->isNull();
+    const bool is_newer = has_target && *target_version > kCurrentBuildVersion;
+
+    // The release on the server may also be the one already installed. A 32-bit host on 64-bit
+    // Windows needs exactly that: the update it has just installed brought the code that prefers
+    // the 64-bit package, and the package of this same release is the one to move to. Requiring a
+    // newer version for that would make every machine wait for the release after the next one.
+    const bool is_platform_move = has_target && *target_version == kCurrentBuildVersion &&
+        allow_same_version_ && prefer_native_architecture_ && arch != native_arch;
+
+    if (!is_newer && !is_platform_move)
     {
         LOG(INFO) << "No updates for version" << kCurrentBuildVersion.toString();
         emit sig_checkFinished(UpdateInfo());
@@ -233,8 +269,9 @@ void UpdateChecker::check()
 
     // A release may have no package for the platform this build would prefer. Asking for it and
     // then reporting "no updates" would leave the host stuck on its old version, so the native one
-    // is tried before giving up.
-    if ((!update_info || !update_info->isValid()) && arch != native_arch)
+    // is tried before giving up. For a move within the same release there is nothing to fall back
+    // to: the 32-bit package of the version already installed is not an update.
+    if (is_newer && (!update_info || !update_info->isValid()) && arch != native_arch)
     {
         LOG(INFO) << "Release has no" << arch << "package, falling back to" << native_arch;
         update_info = UpdateInfo::fromManifest(manifest, package_, os, native_arch, format);

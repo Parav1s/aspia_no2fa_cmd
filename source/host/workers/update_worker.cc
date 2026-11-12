@@ -96,6 +96,12 @@ void UpdateWorker::onCheckUpdates()
     // address space of a 32-bit process is what large frames and long uptimes exhaust. A 32-bit
     // Windows keeps its package, and a release without a 64-bit build falls back to the 32-bit one.
     update_checker_->setPreferNativeArchitecture(true);
+
+    // Moving to the other platform is attempted once per release: where it failed, the host stays
+    // on its build until the next release instead of replacing itself on every check.
+    update_checker_->setAllowSameVersionReplacement(
+        SystemSettings().archMigrationVersion() != kCurrentBuildVersion.toString());
+
     update_checker_->setServer(update_server);
     update_checker_->addPublicKey(update_public_key);
 
@@ -124,6 +130,15 @@ void UpdateWorker::onStart()
     {
         LOG(INFO) << "Update to version" << version << "is installed";
         setCheckResult(kResultInstallSucceeded);
+
+        // The update that just installed may have been the 32-bit package on a 64-bit Windows. The
+        // build that prefers the 64-bit package is running now, so one more check moves the machine
+        // to it without waiting for another release.
+        if (UpdateChecker::isPlatformMoveAvailable())
+        {
+            LOG(INFO) << "This host can move to the 64-bit build, scheduling a check";
+            HostStorage().setUpdateRetryTime(std::time(nullptr));
+        }
     }
     else
     {
@@ -163,6 +178,9 @@ void UpdateWorker::onUpdateCheckFinished(const UpdateInfo& update_info)
 {
     CHECK(update_checker_);
 
+    is_cross_architecture_ = false;
+    cross_architecture_version_.clear();
+
     do
     {
         if (!update_info.isValid())
@@ -184,9 +202,11 @@ void UpdateWorker::onUpdateCheckFinished(const UpdateInfo& update_info)
         update_installer_ = new UpdateInstaller(UpdateInstaller::Mode::SERVICE, this);
 
         // A package of the other platform replaces the installed product instead of upgrading it.
-        if (update_checker_->isCrossArchitecture())
+        is_cross_architecture_ = update_checker_->isCrossArchitecture();
+        if (is_cross_architecture_)
         {
             LOG(INFO) << "Update replaces this installation with the other platform build";
+            cross_architecture_version_ = update_info.version().toString();
             update_installer_->setCrossArchitecture(true);
         }
 
@@ -241,6 +261,9 @@ void UpdateWorker::onFileDownloaderError(const QString& error)
     update_downloader_.reset();
     update_installer_.reset();
 
+    is_cross_architecture_ = false;
+    cross_architecture_version_.clear();
+
     retryCheckLater();
     setCheckResult(kResultDownloadFailed);
 }
@@ -250,6 +273,11 @@ void UpdateWorker::onFileDownloaderCompleted()
 {
     CHECK(update_downloader_);
     CHECK(update_installer_);
+
+    // The attempt is remembered before it starts: if the machine comes back as it was, the next
+    // check must not repeat the replacement of this release.
+    if (is_cross_architecture_ && !cross_architecture_version_.isEmpty())
+        SystemSettings().setArchMigrationVersion(cross_architecture_version_);
 
     setCheckResult(kResultInstallStarted);
 
@@ -271,6 +299,9 @@ void UpdateWorker::onFileDownloaderCompleted()
 
     update_downloader_->disconnect(this);
     update_downloader_.reset();
+
+    is_cross_architecture_ = false;
+    cross_architecture_version_.clear();
 }
 
 //--------------------------------------------------------------------------------------------------

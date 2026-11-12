@@ -63,6 +63,12 @@ private:
     ScopedQPointer<HttpFileDownloader> update_downloader_;
     ScopedQPointer<UpdateInstaller> update_installer_;
 
+    // Set while a package of the other platform is on its way: the installation then replaces the
+    // product instead of upgrading it, and the release is remembered so a failure is not repeated
+    // on every check.
+    bool is_cross_architecture_ = false;
+    QString cross_architecture_version_;
+
     Q_DISABLE_COPY_MOVE(UpdateWorker)
 };
 

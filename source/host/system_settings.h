@@ -74,6 +74,12 @@ public:
     int updateCheckFrequency() const;
     void setUpdateCheckFrequency(int days);
 
+    // The release for which moving this host to the build of the other platform was already
+    // attempted. Kept so a failed move is not repeated on every check - the next release is the
+    // next attempt.
+    QString archMigrationVersion() const;
+    void setArchMigrationVersion(const QString& version);
+
 private:
     mutable QSettings settings_;
 

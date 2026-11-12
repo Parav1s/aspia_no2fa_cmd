@@ -36,6 +36,7 @@ const QString kUpdateChannel = "update/channel";
 const QString kUpdateAutoUpdate = "update/auto_update";
 const QString kUpdateAutoUpdateMigrated = "update/auto_update_migrated";
 const QString kUpdateCheckFrequency = "update/check_frequency";
+const QString kUpdateArchMigrationVersion = "update/arch_migration_version";
 const QString kUpdateServerAddress = "update/address";
 const QString kUpdatePublicKey = "update/public_key";
 
@@ -204,4 +205,16 @@ int SystemSettings::updateCheckFrequency() const
 void SystemSettings::setUpdateCheckFrequency(int days)
 {
     settings_.setValue(kUpdateCheckFrequency, days);
+}
+
+//--------------------------------------------------------------------------------------------------
+QString SystemSettings::archMigrationVersion() const
+{
+    return settings_.value(kUpdateArchMigrationVersion).toString();
+}
+
+//--------------------------------------------------------------------------------------------------
+void SystemSettings::setArchMigrationVersion(const QString& version)
+{
+    settings_.setValue(kUpdateArchMigrationVersion, version);
 }
