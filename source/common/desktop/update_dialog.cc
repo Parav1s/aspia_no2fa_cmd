@@ -44,11 +44,13 @@ QString makeUrl(const QUrl& url)
 
 //--------------------------------------------------------------------------------------------------
 UpdateDialog::UpdateDialog(const QString& channel, const QString& package, Action action,
-                           QWidget* parent, const QString& server, const QByteArray& public_key)
+                           QWidget* parent, const QString& server, const QByteArray& public_key,
+                           bool platform_move)
     : QDialog(parent),
       ui(std::make_unique<Ui::UpdateDialog>()),
       channel_(channel),
-      action_(action)
+      action_(action),
+      platform_move_(platform_move)
 {
     LOG(INFO) << "Ctor";
     ui->setupUi(this);
@@ -84,6 +86,15 @@ UpdateDialog::UpdateDialog(const QString& channel, const QString& package, Actio
     checker_ = std::make_unique<UpdateChecker>(channel, package);
     checker_->setServer(update_server);
     checker_->addPublicKey(public_key);
+
+    // The application of this machine: a 32-bit build on 64-bit Windows takes the 64-bit package,
+    // including the one of the version already installed. The installation of the other platform
+    // replaces the product rather than upgrading it (see UpdateInstaller::setCrossArchitecture).
+    if (platform_move_)
+    {
+        checker_->setPreferNativeArchitecture(true);
+        checker_->setAllowSameVersionReplacement(true);
+    }
 
     connect(checker_.get(), &UpdateChecker::sig_checkFinished,
             this, &UpdateDialog::onUpdateCheckFinished);
@@ -200,6 +211,11 @@ void UpdateDialog::startInstall()
 {
     installer_.reset(new UpdateInstaller(UpdateInstaller::Mode::USER, this));
 
+    // The package is of the other platform: it replaces the installed product instead of
+    // upgrading it, and the product is removed before the new one is installed.
+    if (cross_architecture_)
+        installer_->setCrossArchitecture(true);
+
     QString file_path = installer_->createPackageFile(update_info_);
     if (file_path.isEmpty())
     {
@@ -262,6 +278,10 @@ void UpdateDialog::startPrivilegedInstance()
 void UpdateDialog::onUpdateCheckFinished(const UpdateInfo& update_info)
 {
     update_info_ = update_info;
+
+    // The checker is destroyed right after this; the fact that the package of the other platform
+    // was chosen is needed later, when the installation starts.
+    cross_architecture_ = platform_move_ && checker_ && checker_->isCrossArchitecture();
 
     if (!update_info_.isValid())
     {

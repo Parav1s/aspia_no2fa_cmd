@@ -361,8 +361,12 @@ bool UpdateInstaller::startInstaller()
             QString("msiexec /x %1 /qn /norestart & msiexec /i \"%2\" /qn /norestart")
                 .arg(product_code, QDir::toNativeSeparators(file_path_));
 
-        if (!ProcessUtil::createProcess("cmd", "/c \"" + command + "\"",
-                                        ProcessUtil::ExecuteMode::NORMAL))
+        // The one who administers the machine already has the rights; a person watching is asked
+        // for them, exactly as the ordinary installation does.
+        ProcessUtil::ExecuteMode execute_mode = (mode_ == Mode::ADMIN) ?
+            ProcessUtil::ExecuteMode::NORMAL : ProcessUtil::ExecuteMode::ELEVATE;
+
+        if (!ProcessUtil::createProcess("cmd", "/c \"" + command + "\"", execute_mode))
         {
             LOG(ERROR) << "Unable to start the replacement of the other platform (cmd:" << command << ")";
             return false;

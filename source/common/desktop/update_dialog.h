@@ -54,7 +54,8 @@ public:
 
     UpdateDialog(const QString& channel, const QString& package, Action action,
                  QWidget* parent = nullptr, const QString& server = QString(),
-                 const QByteArray& public_key = QByteArray());
+                 const QByteArray& public_key = QByteArray(),
+                 bool platform_move = false);
     ~UpdateDialog() final;
 
     // QDialog implementation.
@@ -86,6 +87,12 @@ private:
     const QString channel_;
     const Action action_;
     UpdateInfo update_info_;
+
+    // The dialog was opened for the application of this machine, so a 32-bit build on 64-bit
+    // Windows may move to the 64-bit one: the check then offers the 64-bit package (of the same
+    // version too) and the installation replaces the product of the other platform.
+    const bool platform_move_ = false;
+    bool cross_architecture_ = false;
 
     std::unique_ptr<UpdateChecker> checker_;
 
