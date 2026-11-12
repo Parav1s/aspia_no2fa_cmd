@@ -32,6 +32,8 @@ ScreenCapturerGdi::ScreenCapturerGdi(QObject* parent)
 {
     LOG(INFO) << "Ctor";
 
+    all_screens_rect_ = ScreenCaptureUtils::fullScreenRect();
+
     dwmapi_dll_ = LoadLibraryExW(L"dwmapi.dll", nullptr, LOAD_LIBRARY_SEARCH_SYSTEM32);
     if (dwmapi_dll_)
     {
@@ -84,7 +86,13 @@ bool ScreenCapturerGdi::selectScreen(ScreenId screen_id)
 {
     LOG(INFO) << "Select screen with ID:" << screen_id;
 
-    if (!ScreenCaptureUtils::isScreenValid(screen_id, &current_device_key_))
+    // The screen of every monitor at once is the whole desktop: GDI captures it with the same
+    // BitBlt as a single monitor, and there is no monitor device to validate for it.
+    if (screen_id == ScreenCapturer::kAllScreensId)
+    {
+        current_device_key_.clear();
+    }
+    else if (!ScreenCaptureUtils::isScreenValid(screen_id, &current_device_key_))
     {
         LOG(ERROR) << "Invalid screen";
         return false;
@@ -108,7 +116,10 @@ const Frame* ScreenCapturerGdi::captureFrame(Error* error)
     if (!prepareCaptureResources())
         return nullptr;
 
-    screen_rect_ = ScreenCaptureUtils::screenRect(current_screen_id_, current_device_key_);
+    screen_rect_ = (current_screen_id_ == ScreenCapturer::kAllScreensId) ?
+        ScreenCaptureUtils::fullScreenRect() :
+        ScreenCaptureUtils::screenRect(current_screen_id_, current_device_key_);
+
     if (screen_rect_.isEmpty())
     {
         LOG(ERROR) << "Failed to get screen rect";
@@ -190,6 +201,12 @@ const QRect& ScreenCapturerGdi::currentScreenRect() const
 }
 
 //--------------------------------------------------------------------------------------------------
+const QRect& ScreenCapturerGdi::allScreensRect() const
+{
+    return all_screens_rect_;
+}
+
+//--------------------------------------------------------------------------------------------------
 void ScreenCapturerGdi::reset()
 {
     ScreenCapturerWin::reset();
@@ -241,6 +258,7 @@ bool ScreenCapturerGdi::prepareCaptureResources()
         }
 
         desktop_dc_rect_ = desktop_rect;
+        all_screens_rect_ = desktop_rect;
 
         // Make sure the frame buffers will be reallocated.
         queue_.reset();

@@ -40,6 +40,11 @@ public:
     const Frame* captureFrame(Error* error) final;
     const QRect& desktopRect() const final;
     const QRect& currentScreenRect() const final;
+    const QRect& allScreensRect() const final;
+
+    // The whole desktop of every monitor is one BitBlt away for GDI, so the "all monitors" screen
+    // is available here too - on Windows 7 it is the only way to see both monitors at once.
+    bool supportsAllScreens() const final { return true; }
 
 protected:
     // ScreenCapturer implementation.
@@ -61,6 +66,9 @@ private:
 
     QRect desktop_dc_rect_;
     QRect screen_rect_;
+
+    // The rect of every monitor together: the frame of the "all monitors" screen.
+    QRect all_screens_rect_;
 
     std::unique_ptr<Differ> differ_;
     ScopedGetDC desktop_dc_;

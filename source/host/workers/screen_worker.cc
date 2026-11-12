@@ -1355,8 +1355,14 @@ void ScreenWorker::selectScreen(ScreenCapturer::ScreenId screen_id, const QSize&
 //--------------------------------------------------------------------------------------------------
 void ScreenWorker::appendAllScreens(ScreenCapturer::ScreenList* screen_list)
 {
-    if (!screen_capturer_ || !screen_capturer_->supportsAllScreens())
+    // With a single monitor the whole desktop is that monitor: the entry would only duplicate it
+    // and take a place in the list of screens, so it is offered only when there is something to
+    // join.
+    if (!screen_capturer_ || !screen_capturer_->supportsAllScreens() ||
+        screen_list->screens.size() < 2)
+    {
         return;
+    }
 
     // The screen of every monitor at once is not a monitor of its own, but the desktop they
     // all make up, and the client is offered it as any other screen: the frame of it is the
