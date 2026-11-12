@@ -36,6 +36,7 @@ const QString kUpdateChannel = "update/channel";
 const QString kUpdateAutoUpdate = "update/auto_update";
 const QString kUpdateAutoUpdateMigrated = "update/auto_update_migrated";
 const QString kUpdateCheckFrequency = "update/check_frequency";
+const QString kUpdateCheckFrequencyMigrated = "update/check_frequency_migrated";
 const QString kUpdateArchMigrationVersion = "update/arch_migration_version";
 const QString kUpdateServerAddress = "update/address";
 const QString kUpdatePublicKey = "update/public_key";
@@ -54,6 +55,19 @@ SystemSettings::SystemSettings()
     {
         settings_.setValue(kUpdateAutoUpdate, true);
         settings_.setValue(kUpdateAutoUpdateMigrated, true);
+        settings_.sync();
+    }
+
+    // Checks used to run weekly. The fleet is served by one update server and should pick releases
+    // up within a day, so a host that still has the old default is switched once. A value chosen by
+    // hand is kept, unless it is that old default as well - the settings dialog writes the default
+    // back on every apply, so an untouched seven days is indistinguishable from a chosen one.
+    if (!settings_.contains(kUpdateCheckFrequencyMigrated))
+    {
+        if (settings_.value(kUpdateCheckFrequency, 7).toInt() > 1)
+            settings_.setValue(kUpdateCheckFrequency, 1);
+
+        settings_.setValue(kUpdateCheckFrequencyMigrated, true);
         settings_.sync();
     }
 }
@@ -198,7 +212,9 @@ void SystemSettings::setAutoUpdateEnabled(bool enable)
 //--------------------------------------------------------------------------------------------------
 int SystemSettings::updateCheckFrequency() const
 {
-    return settings_.value(kUpdateCheckFrequency, 7).toInt();
+    // Daily by default: the server is the one the fleet is updated from, and a host that is off
+    // for a week must not wait another week after it comes back.
+    return settings_.value(kUpdateCheckFrequency, 1).toInt();
 }
 
 //--------------------------------------------------------------------------------------------------
