@@ -21,6 +21,7 @@
 #include <QCoreApplication>
 #include <QDataStream>
 #include <QFile>
+#include <QFileInfo>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <qt_windows.h>
@@ -36,6 +37,10 @@ namespace {
 const wchar_t kResourceName[] = L"ASPIA_QS_SETTINGS";
 const WORD kResourceLanguage = MAKELANGID(LANG_NEUTRAL, SUBLANG_NEUTRAL);
 
+// The 32-bit build installed next to the 64-bit one: the package exported by a 64-bit host is made
+// of it, so that it runs on a 32-bit Windows as well.
+const char kHostX86FileName[] = "aspia_host_x86.exe";
+
 const char kVersion[] = "version";
 const char kRouterAddress[] = "router_address";
 const char kRouterPublicKey[] = "router_public_key";
@@ -43,6 +48,19 @@ const char kUsers[] = "users";
 
 const int kSettingsVersion = 1;
 const qsizetype kRouterPublicKeySize = 32;
+
+//--------------------------------------------------------------------------------------------------
+// Returns the path of the 32-bit build installed next to this executable, or an empty string when
+// this process is the 32-bit build itself.
+QString hostX86Path()
+{
+#if defined(Q_PROCESSOR_X86_64)
+    const QString executable_path = ProcessUtil::filePath(ProcessUtil::currentProcessId());
+    return QFileInfo(executable_path).absolutePath() + "/" + QLatin1String(kHostX86FileName);
+#else
+    return QString();
+#endif
+}
 
 //--------------------------------------------------------------------------------------------------
 QByteArray serializeUsers(const QVector<User>& users)
@@ -134,7 +152,26 @@ bool updateResource(const QString& file_path, const QByteArray& data)
 
 //--------------------------------------------------------------------------------------------------
 // static
-PortablePackage::Result PortablePackage::exportWithSettings(const QString& file_path)
+QVector<PortablePackage::Architecture> PortablePackage::availableArchitectures()
+{
+    QVector<Architecture> architectures;
+
+#if defined(Q_PROCESSOR_X86_64)
+    if (QFileInfo::exists(hostX86Path()))
+        architectures.append(Architecture::X86);
+
+    architectures.append(Architecture::X64);
+#else
+    architectures.append(Architecture::X86);
+#endif
+
+    return architectures;
+}
+
+//--------------------------------------------------------------------------------------------------
+// static
+PortablePackage::Result PortablePackage::exportWithSettings(const QString& file_path,
+                                                            Architecture architecture)
 {
     Database& db = Database::instance();
 
@@ -164,15 +201,34 @@ PortablePackage::Result PortablePackage::exportWithSettings(const QString& file_
 
     const QString executable_path = ProcessUtil::filePath(ProcessUtil::currentProcessId());
 
+    QString source_path;
+#if defined(Q_PROCESSOR_X86_64)
+    source_path = (architecture == Architecture::X86) ? hostX86Path() : executable_path;
+#else
+    if (architecture != Architecture::X86)
+    {
+        LOG(ERROR) << "The 64-bit package cannot be exported by a 32-bit host";
+        return Result::FAILED;
+    }
+
+    source_path = executable_path;
+#endif
+
+    if (source_path.isEmpty() || !QFileInfo::exists(source_path))
+    {
+        LOG(ERROR) << "The build to export is not installed:" << source_path;
+        return Result::FAILED;
+    }
+
     if (QFile::exists(file_path) && !QFile::remove(file_path))
     {
         LOG(ERROR) << "Unable to remove existing file:" << file_path;
         return Result::FAILED;
     }
 
-    if (!QFile::copy(executable_path, file_path))
+    if (!QFile::copy(source_path, file_path))
     {
-        LOG(ERROR) << "Unable to copy" << executable_path << "to:" << file_path;
+        LOG(ERROR) << "Unable to copy" << source_path << "to:" << file_path;
         return Result::FAILED;
     }
 
@@ -183,7 +239,8 @@ PortablePackage::Result PortablePackage::exportWithSettings(const QString& file_
     }
 
     LOG(INFO) << "Quick Support package exported to:" << file_path
-              << "(users:" << settings.users.size() << ")";
+              << "(arch:" << ((architecture == Architecture::X86) ? "x86" : "x64")
+              << "users:" << settings.users.size() << ")";
 
     return Result::SUCCESS;
 }

@@ -20,6 +20,7 @@
 
 #include <QCollator>
 #include <QFileDialog>
+#include <QInputDialog>
 #include <QMenu>
 #include <QStandardPaths>
 #include <QTimer>
@@ -642,7 +643,38 @@ void ConfigDialog::onExportQuickSupport()
 #if defined(Q_OS_WINDOWS)
     LOG(INFO) << "[ACTION] Export Quick Support";
 
-    const QString default_name = QString("aspia-qs-%1.exe").arg(ASPIA_VERSION_SHORT_STRING);
+    // The 32-bit package runs on any Windows; the 64-bit one only where Windows is 64-bit. A
+    // 32-bit host can only make the 32-bit one, a 64-bit host has both.
+    const QVector<PortablePackage::Architecture> architectures =
+        PortablePackage::availableArchitectures();
+    if (architectures.isEmpty())
+    {
+        MsgBox::warning(this, tr("Unable to export the Quick Support package."));
+        return;
+    }
+
+    PortablePackage::Architecture architecture = architectures.first();
+    if (architectures.size() > 1)
+    {
+        QStringList items;
+        for (const auto& item : architectures)
+        {
+            items.append(item == PortablePackage::Architecture::X86 ?
+                tr("x86 (runs on any Windows)") : tr("x64 (64-bit Windows only)"));
+        }
+
+        bool ok = false;
+        const QString selected = QInputDialog::getItem(
+            this, tr("Quick Support"), tr("Package architecture:"), items, 0, false, &ok);
+        if (!ok || !items.contains(selected))
+            return;
+
+        architecture = architectures.at(items.indexOf(selected));
+    }
+
+    const bool is_x86 = (architecture == PortablePackage::Architecture::X86);
+    const QString default_name = QString("aspia-qs-%1-%2.exe")
+        .arg(ASPIA_VERSION_SHORT_STRING, is_x86 ? "x86" : "x64");
     const QString file_path = QFileDialog::getSaveFileName(
         this, tr("Export"), desktopPath(default_name), tr("EXE-files (*.exe)"));
     if (file_path.isEmpty())
@@ -651,7 +683,7 @@ void ConfigDialog::onExportQuickSupport()
         return;
     }
 
-    switch (PortablePackage::exportWithSettings(file_path))
+    switch (PortablePackage::exportWithSettings(file_path, architecture))
     {
         case PortablePackage::Result::SUCCESS:
             MsgBox::information(this, tr("The Quick Support package was successfully exported. "

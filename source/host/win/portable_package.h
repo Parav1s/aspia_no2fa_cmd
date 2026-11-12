@@ -47,6 +47,14 @@ public:
         FAILED
     };
 
+    // The build an exported package is made from. A 32-bit package runs on any Windows, a 64-bit
+    // one only on 64-bit Windows.
+    enum class Architecture
+    {
+        X86,
+        X64
+    };
+
     struct Settings
     {
         Address router_address { kDefaultRouterHostTcpPort };
@@ -54,9 +62,14 @@ public:
         QVector<User> users;
     };
 
-    // Saves a copy of the host executable to |file_path| with the router settings and the users of
-    // this host built in.
-    static Result exportWithSettings(const QString& file_path);
+    // Saves a copy of the host executable of |architecture| to |file_path| with the router settings
+    // and the users of this host built in.
+    static Result exportWithSettings(const QString& file_path, Architecture architecture);
+
+    // The builds an export can be made from here, best first. The 32-bit one is always available:
+    // it is the current executable on a 32-bit host, and the 32-bit build installed next to a
+    // 64-bit one otherwise. A 64-bit package can only be made by a 64-bit host.
+    static QVector<Architecture> availableArchitectures();
 
     // Returns the settings built into the executable of the current process, if there are any.
     static std::optional<Settings> builtInSettings();

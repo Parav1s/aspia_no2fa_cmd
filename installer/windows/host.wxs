@@ -68,6 +68,11 @@
     <DirectoryRef Id="InstallLocation" FileSource="$(var.SourceFiles)">
         <Component Id ="Applications" DiskId="1" Guid="{A0E3C629-4A61-4ED0-BD9D-FE12C71D7E36}">
             <File Id="aspia_host.exe" Name="aspia_host.exe" KeyPath="yes" />
+<?if $(var.HostX86) = 1 ?>
+            <!-- The 32-bit build travels with the 64-bit one: an exported Quick Support package is
+                 made of it, so that it runs on a 32-bit Windows as well. It is not a service. -->
+            <File Id="aspia_host_x86.exe" Name="aspia_host_x86.exe" />
+<?endif ?>
             <ServiceInstall Id="ServiceInstaller" Type="ownProcess" Vital="yes" Name="$(var.ServiceName)" DisplayName="$(var.ServiceDisplayName)" Description="$(var.ServiceDescription)" Start="auto" Account="LocalSystem" ErrorControl="ignore" Interactive="no" Arguments="--service">
                 <ServiceDependency Id="RpcSs"/>
                 <ServiceDependency Id="Tcpip"/>
