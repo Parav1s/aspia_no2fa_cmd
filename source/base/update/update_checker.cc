@@ -141,6 +141,8 @@ void UpdateChecker::run()
 //--------------------------------------------------------------------------------------------------
 void UpdateChecker::check()
 {
+    is_cross_architecture_ = false;
+
     if (server_.isEmpty())
     {
         LOG(INFO) << "Update server is not configured";
@@ -160,14 +162,23 @@ void UpdateChecker::check()
 #endif
 
     QString arch;
+    // What this process itself is built for. A build that asks for another platform falls back to
+    // it when the release has no package for that platform.
+    QString native_arch;
 #if defined(Q_PROCESSOR_X86_64)
-    arch = "x86_64";
+    arch = native_arch = "x86_64";
 #elif defined(Q_PROCESSOR_X86_32)
-    arch = "x86";
+    arch = native_arch = "x86";
+
+    // A 32-bit host on 64-bit Windows asks for the 64-bit build once: the 2 GB address space of a
+    // 32-bit process is what large frames and long uptimes exhaust. A 32-bit Windows cannot run
+    // the 64-bit package, and there the variable is not set at all.
+    if (prefer_native_architecture_ && qEnvironmentVariableIsSet("PROCESSOR_ARCHITEW6432"))
+        arch = "x86_64";
 #elif defined(Q_PROCESSOR_ARM_32)
-    arch = "arm";
+    arch = native_arch = "arm";
 #elif defined(Q_PROCESSOR_ARM_64)
-    arch = "arm64";
+    arch = native_arch = "arm64";
 #else
 #error Unknown architecture
 #endif
@@ -219,6 +230,17 @@ void UpdateChecker::check()
     }
 
     std::optional<UpdateInfo> update_info = UpdateInfo::fromManifest(manifest, package_, os, arch, format);
+
+    // A release may have no package for the platform this build would prefer. Asking for it and
+    // then reporting "no updates" would leave the host stuck on its old version, so the native one
+    // is tried before giving up.
+    if ((!update_info || !update_info->isValid()) && arch != native_arch)
+    {
+        LOG(INFO) << "Release has no" << arch << "package, falling back to" << native_arch;
+        update_info = UpdateInfo::fromManifest(manifest, package_, os, native_arch, format);
+        arch = native_arch;
+    }
+
     if (update_info && update_info->isValid() && update_info->version() != *target_version)
     {
         LOG(ERROR) << "Manifest of version" << target_version->toString()
@@ -231,6 +253,10 @@ void UpdateChecker::check()
         emit sig_checkFailed();
         return;
     }
+
+    // The package of the other platform is installed by removing the current product first, which
+    // the caller must know about.
+    is_cross_architecture_ = update_info->isValid() && arch != native_arch;
 
     emit sig_checkFinished(*update_info);
 }

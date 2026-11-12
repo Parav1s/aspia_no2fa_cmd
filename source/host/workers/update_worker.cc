@@ -91,6 +91,11 @@ void UpdateWorker::onCheckUpdates()
     storage.setUpdateInstallVersion(QString());
 
     update_checker_ = new UpdateChecker(settings.updateChannel(), kHostUpdatePackage, this);
+
+    // A 32-bit host on 64-bit Windows moves to the 64-bit package when the release has one: the
+    // address space of a 32-bit process is what large frames and long uptimes exhaust. A 32-bit
+    // Windows keeps its package, and a release without a 64-bit build falls back to the 32-bit one.
+    update_checker_->setPreferNativeArchitecture(true);
     update_checker_->setServer(update_server);
     update_checker_->addPublicKey(update_public_key);
 
@@ -177,6 +182,13 @@ void UpdateWorker::onUpdateCheckFinished(const UpdateInfo& update_info)
         }
 
         update_installer_ = new UpdateInstaller(UpdateInstaller::Mode::SERVICE, this);
+
+        // A package of the other platform replaces the installed product instead of upgrading it.
+        if (update_checker_->isCrossArchitecture())
+        {
+            LOG(INFO) << "Update replaces this installation with the other platform build";
+            update_installer_->setCrossArchitecture(true);
+        }
 
         QString file_path = update_installer_->createPackageFile(update_info);
         if (file_path.isEmpty())

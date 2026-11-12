@@ -72,6 +72,12 @@ public:
     // the ones being replaced.
     Result install();
 
+    // The package belongs to the other platform (a 32-bit installation replaced by a 64-bit one).
+    // Windows Installer does not upgrade across platforms: the installed product is removed first
+    // and the new one is installed after it, by a command that outlives the service being removed.
+    // Has an effect on Windows only.
+    void setCrossArchitecture(bool enable) { cross_architecture_ = enable; }
+
     // Removes the package and the directory it was prepared in, unless the installer of the system
     // has taken them. Calling it more than once is safe. The destructor calls it, so it is only
     // needed where the process ends before the deferred deletion of this object can run.
@@ -84,6 +90,7 @@ private:
     UpdateInfo update_info_;
     QString directory_;
     QString file_path_;
+    bool cross_architecture_ = false;
 
     Q_DISABLE_COPY_MOVE(UpdateInstaller)
 };

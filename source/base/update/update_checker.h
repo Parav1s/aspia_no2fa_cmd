@@ -49,6 +49,16 @@ public:
     // with a key of their own.
     void setPublicKeysForTesting(const QList<QByteArray>& public_keys);
 
+    // When enabled, a 32-bit build running on 64-bit Windows looks for the 64-bit package of the
+    // release and falls back to the 32-bit one when the release has none. Installing the other
+    // platform is a replacement of the installed product, not an ordinary upgrade (see
+    // UpdateInstaller::setCrossArchitecture), so it is enabled by the caller that can do it.
+    void setPreferNativeArchitecture(bool enable) { prefer_native_architecture_ = enable; }
+
+    // True when the package found by the check is built for the other platform than this process.
+    // Read after sig_checkFinished, while the checker still exists.
+    bool isCrossArchitecture() const { return is_cross_architecture_; }
+
 signals:
     void sig_checkFinished(const UpdateInfo& update_info);
     void sig_checkFailed();
@@ -66,6 +76,8 @@ private:
     const QString package_;
     QList<QByteArray> public_keys_;
     std::atomic_bool interrupted_ { false };
+    bool prefer_native_architecture_ = false;
+    bool is_cross_architecture_ = false;
 
     Q_DISABLE_COPY_MOVE(UpdateChecker)
 };

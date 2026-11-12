@@ -32,6 +32,8 @@
 
 #if defined(Q_OS_WINDOWS)
 #include <qt_windows.h>
+#include <msi.h>
+
 #include "base/process_util.h"
 #endif // defined(Q_OS_WINDOWS)
 
@@ -158,6 +160,32 @@ QString createPrivateDirectory()
     return QString();
 #endif
 }
+
+#if defined(Q_OS_WINDOWS)
+// The upgrade code shared by the 32-bit and the 64-bit package. It is what tells an installation of
+// this application on the machine apart from anything else, whichever platform it was built for.
+const wchar_t kHostUpgradeCode[] = L"{B460F717-1546-4FFC-9EDE-B21FD07E07CB}";
+
+//--------------------------------------------------------------------------------------------------
+// Returns the product code of the installed package carrying |upgrade_code|, or an empty string.
+// The search looks in the registry view of this process: a 32-bit build finds the product it is
+// replacing, a 64-bit build finds the 64-bit one.
+QString installedProductCode(const wchar_t* upgrade_code)
+{
+    wchar_t product_code[64] = { 0 };
+
+    for (UINT index = 0;; ++index)
+    {
+        if (MsiEnumRelatedProductsW(upgrade_code, 0, index, product_code) != ERROR_SUCCESS)
+            break;
+
+        if (product_code[0] != 0)
+            return QString::fromWCharArray(product_code);
+    }
+
+    return QString();
+}
+#endif // defined(Q_OS_WINDOWS)
 
 } // namespace
 
@@ -316,6 +344,44 @@ void UpdateInstaller::cleanup()
 bool UpdateInstaller::startInstaller()
 {
 #if defined(Q_OS_WINDOWS)
+    if (cross_architecture_)
+    {
+        // Windows Installer does not upgrade across platforms: the components of the other bitness
+        // are not the ones it knows, and the service of the old product is in the way. The old
+        // product is removed and the new one is installed right after it, by one command that
+        // survives the service it stops - that service is where this process runs.
+        const QString product_code = installedProductCode(kHostUpgradeCode);
+        if (product_code.isEmpty())
+        {
+            LOG(ERROR) << "Unable to find the installed product to replace";
+            return false;
+        }
+
+        const QString command =
+            QString("msiexec /x %1 /qn /norestart & msiexec /i \"%2\" /qn /norestart")
+                .arg(product_code, QDir::toNativeSeparators(file_path_));
+
+        if (!ProcessUtil::createProcess("cmd", "/c \"" + command + "\"",
+                                        ProcessUtil::ExecuteMode::NORMAL))
+        {
+            LOG(ERROR) << "Unable to start the replacement of the other platform (cmd:" << command << ")";
+            return false;
+        }
+
+        LOG(INFO) << "Replacement of the other platform is started (cmd:" << command << ")";
+
+        if (!removeAtNextStart(file_path_))
+            PLOG(ERROR) << "Unable to remove file at the next start:" << file_path_;
+
+        if (!removeAtNextStart(directory_))
+            PLOG(ERROR) << "Unable to remove directory at the next start:" << directory_;
+
+        file_path_.clear();
+        directory_.clear();
+
+        return true;
+    }
+
     // A person watching gets a basic UI with no modal dialog boxes, the service and the one who
     // administers the machine install with no UI at all.
     QString arguments = "/i \"" + file_path_ + "\"" + (mode_ == Mode::USER ? " /qb-!" : " /qn");
