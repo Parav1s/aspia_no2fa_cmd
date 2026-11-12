@@ -34,6 +34,7 @@ const QString kWaylandRestoreToken = "wayland_restore_token";
 
 const QString kUpdateChannel = "update/channel";
 const QString kUpdateAutoUpdate = "update/auto_update";
+const QString kUpdateAutoUpdateMigrated = "update/auto_update_migrated";
 const QString kUpdateCheckFrequency = "update/check_frequency";
 const QString kUpdateServerAddress = "update/address";
 const QString kUpdatePublicKey = "update/public_key";
@@ -45,7 +46,15 @@ SystemSettings::SystemSettings()
     // The desktop host runs as a system service and keeps these machine-wide (SystemScope).
     : settings_(QSettings::IniFormat, QSettings::SystemScope, kOrganization, kApplication)
 {
-    // Nothing
+    // Automatic updates are on for hosts that have not made the choice yet. The marker makes this
+    // one-time: a host that is switched off again in the settings stays off. The update worker also
+    // requires a server address and a key, so an unconfigured host does not go anywhere.
+    if (!settings_.contains(kUpdateAutoUpdateMigrated))
+    {
+        settings_.setValue(kUpdateAutoUpdate, true);
+        settings_.setValue(kUpdateAutoUpdateMigrated, true);
+        settings_.sync();
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -174,9 +183,9 @@ void SystemSettings::setApplicationShutdownDisabled(bool value)
 //--------------------------------------------------------------------------------------------------
 bool SystemSettings::isAutoUpdateEnabled() const
 {
-    // Auto-update is opt-in: the fork must not pull official Aspia releases on its own. The user
-    // can still enable it in the settings or run a manual check.
-    return settings_.value(kUpdateAutoUpdate, false).toBool();
+    // On unless the host has been switched off since the one-time migration in the constructor.
+    // The update worker separately requires a configured server and key.
+    return settings_.value(kUpdateAutoUpdate, true).toBool();
 }
 
 //--------------------------------------------------------------------------------------------------
