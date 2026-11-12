@@ -93,6 +93,20 @@
      </item>
      <item>
       <widget class="QComboBox" name="combo_hosts_page_size"/>
+      </item>
+      <item>
+       <widget class="IconTextButton" name="button_check_updates_all">
+        <property name="toolTip">
+         <string>Check for updates on the selected hosts, or on every online 3.x host on this page. 2.x hosts are skipped.</string>
+        </property>
+        <property name="text">
+         <string>Check updates</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../../common/resources/common.qrc">
+          <normaloff>:/img/computer-update.svg</normaloff>:/img/computer-update.svg</iconset>
+        </property>
+       </widget>
      </item>
      <item>
       <spacer name="spacer_hosts_pagination">

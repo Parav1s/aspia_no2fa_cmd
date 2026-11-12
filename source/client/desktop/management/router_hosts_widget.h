@@ -80,6 +80,7 @@ public slots:
     void onDisconnectAllHosts();
     void onRemoveHost();
     void onCheckHostUpdates();
+    void onCheckAllHostUpdates();
     void onHostTelemetry();
 
 signals:
@@ -122,6 +123,13 @@ private:
     // host.
     int pending_remove_count_ = 0;
     QString remove_error_;
+
+    // A mass update check waits for one answer per host before it refreshes the list and reports
+    // the totals. Hosts older than 3.0 and offline hosts are skipped: the router command cannot
+    // reach them.
+    int pending_update_check_count_ = 0;
+    int update_check_failures_ = 0;
+    int update_check_skipped_ = 0;
 
     // Maps workspace entry_id -> name, kept in sync via onWorkspaceListReceived. Used to populate
     // the workspace column without a dedicated workspaces view.

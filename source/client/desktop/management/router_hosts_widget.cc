@@ -38,6 +38,7 @@
 #include <QSignalBlocker>
 #include <QStatusBar>
 #include <QToolButton>
+#include <QVersionNumber>
 
 #include "base/auto_qpointer.h"
 #include "base/logging.h"
@@ -133,6 +134,8 @@ RouterHostsWidget::RouterHostsWidget(QWidget* parent)
             this, &RouterHostsWidget::onHostsPageChanged);
     connect(ui->button_hosts_prev, &QToolButton::clicked, this, &RouterHostsWidget::onHostsPrevClicked);
     connect(ui->button_hosts_next, &QToolButton::clicked, this, &RouterHostsWidget::onHostsNextClicked);
+    connect(ui->button_check_updates_all, &QToolButton::clicked,
+            this, &RouterHostsWidget::onCheckAllHostUpdates);
 
     updateHostsPagination();
 
@@ -508,6 +511,94 @@ void RouterHostsWidget::onCheckHostUpdates()
 
     LOG(INFO) << "[ACTION] Check host updates requested by user";
     session->checkHostUpdates(host->host_id, { this, &RouterHostsWidget::onHostResultReceived });
+}
+
+//--------------------------------------------------------------------------------------------------
+void RouterHostsWidget::onCheckAllHostUpdates()
+{
+    if (pending_update_check_count_ > 0)
+    {
+        LOG(INFO) << "An update check is already in progress";
+        return;
+    }
+
+    RouterSession* session = RouterController::session(router_id_);
+    if (!session)
+        return;
+
+    if (session->config().sessionType() != proto::router::SESSION_TYPE_ADMIN)
+    {
+        LOG(INFO) << "A mass update check requires an administrator session";
+        return;
+    }
+
+    // The current selection wins; with nothing selected the whole page is checked. Hosts older
+    // than 3.0 have no router-to-host update command, and an offline host cannot be reached, so
+    // both are skipped and counted instead of producing one error per host.
+    const QList<HostId> selected = selectedHostIds();
+    QList<HostId> targets;
+    int skipped_legacy = 0;
+    int skipped_offline = 0;
+
+    for (int row = 0; row < model_->rowCount(); ++row)
+    {
+        const RouterHost* host = model_->hostAt(row);
+        if (!host || host->host_id == kInvalidHostId)
+            continue;
+
+        if (!selected.isEmpty() && !selected.contains(host->host_id))
+            continue;
+
+        if (QVersionNumber::fromString(host->version).majorVersion() < 3)
+        {
+            ++skipped_legacy;
+            continue;
+        }
+
+        if (!host->online)
+        {
+            ++skipped_offline;
+            continue;
+        }
+
+        targets.append(host->host_id);
+    }
+
+    if (targets.isEmpty())
+    {
+        MsgBox::information(this,
+            tr("No online 3.x hosts to check. Skipped legacy: %1, offline: %2.")
+                .arg(skipped_legacy).arg(skipped_offline));
+        return;
+    }
+
+    LOG(INFO) << "[ACTION] Mass update check requested for" << targets.size() << "hosts";
+    pending_update_check_count_ = targets.size();
+    update_check_failures_ = 0;
+    update_check_skipped_ = skipped_legacy + skipped_offline;
+
+    for (HostId host_id : targets)
+    {
+        session->checkHostUpdates(host_id, { this, [this](const proto::router::HostResult& result)
+        {
+            if (result.error_code() != proto::router::kErrorOk)
+                ++update_check_failures_;
+
+            --pending_update_check_count_;
+            if (pending_update_check_count_ > 0)
+                return;
+
+            const int failed = update_check_failures_;
+            const int skipped = update_check_skipped_;
+            update_check_failures_ = 0;
+            update_check_skipped_ = 0;
+
+            MsgBox::information(this,
+                tr("Update check requested. Failed: %1. Skipped legacy/offline: %2.")
+                    .arg(failed).arg(skipped));
+            fetchHosts();
+        }});
+    }
 }
 
 //--------------------------------------------------------------------------------------------------
