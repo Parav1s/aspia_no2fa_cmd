@@ -592,6 +592,23 @@ void UserSession::onIpcNewConnection()
     {
         LOG(ERROR) << "IPC client has unexpected executable (pid:" << ipc_channel->processId()
                    << "path:" << actual_path << "expected:" << expected_path << ")";
+
+#if defined(Q_OS_WINDOWS)
+        // A window left over from an installation that no longer exists - the 32-bit one after the
+        // host was replaced by the 64-bit build, for example - can never connect. It retries every
+        // few seconds and keeps telling the user that the service is unavailable, while the window
+        // of the current installation is already running hidden. End it.
+        if (actual_path.isEmpty())
+        {
+            ScopedHandle process(OpenProcess(PROCESS_TERMINATE, FALSE, ipc_channel->processId()));
+            if (process.isValid())
+            {
+                LOG(INFO) << "Ending the window of a removed installation";
+                TerminateProcess(process, 0);
+            }
+        }
+#endif // defined(Q_OS_WINDOWS)
+
         ipc_channel->deleteLater();
         return;
     }

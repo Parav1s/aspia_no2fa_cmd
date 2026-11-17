@@ -54,6 +54,14 @@ struct WinrtFunctions
     HRESULT (WINAPI* create_d3d11_device_from_dxgi_device)(IUnknown*, IInspectable**);
 };
 
+// Feature levels a capture device may ask for, best first.
+const D3D_FEATURE_LEVEL kFeatureLevels[] = {
+    D3D_FEATURE_LEVEL_11_1,
+    D3D_FEATURE_LEVEL_11_0,
+    D3D_FEATURE_LEVEL_10_1,
+    D3D_FEATURE_LEVEL_10_0,
+};
+
 //--------------------------------------------------------------------------------------------------
 // Loads a library that belongs to the system. The dedicated search flag is understood only by an
 // updated Windows 7, and the plain call is safe enough for a name without a path.
@@ -272,6 +280,21 @@ bool ScreenCapturerWgc::isSupported()
             release_apartment();
             return false;
         }
+    }
+
+    // A capture session needs a D3D11 device of its own. A machine whose display adapter cannot
+    // provide one - an old integrated GPU driven by the basic display driver, for example - would
+    // otherwise select this capturer, fail on every frame and never let the chain reach GDI.
+    ComPtr<ID3D11Device> device;
+    ComPtr<ID3D11DeviceContext> context;
+    hr = D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr,
+                           D3D11_CREATE_DEVICE_BGRA_SUPPORT, kFeatureLevels, _countof(kFeatureLevels),
+                           D3D11_SDK_VERSION, &device, nullptr, &context);
+    if (FAILED(hr))
+    {
+        LOG(INFO) << "WGC is not supported: no D3D11 device" << _com_error(hr);
+        release_apartment();
+        return false;
     }
 
     release_apartment();
@@ -495,13 +518,6 @@ bool ScreenCapturerWgc::initializeDevice()
 {
     if (d3d_device_)
         return true;
-
-    static const D3D_FEATURE_LEVEL kFeatureLevels[] = {
-        D3D_FEATURE_LEVEL_11_1,
-        D3D_FEATURE_LEVEL_11_0,
-        D3D_FEATURE_LEVEL_10_1,
-        D3D_FEATURE_LEVEL_10_0,
-    };
 
     D3D_FEATURE_LEVEL feature_level = D3D_FEATURE_LEVEL_10_0;
 
